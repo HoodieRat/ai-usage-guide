@@ -1,20 +1,26 @@
 [
   {
+    "type": "guide",
     "title": "Read Me First",
     "url": "guides/00_readme.html",
-    "abstract": "New to ChatGPT? This page explains what this site is and the fastest way to your first useful result.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "New to ChatGPT? This page explains what this site is and the fastest way to your first useful result.",
+    "tags": [
       "What you’ll learn",
-      "Pick your path",
+      "Orientation roadmap",
       "Step-by-step",
       "Quick wins to practice"
     ]
   },
   {
+    "type": "guide",
     "title": "Getting Started",
     "url": "guides/01_getting-started.html",
-    "abstract": "Your first day with ChatGPT: three small wins and simple prompts that work.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "Your first day with ChatGPT: three small wins and simple prompts that work.",
+    "tags": [
       "What you’ll learn",
       "The simplest way to ask",
       "Step-by-step",
@@ -22,10 +28,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "How ChatGPT Works",
     "url": "guides/02_how-chatgpt-works.html",
-    "abstract": "Understand how the ChatGPT web app handles your messages, files, memory, and chat history—so you can drive better results.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "Understand how the ChatGPT web app handles your messages, files, memory, and chat history—so you can drive better results.",
+    "tags": [
       "What you’ll learn",
       "The simple mental model",
       "Quick wins in the web app",
@@ -33,10 +42,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Prompt Basics",
     "url": "guides/03_prompt-basics.html",
-    "abstract": "Master a reliable prompt blueprint with examples, follow-ups, and instrumentation to keep results consistent.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "Master a reliable prompt blueprint with examples, follow-ups, and instrumentation to keep results consistent.",
+    "tags": [
       "What you’ll learn",
       "The prompt blueprint (copy-paste)",
       "Recipe gallery (ready to use)",
@@ -44,10 +56,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Response Contracts",
     "url": "guides/04_response-contracts.html",
-    "abstract": "Design, version, and enforce response contracts so AI outputs land exactly where your workflow expects.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "Design, version, and enforce response contracts so AI outputs land exactly where your workflow expects.",
+    "tags": [
       "What you’ll learn",
       "What is a response contract?",
       "Enforcement block (copy-paste)",
@@ -55,10 +70,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Structured Output",
     "url": "guides/05_structured-output.html",
-    "abstract": "Generate machine-readable output reliably with schemas, validators, and recoverable failure paths.",
-    "sections": [
+    "unit": "Foundations",
+    "meta": "Guide | Foundations",
+    "snippet": "Generate machine-readable output reliably with schemas, validators, and recoverable failure paths.",
+    "tags": [
       "What you’ll learn",
       "Choose the format",
       "JSON kit (copy-paste)",
@@ -66,10 +84,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Sessions & Context",
     "url": "guides/10_sessions-and-context.html",
-    "abstract": "Manage multi-turn sessions with context logs, recap prompts, and handoff patterns so nothing gets lost.",
-    "sections": [
+    "unit": "Sessions & Context",
+    "meta": "Guide | Sessions & Context",
+    "snippet": "Manage multi-turn sessions with context logs, recap prompts, and handoff patterns so nothing gets lost.",
+    "tags": [
       "What you’ll learn",
       "Heads-up before you start",
       "Step-by-step",
@@ -77,10 +98,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Custom Instructions",
     "url": "guides/11_custom-instructions.html",
-    "abstract": "Craft durable custom instructions that align ChatGPT with your voice and workflow.",
-    "sections": [
+    "unit": "Sessions & Context",
+    "meta": "Guide | Sessions & Context",
+    "snippet": "Craft durable custom instructions that align ChatGPT with your voice and workflow.",
+    "tags": [
       "What you’ll learn",
       "Quick wins",
       "Step-by-step",
@@ -88,10 +112,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Memory & Privacy",
     "url": "guides/12_memory-and-privacy.html",
-    "abstract": "Manage memory features responsibly while protecting sensitive information.",
-    "sections": [
+    "unit": "Sessions & Context",
+    "meta": "Guide | Sessions & Context",
+    "snippet": "Manage memory features responsibly while protecting sensitive information.",
+    "tags": [
       "What you’ll learn",
       "Quick wins",
       "How Memory fits with sessions",
@@ -99,10 +126,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Handoff Between Chats",
     "url": "guides/13_handoff-between-chats.html",
-    "abstract": "Switch work between chats or teammates without losing context or momentum.",
-    "sections": [
+    "unit": "Sessions & Context",
+    "meta": "Guide | Sessions & Context",
+    "snippet": "Switch work between chats or teammates without losing context or momentum.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -110,10 +140,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Project Folders Setup",
     "url": "guides/20_project-folders-setup.html",
-    "abstract": "Organize project folders so AI collaborators always know where to look.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Organize project folders so AI collaborators always know where to look.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -121,10 +154,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "File Upload Best Practices",
     "url": "guides/21_file-upload-best-practices.html",
-    "abstract": "Share files with AI safely and efficiently by prepping them for fast ingestion.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Share files with AI safely and efficiently by prepping them for fast ingestion.",
+    "tags": [
       "What you’ll learn",
       "Limits & compatibility (read this)",
       "Prerequisites",
@@ -132,10 +168,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Context from Files &amp; RAG Basics",
     "url": "guides/22_context-from-files_rag-basics.html",
-    "abstract": "Feed local files into prompts using manual retrieval habits before you adopt a full RAG stack.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Feed local files into prompts using manual retrieval habits before you adopt a full RAG stack.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -143,10 +182,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Chunking &amp; Abstracts",
     "url": "guides/23_chunking-and-abstracts.html",
-    "abstract": "Break long materials into manageable chunks with sharp abstracts the model can reuse.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Break long materials into manageable chunks with sharp abstracts the model can reuse.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -154,10 +196,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Citations &amp; Attribution",
     "url": "guides/24_citations-and-attribution.html",
-    "abstract": "Ensure AI-generated content cites sources cleanly and transparently.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Ensure AI-generated content cites sources cleanly and transparently.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -165,10 +210,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Redaction &amp; Sanitization",
     "url": "guides/25_redaction-and-sanitization.html",
-    "abstract": "Redact and sanitize data before sharing with AI systems.",
-    "sections": [
+    "unit": "Projects & Files",
+    "meta": "Guide | Projects & Files",
+    "snippet": "Redact and sanitize data before sharing with AI systems.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -176,10 +224,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Browsing &amp; Search",
     "url": "guides/30_browsing-and-search.html",
-    "abstract": "Use ChatGPT’s browsing responsibly to gather fresh information, verify claims, and log sources.",
-    "sections": [
+    "unit": "Research & Reasoning",
+    "meta": "Guide | Research & Reasoning",
+    "snippet": "Use ChatGPT’s browsing responsibly to gather fresh information, verify claims, and log sources.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -187,10 +238,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Deep Research Playbook",
     "url": "guides/31_deep-research-playbook.html",
-    "abstract": "Run multi-week research in ChatGPT: scope, retrieve, verify, and synthesize with auditable evidence.",
-    "sections": [
+    "unit": "Research & Reasoning",
+    "meta": "Guide | Research & Reasoning",
+    "snippet": "Run multi-week research in ChatGPT: scope, retrieve, verify, and synthesize with auditable evidence.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -198,10 +252,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Source Quality &amp; Fact Checking",
     "url": "guides/32_source-quality-and-fact-checking.html",
-    "abstract": "Evaluate source quality and run fact checks on AI outputs.",
-    "sections": [
+    "unit": "Research & Reasoning",
+    "meta": "Guide | Research & Reasoning",
+    "snippet": "Evaluate source quality and run fact checks on AI outputs.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -209,10 +266,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "News &amp; Recency",
     "url": "guides/33_news-and-recency.html",
-    "abstract": "Manage rapidly changing information when using AI for news and recency checks.",
-    "sections": [
+    "unit": "Research & Reasoning",
+    "meta": "Guide | Research & Reasoning",
+    "snippet": "Manage rapidly changing information when using AI for news and recency checks.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -220,10 +280,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Math &amp; Calcs",
     "url": "guides/34_math-and-calcs.html",
-    "abstract": "Use ChatGPT for math and calculations with accuracy checks built in.",
-    "sections": [
+    "unit": "Research & Reasoning",
+    "meta": "Guide | Research & Reasoning",
+    "snippet": "Use ChatGPT for math and calculations with accuracy checks built in.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -231,10 +294,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Agentic Mode Overview",
     "url": "guides/40_agentic-mode_overview.html",
-    "abstract": "Understand what agentic AI workflows are and when to use them.",
-    "sections": [
+    "unit": "Agentic Workflows",
+    "meta": "Guide | Agentic Workflows",
+    "snippet": "Understand what agentic AI workflows are and when to use them.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "When to use agentic mode",
@@ -242,10 +308,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Task Chains &amp; Delegation",
     "url": "guides/41_task-chains-and-delegation.html",
-    "abstract": "Design AI task chains and delegate work between roles effectively.",
-    "sections": [
+    "unit": "Agentic Workflows",
+    "meta": "Guide | Agentic Workflows",
+    "snippet": "Design AI task chains and delegate work between roles effectively.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "When to use task chains",
@@ -253,10 +322,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Planners, Critics, Validators",
     "url": "guides/42_planners-critics-validators.html",
-    "abstract": "Assign planner, critic, and validator roles to improve AI output quality.",
-    "sections": [
+    "unit": "Agentic Workflows",
+    "meta": "Guide | Agentic Workflows",
+    "snippet": "Assign planner, critic, and validator roles to improve AI output quality.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "When to use this triad",
@@ -264,10 +336,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Automations & Reminders",
     "url": "guides/43_automations-and-reminders.html",
-    "abstract": "Automate recurring AI tasks with reminders and lightweight scripts.",
-    "sections": [
+    "unit": "Agentic Workflows",
+    "meta": "Guide | Agentic Workflows",
+    "snippet": "Automate recurring AI tasks with reminders and lightweight scripts.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -275,10 +350,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Collaboration Workflows",
     "url": "guides/50_collaboration-workflows.html",
-    "abstract": "Coordinate teams that use AI together, from briefs to reviews.",
-    "sections": [
+    "unit": "Collaboration",
+    "meta": "Guide | Collaboration",
+    "snippet": "Coordinate teams that use AI together, from briefs to reviews.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -286,10 +364,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Meeting Notes & Actions",
     "url": "guides/51_meeting-notes-and-actions.html",
-    "abstract": "Capture actionable meeting notes with ChatGPT while preserving owners, due dates, and decision logs.",
-    "sections": [
+    "unit": "Collaboration",
+    "meta": "Guide | Collaboration",
+    "snippet": "Capture actionable meeting notes with ChatGPT while preserving owners, due dates, and decision logs.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -297,10 +378,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Prompt Handovers",
     "url": "guides/51_prompt-handovers.html",
-    "abstract": "Pass AI prompt work between teammates without losing context.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Pass AI prompt work between teammates without losing context.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -308,10 +392,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Email Drafts & Templates",
     "url": "guides/52_email-drafts-and-templates.html",
-    "abstract": "Produce reliable email drafts with ChatGPT, tailored templates, and review checkpoints.",
-    "sections": [
+    "unit": "Collaboration",
+    "meta": "Guide | Collaboration",
+    "snippet": "Produce reliable email drafts with ChatGPT, tailored templates, and review checkpoints.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -319,10 +406,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Version Control for Prompts",
     "url": "guides/52_version-control-for-prompts.html",
-    "abstract": "Track prompt changes like code so you always know what shipped.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Track prompt changes like code so you always know what shipped.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -330,10 +420,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Brainstorm to Execution",
     "url": "guides/53_brainstorm-to-execution.html",
-    "abstract": "Convert brainstorming sessions into actionable project plans with ChatGPT's help.",
-    "sections": [
+    "unit": "Collaboration",
+    "meta": "Guide | Collaboration",
+    "snippet": "Convert brainstorming sessions into actionable project plans with ChatGPT's help.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -341,10 +434,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Knowledge Bases",
     "url": "guides/53_knowledge-bases.html",
-    "abstract": "Build a self-serve knowledge base that captures AI lessons learned.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Build a self-serve knowledge base that captures AI lessons learned.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -352,10 +448,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Meetings and Agendas",
     "url": "guides/54_meetings-and-agendas.html",
-    "abstract": "Run AI-focused meetings that stay actionable and inclusive.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Run AI-focused meetings that stay actionable and inclusive.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -363,10 +462,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Documentation Handoffs",
     "url": "guides/55_documentation-handoffs.html",
-    "abstract": "Ensure documentation moves with AI projects across teams and time zones.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Ensure documentation moves with AI projects across teams and time zones.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -374,10 +476,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Asynchronous Collaboration",
     "url": "guides/56_asynchronous-collaboration.html",
-    "abstract": "Coordinate AI work across time zones using async-first practices.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Coordinate AI work across time zones using async-first practices.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -385,10 +490,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Co-Creation Workshops",
     "url": "guides/57_co-creation-workshops.html",
-    "abstract": "Run workshops that produce shippable AI assets with clear owners.",
-    "sections": [
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "Run workshops that produce shippable AI assets with clear owners.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Planner → Actor → Reviewer walkthrough",
@@ -396,10 +504,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Code Help for Non-Developers",
     "url": "guides/60_code-help_for-non-devs.html",
-    "abstract": "Help non-developers debug and edit code with ChatGPT safely and clearly.",
-    "sections": [
+    "unit": "Applied Skills",
+    "meta": "Guide | Applied Skills",
+    "snippet": "Help non-developers debug and edit code with ChatGPT safely and clearly.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -407,10 +518,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Codegen Best Practices for Developers",
     "url": "guides/61_codegen-best-practices_for-devs.html",
-    "abstract": "Run a disciplined AI-assisted coding workflow from prompt to production.",
-    "sections": [
+    "unit": "Applied Skills",
+    "meta": "Guide | Applied Skills",
+    "snippet": "Run a disciplined AI-assisted coding workflow from prompt to production.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -418,10 +532,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Data Analysis Basics",
     "url": "guides/62_data-analysis_basics.html",
-    "abstract": "Harness ChatGPT for exploratory data analysis while preserving data hygiene and reproducibility.",
-    "sections": [
+    "unit": "Applied Skills",
+    "meta": "Guide | Applied Skills",
+    "snippet": "Harness ChatGPT for exploratory data analysis while preserving data hygiene and reproducibility.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -429,10 +546,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Tables, Visuals, and Diagrams",
     "url": "guides/63_tables-visuals-and-diagrams.html",
-    "abstract": "Turn ChatGPT outputs into production-ready tables, visuals, and diagrams with validation built in.",
-    "sections": [
+    "unit": "Applied Skills",
+    "meta": "Guide | Applied Skills",
+    "snippet": "Turn ChatGPT outputs into production-ready tables, visuals, and diagrams with validation built in.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -440,10 +560,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Safety and Ethics",
     "url": "guides/70_safety-and-ethics.html",
-    "abstract": "Govern ChatGPT usage with clear risk classes, approvals, and incident handling procedures.",
-    "sections": [
+    "unit": "Safety & Quality",
+    "meta": "Guide | Safety & Quality",
+    "snippet": "Govern ChatGPT usage with clear risk classes, approvals, and incident handling procedures.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -451,10 +574,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Troubleshooting Bad Answers",
     "url": "guides/71_troubleshooting-bad-answers.html",
-    "abstract": "Diagnose and recover from low-quality ChatGPT responses with structured debugging prompts and escalation paths.",
-    "sections": [
+    "unit": "Safety & Quality",
+    "meta": "Guide | Safety & Quality",
+    "snippet": "Diagnose and recover from low-quality ChatGPT responses with structured debugging prompts and escalation paths.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -462,10 +588,13 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Power User Checklists",
     "url": "guides/72_power-user-checklists.html",
-    "abstract": "Standardize expert ChatGPT usage with preflight, research, and QA checklists that prevent misses.",
-    "sections": [
+    "unit": "Safety & Quality",
+    "meta": "Guide | Safety & Quality",
+    "snippet": "Standardize expert ChatGPT usage with preflight, research, and QA checklists that prevent misses.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -473,32 +602,41 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Templates Library",
     "url": "guides/80_templates-library.html",
-    "abstract": "Curate, govern, and ship reusable AI templates that stay compliant and actionable.",
-    "sections": [
+    "unit": "Templates & Integrations",
+    "meta": "Guide | Templates & Integrations",
+    "snippet": "Curate, govern, and ship reusable AI templates that stay compliant and actionable.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
-      "Output contract"
+      "Template gallery"
     ]
   },
   {
+    "type": "guide",
     "title": "Project Blueprints",
     "url": "guides/81_project-blueprints.html",
-    "abstract": "Project-ready blueprints that map AI capabilities to common team workflows.",
-    "sections": [
+    "unit": "Templates & Integrations",
+    "meta": "Guide | Templates & Integrations",
+    "snippet": "Project-ready blueprints that map AI capabilities to common team workflows.",
+    "tags": [
+      "Blueprint gallery (copy-ready)",
       "What you’ll learn",
       "Prerequisites",
-      "Step-by-step",
-      "Output contract"
+      "Step-by-step"
     ]
   },
   {
+    "type": "guide",
     "title": "Quality Assurance Loops",
     "url": "guides/82_quality-assurance_loops.html",
-    "abstract": "Build deterministic QA loops that blend automated critics with human reviewers for safe, auditable AI outputs.",
-    "sections": [
+    "unit": "Safety & Quality",
+    "meta": "Guide | Safety & Quality",
+    "snippet": "Build deterministic QA loops that blend automated critics with human reviewers for safe, auditable AI outputs.",
+    "tags": [
       "What you’ll learn",
       "Prerequisites",
       "Step-by-step",
@@ -506,26 +644,2058 @@
     ]
   },
   {
+    "type": "guide",
     "title": "Integrations &amp; Tools",
     "url": "guides/83_integrations-and-tools.html",
-    "abstract": "Connect ChatGPT workflows to the tools your team already uses without sacrificing auditability.",
-    "sections": [
+    "unit": "Templates & Integrations",
+    "meta": "Guide | Templates & Integrations",
+    "snippet": "Connect ChatGPT workflows to the tools your team already uses without sacrificing auditability.",
+    "tags": [
+      "Automation snippets",
       "What you’ll learn",
       "Common patterns (choose one)",
-      "Step-by-step",
-      "Copy-paste templates"
+      "Stack playbooks (ready to deploy)"
     ]
   },
   {
+    "type": "guide",
     "title": "Prompt Library",
     "url": "guides/84_prompt-library.html",
-    "abstract": "Central catalog of reusable prompt templates with guardrails and owners.",
-    "sections": [
+    "unit": "Templates & Integrations",
+    "meta": "Guide | Templates & Integrations",
+    "snippet": "Central catalog of reusable prompt templates with guardrails and owners.",
+    "tags": [
       "How to use this catalog",
       "Prompt catalog",
       "Add a new prompt (step-by-step)",
       "Catalog schema (copy-paste)"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Agentic Workflows Assessment",
+    "url": "guides/agentic-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Prove you can plan, critique, and validate agentic ChatGPT workflows before you hand off automation responsibilities.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Agentic Workflows quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Agentic Workflows Assessment - Everyday AI Guide",
+    "url": "guides/agentic-workflows-assessment.html",
+    "unit": "Guide",
+    "meta": "Guide | Guide",
+    "snippet": "",
+    "tags": []
+  },
+  {
+    "type": "guide",
+    "title": "Applied Skills Assessment",
+    "url": "guides/applied-skills-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Confirm your ability to pair with ChatGPT on coding, data analysis, and visualization workflows before you graduate to Safety & Quality.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Applied Skills quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Collaboration Assessment",
+    "url": "guides/collaboration-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Confirm you can run cross-team ChatGPT workflows from kickoff to handoff.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Collaboration quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Sessions &amp; Context Assessment",
+    "url": "guides/context-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Validate that you can manage context carryover, custom instructions, memory, and handoffs without losing fidelity.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Sessions & Context quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Foundations Assessment",
+    "url": "guides/foundations-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Verify that you can apply every Foundations workflow before moving on to Sessions &amp; Context.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Foundations quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Orientation Assessment",
+    "url": "guides/orientation-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Confirm you can navigate the guide, run the Quickstart, and avoid the classic first-use pitfalls.",
+    "tags": [
+      "Checklist before you start",
+      "Orientation quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Projects &amp; Files Assessment",
+    "url": "guides/projects-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Confirm you can manage AI-ready project folders, sanitized uploads, and grounded citations across every deliverable.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Projects & Files quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Research &amp; Reasoning Assessment",
+    "url": "guides/research-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Validate your ability to plan research, vet sources, and keep recency checks tight before advancing.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Research & Reasoning quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Safety &amp; Quality Assessment",
+    "url": "guides/safety-quality-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Evaluate your mastery of AI safety controls, troubleshooting, and QA loops before advancing to Templates & Integrations.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Safety & Quality quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "guide",
+    "title": "Your Scorecard - Everyday AI Guide",
+    "url": "guides/scorecard.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "",
+    "tags": []
+  },
+  {
+    "type": "guide",
+    "title": "Templates &amp; Integrations Assessment",
+    "url": "guides/templates-integrations-assessment.html",
+    "unit": "Assessments",
+    "meta": "Guide | Assessments",
+    "snippet": "Validate that you can govern templates, ship project blueprints, and roll out integrations safely before you activate automations at scale.",
+    "tags": [
+      "Checklist before you start",
+      "How to use this quiz",
+      "Templates & Integrations quiz",
+      "Program scorecard"
+    ]
+  },
+  {
+    "type": "prompt",
+    "title": "CD-001 - Code Review Checklist",
+    "url": "guides/84_prompt-library.html#CD-001",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Beginner",
+    "snippet": "Guide thorough peer reviews with focus on correctness and maintainability.",
+    "tags": [
+      "diff",
+      "test",
+      "Coding",
+      "Beginner",
+      "medium"
     ],
-    "type": "prompt"
+    "category": "Coding",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-002 - Refactor Plan Builder",
+    "url": "guides/84_prompt-library.html#CD-002",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Intermediate",
+    "snippet": "Outline safe refactor steps with validation and rollback checkpoints.",
+    "tags": [
+      "structured",
+      "diff",
+      "Coding",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-003 - Unit Test Generator",
+    "url": "guides/84_prompt-library.html#CD-003",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Advanced",
+    "snippet": "Design unit test scenarios based on requirements and edge cases.",
+    "tags": [
+      "test",
+      "structured",
+      "Coding",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-004 - API Contract Validator",
+    "url": "guides/84_prompt-library.html#CD-004",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Beginner",
+    "snippet": "Check API changes against agreed contracts and client impact.",
+    "tags": [
+      "diff",
+      "verification",
+      "Coding",
+      "Beginner",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-005 - Data Migration Playbook",
+    "url": "guides/84_prompt-library.html#CD-005",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Intermediate",
+    "snippet": "Outline migration steps, backout plans, and validation queries.",
+    "tags": [
+      "structured",
+      "test",
+      "Coding",
+      "Intermediate",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-006 - Performance Profiling Brief",
+    "url": "guides/84_prompt-library.html#CD-006",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Advanced",
+    "snippet": "Summarize profiling results with optimization recommendations.",
+    "tags": [
+      "report",
+      "test",
+      "Coding",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-007 - Error Log Diagnoser",
+    "url": "guides/84_prompt-library.html#CD-007",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Beginner",
+    "snippet": "Classify and prioritize production errors with remediation steps.",
+    "tags": [
+      "report",
+      "verification",
+      "Coding",
+      "Beginner",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-008 - Infrastructure Change Review",
+    "url": "guides/84_prompt-library.html#CD-008",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Intermediate",
+    "snippet": "Assess infrastructure as code changes for risk and compliance.",
+    "tags": [
+      "diff",
+      "verification",
+      "Coding",
+      "Intermediate",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-009 - Security Scan Interpreter",
+    "url": "guides/84_prompt-library.html#CD-009",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Advanced",
+    "snippet": "Turn static analysis results into prioritized remediation guidance.",
+    "tags": [
+      "verification",
+      "report",
+      "Coding",
+      "Advanced",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CD-010 - Code Comment Refiner",
+    "url": "guides/84_prompt-library.html#CD-010",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Beginner",
+    "snippet": "Improve code comments for clarity and accuracy without changing logic.",
+    "tags": [
+      "structured",
+      "diff",
+      "Coding",
+      "Beginner",
+      "low"
+    ],
+    "category": "Coding",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-001 - Executive Update Draft",
+    "url": "guides/84_prompt-library.html#CM-001",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Summarize program progress for executive stakeholders each week.",
+    "tags": [
+      "email",
+      "report",
+      "Communication",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-002 - Customer Escalation Reply",
+    "url": "guides/84_prompt-library.html#CM-002",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Intermediate",
+    "snippet": "Compose empathetic responses to high-priority customer escalations.",
+    "tags": [
+      "email",
+      "structured",
+      "Communication",
+      "Intermediate",
+      "high"
+    ],
+    "category": "Communication",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-003 - Town Hall Agenda Builder",
+    "url": "guides/84_prompt-library.html#CM-003",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Advanced",
+    "snippet": "Structure internal town hall meetings with clear segments and prompts.",
+    "tags": [
+      "meeting",
+      "report",
+      "Communication",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-004 - Incident Communication Plan",
+    "url": "guides/84_prompt-library.html#CM-004",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Coordinate internal and external messaging during incidents.",
+    "tags": [
+      "report",
+      "structured",
+      "Communication",
+      "Beginner",
+      "high"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-005 - FAQ Refresh Writer",
+    "url": "guides/84_prompt-library.html#CM-005",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Intermediate",
+    "snippet": "Update help center FAQ entries with latest policy and feature details.",
+    "tags": [
+      "report",
+      "structured",
+      "Communication",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-006 - Training Announcement Draft",
+    "url": "guides/84_prompt-library.html#CM-006",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Advanced",
+    "snippet": "Notify teams about upcoming training with clear expectations.",
+    "tags": [
+      "email",
+      "structured",
+      "Communication",
+      "Advanced",
+      "low"
+    ],
+    "category": "Communication",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-007 - Retrospective Summary",
+    "url": "guides/84_prompt-library.html#CM-007",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Capture outcomes and actions from team retrospectives.",
+    "tags": [
+      "report",
+      "meeting",
+      "Communication",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-008 - Product Launch Email Kit",
+    "url": "guides/84_prompt-library.html#CM-008",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Intermediate",
+    "snippet": "Prepare internal and external launch announcements.",
+    "tags": [
+      "email",
+      "report",
+      "Communication",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-009 - Internal Newsletter Builder",
+    "url": "guides/84_prompt-library.html#CM-009",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Advanced",
+    "snippet": "Compile monthly internal newsletter with highlights and metrics.",
+    "tags": [
+      "report",
+      "structured",
+      "Communication",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "CM-010 - Stakeholder Follow-up Tracker",
+    "url": "guides/84_prompt-library.html#CM-010",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Document follow-ups after stakeholder meetings with owners and deadlines.",
+    "tags": [
+      "meeting",
+      "structured",
+      "Communication",
+      "Beginner",
+      "low"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-001 - Quarterly OKR Blueprint",
+    "url": "guides/84_prompt-library.html#PL-001",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Draft aligned objectives, key results, and initiatives for a new quarter.",
+    "tags": [
+      "structured",
+      "report",
+      "Planning",
+      "Beginner",
+      "low"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-002 - Roadmap Risk Radar",
+    "url": "guides/84_prompt-library.html#PL-002",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Intermediate",
+    "snippet": "Evaluate roadmap items for delivery, market, and dependency risk.",
+    "tags": [
+      "structured",
+      "report",
+      "Planning",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-003 - Stakeholder Brief Builder",
+    "url": "guides/84_prompt-library.html#PL-003",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Advanced",
+    "snippet": "Translate a project charter into a one page stakeholder brief.",
+    "tags": [
+      "meeting",
+      "report",
+      "Planning",
+      "Advanced",
+      "low"
+    ],
+    "category": "Planning",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-004 - Resourcing Scenario Modeler",
+    "url": "guides/84_prompt-library.html#PL-004",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Compare alternate resource allocations across initiatives.",
+    "tags": [
+      "structured",
+      "table",
+      "Planning",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-005 - Discovery Interview Planner",
+    "url": "guides/84_prompt-library.html#PL-005",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Intermediate",
+    "snippet": "Prepare customer discovery sessions with goals, scripts, and scoring.",
+    "tags": [
+      "structured",
+      "meeting",
+      "Planning",
+      "Intermediate",
+      "low"
+    ],
+    "category": "Planning",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-006 - Budget Scenario Forecaster",
+    "url": "guides/84_prompt-library.html#PL-006",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Advanced",
+    "snippet": "Build optimistic, base, and downside budget scenarios for the upcoming fiscal year.",
+    "tags": [
+      "structured",
+      "table",
+      "Planning",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-007 - Change Impact Matrix",
+    "url": "guides/84_prompt-library.html#PL-007",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Map stakeholder groups against expected change impacts and required actions.",
+    "tags": [
+      "structured",
+      "report",
+      "Planning",
+      "Beginner",
+      "low"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-008 - Launch Readiness Checklist",
+    "url": "guides/84_prompt-library.html#PL-008",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Intermediate",
+    "snippet": "Coordinate cross functional launch activities and readiness gates.",
+    "tags": [
+      "structured",
+      "meeting",
+      "Planning",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-009 - Portfolio Review Packet",
+    "url": "guides/84_prompt-library.html#PL-009",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Advanced",
+    "snippet": "Summarize initiative health for quarterly portfolio councils.",
+    "tags": [
+      "structured",
+      "report",
+      "Planning",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-010 - Program Risk Status",
+    "url": "guides/84_prompt-library.html#PL-010",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Roll up program level risks with trend indicators.",
+    "tags": [
+      "structured",
+      "report",
+      "Planning",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-011 - Competitive Landscape Scan",
+    "url": "guides/84_prompt-library.html#PL-011",
+    "unit": "Research",
+    "meta": "Prompt | Research | Beginner",
+    "snippet": "Synthesize competitor moves, positioning, and signals from recent news.",
+    "tags": [
+      "synthesis",
+      "report",
+      "Research",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-012 - Voice of Customer Digest",
+    "url": "guides/84_prompt-library.html#PL-012",
+    "unit": "Research",
+    "meta": "Prompt | Research | Intermediate",
+    "snippet": "Consolidate survey, interview, and support signals into a monthly digest.",
+    "tags": [
+      "synthesis",
+      "report",
+      "Research",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-013 - Literature Review Abstractor",
+    "url": "guides/84_prompt-library.html#PL-013",
+    "unit": "Research",
+    "meta": "Prompt | Research | Advanced",
+    "snippet": "Summarize academic or industry papers into structured abstracts with key findings.",
+    "tags": [
+      "synthesis",
+      "structured",
+      "Research",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-014 - Regulatory Watch Brief",
+    "url": "guides/84_prompt-library.html#PL-014",
+    "unit": "Research",
+    "meta": "Prompt | Research | Beginner",
+    "snippet": "Aggregate regulatory updates impacting AI deployments.",
+    "tags": [
+      "synthesis",
+      "report",
+      "Research",
+      "Beginner",
+      "high"
+    ],
+    "category": "Research",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-015 - Persona Insight Builder",
+    "url": "guides/84_prompt-library.html#PL-015",
+    "unit": "Research",
+    "meta": "Prompt | Research | Intermediate",
+    "snippet": "Compile persona snapshots from qualitative and quantitative research.",
+    "tags": [
+      "synthesis",
+      "structured",
+      "Research",
+      "Intermediate",
+      "low"
+    ],
+    "category": "Research",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-016 - Opportunity Sizing Model",
+    "url": "guides/84_prompt-library.html#PL-016",
+    "unit": "Research",
+    "meta": "Prompt | Research | Advanced",
+    "snippet": "Estimate market size and revenue potential for new opportunities.",
+    "tags": [
+      "structured",
+      "table",
+      "Research",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-017 - Trend Radar Newsletter",
+    "url": "guides/84_prompt-library.html#PL-017",
+    "unit": "Research",
+    "meta": "Prompt | Research | Beginner",
+    "snippet": "Summarize macro and micro trends impacting the business.",
+    "tags": [
+      "synthesis",
+      "report",
+      "Research",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-018 - Experiment Results Synthesizer",
+    "url": "guides/84_prompt-library.html#PL-018",
+    "unit": "Research",
+    "meta": "Prompt | Research | Intermediate",
+    "snippet": "Summarize A/B or multivariate experiment outcomes with insights and next steps.",
+    "tags": [
+      "structured",
+      "synthesis",
+      "Research",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-019 - Claims Validation Worksheet",
+    "url": "guides/84_prompt-library.html#PL-019",
+    "unit": "Research",
+    "meta": "Prompt | Research | Advanced",
+    "snippet": "Validate marketing or product claims with supporting evidence.",
+    "tags": [
+      "verification",
+      "structured",
+      "Research",
+      "Advanced",
+      "high"
+    ],
+    "category": "Research",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-020 - Insights Workshop Agenda",
+    "url": "guides/84_prompt-library.html#PL-020",
+    "unit": "Research",
+    "meta": "Prompt | Research | Beginner",
+    "snippet": "Create agendas for insight sharing workshops with discussion prompts.",
+    "tags": [
+      "meeting",
+      "synthesis",
+      "Research",
+      "Beginner",
+      "low"
+    ],
+    "category": "Research",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-051 - Annual Narrative Draft Kit",
+    "url": "guides/84_prompt-library.html#PL-051",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Convert OKR and financial data into a leadership-ready annual narrative.",
+    "tags": [
+      "narrative",
+      "okr",
+      "planning",
+      "Planning",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-052 - Adaptive Budget Rebalancer",
+    "url": "guides/84_prompt-library.html#PL-052",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Advanced",
+    "snippet": "Reallocate budgets across initiatives using scenario inputs.",
+    "tags": [
+      "budget",
+      "scenario",
+      "portfolio",
+      "Planning",
+      "Advanced",
+      "high"
+    ],
+    "category": "Planning",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-053 - Program Retrospective Synthesizer",
+    "url": "guides/84_prompt-library.html#PL-053",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Intermediate",
+    "snippet": "Roll up multi-workstream retrospective notes into a concise report.",
+    "tags": [
+      "retro",
+      "operations",
+      "report",
+      "Planning",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-054 - Headcount Capacity Forecaster",
+    "url": "guides/84_prompt-library.html#PL-054",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Intermediate",
+    "snippet": "Forecast hiring pace and capacity impact across teams.",
+    "tags": [
+      "capacity",
+      "hiring",
+      "forecast",
+      "Planning",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Planning",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-055 - Intake Routing Orchestrator",
+    "url": "guides/84_prompt-library.html#PL-055",
+    "unit": "Planning",
+    "meta": "Prompt | Planning | Beginner",
+    "snippet": "Triage inbound project requests into the correct governance path.",
+    "tags": [
+      "intake",
+      "governance",
+      "triage",
+      "Planning",
+      "Beginner",
+      "low"
+    ],
+    "category": "Planning",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-056 - Competitor Deep Dive Tear-Down",
+    "url": "guides/84_prompt-library.html#PL-056",
+    "unit": "Research",
+    "meta": "Prompt | Research | Intermediate",
+    "snippet": "Compare competitor launch messaging, pricing, and differentiation.",
+    "tags": [
+      "competitive",
+      "analysis",
+      "pricing",
+      "Research",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-057 - Voice of Customer Theme Miner",
+    "url": "guides/84_prompt-library.html#PL-057",
+    "unit": "Research",
+    "meta": "Prompt | Research | Beginner",
+    "snippet": "Surface customer themes from qualitative feedback and route next actions.",
+    "tags": [
+      "voc",
+      "analysis",
+      "retention",
+      "Research",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-058 - Academic Literature Spotter",
+    "url": "guides/84_prompt-library.html#PL-058",
+    "unit": "Research",
+    "meta": "Prompt | Research | Advanced",
+    "snippet": "Summarize recent academic research supporting a hypothesis.",
+    "tags": [
+      "academic",
+      "citation",
+      "evidence",
+      "Research",
+      "Advanced",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-059 - Signal-to-Noise Incident Monitor",
+    "url": "guides/84_prompt-library.html#PL-059",
+    "unit": "Research",
+    "meta": "Prompt | Research | Advanced",
+    "snippet": "Detect emerging risk signals from support tickets, social media, and logs.",
+    "tags": [
+      "risk",
+      "monitoring",
+      "escalation",
+      "Research",
+      "Advanced",
+      "high"
+    ],
+    "category": "Research",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-060 - Field Research Trip Planner",
+    "url": "guides/84_prompt-library.html#PL-060",
+    "unit": "Research",
+    "meta": "Prompt | Research | Intermediate",
+    "snippet": "Plan an in-person research sprint with recruiting, schedule, and deliverables.",
+    "tags": [
+      "field",
+      "ux",
+      "planning",
+      "Research",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Research",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-061 - Executive Q&A Pack Builder",
+    "url": "guides/84_prompt-library.html#PL-061",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Intermediate",
+    "snippet": "Generate anticipated questions and answers for an executive appearance.",
+    "tags": [
+      "executive",
+      "media",
+      "qa",
+      "Communication",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-062 - Change Town Hall Deck Outline",
+    "url": "guides/84_prompt-library.html#PL-062",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Draft a talk track and slide outline for change management town halls.",
+    "tags": [
+      "change",
+      "presentation",
+      "enablement",
+      "Communication",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-063 - Product Launch Narrative Generator",
+    "url": "guides/84_prompt-library.html#PL-063",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Intermediate",
+    "snippet": "Create a launch brief with narrative, proof, and customer hooks.",
+    "tags": [
+      "launch",
+      "messaging",
+      "go-to-market",
+      "Communication",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-064 - Incident Communication Ladder",
+    "url": "guides/84_prompt-library.html#PL-064",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Advanced",
+    "snippet": "Draft multi-channel messaging for customer-impacting incidents.",
+    "tags": [
+      "incident",
+      "status",
+      "communications",
+      "Communication",
+      "Advanced",
+      "high"
+    ],
+    "category": "Communication",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-065 - Localization Brief Composer",
+    "url": "guides/84_prompt-library.html#PL-065",
+    "unit": "Communication",
+    "meta": "Prompt | Communication | Beginner",
+    "snippet": "Generate translation briefs with context, tone, and QA steps.",
+    "tags": [
+      "localization",
+      "brief",
+      "translation",
+      "Communication",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Communication",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-066 - Legacy Bug Reproduction Kit",
+    "url": "guides/84_prompt-library.html#PL-066",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Intermediate",
+    "snippet": "Generate precise steps and logging guidance to reproduce a legacy bug.",
+    "tags": [
+      "bug",
+      "runbook",
+      "sre",
+      "Coding",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-067 - API Contract Drafter",
+    "url": "guides/84_prompt-library.html#PL-067",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Advanced",
+    "snippet": "Draft REST API contract updates with schema diffs and migration notes.",
+    "tags": [
+      "api",
+      "contract",
+      "versioning",
+      "Coding",
+      "Advanced",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-068 - Data Pipeline Health Reporter",
+    "url": "guides/84_prompt-library.html#PL-068",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Intermediate",
+    "snippet": "Summarize pipeline runs with anomalies, data quality, and impact.",
+    "tags": [
+      "data",
+      "ops",
+      "report",
+      "Coding",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-069 - Test Coverage Gap Finder",
+    "url": "guides/84_prompt-library.html#PL-069",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Beginner",
+    "snippet": "Identify under-tested modules using coverage reports and defect logs.",
+    "tags": [
+      "coverage",
+      "testing",
+      "quality",
+      "Coding",
+      "Beginner",
+      "medium"
+    ],
+    "category": "Coding",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-070 - Infrastructure Runbook Generator",
+    "url": "guides/84_prompt-library.html#PL-070",
+    "unit": "Coding",
+    "meta": "Prompt | Coding | Advanced",
+    "snippet": "Draft incident runbooks for new infrastructure components.",
+    "tags": [
+      "runbook",
+      "infrastructure",
+      "incident",
+      "Coding",
+      "Advanced",
+      "high"
+    ],
+    "category": "Coding",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-071 - Accessibility Audit Storyboard",
+    "url": "guides/84_prompt-library.html#PL-071",
+    "unit": "QA",
+    "meta": "Prompt | QA | Intermediate",
+    "snippet": "Convert accessibility findings into a shareable storyboard for stakeholders.",
+    "tags": [
+      "accessibility",
+      "wcag",
+      "story",
+      "QA",
+      "Intermediate",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-072 - Prompt Fuzzing Attack Harness",
+    "url": "guides/84_prompt-library.html#PL-072",
+    "unit": "QA",
+    "meta": "Prompt | QA | Advanced",
+    "snippet": "Stress test AI prompts for jailbreak and policy violations.",
+    "tags": [
+      "redteam",
+      "testing",
+      "safety",
+      "QA",
+      "Advanced",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-073 - Regression Test Selector",
+    "url": "guides/84_prompt-library.html#PL-073",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Select minimal regression suite based on change diff and risk profile.",
+    "tags": [
+      "regression",
+      "testing",
+      "release",
+      "QA",
+      "Beginner",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-074 - User Acceptance Exit Report",
+    "url": "guides/84_prompt-library.html#PL-074",
+    "unit": "QA",
+    "meta": "Prompt | QA | Intermediate",
+    "snippet": "Summarize UAT results with go-live recommendations and blockers.",
+    "tags": [
+      "uat",
+      "release",
+      "report",
+      "QA",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "PL-075 - Risk Register Summarizer",
+    "url": "guides/84_prompt-library.html#PL-075",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Summarize quality risks by probability, impact, and mitigation status.",
+    "tags": [
+      "risk",
+      "report",
+      "quality",
+      "QA",
+      "Beginner",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-001 - Regression Test Planner",
+    "url": "guides/84_prompt-library.html#QA-001",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Plan regression suites for releases with risk-based prioritization.",
+    "tags": [
+      "test",
+      "structured",
+      "QA",
+      "Beginner",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-002 - Bug Reproduction Script",
+    "url": "guides/84_prompt-library.html#QA-002",
+    "unit": "QA",
+    "meta": "Prompt | QA | Intermediate",
+    "snippet": "Document reproducible steps for reported defects with environment details.",
+    "tags": [
+      "test",
+      "verification",
+      "QA",
+      "Intermediate",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-003 - Test Summary Reporter",
+    "url": "guides/84_prompt-library.html#QA-003",
+    "unit": "QA",
+    "meta": "Prompt | QA | Advanced",
+    "snippet": "Summarize test execution results with metrics and release readiness.",
+    "tags": [
+      "report",
+      "test",
+      "QA",
+      "Advanced",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-004 - Accessibility Audit Checklist",
+    "url": "guides/84_prompt-library.html#QA-004",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Evaluate UI changes against WCAG compliance checkpoints.",
+    "tags": [
+      "verification",
+      "report",
+      "QA",
+      "Beginner",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-005 - Load Test Findings Digest",
+    "url": "guides/84_prompt-library.html#QA-005",
+    "unit": "QA",
+    "meta": "Prompt | QA | Intermediate",
+    "snippet": "Interpret performance test outputs and recommend mitigations.",
+    "tags": [
+      "report",
+      "test",
+      "QA",
+      "Intermediate",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-006 - Release QA Checklist",
+    "url": "guides/84_prompt-library.html#QA-006",
+    "unit": "QA",
+    "meta": "Prompt | QA | Advanced",
+    "snippet": "Ensure release readiness across QA sign-offs and environment checks.",
+    "tags": [
+      "structured",
+      "test",
+      "QA",
+      "Advanced",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-007 - Defect Triage Moderator",
+    "url": "guides/84_prompt-library.html#QA-007",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Facilitate defect triage sessions with prioritization outcomes.",
+    "tags": [
+      "meeting",
+      "test",
+      "QA",
+      "Beginner",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-008 - Traceability Matrix Builder",
+    "url": "guides/84_prompt-library.html#QA-008",
+    "unit": "QA",
+    "meta": "Prompt | QA | Intermediate",
+    "snippet": "Link requirements to test cases and defects for audit readiness.",
+    "tags": [
+      "table",
+      "verification",
+      "QA",
+      "Intermediate",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Intermediate"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-009 - UAT Feedback Synthesizer",
+    "url": "guides/84_prompt-library.html#QA-009",
+    "unit": "QA",
+    "meta": "Prompt | QA | Advanced",
+    "snippet": "Summarize user acceptance testing feedback with prioritized fixes.",
+    "tags": [
+      "report",
+      "synthesis",
+      "QA",
+      "Advanced",
+      "medium"
+    ],
+    "category": "QA",
+    "difficulty": "Advanced"
+  },
+  {
+    "type": "prompt",
+    "title": "QA-010 - QA Risk Register",
+    "url": "guides/84_prompt-library.html#QA-010",
+    "unit": "QA",
+    "meta": "Prompt | QA | Beginner",
+    "snippet": "Maintain QA-specific risk log with mitigation tracking.",
+    "tags": [
+      "structured",
+      "report",
+      "QA",
+      "Beginner",
+      "high"
+    ],
+    "category": "QA",
+    "difficulty": "Beginner"
+  },
+  {
+    "type": "template",
+    "title": "TL-001 - Quarterly Business Review Packet",
+    "url": "guides/80_templates-library.html#TL-001",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Brief",
+    "snippet": "Package KPIs, narrative, risks, and next-quarter focus for the leadership review.",
+    "tags": [
+      "qbr",
+      "leadership",
+      "metrics",
+      "Strategy & Planning",
+      "Brief",
+      "Intermediate"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Intermediate",
+    "format": "Brief"
+  },
+  {
+    "type": "template",
+    "title": "TL-002 - Annual Planning Workshop Agenda",
+    "url": "guides/80_templates-library.html#TL-002",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Agenda",
+    "snippet": "Facilitate a cross-functional planning session with goals, breakout prompts, and follow-ups.",
+    "tags": [
+      "workshop",
+      "planning",
+      "agenda",
+      "Strategy & Planning",
+      "Agenda",
+      "Beginner"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Beginner",
+    "format": "Agenda"
+  },
+  {
+    "type": "template",
+    "title": "TL-003 - Scenario Planning Matrix",
+    "url": "guides/80_templates-library.html#TL-003",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Spreadsheet Outline",
+    "snippet": "Compare financial and operational outcomes across best/likely/worst case scenarios.",
+    "tags": [
+      "financial",
+      "scenario",
+      "matrix",
+      "Strategy & Planning",
+      "Spreadsheet Outline",
+      "Advanced"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Advanced",
+    "format": "Spreadsheet Outline"
+  },
+  {
+    "type": "template",
+    "title": "TL-004 - North Star Narrative",
+    "url": "guides/80_templates-library.html#TL-004",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Document",
+    "snippet": "Codify the long-term mission, customer promise, and guiding principles.",
+    "tags": [
+      "mission",
+      "brand",
+      "strategy",
+      "Strategy & Planning",
+      "Document",
+      "Beginner"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Beginner",
+    "format": "Document"
+  },
+  {
+    "type": "template",
+    "title": "TL-005 - Initiative Intake Form",
+    "url": "guides/80_templates-library.html#TL-005",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Form",
+    "snippet": "Standardize how teams propose new initiatives, including funding, risk, and ROI.",
+    "tags": [
+      "intake",
+      "governance",
+      "form",
+      "Strategy & Planning",
+      "Form",
+      "Beginner"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Beginner",
+    "format": "Form"
+  },
+  {
+    "type": "template",
+    "title": "TL-006 - Operating Model Charter",
+    "url": "guides/80_templates-library.html#TL-006",
+    "unit": "Strategy & Planning",
+    "meta": "Template | Strategy & Planning | Charter",
+    "snippet": "Define scope, decision rights, and KPIs for a new operating model or team.",
+    "tags": [
+      "charter",
+      "operations",
+      "raci",
+      "Strategy & Planning",
+      "Charter",
+      "Advanced"
+    ],
+    "category": "Strategy & Planning",
+    "difficulty": "Advanced",
+    "format": "Charter"
+  },
+  {
+    "type": "template",
+    "title": "TL-007 - Customer Journey Workshop Kit",
+    "url": "guides/80_templates-library.html#TL-007",
+    "unit": "Customer Experience",
+    "meta": "Template | Customer Experience | Workshop",
+    "snippet": "Map end-to-end customer journeys, pain points, and opportunity areas.",
+    "tags": [
+      "journey",
+      "cx",
+      "workshop",
+      "Customer Experience",
+      "Workshop",
+      "Beginner"
+    ],
+    "category": "Customer Experience",
+    "difficulty": "Beginner",
+    "format": "Workshop"
+  },
+  {
+    "type": "template",
+    "title": "TL-008 - Voice of Customer Digest",
+    "url": "guides/80_templates-library.html#TL-008",
+    "unit": "Customer Experience",
+    "meta": "Template | Customer Experience | Report",
+    "snippet": "Condense VOC signals into themes, impact, and recommended actions.",
+    "tags": [
+      "voc",
+      "customer",
+      "report",
+      "Customer Experience",
+      "Report",
+      "Intermediate"
+    ],
+    "category": "Customer Experience",
+    "difficulty": "Intermediate",
+    "format": "Report"
+  },
+  {
+    "type": "template",
+    "title": "TL-009 - Onboarding Success Plan",
+    "url": "guides/80_templates-library.html#TL-009",
+    "unit": "Customer Experience",
+    "meta": "Template | Customer Experience | Plan",
+    "snippet": "Draft the shared success checklist for new customers in their first 90 days.",
+    "tags": [
+      "onboarding",
+      "success",
+      "plan",
+      "Customer Experience",
+      "Plan",
+      "Beginner"
+    ],
+    "category": "Customer Experience",
+    "difficulty": "Beginner",
+    "format": "Plan"
+  },
+  {
+    "type": "template",
+    "title": "TL-010 - Advocacy Story Builder",
+    "url": "guides/80_templates-library.html#TL-010",
+    "unit": "Customer Experience",
+    "meta": "Template | Customer Experience | Story",
+    "snippet": "Document customer proof stories with before/after metrics and quotes.",
+    "tags": [
+      "advocacy",
+      "story",
+      "marketing",
+      "Customer Experience",
+      "Story",
+      "Intermediate"
+    ],
+    "category": "Customer Experience",
+    "difficulty": "Intermediate",
+    "format": "Story"
+  },
+  {
+    "type": "template",
+    "title": "TL-011 - Renewal Playbook Sheet",
+    "url": "guides/80_templates-library.html#TL-011",
+    "unit": "Customer Experience",
+    "meta": "Template | Customer Experience | Playbook",
+    "snippet": "Guide success managers through renewal prep, risk scoring, and negotiation levers.",
+    "tags": [
+      "renewal",
+      "playbook",
+      "revenue",
+      "Customer Experience",
+      "Playbook",
+      "Advanced"
+    ],
+    "category": "Customer Experience",
+    "difficulty": "Advanced",
+    "format": "Playbook"
+  },
+  {
+    "type": "template",
+    "title": "TL-012 - Daily Ops Standup Board",
+    "url": "guides/80_templates-library.html#TL-012",
+    "unit": "Operations",
+    "meta": "Template | Operations | Kanban",
+    "snippet": "Track handoffs, blockers, and metrics in a daily operations standup.",
+    "tags": [
+      "operations",
+      "standup",
+      "kanban",
+      "Operations",
+      "Kanban",
+      "Beginner"
+    ],
+    "category": "Operations",
+    "difficulty": "Beginner",
+    "format": "Kanban"
+  },
+  {
+    "type": "template",
+    "title": "TL-013 - Vendor Onboarding Checklist",
+    "url": "guides/80_templates-library.html#TL-013",
+    "unit": "Operations",
+    "meta": "Template | Operations | Checklist",
+    "snippet": "Ensure new vendors complete security, legal, and finance onboarding tasks.",
+    "tags": [
+      "vendor",
+      "onboarding",
+      "compliance",
+      "Operations",
+      "Checklist",
+      "Beginner"
+    ],
+    "category": "Operations",
+    "difficulty": "Beginner",
+    "format": "Checklist"
+  },
+  {
+    "type": "template",
+    "title": "TL-014 - Incident Postmortem Template",
+    "url": "guides/80_templates-library.html#TL-014",
+    "unit": "Operations",
+    "meta": "Template | Operations | Report",
+    "snippet": "Capture root cause, impact, remediation, and learning actions from incidents.",
+    "tags": [
+      "incident",
+      "postmortem",
+      "sre",
+      "Operations",
+      "Report",
+      "Intermediate"
+    ],
+    "category": "Operations",
+    "difficulty": "Intermediate",
+    "format": "Report"
+  },
+  {
+    "type": "template",
+    "title": "TL-015 - Capacity Planning Workbook",
+    "url": "guides/80_templates-library.html#TL-015",
+    "unit": "Operations",
+    "meta": "Template | Operations | Spreadsheet Outline",
+    "snippet": "Model headcount and throughput capacity by role over upcoming quarters.",
+    "tags": [
+      "capacity",
+      "planning",
+      "workforce",
+      "Operations",
+      "Spreadsheet Outline",
+      "Advanced"
+    ],
+    "category": "Operations",
+    "difficulty": "Advanced",
+    "format": "Spreadsheet Outline"
+  },
+  {
+    "type": "template",
+    "title": "TL-016 - Policy Rollout Comms Plan",
+    "url": "guides/80_templates-library.html#TL-016",
+    "unit": "Operations",
+    "meta": "Template | Operations | Plan",
+    "snippet": "Coordinate messaging, training, and confirmation steps for new policies.",
+    "tags": [
+      "policy",
+      "comms",
+      "compliance",
+      "Operations",
+      "Plan",
+      "Intermediate"
+    ],
+    "category": "Operations",
+    "difficulty": "Intermediate",
+    "format": "Plan"
+  },
+  {
+    "type": "template",
+    "title": "TL-017 - Sales Discovery Call Script",
+    "url": "guides/80_templates-library.html#TL-017",
+    "unit": "Enablement",
+    "meta": "Template | Enablement | Script",
+    "snippet": "Guide reps through discovery questions, signals, and next-step commitments.",
+    "tags": [
+      "sales",
+      "discovery",
+      "script",
+      "Enablement",
+      "Script",
+      "Beginner"
+    ],
+    "category": "Enablement",
+    "difficulty": "Beginner",
+    "format": "Script"
+  },
+  {
+    "type": "template",
+    "title": "TL-018 - Product Launch Enablement Brief",
+    "url": "guides/80_templates-library.html#TL-018",
+    "unit": "Enablement",
+    "meta": "Template | Enablement | Brief",
+    "snippet": "Equip go-to-market teams with positioning, talk tracks, objection handling, and proof.",
+    "tags": [
+      "enablement",
+      "launch",
+      "brief",
+      "Enablement",
+      "Brief",
+      "Intermediate"
+    ],
+    "category": "Enablement",
+    "difficulty": "Intermediate",
+    "format": "Brief"
+  },
+  {
+    "type": "template",
+    "title": "TL-019 - Internal Workshop Plan",
+    "url": "guides/80_templates-library.html#TL-019",
+    "unit": "Enablement",
+    "meta": "Template | Enablement | Agenda",
+    "snippet": "Plan an internal training workshop with learning objectives and exercises.",
+    "tags": [
+      "training",
+      "workshop",
+      "enablement",
+      "Enablement",
+      "Agenda",
+      "Beginner"
+    ],
+    "category": "Enablement",
+    "difficulty": "Beginner",
+    "format": "Agenda"
+  },
+  {
+    "type": "template",
+    "title": "TL-020 - Field Readiness Checklist",
+    "url": "guides/80_templates-library.html#TL-020",
+    "unit": "Enablement",
+    "meta": "Template | Enablement | Checklist",
+    "snippet": "Verify all prerequisites before rolling out a new workflow to field teams.",
+    "tags": [
+      "field",
+      "rollout",
+      "checklist",
+      "Enablement",
+      "Checklist",
+      "Intermediate"
+    ],
+    "category": "Enablement",
+    "difficulty": "Intermediate",
+    "format": "Checklist"
+  },
+  {
+    "type": "template",
+    "title": "TL-021 - Content Governance Playbook",
+    "url": "guides/80_templates-library.html#TL-021",
+    "unit": "Enablement",
+    "meta": "Template | Enablement | Playbook",
+    "snippet": "Outline how internal content is requested, reviewed, approved, and archived.",
+    "tags": [
+      "content",
+      "governance",
+      "workflow",
+      "Enablement",
+      "Playbook",
+      "Advanced"
+    ],
+    "category": "Enablement",
+    "difficulty": "Advanced",
+    "format": "Playbook"
+  },
+  {
+    "type": "template",
+    "title": "TL-022 - Incident Response Runbook",
+    "url": "guides/80_templates-library.html#TL-022",
+    "unit": "Quality & Risk",
+    "meta": "Template | Quality & Risk | Runbook",
+    "snippet": "Coordinate cross-functional response when AI-assisted workflows generate incidents.",
+    "tags": [
+      "risk",
+      "incident",
+      "runbook",
+      "Quality & Risk",
+      "Runbook",
+      "Advanced"
+    ],
+    "category": "Quality & Risk",
+    "difficulty": "Advanced",
+    "format": "Runbook"
+  },
+  {
+    "type": "template",
+    "title": "TL-023 - Prompt QA Review Checklist",
+    "url": "guides/80_templates-library.html#TL-023",
+    "unit": "Quality & Risk",
+    "meta": "Template | Quality & Risk | Checklist",
+    "snippet": "Vet new prompts for accuracy, bias, privacy, and maintenance requirements.",
+    "tags": [
+      "qa",
+      "checklist",
+      "prompt",
+      "Quality & Risk",
+      "Checklist",
+      "Beginner"
+    ],
+    "category": "Quality & Risk",
+    "difficulty": "Beginner",
+    "format": "Checklist"
+  },
+  {
+    "type": "template",
+    "title": "TL-024 - Model Change Impact Assessment",
+    "url": "guides/80_templates-library.html#TL-024",
+    "unit": "Quality & Risk",
+    "meta": "Template | Quality & Risk | Assessment",
+    "snippet": "Assess downstream impacts of model or configuration changes before rollout.",
+    "tags": [
+      "model",
+      "risk",
+      "assessment",
+      "Quality & Risk",
+      "Assessment",
+      "Intermediate"
+    ],
+    "category": "Quality & Risk",
+    "difficulty": "Intermediate",
+    "format": "Assessment"
+  },
+  {
+    "type": "template",
+    "title": "TL-025 - Safety Review Board Agenda",
+    "url": "guides/80_templates-library.html#TL-025",
+    "unit": "Quality & Risk",
+    "meta": "Template | Quality & Risk | Agenda",
+    "snippet": "Facilitate monthly AI safety review boards with metrics, incidents, and approvals.",
+    "tags": [
+      "safety",
+      "governance",
+      "agenda",
+      "Quality & Risk",
+      "Agenda",
+      "Intermediate"
+    ],
+    "category": "Quality & Risk",
+    "difficulty": "Intermediate",
+    "format": "Agenda"
+  },
+  {
+    "type": "template",
+    "title": "TL-026 - Bias Monitoring Dashboard Brief",
+    "url": "guides/80_templates-library.html#TL-026",
+    "unit": "Quality & Risk",
+    "meta": "Template | Quality & Risk | Brief",
+    "snippet": "Outline metrics, review cadence, and escalation paths for bias monitoring.",
+    "tags": [
+      "bias",
+      "monitoring",
+      "brief",
+      "Quality & Risk",
+      "Brief",
+      "Advanced"
+    ],
+    "category": "Quality & Risk",
+    "difficulty": "Advanced",
+    "format": "Brief"
+  },
+  {
+    "type": "template",
+    "title": "TL-027 - Integration Rollout Plan",
+    "url": "guides/80_templates-library.html#TL-027",
+    "unit": "Integrations",
+    "meta": "Template | Integrations | Plan",
+    "snippet": "Coordinate phased release of a new integration with training, monitoring, and rollback triggers.",
+    "tags": [
+      "rollout",
+      "integration",
+      "plan",
+      "Integrations",
+      "Plan",
+      "Intermediate"
+    ],
+    "category": "Integrations",
+    "difficulty": "Intermediate",
+    "format": "Plan"
+  },
+  {
+    "type": "template",
+    "title": "TL-028 - Webhook Failure Runbook",
+    "url": "guides/80_templates-library.html#TL-028",
+    "unit": "Integrations",
+    "meta": "Template | Integrations | Runbook",
+    "snippet": "Restore failing webhooks with clear triage, retry, and customer communication steps.",
+    "tags": [
+      "integration",
+      "incident",
+      "webhook",
+      "Integrations",
+      "Runbook",
+      "Advanced"
+    ],
+    "category": "Integrations",
+    "difficulty": "Advanced",
+    "format": "Runbook"
+  },
+  {
+    "type": "template",
+    "title": "TL-029 - Tool Permission Audit Checklist",
+    "url": "guides/80_templates-library.html#TL-029",
+    "unit": "Integrations",
+    "meta": "Template | Integrations | Checklist",
+    "snippet": "Audit connected tools for least-privilege access and stale credentials.",
+    "tags": [
+      "security",
+      "audit",
+      "permissions",
+      "Integrations",
+      "Checklist",
+      "Beginner"
+    ],
+    "category": "Integrations",
+    "difficulty": "Beginner",
+    "format": "Checklist"
+  },
+  {
+    "type": "template",
+    "title": "TL-030 - Automation Handoff Brief",
+    "url": "guides/80_templates-library.html#TL-030",
+    "unit": "Integrations",
+    "meta": "Template | Integrations | Brief",
+    "snippet": "Document how an automation hands off work between ChatGPT and a downstream system.",
+    "tags": [
+      "automation",
+      "handoff",
+      "brief",
+      "Integrations",
+      "Brief",
+      "Intermediate"
+    ],
+    "category": "Integrations",
+    "difficulty": "Intermediate",
+    "format": "Brief"
   }
 ]
