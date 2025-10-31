@@ -1,0 +1,1106 @@
+[
+  {
+    "id": "TL-001",
+    "category": "Strategy & Planning",
+    "title": "Quarterly Business Review Packet",
+    "summary": "Package KPIs, narrative, risks, and next-quarter focus for the leadership review.",
+    "difficulty": "Intermediate",
+    "format": "Brief",
+    "use_case": "Equip executives with a concise, data-backed narrative before the QBR meeting.",
+    "owner": "strategy-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Lock all metrics to finance-approved sources.",
+      "Highlight red/yellow risks with accountable owners and follow-up dates."
+    ],
+    "deliverables": [
+      "Narrative deck",
+      "Executive summary"
+    ],
+    "fields": [
+      {
+        "label": "Headline metrics",
+        "placeholder": "NRR %, ARR growth, churn, customer adds"
+      },
+      {
+        "label": "Key wins",
+        "placeholder": "Launches, customer stories, adoption"
+      },
+      {
+        "label": "Top risks",
+        "placeholder": "Delivery delays, talent gaps, compliance"
+      }
+    ],
+    "full_template": "# Quarterly Business Review\n## Scorecard\n- Metric | Target | Actual | Delta\n- Commentary: {{headline commentary}}\n\n## Highlights\n- Win 1: {{details}}\n- Win 2: {{details}}\n\n## Challenges\n- Risk | Owner | Mitigation | Due date\n\n## Looking Ahead\n- Priority 1\n- Priority 2\n- Priority 3\n",
+    "tags": [
+      "qbr",
+      "leadership",
+      "metrics"
+    ]
+  },
+  {
+    "id": "TL-002",
+    "category": "Strategy & Planning",
+    "title": "Annual Planning Workshop Agenda",
+    "summary": "Facilitate a cross-functional planning session with goals, breakout prompts, and follow-ups.",
+    "difficulty": "Beginner",
+    "format": "Agenda",
+    "use_case": "Align teams on priorities and dependencies before committing to annual plans.",
+    "owner": "portfolio@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 120,
+    "guardrails": [
+      "Include an explicit parking lot for out-of-scope topics.",
+      "Assign a notetaker for each breakout block."
+    ],
+    "deliverables": [
+      "Workshop agenda",
+      "Breakout worksheets"
+    ],
+    "fields": [
+      {
+        "label": "Session objective",
+        "placeholder": "Agree on top 3 annual outcomes"
+      },
+      {
+        "label": "Participants",
+        "placeholder": "Leads from product, marketing, ops"
+      }
+    ],
+    "full_template": "## Workshop Agenda ({{date}})\n| Time | Segment | Owner | Output |\n|------|---------|-------|--------|\n| 09:00 | Opening context | {{facilitator}} | Shared goals |\n| 09:20 | FY recap lightning talks | {{speakers}} | Wins + misses notes |\n| 10:00 | Breakout 1: Opportunities | {{team leads}} | Opportunity canvas |\n| 11:00 | Synthesis & vote | Facilitator | Prioritized list |\n| 11:30 | Breakout 2: Risks & enablers | {{team leads}} | Risk board |\n| 12:15 | Commitments & next steps | Exec sponsor | Owners + deadlines |\n\n### Breakout prompt\n1. List the biggest bets.\n2. Identify dependencies/blockers.\n3. Nominate an accountable owner.\n",
+    "tags": [
+      "workshop",
+      "planning",
+      "agenda"
+    ]
+  },
+  {
+    "id": "TL-003",
+    "category": "Strategy & Planning",
+    "title": "Scenario Planning Matrix",
+    "summary": "Compare financial and operational outcomes across best/likely/worst case scenarios.",
+    "difficulty": "Advanced",
+    "format": "Spreadsheet Outline",
+    "use_case": "Stress-test the business against market, supply, or demand swings.",
+    "owner": "fpna@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Use consistent assumptions across scenarios for apples-to-apples comparison.",
+      "Document triggering signals that move the company between scenarios."
+    ],
+    "deliverables": [
+      "Scenario matrix",
+      "Assumptions log"
+    ],
+    "fields": [
+      {
+        "label": "Metric columns",
+        "placeholder": "Revenue, gross margin, CAC, headcount"
+      },
+      {
+        "label": "Scenario definitions",
+        "placeholder": "Best, Base, Downside"
+      }
+    ],
+    "full_template": "Scenario | Revenue | Gross Margin | Opex | Headcount | Key Assumptions | Triggers\nBest Case | {{value}} | {{value}} | {{value}} | {{value}} | {{assumptions}} | {{triggers}}\nBase Case | ...\nDownside | ...\n\nNotes:\n- Assumption source: {{source}}\n- Monitoring cadence: {{cadence}}\n",
+    "tags": [
+      "financial",
+      "scenario",
+      "matrix"
+    ]
+  },
+  {
+    "id": "TL-004",
+    "category": "Strategy & Planning",
+    "title": "North Star Narrative",
+    "summary": "Codify the long-term mission, customer promise, and guiding principles.",
+    "difficulty": "Beginner",
+    "format": "Document",
+    "use_case": "Provide teams with a durable narrative that anchors roadmaps and messaging.",
+    "owner": "brand@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 180,
+    "guardrails": [
+      "Avoid buzzwords; keep language concrete and customer-focused.",
+      "List proof points that can be validated."
+    ],
+    "deliverables": [
+      "Narrative",
+      "Principles poster"
+    ],
+    "fields": [
+      {
+        "label": "Mission statement",
+        "placeholder": "Empower..."
+      },
+      {
+        "label": "Customer promise",
+        "placeholder": "We help X do Y"
+      }
+    ],
+    "full_template": "# North Star Narrative\n## Mission\n{{mission}}\n\n## Who We Serve\n- Primary persona: {{persona}}\n- Pain we remove: {{pain}}\n\n## Promise\n\"We enable {{persona}} to {{outcome}} without {{pain}}.\"\n\n## Principles\n1. Principle | Behaviours | Evidence\n\n## Proof\n- Metric / milestone / story\n",
+    "tags": [
+      "mission",
+      "brand",
+      "strategy"
+    ]
+  },
+  {
+    "id": "TL-005",
+    "category": "Strategy & Planning",
+    "title": "Initiative Intake Form",
+    "summary": "Standardize how teams propose new initiatives, including funding, risk, and ROI.",
+    "difficulty": "Beginner",
+    "format": "Form",
+    "use_case": "Capture consistent data before the governance board reviews proposals.",
+    "owner": "portfolio-intake@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Require sponsor approval before submission.",
+      "Reject submissions missing ROI or risk statements."
+    ],
+    "deliverables": [
+      "Form",
+      "Scoring rubric"
+    ],
+    "fields": [
+      {
+        "label": "Initiative summary",
+        "placeholder": "One-sentence what & why"
+      },
+      {
+        "label": "Success metrics",
+        "placeholder": "Attach baseline + target"
+      },
+      {
+        "label": "Risks",
+        "placeholder": "Data, legal, delivery"
+      }
+    ],
+    "full_template": "## Initiative Intake\n1. Title & Sponsor\n2. Problem & Desired Outcome\n3. ROI Snapshot\n   - Investment: {{amount}}\n   - Payback: {{time horizon}}\n4. Risks & Dependencies\n5. Required Teams & FTE estimate\n6. Launch timeline\n7. Attachments\n",
+    "tags": [
+      "intake",
+      "governance",
+      "form"
+    ]
+  },
+  {
+    "id": "TL-006",
+    "category": "Strategy & Planning",
+    "title": "Operating Model Charter",
+    "summary": "Define scope, decision rights, and KPIs for a new operating model or team.",
+    "difficulty": "Advanced",
+    "format": "Charter",
+    "use_case": "Document how a new program will run, measure success, and interact with partners.",
+    "owner": "operations@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Document escalation paths for stalled decisions.",
+      "List interfaces with other teams to avoid overlap."
+    ],
+    "deliverables": [
+      "Charter",
+      "RACI"
+    ],
+    "fields": [
+      {
+        "label": "Scope",
+        "placeholder": "What\u2019s in/out"
+      },
+      {
+        "label": "KPIs",
+        "placeholder": "Throughput, quality, cost"
+      },
+      {
+        "label": "Cadence",
+        "placeholder": "Weekly sync, monthly review"
+      }
+    ],
+    "full_template": "# Operating Model Charter\n## Purpose\n{{purpose}}\n\n## Success Measures\n- KPI | Target | Data source\n\n## Decision Rights\n- Decision | Owner | Escalation path\n\n## Operating Cadence\n| Meeting | Participants | Agenda | Output |\n\n## Interfaces\n- Partner team | Engagement mode | Notes\n\n## Tooling & Source of Truth\n{{tools}}\n",
+    "tags": [
+      "charter",
+      "operations",
+      "raci"
+    ]
+  },
+  {
+    "id": "TL-007",
+    "category": "Customer Experience",
+    "title": "Customer Journey Workshop Kit",
+    "summary": "Map end-to-end customer journeys, pain points, and opportunity areas.",
+    "difficulty": "Beginner",
+    "format": "Workshop",
+    "use_case": "Align cross-functional teams on current vs. target customer experiences.",
+    "owner": "cx@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Invite customer-facing reps for first-hand insights.",
+      "Document evidence sources (call logs, surveys) for each insight."
+    ],
+    "deliverables": [
+      "Journey map",
+      "Opportunity backlog"
+    ],
+    "fields": [
+      {
+        "label": "Personas",
+        "placeholder": "Admin buyer, end user"
+      },
+      {
+        "label": "Lifecycle stages",
+        "placeholder": "Discover, Evaluate, Onboard, Renew"
+      }
+    ],
+    "full_template": "## Workshop Flow\n1. Set the goal & persona.\n2. Map current journey stages.\n3. Capture moments of truth (delight + friction).\n4. Score impact & effort.\n5. Prioritize top three fixes.\n\n### Journey Table\nStage | Task | Emotion | Evidence | Idea | Owner\n",
+    "tags": [
+      "journey",
+      "cx",
+      "workshop"
+    ]
+  },
+  {
+    "id": "TL-008",
+    "category": "Customer Experience",
+    "title": "Voice of Customer Digest",
+    "summary": "Condense VOC signals into themes, impact, and recommended actions.",
+    "difficulty": "Intermediate",
+    "format": "Report",
+    "use_case": "Keep stakeholders updated on customer sentiment and trending issues.",
+    "owner": "research-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Tag quotes with data classifications to avoid sharing restricted info.",
+      "Flag unverified anecdotes separately from trend data."
+    ],
+    "deliverables": [
+      "Digest",
+      "Action tracker"
+    ],
+    "fields": [
+      {
+        "label": "Timespan",
+        "placeholder": "Week of Oct 28"
+      },
+      {
+        "label": "Signal sources",
+        "placeholder": "Tickets, surveys, community"
+      }
+    ],
+    "full_template": "# VOC Digest ({{timespan}})\n## Sentiment Snapshot\n- CSAT: {{value}} (\u0394 {{delta}})\n- NPS: {{value}}\n\n## Emerging Themes\n1. Theme | Evidence | Impact | Suggested Action\n\n## Wins Worth Amplifying\n- Quote | Channel | Team to celebrate\n\n## Next Steps\n- Owner | Action | Due date\n",
+    "tags": [
+      "voc",
+      "customer",
+      "report"
+    ]
+  },
+  {
+    "id": "TL-009",
+    "category": "Customer Experience",
+    "title": "Onboarding Success Plan",
+    "summary": "Draft the shared success checklist for new customers in their first 90 days.",
+    "difficulty": "Beginner",
+    "format": "Plan",
+    "use_case": "Align success managers and customers on milestones, resources, and risk signals.",
+    "owner": "cs@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Include measurable activation checkpoints.",
+      "Escalate if success criteria are unclear after kickoff."
+    ],
+    "deliverables": [
+      "Success plan",
+      "Health dashboard"
+    ],
+    "fields": [
+      {
+        "label": "Customer goals",
+        "placeholder": "Reduce manual reporting by 50%"
+      },
+      {
+        "label": "Key milestones",
+        "placeholder": "Integration live, first success metric"
+      }
+    ],
+    "full_template": "## Success Outcomes\n- Primary goal: {{goal}}\n- Leading indicators: {{metrics}}\n\n## 30/60/90 Plan\nDay 0-30 | Owner | Milestone | Status\nDay 31-60 | ...\nDay 61-90 | ...\n\n## Risk Signals\n- Risk | Trigger | Mitigation | Escalation\n",
+    "tags": [
+      "onboarding",
+      "success",
+      "plan"
+    ]
+  },
+  {
+    "id": "TL-010",
+    "category": "Customer Experience",
+    "title": "Advocacy Story Builder",
+    "summary": "Document customer proof stories with before/after metrics and quotes.",
+    "difficulty": "Intermediate",
+    "format": "Story",
+    "use_case": "Enable marketing and sales to reuse validated customer success stories.",
+    "owner": "customer-marketing@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Secure written approval before publishing quotes.",
+      "Annotate embargo dates or confidentiality tiers."
+    ],
+    "deliverables": [
+      "Story doc",
+      "Quote bank"
+    ],
+    "fields": [
+      {
+        "label": "Customer name",
+        "placeholder": "Acme Inc."
+      },
+      {
+        "label": "Baseline metric",
+        "placeholder": "Ticket resolution time"
+      },
+      {
+        "label": "Outcome",
+        "placeholder": "-35% reduction"
+      }
+    ],
+    "full_template": "# Advocacy Story\n## Headline\n{{customer}} improved {{metric}} by {{result}} in {{timeframe}}.\n\n## Challenge\n{{context}}\n\n## Solution\n- Deployment overview\n- Key features used\n\n## Outcomes\n- Metric | Before | After | Source\n\n## Quotes\n> \"{{quote}}\" \u2014 {{speaker}}\n\n## Assets\n- Slide | Owner | Link\n",
+    "tags": [
+      "advocacy",
+      "story",
+      "marketing"
+    ]
+  },
+  {
+    "id": "TL-011",
+    "category": "Customer Experience",
+    "title": "Renewal Playbook Sheet",
+    "summary": "Guide success managers through renewal prep, risk scoring, and negotiation levers.",
+    "difficulty": "Advanced",
+    "format": "Playbook",
+    "use_case": "Systematize renewal motions before, during, and after the negotiation window.",
+    "owner": "revenue-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Reference legal-approved discount guardrails.",
+      "Escalate red accounts to exec sponsor 45 days pre-renewal."
+    ],
+    "deliverables": [
+      "Renewal playbook",
+      "Risk tracker"
+    ],
+    "fields": [
+      {
+        "label": "Account health score",
+        "placeholder": "Green/Yellow/Red"
+      },
+      {
+        "label": "Expansion signals",
+        "placeholder": "New product interest"
+      }
+    ],
+    "full_template": "## Renewal Timeline\n- T-90: {{action}}\n- T-60: {{action}}\n- T-30: {{action}}\n\n## Risk Assessment\n- Metric | Threshold | Status | Owner\n\n## Negotiation Plan\n- Anchor price | Floor | Value proof | Counter concessions\n\n## Post-Renewal Actions\n- Checklist of extended onboarding / expansion plays\n",
+    "tags": [
+      "renewal",
+      "playbook",
+      "revenue"
+    ]
+  },
+  {
+    "id": "TL-012",
+    "category": "Operations",
+    "title": "Daily Ops Standup Board",
+    "summary": "Track handoffs, blockers, and metrics in a daily operations standup.",
+    "difficulty": "Beginner",
+    "format": "Kanban",
+    "use_case": "Keep operational teams aligned on priorities and incidents.",
+    "owner": "ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 14,
+    "guardrails": [
+      "Escalate blockers unresolved for 48 hours.",
+      "Archive cards older than seven days to keep the board lean."
+    ],
+    "deliverables": [
+      "Standup board",
+      "Blocker log"
+    ],
+    "fields": [
+      {
+        "label": "Team lanes",
+        "placeholder": "Fulfillment, Support, Finance"
+      },
+      {
+        "label": "Metrics panel",
+        "placeholder": "Backlog size, SLA, CSAT"
+      }
+    ],
+    "full_template": "## Standup Columns\n- Today\n- Blocked\n- Ready for Review\n- Done\n\n### Card Template\n- Task\n- Owner\n- Status\n- Dependencies\n- Next check-in date\n\n### Metrics Header\n- SLA Misses (last 24h)\n- Tickets in backlog\n- Major incidents\n",
+    "tags": [
+      "operations",
+      "standup",
+      "kanban"
+    ]
+  },
+  {
+    "id": "TL-013",
+    "category": "Operations",
+    "title": "Vendor Onboarding Checklist",
+    "summary": "Ensure new vendors complete security, legal, and finance onboarding tasks.",
+    "difficulty": "Beginner",
+    "format": "Checklist",
+    "use_case": "Prevent go-live delays by standardizing vendor onboarding steps.",
+    "owner": "procurement@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Block production access until security review is complete.",
+      "Collect SOC2 / ISO evidence before data exchange."
+    ],
+    "deliverables": [
+      "Checklist",
+      "Owner chart"
+    ],
+    "fields": [
+      {
+        "label": "Vendor type",
+        "placeholder": "Software, services"
+      },
+      {
+        "label": "Data classification",
+        "placeholder": "Public, internal, restricted"
+      }
+    ],
+    "full_template": "## Vendor Onboarding Tasks\n- NDA executed (Legal)\n- Security questionnaire received (Security)\n- Access request submitted (IT)\n- Billing setup (Finance)\n- Kickoff scheduled (Business owner)\n\nStatus Legend: Not started / In progress / Complete\n",
+    "tags": [
+      "vendor",
+      "onboarding",
+      "compliance"
+    ]
+  },
+  {
+    "id": "TL-014",
+    "category": "Operations",
+    "title": "Incident Postmortem Template",
+    "summary": "Capture root cause, impact, remediation, and learning actions from incidents.",
+    "difficulty": "Intermediate",
+    "format": "Report",
+    "use_case": "Create consistent, blameless postmortems with actionable follow-ups.",
+    "owner": "sre@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Use a blameless tone; focus on systems not individuals.",
+      "Document timelines with verified data only."
+    ],
+    "deliverables": [
+      "Postmortem",
+      "Action tracker"
+    ],
+    "fields": [
+      {
+        "label": "Incident ID",
+        "placeholder": "INC-2025-1031"
+      },
+      {
+        "label": "Start/End time",
+        "placeholder": "UTC"
+      },
+      {
+        "label": "Affected services",
+        "placeholder": "API, billing"
+      }
+    ],
+    "full_template": "# Incident Postmortem\n## Summary\n- Severity: {{sev}}\n- Impact: {{impact}}\n\n## Timeline\n| Time | Event | Source |\n\n## Root Cause\n{{analysis}}\n\n## Remediation\n- Immediate fix\n- Long-term fix\n\n## Action Items\n- Owner | Action | Due date | Status\n\n## Lessons Learned\n- Monitoring\n- Process\n- Documentation\n",
+    "tags": [
+      "incident",
+      "postmortem",
+      "sre"
+    ]
+  },
+  {
+    "id": "TL-015",
+    "category": "Operations",
+    "title": "Capacity Planning Workbook",
+    "summary": "Model headcount and throughput capacity by role over upcoming quarters.",
+    "difficulty": "Advanced",
+    "format": "Spreadsheet Outline",
+    "use_case": "Forecast when teams hit capacity limits and require hiring or automation.",
+    "owner": "workforce@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Use attrition assumptions approved by HR.",
+      "Flag any utilization above 90% for more than one quarter."
+    ],
+    "deliverables": [
+      "Workbook",
+      "Summary deck"
+    ],
+    "fields": [
+      {
+        "label": "Roles",
+        "placeholder": "Engineers, Designers, Support"
+      },
+      {
+        "label": "Demand drivers",
+        "placeholder": "Roadmap, tickets, SLAs"
+      }
+    ],
+    "full_template": "Role | Current FTE | Demand (hrs) | Capacity (hrs) | Utilization | Gap | Comments\nEngineer | {{value}} | {{value}} | {{value}} | {{value}} | {{value}} | {{notes}}\n\nQuarterly Summary: {{insights}}\n",
+    "tags": [
+      "capacity",
+      "planning",
+      "workforce"
+    ]
+  },
+  {
+    "id": "TL-016",
+    "category": "Operations",
+    "title": "Policy Rollout Comms Plan",
+    "summary": "Coordinate messaging, training, and confirmation steps for new policies.",
+    "difficulty": "Intermediate",
+    "format": "Plan",
+    "use_case": "Ensure the org adopts new policies with clarity and documented acknowledgment.",
+    "owner": "compliance@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Track acknowledgments with audit-ready evidence.",
+      "Escalate to managers if teams have <80% completion ahead of deadline."
+    ],
+    "deliverables": [
+      "Comms plan",
+      "Training tracker"
+    ],
+    "fields": [
+      {
+        "label": "Policy name",
+        "placeholder": "AI usage policy"
+      },
+      {
+        "label": "Deadline",
+        "placeholder": "2025-12-15"
+      },
+      {
+        "label": "Audience",
+        "placeholder": "All employees, contractors"
+      }
+    ],
+    "full_template": "## Channels & Cadence\n- Announcement email ({{date}})\n- Manager briefing ({{date}})\n- LMS module ({{date}})\n- Reminder cadence\n\n## Key Messages\n- What changed\n- Why now\n- How to comply\n\n## Tracking\n- Audience | Completion % | Owner\n",
+    "tags": [
+      "policy",
+      "comms",
+      "compliance"
+    ]
+  },
+  {
+    "id": "TL-017",
+    "category": "Enablement",
+    "title": "Sales Discovery Call Script",
+    "summary": "Guide reps through discovery questions, signals, and next-step commitments.",
+    "difficulty": "Beginner",
+    "format": "Script",
+    "use_case": "Ensure consistent discovery conversations that uncover value and urgency.",
+    "owner": "sales-enablement@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Include fallback prompts if the prospect is new to the category.",
+      "Capture verbatim pain statements for CRM."
+    ],
+    "deliverables": [
+      "Call script",
+      "Qualification checklist"
+    ],
+    "fields": [
+      {
+        "label": "ICP persona",
+        "placeholder": "Operations leader"
+      },
+      {
+        "label": "Product focus",
+        "placeholder": "Workflow automation suite"
+      }
+    ],
+    "full_template": "## Opening\n- Rapport question\n- Agenda preview\n\n## Discovery\n1. Current process question\n2. Impact question\n3. Success metric\n4. Stakeholder alignment\n\n## Qualify\n- Timeline\n- Budget\n- Authority\n\n## Next Steps\n- Recap value\n- Confirm action + owner + date\n",
+    "tags": [
+      "sales",
+      "discovery",
+      "script"
+    ]
+  },
+  {
+    "id": "TL-018",
+    "category": "Enablement",
+    "title": "Product Launch Enablement Brief",
+    "summary": "Equip go-to-market teams with positioning, talk tracks, objection handling, and proof.",
+    "difficulty": "Intermediate",
+    "format": "Brief",
+    "use_case": "Ensure sales/support teams adopt new product messaging quickly.",
+    "owner": "product-marketing@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Tag messages that require compliance approval.",
+      "Link to demo scripts and FAQ resources."
+    ],
+    "deliverables": [
+      "Enablement brief",
+      "Objection handler"
+    ],
+    "fields": [
+      {
+        "label": "Product feature",
+        "placeholder": "AI triage"
+      },
+      {
+        "label": "Target persona",
+        "placeholder": "Service leader"
+      }
+    ],
+    "full_template": "# Launch Enablement Brief\n## Positioning\n- For {{persona}} who {{need}}, {{product}} is the solution that {{value}} because {{proof}}.\n\n## Top 3 Messages\n1. Message | Evidence | CTA\n\n## Demo Highlights\n- Step | Key takeaway\n\n## Objection Handling\n- Objection | Response | Proof\n\n## Resources\n- Asset | Link | Owner\n",
+    "tags": [
+      "enablement",
+      "launch",
+      "brief"
+    ]
+  },
+  {
+    "id": "TL-019",
+    "category": "Enablement",
+    "title": "Internal Workshop Plan",
+    "summary": "Plan an internal training workshop with learning objectives and exercises.",
+    "difficulty": "Beginner",
+    "format": "Agenda",
+    "use_case": "Upskill internal teams on new processes, tools, or playbooks.",
+    "owner": "learning@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Include practice scenarios and peer feedback loops.",
+      "Collect pre/post confidence scores for impact tracking."
+    ],
+    "deliverables": [
+      "Agenda",
+      "Exercise guide"
+    ],
+    "fields": [
+      {
+        "label": "Audience",
+        "placeholder": "Support managers"
+      },
+      {
+        "label": "Learning outcomes",
+        "placeholder": "Handle escalations, coach reps"
+      }
+    ],
+    "full_template": "## Workshop Outline ({{duration}})\n| Time | Module | Format | Materials |\n|------|--------|--------|-----------|\n| 00:00 | Welcome & objectives | Presentation | Slides |\n| 00:15 | Concept overview | Demo | Deck |\n| 00:35 | Scenario practice | Breakouts | Worksheets |\n| 01:10 | Peer feedback | Share-out | Debrief doc |\n| 01:30 | Action commitments | Individual | Planner |\n\n## Follow-Up\n- Survey link\n- Coaching plan\n",
+    "tags": [
+      "training",
+      "workshop",
+      "enablement"
+    ]
+  },
+  {
+    "id": "TL-020",
+    "category": "Enablement",
+    "title": "Field Readiness Checklist",
+    "summary": "Verify all prerequisites before rolling out a new workflow to field teams.",
+    "difficulty": "Intermediate",
+    "format": "Checklist",
+    "use_case": "Avoid failed rollouts by ensuring training, tools, and support are ready.",
+    "owner": "field-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Run a pilot and capture feedback before global launch.",
+      "Document which teams have accepted the change."
+    ],
+    "deliverables": [
+      "Checklist",
+      "Launch tracker"
+    ],
+    "fields": [
+      {
+        "label": "Workflow name",
+        "placeholder": "New inspection app"
+      },
+      {
+        "label": "Pilot group",
+        "placeholder": "Region North"
+      }
+    ],
+    "full_template": "## Readiness Criteria\n- Documentation published\n- Training delivered\n- Tool access provisioned\n- Support runbook updated\n- Metrics dashboard live\n\n## Launch Tracker\nRegion | Training complete | Tools enabled | Go-live date | Notes\n",
+    "tags": [
+      "field",
+      "rollout",
+      "checklist"
+    ]
+  },
+  {
+    "id": "TL-021",
+    "category": "Enablement",
+    "title": "Content Governance Playbook",
+    "summary": "Outline how internal content is requested, reviewed, approved, and archived.",
+    "difficulty": "Advanced",
+    "format": "Playbook",
+    "use_case": "Prevent outdated or off-brand content from circulating.",
+    "owner": "content-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Define SLAs for each review stage.",
+      "Archive content automatically after review cadence expiration."
+    ],
+    "deliverables": [
+      "Playbook",
+      "Workflow diagram"
+    ],
+    "fields": [
+      {
+        "label": "Content types",
+        "placeholder": "Decks, one-pagers, scripts"
+      },
+      {
+        "label": "Systems",
+        "placeholder": "CMS, DAM"
+      }
+    ],
+    "full_template": "# Content Governance\n## Intake\n- Request form fields\n- Routing rules\n\n## Review Workflow\nStage | Actor | SLA | Criteria\n\n## Approval Matrix\n- Content type | Approver | Backup\n\n## Lifecycle\n- Publish | Notify | Archive date\n- Versioning rules\n\n## Quality Checks\n- Style compliance\n- Legal/brand review\n",
+    "tags": [
+      "content",
+      "governance",
+      "workflow"
+    ]
+  },
+  {
+    "id": "TL-022",
+    "category": "Quality & Risk",
+    "title": "Incident Response Runbook",
+    "summary": "Coordinate cross-functional response when AI-assisted workflows generate incidents.",
+    "difficulty": "Advanced",
+    "format": "Runbook",
+    "use_case": "Ensure rapid triage, communication, and remediation for AI-related incidents.",
+    "owner": "risk-office@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Escalate critical severity incidents to the executive bridge within 15 minutes.",
+      "Log all remediation steps in the risk tracker for audit."
+    ],
+    "deliverables": [
+      "Incident log",
+      "Remediation checklist"
+    ],
+    "fields": [
+      {
+        "label": "Incident severity",
+        "placeholder": "High"
+      },
+      {
+        "label": "Impacted systems",
+        "placeholder": "Customer portal, billing"
+      }
+    ],
+    "full_template": "# Incident Response Runbook\n## Detection\n- Source alert | Time | Owner\n- Confirm signal validity\n\n## Containment\n- Immediate actions\n- Access restrictions\n- Stakeholder notification list\n\n## Eradication\n- Root cause steps\n- Validation checks\n\n## Recovery\n- Service restoration plan\n- Post-recovery monitoring\n\n## Postmortem\n- Timeline\n- Contributing factors\n- Corrective actions\n- Follow-up owners & due dates\n",
+    "tags": [
+      "risk",
+      "incident",
+      "runbook"
+    ]
+  },
+  {
+    "id": "TL-023",
+    "category": "Quality & Risk",
+    "title": "Prompt QA Review Checklist",
+    "summary": "Vet new prompts for accuracy, bias, privacy, and maintenance requirements.",
+    "difficulty": "Beginner",
+    "format": "Checklist",
+    "use_case": "Standardize quality reviews before deploying prompts to teams.",
+    "owner": "qa-lab@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Always verify outputs against a gold answer set before approval.",
+      "Reject prompts that lack owner or review cadence metadata."
+    ],
+    "deliverables": [
+      "QA checklist",
+      "Approval log"
+    ],
+    "fields": [
+      {
+        "label": "Prompt ID",
+        "placeholder": "PL-074"
+      },
+      {
+        "label": "Reviewer",
+        "placeholder": "Name"
+      }
+    ],
+    "full_template": "## Prompt QA Checklist\n- Coverage of expected inputs?\n- Handles edge cases?\n- Bias/ethics review complete?\n- Guardrails documented?\n- Owner + review cadence set?\n- Pilot test results attached?\n\n## Approval Log\nReviewer | Date | Decision | Notes\n",
+    "tags": [
+      "qa",
+      "checklist",
+      "prompt"
+    ]
+  },
+  {
+    "id": "TL-024",
+    "category": "Quality & Risk",
+    "title": "Model Change Impact Assessment",
+    "summary": "Assess downstream impacts of model or configuration changes before rollout.",
+    "difficulty": "Intermediate",
+    "format": "Assessment",
+    "use_case": "Prevent regressions when updating model versions, temperature, or policies.",
+    "owner": "ml-governance@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Run regression suite across high-risk prompts before approving changes.",
+      "Document rollback triggers and responsible teams."
+    ],
+    "deliverables": [
+      "Impact assessment",
+      "Rollback plan"
+    ],
+    "fields": [
+      {
+        "label": "Change description",
+        "placeholder": "Upgrade to GPT-5.2"
+      },
+      {
+        "label": "Affected workflows",
+        "placeholder": "Claims triage, chatbots"
+      }
+    ],
+    "full_template": "# Model Change Impact Assessment\n## Summary\n- Change owner\n- Requested go-live\n\n## Risk Review\n- Affected workflows\n- Regulatory considerations\n- Data privacy notes\n\n## Testing\n- Regression suite status\n- Quality metrics comparison\n\n## Rollback Plan\n- Trigger thresholds\n- Rollback owner\n- Communication steps\n\n## Decision\n- Approver | Date | Outcome | Conditions\n",
+    "tags": [
+      "model",
+      "risk",
+      "assessment"
+    ]
+  },
+  {
+    "id": "TL-025",
+    "category": "Quality & Risk",
+    "title": "Safety Review Board Agenda",
+    "summary": "Facilitate monthly AI safety review boards with metrics, incidents, and approvals.",
+    "difficulty": "Intermediate",
+    "format": "Agenda",
+    "use_case": "Ensure accountable oversight for AI deployments and incidents.",
+    "owner": "safety-board@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Capture board decisions with action owners and deadlines.",
+      "Escalate unresolved risks to the compliance committee."
+    ],
+    "deliverables": [
+      "Meeting agenda",
+      "Decision register"
+    ],
+    "fields": [
+      {
+        "label": "Meeting date",
+        "placeholder": "2025-11-15"
+      },
+      {
+        "label": "Key focus",
+        "placeholder": "New autonomous routing"
+      }
+    ],
+    "full_template": "## Safety Review Board Agenda\n1. Opening & quorum check\n2. Metrics review (quality, incidents, escalations)\n3. New deployment requests\n4. Incident follow-ups\n5. Policy updates\n6. Decisions & approvals\n7. Parking lot\n\n## Decision Register\nTopic | Decision | Owner | Due date | Follow-up\n",
+    "tags": [
+      "safety",
+      "governance",
+      "agenda"
+    ]
+  },
+  {
+    "id": "TL-026",
+    "category": "Quality & Risk",
+    "title": "Bias Monitoring Dashboard Brief",
+    "summary": "Outline metrics, review cadence, and escalation paths for bias monitoring.",
+    "difficulty": "Advanced",
+    "format": "Brief",
+    "use_case": "Keep product and compliance teams aligned on bias monitoring signals.",
+    "owner": "responsible-ai@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "Define thresholds that trigger human review and policy escalation.",
+      "Ensure demographic data handling complies with privacy policies."
+    ],
+    "deliverables": [
+      "Dashboard brief",
+      "Escalation matrix"
+    ],
+    "fields": [
+      {
+        "label": "Model or workflow",
+        "placeholder": "Loan risk scoring"
+      },
+      {
+        "label": "Key metric",
+        "placeholder": "False positive rate variance"
+      }
+    ],
+    "full_template": "# Bias Monitoring Brief\n## Overview\n- Workflow\n- Monitoring owner\n\n## Metrics\n| Metric | Target | Threshold | Notes |\n|--------|--------|-----------|-------|\n\n## Review Cadence\n- Weekly checks\n- Monthly deep-dive\n- Quarterly audit\n\n## Escalation Matrix\nSeverity | Trigger | Owner | Action\n\n## Improvements Backlog\n- Item | Priority | Owner | ETA\n",
+    "tags": [
+      "bias",
+      "monitoring",
+      "brief"
+    ]
+  },
+  {
+    "id": "TL-027",
+    "category": "Integrations",
+    "title": "Integration Rollout Plan",
+    "summary": "Coordinate phased release of a new integration with training, monitoring, and rollback triggers.",
+    "difficulty": "Intermediate",
+    "format": "Plan",
+    "use_case": "Launch a new integration safely across pilot, limited, and GA stages.",
+    "owner": "integrations-pm@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 45,
+    "guardrails": [
+      "Gate each phase behind readiness checks and observability sign-off.",
+      "Document rollback command and incident channel before launch."
+    ],
+    "deliverables": [
+      "Rollout schedule",
+      "Risk tracker"
+    ],
+    "fields": [
+      {
+        "label": "Integration name",
+        "placeholder": "Salesforce sync"
+      },
+      {
+        "label": "Pilot cohort",
+        "placeholder": "Enterprise beta"
+      }
+    ],
+    "full_template": "# Rollout Overview\n- Integration: {{Integration name}}\n- Goal: {{Business objective}}\n- Owner: {{Owner}}\n- Pilot cohort: {{Pilot cohort}}\n\n## Phase Plan\n| Phase | Start | End | Cohort | Entry criteria | Exit criteria |\n|-------|-------|-----|--------|----------------|---------------|\n| Pilot | | | | | |\n| Limited | | | | | |\n| GA | | | | | |\n\n## Preconditions\n- Monitoring dashboard link\n- Support playbook link\n- Rollback command + owner\n\n## Communications\nChannel | Audience | Message owner | Timing\n\n## Risk Tracker\nRisk | Mitigation | Watch owner | Trigger\n",
+    "tags": [
+      "rollout",
+      "integration",
+      "plan"
+    ]
+  },
+  {
+    "id": "TL-028",
+    "category": "Integrations",
+    "title": "Webhook Failure Runbook",
+    "summary": "Restore failing webhooks with clear triage, retry, and customer communication steps.",
+    "difficulty": "Advanced",
+    "format": "Runbook",
+    "use_case": "Handle webhook outages or schema drift impacting downstream tools.",
+    "owner": "platform-ops@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 30,
+    "guardrails": [
+      "Never reprocess payloads without confirming idempotency keys.",
+      "Escalate to legal/comms if customer impact crosses SLA."
+    ],
+    "deliverables": [
+      "Incident log",
+      "Recovery checklist"
+    ],
+    "fields": [
+      {
+        "label": "Integration endpoint",
+        "placeholder": "POST /v1/tasks"
+      },
+      {
+        "label": "Primary tool",
+        "placeholder": "Jira"
+      }
+    ],
+    "full_template": "# Webhook Failure Runbook\n## Detection\n- Alarm name\n- First failure timestamp\n- Impacted tenants\n\n## Diagnosis\n- Recent deploys?\n- Schema drift?\n- Rate limits?\n\n## Remediation\n- Pause downstream processors\n- Apply fix / redeploy\n- Replay queue (idempotent check)\n\n## Communication\nAudience | Channel | Owner | Message\n\n## Post-Incident\n- Root cause summary\n- Permanent fix\n- Follow-up actions\n",
+    "tags": [
+      "integration",
+      "incident",
+      "webhook"
+    ]
+  },
+  {
+    "id": "TL-029",
+    "category": "Integrations",
+    "title": "Tool Permission Audit Checklist",
+    "summary": "Audit connected tools for least-privilege access and stale credentials.",
+    "difficulty": "Beginner",
+    "format": "Checklist",
+    "use_case": "Quarterly review to ensure integrations use scoped service accounts and rotated secrets.",
+    "owner": "security@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 90,
+    "guardrails": [
+      "Disable unused credentials immediately after discovery.",
+      "Record approvals for any elevated scopes."
+    ],
+    "deliverables": [
+      "Audit checklist",
+      "Remediation log"
+    ],
+    "fields": [
+      {
+        "label": "Integration",
+        "placeholder": "Slack announcements"
+      },
+      {
+        "label": "Service account",
+        "placeholder": "svc-ai-bot"
+      }
+    ],
+    "full_template": "## Permission Audit Checklist\n- Service account exists with least privilege\n- Admin console shows last login < 30 days\n- Secrets stored in vault with rotation date\n- Feature flags documented\n- Break-glass user verified\n\n## Findings Log\nItem | Status | Owner | Due date\n",
+    "tags": [
+      "security",
+      "audit",
+      "permissions"
+    ]
+  },
+  {
+    "id": "TL-030",
+    "category": "Integrations",
+    "title": "Automation Handoff Brief",
+    "summary": "Document how an automation hands off work between ChatGPT and a downstream system.",
+    "difficulty": "Intermediate",
+    "format": "Brief",
+    "use_case": "Align operations and engineering on ownership for each automation step.",
+    "owner": "automation@contoso.com",
+    "last_review": "2025-10-31",
+    "review_cadence_days": 60,
+    "guardrails": [
+      "List manual fallback paths for each failure state.",
+      "Include metrics and alerts owners verified."
+    ],
+    "deliverables": [
+      "Handoff brief",
+      "Alert matrix"
+    ],
+    "fields": [
+      {
+        "label": "Automation name",
+        "placeholder": "Case triage"
+      },
+      {
+        "label": "Downstream tool",
+        "placeholder": "ServiceNow"
+      }
+    ],
+    "full_template": "# Automation Handoff Brief\n## Flow Overview\nStep | System | Owner | Trigger | Output\n\n## Guardrails\n- Validation checks\n- Alert thresholds\n- Manual fallback steps\n\n## Observability\nMetric | Target | Alert owner | Notes\n\n## Contacts\nRole | Name | Channel | Escalation window\n",
+    "tags": [
+      "automation",
+      "handoff",
+      "brief"
+    ]
+  }
+]
