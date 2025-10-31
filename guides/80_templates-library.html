@@ -56,6 +56,7 @@
           <ul>
             <li>Choosing which templates qualify for the canonical library.</li>
             <li>Embedding self-explanatory metadata and examples.</li>
+            <li>Navigating the interactive gallery to locate the right asset fast.</li>
             <li>Operating a review cadence to keep content fresh.</li>
           </ul>
         </section>
@@ -77,9 +78,51 @@
             <li><strong>Define inclusion criteria.</strong> Required sections, risk tier, and sample coverage.</li>
             <li><strong>Collect submissions.</strong> Use a form that outputs front matter + links.</li>
             <li><strong>Quality &amp; compliance review.</strong> Lock guardrails; mark customization zones.</li>
-            <li><strong>Publish &amp; tag.</strong> Add to the library with version + change log.</li>
+            <li><strong>Publish &amp; tag.</strong> Add to <code>data/templates/library.json</code> with version + change log entry.</li>
+            <li><strong>Ship the asset.</strong> Confirm the gallery renders your entry, then brief teams on guardrails.</li>
             <li><strong>Measure &amp; retire.</strong> Track adoption; deprecate stale or low-performing templates.</li>
           </ol>
+        </section>
+
+        <section id="template-gallery" class="guide-section">
+          <h2>Template gallery</h2>
+          <p>Browse vetted briefs, checklists, runbooks, and agendas. Filter by category, difficulty, or format and copy the template text or metadata without leaving this page.</p>
+          <div class="prompt-library-controls" data-template-filters hidden>
+            <div class="control">
+              <label for="template-category">Category</label>
+              <select id="template-category" data-template-filter="category">
+                <option value="all">All categories</option>
+              </select>
+            </div>
+            <div class="control">
+              <label for="template-difficulty">Difficulty</label>
+              <select id="template-difficulty" data-template-filter="difficulty">
+                <option value="all">All levels</option>
+              </select>
+            </div>
+            <div class="control">
+              <label for="template-format">Format</label>
+              <select id="template-format" data-template-filter="format">
+                <option value="all">All formats</option>
+              </select>
+            </div>
+            <div class="control">
+              <label for="template-search">Search templates</label>
+              <input id="template-search" type="search" name="template-search" placeholder="Search title, summary, tags…" autocomplete="off" data-template-filter="search">
+            </div>
+            <div class="control control--tags">
+              <span class="control-label" id="template-tags">Filter by tag</span>
+              <div class="tag-filter-list" data-template-tags aria-labelledby="template-tags"></div>
+            </div>
+            <div class="control control--actions">
+              <button type="button" class="link-button" data-template-filter="clear">Clear filters</button>
+            </div>
+          </div>
+          <p class="hint">Dataset source: <code>data/templates/library.json</code>. Update the JSON first, then refresh to confirm your changes render correctly.</p>
+          <p data-template-error class="callout warning" hidden>Unable to load the templates right now. Refresh or check the console for details.</p>
+          <div class="featured-grid" data-template-gallery>
+            <div class="card" data-template-loading>Loading template library…</div>
+          </div>
         </section>
 
         <section id="output-contract" class="guide-section">
@@ -87,10 +130,10 @@
           
           <p>Each template entry includes:</p>
           <ul>
-            <li><strong>Front matter:</strong> owner, version, last review, risk tier, tags.</li>
-            <li><strong>Body:</strong> purpose, instructions, guardrails, customization fields.</li>
-            <li><strong>Examples:</strong> input → output pairs that show quality bar.</li>
-            <li><strong>QA checklist:</strong> acceptance criteria for reviewers.</li>
+            <li><strong>Metadata block:</strong> category, format, owner, difficulty, review cadence.</li>
+            <li><strong>Guardrails &amp; deliverables:</strong> quick list for reviewers to validate.</li>
+            <li><strong>Fill-before-use fields:</strong> placeholders to localize the asset safely.</li>
+            <li><strong>Full template text:</strong> copy-ready block matched to the gallery’s clipboard actions.</li>
           </ul>
         </section>
 
@@ -174,6 +217,7 @@ tags: [support, triage]
   <script src="../js/nav.js" defer></script>
   <script src="../js/search.js" defer></script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/templates-library.js" defer></script>
   <script src="../js/prism.js" defer></script>
 </body>
 </html>

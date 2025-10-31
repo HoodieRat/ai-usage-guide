@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <section id="automation-snippets" class="guide-section">
+          <h2>Automation snippets</h2>
+          <p>Use these as scaffolding when wiring the integration. They assume you already enforce response contracts and guardrails noted above.</p>
+
+          <h3>Slack to Jira worker (TypeScript)</h3>
+          <pre><code class="language-typescript">import { WebClient } from '@slack/web-api';
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +42,9 @@
     </button>
   </header>
 
+          <h3>Azure Function toggle (C#)</h3>
+          <pre><code class="language-csharp">[Function("IntegrationToggle")]
+
   <div class="layout">
     <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
 
@@ -57,6 +66,9 @@
             <li>How to scope safe, auditable connections between ChatGPT and your tools.</li>
             <li>How to protect secrets, personal data, and business records during integrations.</li>
             <li>How to design observability, rollback, and manual fallbacks from day one.</li>
+        </section>
+
+            <li>How to reuse launch checklists and automation snippets for common stacks.</li>
           </ul>
         </section>
 
@@ -90,6 +102,52 @@
           </div>
         </section>
 
+        <section id="stack-playbooks" class="guide-section">
+          <h2>Stack playbooks (ready to deploy)</h2>
+          <p>Start from a vetted integration blueprint rather than a blank page. Each playbook references templates (<code>TL-027</code>…<code>TL-030</code>) and prompts (PL-051…PL-075) to keep teams aligned.</p>
+
+          <details open>
+            <summary>Slack triage ↔ Jira bug filing</summary>
+            <div class="card">
+              <ol>
+                <li><strong>Trigger:</strong> ChatGPT summarises #incidents messages, tagging severity via PL-058. When severity ≥ medium, invoke Jira API.</li>
+                <li><strong>Schema contract:</strong> Use <code>integrations_bug_report.json</code> (copy from PL-062) with guardrails that route PII through <code>TL-029</code>.</li>
+                <li><strong>Automation:</strong> Slack workflow posts summary + <code>request_id</code>; Jira issue created with owner + rollback checklist link (<code>TL-028</code>).</li>
+                <li><strong>Observability:</strong> CloudWatch metric filters success/error counts; Datadog dashboard monitors 95p execution time, alerting on spikes.</li>
+                <li><strong>Fallback:</strong> Feature flag toggled in LaunchDarkly; manual handoff playbook <code>TL-027</code> engages operations if automation paused.</li>
+              </ol>
+            </div>
+          </details>
+
+          <details>
+            <summary>Salesforce opportunity intelligence</summary>
+            <div class="card">
+              <p><strong>Goal:</strong> Enrich opportunities nightly with research summaries and risk scoring.</p>
+              <ul>
+                <li><strong>Ingest:</strong> MuleSoft flow exports opps > $50k; ChatGPT prompt PL-066 generates battlecards with citations.</li>
+                <li><strong>Review:</strong> Outputs validated via <code>TL-023</code>; high-risk notes escalate to RevOps Slack channel.</li>
+                <li><strong>Writeback:</strong> Salesforce API updates custom fields; follow governance from <code>TL-021</code> to track versions.</li>
+                <li><strong>Monitoring:</strong> Bias dashboard (<code>TL-026</code>) compares win-rate predictions vs actuals each week.</li>
+                <li><strong>Rollback:</strong> Automation flag stored in Salesforce custom setting; <code>TL-027</code> plan lists contact tree.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>ServiceNow incident to Confluence knowledge base</summary>
+            <div class="card">
+              <p>Close the loop between incidents and documentation.</p>
+              <ol>
+                <li>ServiceNow webhook feeds resolved incidents to ChatGPT; use PL-072 to produce draft KB articles with citation hooks.</li>
+                <li>Draft routed to confluence-review queue; reviewers follow <code>TL-021</code> governance playbook.</li>
+                <li>Automation Handoff Brief (<code>TL-030</code>) shows which incidents require manual validation before publish.</li>
+                <li>Rollout plan <code>TL-027</code> sequences pilot → broad rollout with metrics and rollback toggles.</li>
+                <li>Monthly bias + quality review uses <code>TL-026</code> to track false positives/negatives in self-serve KB.</li>
+              </ol>
+            </div>
+          </details>
+        </section>
+
         <section id="step-by-step" class="guide-section">
           <h2>Step-by-step</h2>
           <ol>
@@ -103,12 +161,53 @@
           </ol>
         </section>
 
+        <section id="rollout-checklists" class="guide-section">
+          <h2>Rollout checklist (phase-gated)</h2>
+          <p>Repurpose <code>TL-027</code> Integration Rollout Plan. Track readiness in your project tracker and refuse to advance if any blocker remains red.</p>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Phase</th>
+                  <th>Entry criteria</th>
+                  <th>Exit criteria</th>
+                  <th>Evidence</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pilot</td>
+                  <td>✅ Secrets vaulted | ✅ Dry-run logs captured | ✅ Runbook <code>TL-028</code> rehearsed</td>
+                  <td>✅ 10 runs with zero P0/P1 incidents | ✅ Observability dashboard live</td>
+                  <td>Dashboard link, incident tracker, signed checklist</td>
+                  <td>Integration PM</td>
+                </tr>
+                <tr>
+                  <td>Limited release</td>
+                  <td>✅ Training delivered (<code>TL-019</code>) | ✅ Alert routing tested | ✅ Manual fallback staffed</td>
+                  <td>✅ Adoption targets met | ✅ No SLA breach > 30 min</td>
+                  <td>Enablement attendance log, pager on-call roster</td>
+                  <td>Enablement Lead</td>
+                </tr>
+                <tr>
+                  <td>General availability</td>
+                  <td>✅ Legal/compliance sign-off (<code>TL-025</code>) | ✅ KPI baseline locked</td>
+                  <td>✅ Feature flag default ON | ✅ Regression tests green for 14 days</td>
+                  <td>Signed approval record, monitoring snapshot, risk tracker</td>
+                  <td>Product Owner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
         <section id="templates" class="guide-section">
           <h2>Copy-paste templates</h2>
 
           <h3>Integration design doc (1-pager)</h3>
           <pre><code>Title: {{Integration name}}
-Owner: {{name}} · Backup: {{name}} · Channel: #{{team-channel}}
+Owner: {{name}} | Backup: {{name}} | Channel: #{{team-channel}}
 Scope: {{systems involved}} → {{destination}}
 Data Sensitivity: {{none | internal | contains PII}}
 Response Contract: link to schema (see ../guides/04_response-contracts.html)
@@ -175,6 +274,7 @@ Review Cadence: {{30/60/90}} days</code></pre>
             <li><strong>Automate smoke tests:</strong> Validate payload shape and downstream acknowledgements before promoting to production.</li>
             <li><strong>Guard secrets:</strong> Keep credentials in vaults; never embed them in integration configs or prompts.</li>
             <li><strong>Plan the fallback:</strong> Document manual rollback steps and rehearse them quarterly.</li>
+            <li><strong>Template reuse:</strong> Link runbooks and readiness tasks back to <code>TL-027</code>…<code>TL-030</code> so everyone copies the governed version.</li>
           </ul>
         </section>
 

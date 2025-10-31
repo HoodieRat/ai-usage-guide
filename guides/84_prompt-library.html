@@ -388,6 +388,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
 
         state.filtered.forEach((entry) => {
           const row = document.createElement('tr');
+          row.id = entry.id;
           const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : '—';
 
           const ownerCell = entry.owner
