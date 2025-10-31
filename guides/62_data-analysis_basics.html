@@ -1,0 +1,175 @@
+<!-- filepath: guides/62_data-analysis_basics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Harness ChatGPT for exploratory data analysis while preserving data hygiene and reproducibility.">
+  <title>Data Analysis Basics | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Applied Skills</p>
+          <h1>Data Analysis Basics</h1>
+          <p class="intro">Use ChatGPT as an exploratory data partner—summarize tables, chart trends, and surface anomalies while keeping results auditable.</p>
+        </header>
+
+        <section class="callout info">
+          <p><strong>Bring sample data:</strong> Export sanitized CSV snippets or describe column types so ChatGPT can reason without ever touching production secrets.</p>
+        </section>
+
+        <section class="callout warning">
+          <p><strong>Data governance:</strong> Follow your retention policy. Never upload regulated datasets. Use row sampling or synthetic data when sharing live structures.</p>
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Framing a clear analysis question with business context and hypotheses.</li>
+            <li>Sharing tabular data safely and extracting descriptive statistics.</li>
+            <li>Producing charts and tables that are reproducible in your analytics stack.</li>
+            <li>Capturing prompts, outputs, and follow-up questions in an analysis log.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Access to sanitized sample data or aggregates suitable for sharing.</li>
+            <li>Clarity on your analytics tooling (SQL engine, BI tool, notebook).</li>
+            <li>Defined success criteria—metrics or segments you need to evaluate.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Define the decision.</strong> Document the business question, timeframe, audience, and what “actionable insight” would look like.</li>
+            <li><strong>Prep the data.</strong> Provide column descriptions, units, and a small representative sample. Redact identifiers. Share summary metrics if raw rows are sensitive.</li>
+            <li><strong>Prime ChatGPT.</strong> Paste the question, data context, and preferred output format (table, bullet recap, chart spec). Ask it to confirm assumptions before analyzing.</li>
+            <li><strong>Request exploratory views.</strong> Ask for descriptive statistics, segment comparisons, and outlier checks. Require the model to show formulas or SQL/Pandas equivalents.</li>
+            <li><strong>Validate externally.</strong> Re-run suggested queries or code in your analytics environment. Compare outputs and feed discrepancies back to ChatGPT for reconciliation.</li>
+            <li><strong>Iterate & visualize.</strong> Request chart-ready specifications (vocab, axes, annotations). Convert the spec into your BI tool or notebook, then capture screenshots or embeds.</li>
+            <li><strong>Document findings.</strong> Summarize key insights, caveats, and next steps. Store the prompt/response transcript with links to validated queries and charts.</li>
+          </ol>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          <h3>Analysis briefing template</h3>
+          <pre><code>Objective: {{business question}}
+Primary metric(s): {{metrics}}
+Timeframe: {{period}}
+Segments: {{list}}
+Data provided:
+- columns: {{col name}} (type, description)
+- sample rows: {{link or inline table}}
+Constraints: {{privacy rules, time limits}}
+Deliverables: {{table, chart, narrative}}
+Assumptions to confirm: {{unknowns}}</code></pre>
+          <h3>Validation checklist</h3>
+          <pre><code>- [ ] Prompts and outputs saved in analysis log
+- [ ] Summary statistics reproduced in SQL/Pandas
+- [ ] Charts rebuilt in BI/notebook and exported
+- [ ] Caveats documented (sampling, missing data, bias)
+- [ ] Stakeholder sign-off recorded</code></pre>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <ul>
+            <li>Results include clear metric definitions and units.</li>
+            <li>Charts delivered as editable code or spec (Vega-Lite, Plotly, matplotlib).</li>
+            <li>Any assumptions or data quality warnings are listed explicitly.</li>
+            <li>Actionable recommendations mapped to responsible owners.</li>
+          </ul>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Time-to-insight:</strong> Hours from data handoff to stakeholder-ready summary.</li>
+            <li><strong>Reproducibility rate:</strong> Percentage of ChatGPT-derived findings reproduced in production tooling.</li>
+            <li><strong>Escalation count:</strong> Number of governance exceptions raised per analysis cycle.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Ground in context:</strong> Restate business definitions (active user, revenue) to avoid misaligned calculations.</li>
+            <li><strong>Limit sample size:</strong> Share 10–50 rows max; rely on aggregates for sensitive measures.</li>
+            <li><strong>Ask for reproducible code:</strong> Insist on SQL or notebook-ready code so you can verify every number.</li>
+            <li><strong>Track follow-ups:</strong> Maintain an analysis log with open questions and pending data pulls.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Great AI-assisted analysis starts with a crisp brief, clean sample data, and disciplined validation in your source-of-truth tools.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Analysis briefing completed and shared.</li>
+            <li>✅ Key stats verified in the analytics environment.</li>
+            <li>✅ Charts recreated and stored in the team library.</li>
+            <li>✅ Insights, assumptions, and next actions logged.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

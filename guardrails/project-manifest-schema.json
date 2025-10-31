@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["project"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "files"],
+      "properties": {
+        "name": { "type": "string" },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "description", "functions", "imports", "exports"],
+            "properties": {
+              "path": { "type": "string" },
+              "description": { "type": "string" },
+              "imports": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "exports": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "functions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "signature"],
+                  "properties": {
+                    "name": { "type": "string" },
+                    "signature": { "type": "string" },
+                    "returns": { "type": "string" },
+                    "calls": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "called_from": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "tests": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

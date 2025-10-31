@@ -1,0 +1,208 @@
+<!-- filepath: guides/11_custom-instructions.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Craft durable custom instructions that align ChatGPT with your voice and workflow.">
+  <title>Custom Instructions | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Context</p>
+          <h1>Custom Instructions</h1>
+          <p class="intro">Set durable defaults so every new chat starts with your voice, priorities, and guardrails. This play shows how to author, review, and maintain Custom Instructions your team can trust—without overfitting or getting “sticky.”</p>
+        </header>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Collect policy inputs and brand cues that make instructions durable.</li>
+            <li>Structure the “About you” and “How ChatGPT should respond” blocks for clarity and reuse.</li>
+            <li>Pair instructions with a reviewer workflow and light versioning.</li>
+            <li>Avoid common pitfalls (verbosity, brittle rules, conflicts with Memory).</li>
+          </ul>
+        </section>
+
+        <section id="quick-wins" class="guide-section">
+          <h2>Quick wins</h2>
+          <div class="callouts">
+            <p><strong>Keep it short.</strong> Aim for ≤ 200–250 words total across both fields. Short beats perfect.</p>
+            <p><strong>Name the audience.</strong> Saying who the output is for instantly improves tone and detail level.</p>
+            <p><strong>Pin the format.</strong> Add 1–2 “always use” formats (bullets, tables, JSON) you rely on most.</p>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Gather source material.</strong> Voice/brand notes, forbidden data, escalation paths, and top recurring tasks.</li>
+            <li><strong>Draft both fields.</strong> Use bullets and constraints; avoid long prose and vague adjectives.</li>
+            <li><strong>Reviewer pass.</strong> Have someone else check for risk coverage, brevity, and clarity.</li>
+            <li><strong>Version &amp; store.</strong> Save a copy (Markdown or JSON) with owner, version, and next review date.</li>
+            <li><strong>Test on 3 real tasks.</strong> If you keep retyping the same follow-up, your instructions need a tweak.</li>
+            <li><strong>Revisit monthly.</strong> Remove cruft; keep what demonstrably reduces back-and-forth.</li>
+          </ol>
+        </section>
+
+        <section id="templates" class="guide-section">
+          <h2>Templates (copy-paste)</h2>
+
+          <h3>Personal — concise default</h3>
+          <pre><code class="language-text">About you (who you are &amp; what you want):
+- Role: &lt;designer / developer / manager / student&gt;
+- Audience: &lt;self / stakeholder / non-technical / expert&gt;
+- Work style: brief, practical, examples-first
+- Preferences: plain language, no hype, show steps only when asked
+- Don’t: invent sources, over-explain, or change file names
+
+How ChatGPT should respond (rules &amp; formats):
+- First, restate my goal in one line and list missing info (max 1 question).
+- Prefer bullets or short tables; keep outputs ≤ 200 words unless I say longer.
+- When facts matter, mark uncertainties and suggest a quick verification step.
+- Use relative links for this project and maintain the requested format strictly.</code></pre>
+
+          <h3>Team — brand &amp; governance</h3>
+          <pre><code class="language-text">About you:
+- We are &lt;Team/Org&gt; building &lt;product/guide&gt; for &lt;audience&gt;.
+- Voice: clear, calm, friendly; avoid hype and sarcasm.
+- Compliance: do not include personal data; no speculative claims.
+
+How ChatGPT should respond:
+- Start with a 1-line objective check. If unclear, ask one clarifier, then proceed.
+- Structure: bullets or Markdown tables unless JSON is requested.
+- Limits: title ≤ 80 chars; summaries ≤ 150 words; keep filenames unchanged.
+- Verification: flag risky claims; propose a source or note “needs verification”.
+- Escalation: if out-of-scope or missing inputs, say so and list exactly what is needed.</code></pre>
+
+          <h3>Ops — format-heavy (for structured outputs)</h3>
+          <pre><code class="language-text">About you:
+- Role: operations analyst producing checklists and CSV-ready tables.
+- Audience: internal teammates who will copy-paste into sheets.
+
+How ChatGPT should respond:
+- Return ONLY a Markdown table with columns: Item | Owner | Due | Status.
+- If info is missing, leave blank; do not invent values.
+- Add a final line “Notes:” with 1 sentence, or leave it empty.</code></pre>
+        </section>
+
+        <section id="reviewer-checklist" class="guide-section">
+          <h2>Reviewer checklist (PASS / REVISION)</h2>
+          <ul class="grid-two">
+            <li><strong>PASS if</strong> total words ≤ 250 and both fields use bullets.</li>
+            <li><strong>PASS if</strong> audience, tone, and top formats are explicit.</li>
+            <li><strong>REVISION if</strong> it duplicates things better handled by <a href="../guides/13_handoff-between-chats.html">Context Transfer</a>.</li>
+            <li><strong>REVISION if</strong> it conflicts with <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a> practices.</li>
+            <li><strong>REVISION if</strong> it hard-codes project-specific facts that will change.</li>
+            <li><strong>REVISION if</strong> it buries the important rules under paragraphs of prose.</li>
+          </ul>
+        </section>
+
+        <section id="versioning" class="guide-section">
+          <h2>Versioning &amp; change log (lightweight)</h2>
+          <pre><code class="language-yaml">id: custom-instructions.v1
+owner: &lt;name&gt;
+version: 1.1.0
+last_review: 2025-10-30
+notes: Shortened; added verification rule; clarified formats.
+changelog:
+  - change_id: CI-2025-10-30-a
+    summary: Tone tightened; added out-of-scope behavior
+    approver: &lt;name&gt;</code></pre>
+          <p class="small">Store alongside your prompt cards in <a href="../guides/84_prompt-library.html">Prompt Library</a>. Link from tickets/wikis so teammates use the current version.</p>
+        </section>
+
+        <section id="memory-and-sessions" class="guide-section">
+          <h2>Custom Instructions vs. Memory vs. Context Transfer</h2>
+          <ul>
+            <li><strong>Custom Instructions</strong> = standing defaults for <em>every</em> new chat (tone, audience, formats).</li>
+            <li><strong>Memory</strong> = facts ChatGPT may carry across chats; use sparingly to avoid “sticky” behavior. See <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a>.</li>
+            <li><strong>Context Transfer</strong> = paste a short recap + links when you start a fresh chat or hand off. See <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> and <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a>.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Reuse bullet templates for recurring roles so teammates can adapt them quickly.</li>
+            <li><strong>Tip:</strong> Add “If you need more info, ask one clarifying question” to reduce back-and-forth.</li>
+            <li><strong>Pitfall:</strong> Letting instructions sprawl past 250 words. Trim or split into project-specific context packs.</li>
+            <li><strong>Pitfall:</strong> Conflicts with Memory. Prefer Temporary Chat or restate which rule wins when they disagree.</li>
+          </ul>
+        </section>
+
+        <section id="next" class="guide-section">
+          <h2>Keep going</h2>
+          <ul>
+            <li><a href="../guides/03_prompt-basics.html">Prompt Basics</a> — five-line requests that always land.</li>
+            <li><a href="../guides/04_response-contracts.html">Response Contracts</a> — enforce formats and error paths.</li>
+            <li><a href="../guides/05_structured-output.html">Structured Output</a> — JSON/tables that validate cleanly.</li>
+            <li><a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a> — when to save vs. forget.</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Both fields are under ~250 words and mostly bullets.</li>
+            <li>✅ Audience named, tone set, 1–2 default formats specified.</li>
+            <li>✅ Verification / escalation behavior included (one line each).</li>
+            <li>✅ Saved with version, owner, and next review date.</li>
+            <li>✅ Tested on 3 real tasks without constant follow-ups.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

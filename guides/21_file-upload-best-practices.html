@@ -1,0 +1,228 @@
+<!-- filepath: guides/21_file-upload-best-practices.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Share files with AI safely and efficiently by prepping them for fast ingestion.">
+  <title>File Upload Best Practices | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Files &amp; Context</p>
+          <h1>File Upload Best Practices</h1>
+          <p class="intro">Prepare documents, spreadsheets, transcripts, and media so the model ingests the right information without exposing restricted data. These practices are for ChatGPT’s web chat.</p>
+        </header>
+
+        <section class="callout danger">
+          <strong>Do not upload restricted data</strong> unless it has been sanitized per <a href="../guides/25_redaction-and-sanitization.html">Redaction &amp; Sanitization</a>.
+          Files you attach may be referenced in the session and appear in exports or logs. See <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a>.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to triage which files to upload, summarize, or keep offline.</li>
+            <li>Preparation steps that improve parsing accuracy and reduce token waste.</li>
+            <li>How to document uploads with manifests, retention tags, and follow-up reviews.</li>
+          </ul>
+        </section>
+
+        <section id="limits" class="guide-section">
+          <h2>Limits &amp; compatibility (read this)</h2>
+          <ul>
+            <li><strong>Plan limits change</strong>. Check the chat uploader tooltip for current size/type limits and files-per-message caps.</li>
+            <li><strong>Commonly supported types</strong>: <em>.txt, .md, .pdf, .docx, .xlsx/.csv, .pptx, .png/.jpg</em>. Complex PDFs or scans may need OCR.</li>
+            <li><strong>Right-size batches</strong>: If a file is long or image-heavy, split into thematic parts (≈10–20 pages) and attach with summaries.</li>
+            <li><strong>Prefer text</strong>: When possible, convert PDFs and slides to clean text or Markdown to improve recall and reduce latency.</li>
+          </ul>
+          <p class="small">If a thread slows or stalls after many uploads, start a <em>new chat</em> and paste a recap + file manifest (see <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a>).</p>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Project folder manifest (see <a href="../guides/20_project-folders-setup.html">Project Folders Setup</a>).</li>
+            <li>Redaction tooling or templates for sensitive data (<a href="../guides/25_redaction-and-sanitization.html">guide</a>).</li>
+            <li>Awareness of current chat uploader limits and allowed file types.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner &rarr; Actor &rarr; Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“We need to upload discovery call notes, a pricing spreadsheet, and a draft proposal. Decide what to redact, how to label each file, and the order to upload so the assistant can answer pricing questions.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant produces a manifest with classification, redaction instructions, summaries, and the upload sequence.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>The reviewer verifies redactions, confirms summaries retain intent, and asks the assistant to draft a confirmation note listing file IDs and next actions.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Inventory files.</strong> List every potential asset with owner, source, and data class (public/internal/confidential/restricted).</li>
+            <li><strong>Prep content.</strong> Convert to UTF-8 text where possible, flatten tracked changes, and remove hidden metadata/comments.</li>
+            <li><strong>Summarize &amp; label.</strong> Write 3–5 bullet abstracts and assign IDs (<code>F1</code>, <code>F2</code>) that match your prompts and handoffs.</li>
+            <li><strong>Upload in batches.</strong> Attach related files together, paste their summaries, and ask the assistant to confirm receipt before moving on.</li>
+            <li><strong>Log &amp; review.</strong> Update the manifest with timestamps, chat links, and follow-up redactions or deletions.</li>
+          </ol>
+          <details>
+            <summary>Format-specific tips</summary>
+            <ul>
+              <li><strong>PDFs:</strong> Prefer text-native PDFs. For scans, run OCR and spot-check headings/tables. Consider exporting to .txt/.md.</li>
+              <li><strong>Docs (.docx):</strong> Accept/reject tracked changes; remove comments; export to .md for long policy docs.</li>
+              <li><strong>Sheets (.xlsx/.csv):</strong> Keep a “ReadMe” sheet with column definitions; export analytical tables to .csv; avoid hidden sheets.</li>
+              <li><strong>Slides (.pptx):</strong> Export speaker notes; consider a single-page brief with key bullets + slide thumbnails only when necessary.</li>
+              <li><strong>Images:</strong> Provide a caption/legend describing what to read from the image (e.g., “read axis labels; ignore legend 2”).</li>
+            </ul>
+          </details>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>When you ask the assistant for upload guidance, require the reply to include:</p>
+          <ul>
+            <li><strong>Purpose:</strong> The question or workflow the file supports.</li>
+            <li><strong>Data class:</strong> Whether redaction or masking is needed.</li>
+            <li><strong>Summary:</strong> A concise abstract to paste when uploading.</li>
+            <li><strong>Retention plan:</strong> Timeline to delete or archive the file.</li>
+            <li><strong>Confirmation step:</strong> Exact wording to verify the assistant processed the asset.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Batch upload primer</h3>
+          <pre><code class="language-text">We are uploading {{count}} files. For each file I will provide:
+- ID (F1, F2, …)
+- Filename
+- Data classification (Public/Internal/Restricted)
+- 3-sentence summary
+- Key fields to ignore
+
+After each upload, confirm receipt, list any required follow-up, and highlight policy conflicts.</code></pre>
+
+          <h3>File manifest template</h3>
+          <pre><code class="language-markdown">| ID | Filename                 | Version | Data class | Summary                                        | Uploaded | Retention date | Notes                         |
+|----|--------------------------|---------|------------|------------------------------------------------|----------|----------------|-------------------------------|
+| F1 | discovery-notes_redacted.txt | v1      | Internal   | Top 5 customer pain points from kickoff call. | Y        | 2025-12-31     | Remove after pricing launch   |
+| F2 | pricing-model_v3.csv     | v3      | Restricted | Inputs/assumptions for tiered pricing.        | Y        | 2025-11-15     | Mask client names             |</code></pre>
+
+          <h3>Redaction quick checklist</h3>
+          <pre><code class="language-text">[ ] Replace names with role placeholders
+[ ] Remove contract numbers, account IDs, and email addresses
+[ ] Strip comments, track changes, and hidden sheets
+[ ] Convert PDFs to text and verify OCR accuracy
+[ ] Re-run spell check after redaction to catch placeholder typos</code></pre>
+
+          <h3>Upload confirmation snippet (paste after each batch)</h3>
+          <pre><code class="language-text">Files attached: F1, F2.
+Summaries pasted above. Confirm you can read them and list:
+1) 3 key takeaways per file
+2) Risks or policy conflicts
+3) Any missing context to answer {{goal}}</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Store the manifest in your project folder. Capture upload time, chat link, redaction owner, and deletion confirmation. For regulated data, export the assistant’s confirmation messages and archive them with the manifest.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Prep-to-upload time:</strong> Minutes from selecting a file to completing a sanitized upload (target ≤ 15 min for standard docs).</li>
+            <li><strong>Redaction defect rate:</strong> Incidents where sensitive data slipped through post-upload review.</li>
+            <li><strong>Confirmation compliance:</strong> Percentage of uploads with logged assistant acknowledgements.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Keep a running manifest as you prep files so owners and reviewers can see redaction status at a glance.</li>
+            <li><strong>Tip:</strong> Paste a short summary right after each upload—confirmation requests work better when the assistant sees fresh context.</li>
+            <li><strong>Pitfall:</strong> Ignoring size caps until the upload fails. Split or compress large assets first and record the workaround in the manifest.</li>
+            <li><strong>Pitfall:</strong> Forgetting hidden metadata. Strip comments, revision history, and hidden sheets before ChatGPT ever sees the file.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Thoughtful uploads keep tokens low, privacy intact, and collaboration efficient. Plan the batch, sanitize each file, label and summarize it, confirm ingestion, and log every step. For very long sources, pair this with <a href="../guides/23_chunking-and-abstracts.html">Chunking &amp; Abstracts</a> and retrieval patterns in <a href="../guides/22_context-from-files_rag-basics.html">Context from Files (RAG Basics)</a>.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Manifest template created and linked from the project README.</li>
+            <li>✅ Redaction checklist reviewed with the team.</li>
+            <li>✅ Upload confirmation script saved as a reusable snippet.</li>
+            <li>✅ Metrics sheet tracking prep time, defects, and confirmations.</li>
+            <li>✅ Retention schedule defined for uploaded assets.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

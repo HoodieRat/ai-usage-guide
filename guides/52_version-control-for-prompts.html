@@ -1,0 +1,175 @@
+<!-- filepath: guides/52_version-control-for-prompts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Track prompt changes like code so you always know what shipped.">
+  <title>Version Control for Prompts | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Collaboration</p>
+          <h1>Version Control for Prompts</h1>
+          <p class="intro">Treat prompts like code so history, approvals, and rollback paths stay intact.</p>
+        </header>
+        <section class="callout info"><strong>Pair with:</strong> <a href="../guides/51_prompt-handovers.html">Prompt Handovers</a> for smooth transfers and <a href="../guides/53_knowledge-bases.html">Knowledge Bases</a> for documentation.</section>
+        
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          
+          <ul>
+            <li>Organizing prompts into repositories with branching strategies.</li>
+            <li>Designing commit messages that capture context.</li>
+            <li>Running reviews and approvals before shipping prompt updates.</li>
+            <li>Tagging releases so support teams know what changed and when.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          
+          <ul>
+            <li>Platform with history and permissions (Git or equivalent).</li>
+            <li>Repo structure agreed by product/area/use case.</li>
+            <li>Review checklist and evaluation harness.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          
+          <ol>
+            <li><strong>Pick source of truth.</strong> Git, Notion export, or Airtable with versioning.</li>
+            <li><strong>Design structure.</strong> Folders by product/persona/workflow + README.</li>
+            <li><strong>Branching rules.</strong> Experiments on <code>feature/</code>; production on <code>main</code>.</li>
+            <li><strong>Metadata.</strong> Front matter: owner, status, last review, dependencies.</li>
+            <li><strong>Reviews.</strong> Pull requests with checklists and automated evals.</li>
+            <li><strong>Tags &amp; changelog.</strong> Semantic or calendar versions with impacts.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          
+          <p>Your prompt repo should include:</p>
+          <ul>
+            <li><strong>README:</strong> scope, structure, labels, and branching.</li>
+            <li><strong>Templates:</strong> prompt files with front matter and eval harness.</li>
+            <li><strong>Protection rules:</strong> code owners, required reviews, CI checks.</li>
+            <li><strong>CHANGELOG:</strong> human-readable history tied to tags.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          
+          <h3>Front matter (YAML)</h3>
+          <pre><code>---
+owner: team@company.com
+status: draft | needs-review | approved
+last_review: 2025-10-30
+dependencies: [policy/brand.md, dataset/customer_faq.csv]
+---</code></pre>
+          <h3>Commit message convention</h3>
+          <pre><code>feat(prompt): add escalations to support triage
+refactor: split planner/actor prompts for clarity
+chore: update last_review dates</code></pre>
+          <h3>CHANGELOG</h3>
+          <pre><code>## 2025-10-30
+- feat: Introduced escalation language to /support/triage_v3.md
+- fix: Corrected entity extraction rules in /sales/demo_v2.md</code></pre>
+          
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          
+          <p>Store pull request links, reviewers, evaluation results, and tag notes so support can audit what shipped.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          
+          <ul>
+            <li><strong>Lead time to change:</strong> open → merge.</li>
+            <li><strong>Review coverage:</strong> % of changes merged with approvals and evals.</li>
+            <li><strong>Rollback frequency:</strong> tags reverted within 7 days.</li>
+          </ul>
+        </section>
+
+        <section id="troubleshooting" class="guide-section">
+          <h2>Troubleshooting</h2>
+          
+          <dl>
+            <dt>Prompt drift across tools.</dt><dd>Automate exports from product UIs into the repo nightly.</dd>
+            <dt>Blocked reviews.</dt><dd>Define backup reviewers and SLA; allow emergency hotfix tags with postmortems.</dd>
+            <dt>Unclear history.</dt><dd>Require changelog entries in the PR template.</dd>
+          </dl>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          
+          <p>Treat prompts like code. With structure, reviews, and tags, you’ll know exactly what shipped and how to roll it back.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          
+          <ul>
+            <li>✅ Repo structure published with README and templates.</li>
+            <li>✅ Branch protection and reviews enforced.</li>
+            <li>✅ Evaluations run before merges.</li>
+            <li>✅ Releases tagged and changelog updated.</li>
+          </ul>
+        </section>
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

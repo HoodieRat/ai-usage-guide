@@ -1,0 +1,137 @@
+{
+  "Prompt Basics": {
+    "title": "Knowledge check",
+    "intro": "Make sure you can scope prompts, set expectations, and reinforce QA steps before moving on.",
+    "instructions": [
+      "Choose the best answer for each question.",
+      "Score at least 3/3 before you move to the next track."
+    ],
+    "questions": [
+      {
+        "id": "prompt-basics-1",
+        "prompt": "What is the primary role of the planner step in the planner → actor → reviewer loop?",
+        "options": [
+          { "text": "Generate the final deliverable", "correct": false, "feedback": "The actor produces the deliverable once the plan is agreed." },
+          { "text": "Frame the task, constraints, and desired outputs", "correct": true, "feedback": "Planners shape the problem, guardrails, and success targets so the actor can execute." },
+          { "text": "Sign off on legal compliance", "correct": false, "feedback": "The reviewer verifies compliance after the actor responds." }
+        ]
+      },
+      {
+        "id": "prompt-basics-2",
+        "prompt": "Which prompt ingredient prevents the model from drifting into the wrong tone or persona?",
+        "options": [
+          { "text": "Acceptance criteria", "correct": false, "feedback": "Acceptance criteria describe outputs; tone comes from role or persona prompts." },
+          { "text": "Role or voice instruction", "correct": true, "feedback": "Explicit voice instructions anchor tone and perspective." },
+          { "text": "Fallback escalation note", "correct": false, "feedback": "Escalation instructions help with risk, not tone." }
+        ]
+      },
+      {
+        "id": "prompt-basics-3",
+        "prompt": "When should you recap the draft prompt back to stakeholders before shipping?",
+        "options": [
+          { "text": "Only when they request a change", "correct": false, "feedback": "Proactive recaps prevent rework and surface misalignments early." },
+          { "text": "After the first live run in production", "correct": false, "feedback": "Wait until production and you're reacting to failures instead of preventing them." },
+          { "text": "Before the first production run, while you're still in review", "correct": true, "feedback": "Recapping while still in review keeps the loop tight and avoids missed constraints." }
+        ]
+      }
+    ],
+    "scoring": {
+      "passingScore": 3,
+      "guidance": "Mark the enablement tracker as complete once you hit the passing score.",
+      "actions": [
+        "Log the completion in your enablement tracker.",
+        "Capture any confusing items in the backlog for future updates."
+      ]
+    }
+  },
+  "Memory & Privacy": {
+    "title": "Memory governance quiz",
+    "intro": "Check that you can spot unsafe memory usage and enforce retention policies.",
+    "instructions": [
+      "Select one answer per question and submit to see guidance.",
+      "Follow remediation actions when you miss a question."
+    ],
+    "questions": [
+      {
+        "id": "memory-privacy-1",
+        "prompt": "Which data class must never be stored in persistent memory according to the guide?",
+        "options": [
+          { "text": "Meeting agendas shared with the team", "correct": false, "feedback": "Agendas are generally safe once sanitized." },
+          { "text": "Customer payment information", "correct": true, "feedback": "Payment and other regulated data classes must stay out of persistent memory." },
+          { "text": "Public marketing copy", "correct": false, "feedback": "Public information can be retained as long as it is current." }
+        ]
+      },
+      {
+        "id": "memory-privacy-2",
+        "prompt": "What is the first step when you discover memory storing restricted transcripts?",
+        "options": [
+          { "text": "Purge the memory slot immediately and open an incident ticket", "correct": true, "feedback": "You must remediate the slot right away and alert the incident path for review." },
+          { "text": "Notify the customer success team within 48 hours", "correct": false, "feedback": "CS should know, but only after you have already contained the issue." },
+          { "text": "Export the memory data for offline audit", "correct": false, "feedback": "Exporting creates more copies of restricted data and violates policy." }
+        ]
+      },
+      {
+        "id": "memory-privacy-3",
+        "prompt": "Which retention control keeps memory outputs aligned with policy?",
+        "options": [
+          { "text": "Weekly desk checks from legal counsel", "correct": false, "feedback": "Counsel is involved for escalations, but regular QA sits with operators." },
+          { "text": "Automated reminders to submit updates", "correct": false, "feedback": "Reminders are helpful, yet they do not verify content directly." },
+          { "text": "Monthly QA spot checks with a purge + rehydrate cycle", "correct": true, "feedback": "Spot checks with purge/rehydrate keep data current and compliant." }
+        ]
+      }
+    ],
+    "scoring": {
+      "passingScore": 3,
+      "guidance": "Record the score in the memory governance log. Capture any remediation you assign.",
+      "actions": [
+        "If you miss anything, rerun the Memory & Privacy drills with your team.",
+        "Escalate confirmed policy gaps to the data protection officer."
+      ]
+    }
+  },
+  "Project Folders Setup": {
+    "title": "Operational readiness check",
+    "intro": "Verify you can launch and maintain the shared folder structure without missing governance steps.",
+    "instructions": [
+      "Answer each scenario with the action that keeps the folder healthy.",
+      "Aim for 3/3 to progress. Use the remediation actions if you miss a step."
+    ],
+    "questions": [
+      {
+        "id": "project-folders-1",
+        "prompt": "A teammate moves draft deliverables into 50_final without review. What do you do first?",
+        "options": [
+          { "text": "Move the files back and log the deviation in the changelog", "correct": true, "feedback": "Restoring order and logging the issue protects audit trails." },
+          { "text": "Notify leadership but leave the files in place", "correct": false, "feedback": "Leadership should know, yet you must fix the structure before notifying." },
+          { "text": "Archive the entire folder", "correct": false, "feedback": "Archiving is too heavy-handed and hides the audit trail." }
+        ]
+      },
+      {
+        "id": "project-folders-2",
+        "prompt": "Where should reusable prompts and instructions live so the team can find them later?",
+        "options": [
+          { "text": "30_working-drafts", "correct": false, "feedback": "Working drafts rotate frequently and are not the source of truth." },
+          { "text": "20_prompts with a README linking to the prompt library", "correct": true, "feedback": "20_prompts plus the library link keeps the assets curated and discoverable." },
+          { "text": "90_archive", "correct": false, "feedback": "Archive is for retired material only." }
+        ]
+      },
+      {
+        "id": "project-folders-3",
+        "prompt": "How often should the changelog be updated for active projects?",
+        "options": [
+          { "text": "At least weekly with owner, action, and affected path", "correct": true, "feedback": "Weekly updates keep stakeholders aligned and audits clean." },
+          { "text": "Only when major milestones finish", "correct": false, "feedback": "Waiting for milestones creates blind spots for small but important changes." },
+          { "text": "Once per quarter during retrospectives", "correct": false, "feedback": "Quarterly updates are too infrequent for active delivery." }
+        ]
+      }
+    ],
+    "scoring": {
+      "passingScore": 3,
+      "guidance": "Log completions in the enablement tracker and store the score alongside the changelog.",
+      "actions": [
+        "If you miss a question, schedule a 15-minute retrain using the Acceptance checklist.",
+        "Log completions and misses in the enablement tracker."
+      ]
+    }
+  }
+}

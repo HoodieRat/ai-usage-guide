@@ -1,0 +1,47 @@
+{
+  "project": {
+    "name": "Example AI Workflow",
+    "files": [
+      {
+        "path": "src/utils/slugify.js",
+        "description": "Normalize strings to URL slugs",
+        "imports": [],
+        "exports": ["slugify"],
+        "functions": [
+          {
+            "name": "slugify",
+            "signature": "slugify(input: string): string",
+            "returns": "string",
+            "calls": [],
+            "called_from": ["src/pages/blog.tsx:renderPost"],
+            "tests": ["tests/slugify.test.js::slugifies basic ASCII"]
+          }
+        ]
+      },
+      {
+        "path": "src/http/client.ts",
+        "description": "Typed HTTP wrapper",
+        "imports": ["axios"],
+        "exports": ["get", "post"],
+        "functions": [
+          {
+            "name": "get",
+            "signature": "get<T>(url: string): Promise<T>",
+            "returns": "Promise<T>",
+            "calls": ["axios.get"],
+            "called_from": ["src/services/user.ts:getUser"],
+            "tests": ["tests/http/client.test.ts::get happy path"]
+          },
+          {
+            "name": "post",
+            "signature": "post<T>(url: string, body: any): Promise<T>",
+            "returns": "Promise<T>",
+            "calls": ["axios.post"],
+            "called_from": ["src/services/user.ts:createUser"],
+            "tests": ["tests/http/client.test.ts::post happy path"]
+          }
+        ]
+      }
+    ]
+  }
+}

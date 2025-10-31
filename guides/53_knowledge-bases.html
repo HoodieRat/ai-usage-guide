@@ -1,0 +1,176 @@
+<!-- filepath: guides/53_knowledge-bases.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build a self-serve knowledge base that captures AI lessons learned.">
+  <title>Knowledge Bases | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Collaboration</p>
+          <h1>Knowledge Bases</h1>
+          <p class="intro">Document prompts, workflows, and policy decisions so teams can onboard themselves without shoulder taps.</p>
+        </header>
+        <section class="callout info"><strong>Connect with:</strong> <a href="../guides/50_collaboration-workflows.html">Collaboration Workflows</a>, <a href="../guides/51_prompt-handovers.html">Prompt Handovers</a>, and <a href="../guides/52_version-control-for-prompts.html">Version Control for Prompts</a>. Include <a href="../guides/24_citations-and-attribution.html">Citations</a> and <a href="../guides/25_redaction-and-sanitization.html">Redaction</a> where needed.</section>
+        
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          
+          <ul>
+            <li>Structuring a knowledge base for AI prompts, workflows, and policies.</li>
+            <li>Keeping docs fresh with owners and review cadences.</li>
+            <li>Tagging and search patterns that surface relevant content quickly.</li>
+            <li>Measuring adoption to guide improvements.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          
+          <ul>
+            <li>Platform with permissions, search, and version history.</li>
+            <li>Information architecture draft with maintainers per section.</li>
+            <li>Templates for case studies, mitigations, and incident reports.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          
+          <ol>
+            <li><strong>Choose platform.</strong> Notion, Confluence, or SharePoint with export options.</li>
+            <li><strong>Design IA.</strong> Onboarding, prompts, evaluations, incidents, governance.</li>
+            <li><strong>Publish templates.</strong> Case study, mitigation guide, incident report pages.</li>
+            <li><strong>Set ownership &amp; cadence.</strong> Quarterly audits with reminders.</li>
+            <li><strong>Tag consistently.</strong> Labels: <code>🧪</code> experiment, <code>✅</code> production, <code>⚠️</code> deprecated.</li>
+            <li><strong>Measure &amp; iterate.</strong> Track searches, views, and feedback.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          
+          <p>Your KB should expose:</p>
+          <ul>
+            <li><strong>IA map:</strong> sections, owners, and review cadence.</li>
+            <li><strong>Page templates:</strong> reusable structures for common content types.</li>
+            <li><strong>Taxonomy:</strong> tags, synonyms, and naming conventions.</li>
+            <li><strong>Governance:</strong> change control, archival policy, and access rules.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          
+          <h3>KB home page outline</h3>
+          <pre><code># Welcome
+- Start here (onboarding)
+- Prompts &amp; templates
+- Evaluations &amp; test harness
+- Incidents &amp; mitigations
+- Governance &amp; policies
+- Search tips &amp; tags</code></pre>
+          <h3>Page header template</h3>
+          <pre><code>Title | Owner | Status | Last reviewed | Tags
+Summary (1-2 lines)
+Links: related pages, datasets, policies</code></pre>
+          <h3>Archival policy</h3>
+          <pre><code>- Stale if no update after 90 days
+- Auto-tag ⚠️ deprecated; notify owner
+- Archive after 180 days without activity</code></pre>
+          
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          
+          <p>Track edits, reviewers, and reasons for changes. Keep an index page linking recent updates and incident learnings.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          
+          <ul>
+            <li><strong>Search success rate:</strong> % of searches that end on a relevant page.</li>
+            <li><strong>Freshness:</strong> % of pages reviewed within SLA.</li>
+            <li><strong>Adoption:</strong> unique viewers and referenced-by counts.</li>
+          </ul>
+        </section>
+
+        <section id="troubleshooting" class="guide-section">
+          <h2>Troubleshooting</h2>
+          
+          <dl>
+            <dt>Out-of-date pages.</dt><dd>Escalate to owners; auto-tag and schedule reviews.</dd>
+            <dt>Hard to find content.</dt><dd>Simplify tags; add synonyms and TL;DR blocks.</dd>
+            <dt>Low adoption.</dt><dd>Embed the KB in workflows; link from briefs and PR templates.</dd>
+          </dl>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          
+          <p>A living knowledge base reduces repeat questions and speeds onboarding. Keep ownership clear and reviews on a cadence.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          
+          <ul>
+            <li>✅ IA map with owners and cadences published.</li>
+            <li>✅ Templates live and used by recent pages.</li>
+            <li>✅ Taxonomy documented and applied.</li>
+            <li>✅ Metrics tracked and reviewed monthly.</li>
+          </ul>
+        </section>
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

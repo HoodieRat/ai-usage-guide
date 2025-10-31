@@ -1,0 +1,113 @@
+[
+  {
+    "title": "Foundations",
+    "items": [
+      { "title": "Read Me First", "url": "guides/00_readme.html" },
+      { "title": "Getting Started", "url": "guides/01_getting-started.html" },
+      { "title": "How ChatGPT Works", "url": "guides/02_how-chatgpt-works.html" },
+      { "title": "Prompt Basics", "url": "guides/03_prompt-basics.html" },
+      { "title": "Response Contracts", "url": "guides/04_response-contracts.html" },
+      { "title": "Structured Output", "url": "guides/05_structured-output.html" },
+      { "title": "Foundations Assessment", "url": "guides/foundations-assessment.html" }
+    ]
+  },
+  {
+    "title": "Sessions & Context",
+    "items": [
+      { "title": "Sessions & Context", "url": "guides/10_sessions-and-context.html" },
+      { "title": "Custom Instructions", "url": "guides/11_custom-instructions.html" },
+      { "title": "Memory & Privacy", "url": "guides/12_memory-and-privacy.html" },
+      { "title": "Handoff Between Chats", "url": "guides/13_handoff-between-chats.html" },
+      { "title": "Sessions & Context Assessment", "url": "guides/context-assessment.html" }
+    ]
+  },
+  {
+    "title": "Projects & Files",
+    "items": [
+      { "title": "Project Folders Setup", "url": "guides/20_project-folders-setup.html" },
+      { "title": "File Upload Best Practices", "url": "guides/21_file-upload-best-practices.html" },
+      { "title": "Context from Files & RAG Basics", "url": "guides/22_context-from-files_rag-basics.html" },
+      { "title": "Chunking & Abstracts", "url": "guides/23_chunking-and-abstracts.html" },
+      { "title": "Citations & Attribution", "url": "guides/24_citations-and-attribution.html" },
+      { "title": "Redaction & Sanitization", "url": "guides/25_redaction-and-sanitization.html" },
+      { "title": "Projects & Files Assessment", "url": "guides/projects-assessment.html" }
+    ]
+  },
+  {
+    "title": "Research & Reasoning",
+    "items": [
+      { "title": "Browsing & Search", "url": "guides/30_browsing-and-search.html" },
+      { "title": "Deep Research Playbook", "url": "guides/31_deep-research-playbook.html" },
+      { "title": "Source Quality & Fact Checking", "url": "guides/32_source-quality-and-fact-checking.html" },
+      { "title": "News & Recency", "url": "guides/33_news-and-recency.html" },
+      { "title": "Math & Calcs", "url": "guides/34_math-and-calcs.html" },
+      { "title": "Research & Reasoning Assessment", "url": "guides/research-assessment.html" }
+    ]
+  },
+  {
+    "title": "Agentic Workflows",
+    "items": [
+      { "title": "Agentic Mode Overview", "url": "guides/40_agentic-mode_overview.html" },
+      { "title": "Task Chains & Delegation", "url": "guides/41_task-chains-and-delegation.html" },
+      { "title": "Planners, Critics & Validators", "url": "guides/42_planners-critics-validators.html" },
+      { "title": "Automations & Reminders", "url": "guides/43_automations-and-reminders.html" },
+      { "title": "Agentic Workflows Assessment", "url": "guides/agentic-assessment.html" }
+    ]
+  },
+  {
+    "title": "Collaboration",
+    "items": [
+      { "title": "Collaboration Workflows", "url": "guides/50_collaboration-workflows.html" },
+      { "title": "Meeting Notes & Actions", "url": "guides/51_meeting-notes-and-actions.html" },
+      { "title": "Email Drafts & Templates", "url": "guides/52_email-drafts-and-templates.html" },
+      { "title": "Brainstorm to Execution", "url": "guides/53_brainstorm-to-execution.html" },
+      { "title": "Collaboration Assessment", "url": "guides/collaboration-assessment.html" }
+    ]
+  },
+  {
+    "title": "Applied Skills",
+    "items": [
+      { "title": "Code Help for Non-Developers", "url": "guides/60_code-help_for-non-devs.html" },
+      { "title": "Codegen Best Practices for Developers", "url": "guides/61_codegen-best-practices_for-devs.html" },
+      { "title": "Data Analysis Basics", "url": "guides/62_data-analysis_basics.html" },
+      { "title": "Tables, Visuals, and Diagrams", "url": "guides/63_tables-visuals-and-diagrams.html" },
+      { "title": "Applied Skills Assessment", "url": "guides/applied-skills-assessment.html" }
+    ]
+  },
+  {
+    "title": "Safety & Quality",
+    "items": [
+      { "title": "Safety and Ethics", "url": "guides/70_safety-and-ethics.html" },
+      { "title": "Troubleshooting Bad Answers", "url": "guides/71_troubleshooting-bad-answers.html" },
+      { "title": "Power User Checklists", "url": "guides/72_power-user-checklists.html" },
+      { "title": "Safety & Quality Assessment", "url": "guides/safety-quality-assessment.html" },
+      { "title": "Quality Assurance Loops", "url": "guides/82_quality-assurance_loops.html" }
+    ]
+  },
+  {
+    "title": "Templates & Integrations",
+    "items": [
+      { "title": "Templates Library", "url": "guides/80_templates-library.html" },
+      { "title": "Project Blueprints", "url": "guides/81_project-blueprints.html" },
+      { "title": "Integrations & Tools", "url": "guides/83_integrations-and-tools.html" },
+      { "title": "Prompt Library", "url": "guides/84_prompt-library.html" },
+      { "title": "Templates & Integrations Assessment", "url": "guides/templates-integrations-assessment.html" }
+    ]
+  },
+  {
+    "title": "Assessments",
+    "items": [
+      { "title": "Orientation", "url": "guides/orientation-assessment.html" },
+      { "title": "Foundations", "url": "guides/foundations-assessment.html" },
+      { "title": "Sessions & Context", "url": "guides/context-assessment.html" },
+      { "title": "Projects & Files", "url": "guides/projects-assessment.html" },
+      { "title": "Research & Reasoning", "url": "guides/research-assessment.html" },
+      { "title": "Agentic Workflows", "url": "guides/agentic-assessment.html" },
+      { "title": "Collaboration", "url": "guides/collaboration-assessment.html" },
+      { "title": "Applied Skills", "url": "guides/applied-skills-assessment.html" },
+      { "title": "Safety & Quality", "url": "guides/safety-quality-assessment.html" },
+      { "title": "Templates & Integrations", "url": "guides/templates-integrations-assessment.html" },
+      { "title": "Scorecard", "url": "guides/scorecard.html" }
+    ]
+  }
+]

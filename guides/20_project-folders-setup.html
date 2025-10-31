@@ -1,0 +1,230 @@
+<!-- filepath: guides/20_project-folders-setup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Organize project folders so AI collaborators always know where to look.">
+  <title>Project Folders Setup | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Files &amp; Context</p>
+          <h1>Project Folders Setup</h1>
+          <p class="intro">Give every project a predictable home so humans and AI know where to find briefs, prompts, reviews, and final deliverables—without hunting through chats.</p>
+        </header>
+
+        <section class="callout warning">
+          <strong>Retention reminder:</strong> Label every folder with the retention class from <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a>. Archive or purge restricted data within your policy timeline.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to standardize folder hierarchies so ChatGPT prompts reference consistent paths.</li>
+            <li>How file naming conventions support search, reviews, and handoffs.</li>
+            <li>How to document context so new teammates—or new chats—can onboard fast.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Access to your team’s shared drive or workspace with permission to create folders.</li>
+            <li>Project charter or intake brief defining objectives and stakeholders.</li>
+            <li>Alignment with privacy and retention requirements for stored assets.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Design a folder structure for the Q4 campaign. Include numbered folders, README contents, and naming conventions for prompts, drafts, and approval logs.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant outputs the skeleton, recommended file names, and a checklist for what belongs in each directory, plus notes on access levels.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer verifies restricted assets have gated folders, confirms links, and asks the model to generate a quick-start README for <code>00_orientation</code>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Create the skeleton.</strong> Build numbered folders: <code>00_orientation</code>, <code>10_inputs</code>, <code>20_prompts</code>, <code>30_working-drafts</code>, <code>40_reviews</code>, <code>50_final</code>, <code>90_archive</code>.</li>
+            <li><strong>Seed orientation.</strong> In <code>00_orientation</code>, add <code>README.md</code>, project charter, glossary, contact roster, and a link to <a href="../guides/84_prompt-library.html">Prompt Library</a> plus <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a>.</li>
+            <li><strong>Define conventions.</strong> Publish naming rules (e.g., <code>2025-10-30_status_v1.md</code>) and tag formats (<code>[F1]</code>, <code>[REF]</code>) that match your prompts and handoffs.</li>
+            <li><strong>Map permissions.</strong> Mark which folders are safe for ChatGPT attachments and list redaction steps before sharing assets. See <a href="../guides/21_file-upload-best-practices.html">File Upload Best Practices</a>.</li>
+            <li><strong>Schedule hygiene.</strong> Update a weekly changelog, move approved deliverables to <code>50_final</code>, and archive stale drafts.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>When asking the assistant to propose folder updates or inventories, require:</p>
+          <ul>
+            <li><strong>Folder path</strong> — absolute or shared path.</li>
+            <li><strong>Purpose statement</strong> — why it exists and who owns it.</li>
+            <li><strong>Retention tag</strong> — policy class from your matrix.</li>
+            <li><strong>Next action</strong> — create/move/archive + owner + due date.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Folder skeleton script (PowerShell)</h3>
+          <pre><code class="language-powershell">$folders = @(
+  "00_orientation",
+  "10_inputs",
+  "20_prompts",
+  "30_working-drafts",
+  "40_reviews",
+  "50_final",
+  "90_archive"
+)
+$folders | ForEach-Object { New-Item -ItemType Directory -Path $_ -Force | Out-Null }</code></pre>
+
+          <h3>README starter for 00_orientation</h3>
+          <pre><code class="language-markdown"># Project: {{name}}
+## Purpose
+- &lt;one sentence&gt;
+
+## Key links
+- Brief: &lt;path or URL&gt;
+- Prompt library: ../guides/84_prompt-library.html
+- Sessions &amp; Context: ../guides/10_sessions-and-context.html
+- File uploads: ../guides/21_file-upload-best-practices.html
+- QA rubric: &lt;path&gt;
+
+## Folder map
+- 10_inputs → raw research, transcripts
+- 20_prompts → reusable prompts, instruction snippets
+- 30_working-drafts → in-progress outputs (date + owner)
+- 40_reviews → feedback, redlines, decisions
+- 50_final → approved deliverables
+- 90_archive → closed or superseded items
+
+## Guardrails
+- Data classification: &lt;policy link&gt;
+- Retention: &lt;tag&gt;
+- Contacts: &lt;names/roles&gt;</code></pre>
+
+          <h3>Project manifest (paste into new chats)</h3>
+          <pre><code class="language-yaml">project: {{name}}
+source_of_truth:
+  - 00_orientation/README.md
+  - 10_inputs/&lt;file&gt;
+  - 20_prompts/&lt;prompt-card&gt;
+conventions:
+  tags: ["[F1]", "[REF]"]
+  filenames: "YYYY-MM-DD_slug_vN.ext"
+handoff_digest: "../guides/13_handoff-between-chats.html"</code></pre>
+
+          <h3>Changelog table</h3>
+          <pre><code class="language-markdown">| Date       | Owner | Change                | Folder/File                 | Notes                         |
+|------------|-------|-----------------------|-----------------------------|-------------------------------|
+| 2025-10-30 | Alex  | Added intake brief    | 00_orientation/README.md    | Linked to marketing brief     |
+| 2025-11-02 | Priya | Moved approved assets | 50_final/landing-copy.md    | Archived v1 in 90_archive     |</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Maintain a lightweight changelog capturing date, owner, action, affected path, and reason. For regulated work, export a monthly snapshot of the tree and store it alongside approvals in <code>90_archive</code>.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Setup lead time:</strong> Hours from kick-off to completed skeleton (target &lt; 2 hours).</li>
+            <li><strong>Naming compliance:</strong> % of files matching the convention regex (automate weekly checks).</li>
+            <li><strong>Archive hygiene:</strong> # of drafts &gt; 30 days still outside <code>90_archive</code> (drive toward zero).</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Pin the folder skeleton in your knowledge base and link it from intake forms so every new project starts consistent.</li>
+            <li><strong>Tip:</strong> Rotate README ownership weekly; the calendar reminder keeps the overview fresh without one person bearing the load.</li>
+            <li><strong>Pitfall:</strong> Moving files without updating manifests. Always revise prompt references after every relocation to avoid missing attachments.</li>
+            <li><strong>Pitfall:</strong> Mixing restricted and open data. Label retention class on each folder and gate permissions before sharing with the assistant.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Consistent folders make AI collaboration predictable. Build the skeleton, publish naming rules, map permissions, and keep the README fresh so every teammate—or assistant—can jump in confidently.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Standard folder template created for new projects.</li>
+            <li>✅ README documents objectives, links, retention rules, and contacts.</li>
+            <li>✅ Naming conventions and guardrails shared with the team and assistants.</li>
+            <li>✅ Changelog process in place with weekly hygiene review.</li>
+            <li>✅ Metrics track setup speed, naming compliance, and archive hygiene.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

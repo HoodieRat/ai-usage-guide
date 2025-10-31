@@ -1,0 +1,531 @@
+[
+  {
+    "title": "Read Me First",
+    "url": "guides/00_readme.html",
+    "abstract": "New to ChatGPT? This page explains what this site is and the fastest way to your first useful result.",
+    "sections": [
+      "What you’ll learn",
+      "Pick your path",
+      "Step-by-step",
+      "Quick wins to practice"
+    ]
+  },
+  {
+    "title": "Getting Started",
+    "url": "guides/01_getting-started.html",
+    "abstract": "Your first day with ChatGPT: three small wins and simple prompts that work.",
+    "sections": [
+      "What you’ll learn",
+      "The simplest way to ask",
+      "Step-by-step",
+      "Win #1 — Rewrite (5 minutes)"
+    ]
+  },
+  {
+    "title": "How ChatGPT Works",
+    "url": "guides/02_how-chatgpt-works.html",
+    "abstract": "Understand how the ChatGPT web app handles your messages, files, memory, and chat history—so you can drive better results.",
+    "sections": [
+      "What you’ll learn",
+      "The simple mental model",
+      "Quick wins in the web app",
+      "Heads-up: long threads & “sticky” memory"
+    ]
+  },
+  {
+    "title": "Prompt Basics",
+    "url": "guides/03_prompt-basics.html",
+    "abstract": "Master a reliable prompt blueprint with examples, follow-ups, and instrumentation to keep results consistent.",
+    "sections": [
+      "What you’ll learn",
+      "The prompt blueprint (copy-paste)",
+      "Recipe gallery (ready to use)",
+      "Follow-ups that fix common misses"
+    ]
+  },
+  {
+    "title": "Response Contracts",
+    "url": "guides/04_response-contracts.html",
+    "abstract": "Design, version, and enforce response contracts so AI outputs land exactly where your workflow expects.",
+    "sections": [
+      "What you’ll learn",
+      "What is a response contract?",
+      "Enforcement block (copy-paste)",
+      "Two quick examples"
+    ]
+  },
+  {
+    "title": "Structured Output",
+    "url": "guides/05_structured-output.html",
+    "abstract": "Generate machine-readable output reliably with schemas, validators, and recoverable failure paths.",
+    "sections": [
+      "What you’ll learn",
+      "Choose the format",
+      "JSON kit (copy-paste)",
+      "Markdown table kit (copy-paste)"
+    ]
+  },
+  {
+    "title": "Sessions & Context",
+    "url": "guides/10_sessions-and-context.html",
+    "abstract": "Manage multi-turn sessions with context logs, recap prompts, and handoff patterns so nothing gets lost.",
+    "sections": [
+      "What you’ll learn",
+      "Heads-up before you start",
+      "Step-by-step",
+      "Templates (copy-paste)"
+    ]
+  },
+  {
+    "title": "Custom Instructions",
+    "url": "guides/11_custom-instructions.html",
+    "abstract": "Craft durable custom instructions that align ChatGPT with your voice and workflow.",
+    "sections": [
+      "What you’ll learn",
+      "Quick wins",
+      "Step-by-step",
+      "Templates (copy-paste)"
+    ]
+  },
+  {
+    "title": "Memory & Privacy",
+    "url": "guides/12_memory-and-privacy.html",
+    "abstract": "Manage memory features responsibly while protecting sensitive information.",
+    "sections": [
+      "What you’ll learn",
+      "Quick wins",
+      "How Memory fits with sessions",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Handoff Between Chats",
+    "url": "guides/13_handoff-between-chats.html",
+    "abstract": "Switch work between chats or teammates without losing context or momentum.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Operational playbook"
+    ]
+  },
+  {
+    "title": "Project Folders Setup",
+    "url": "guides/20_project-folders-setup.html",
+    "abstract": "Organize project folders so AI collaborators always know where to look.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "File Upload Best Practices",
+    "url": "guides/21_file-upload-best-practices.html",
+    "abstract": "Share files with AI safely and efficiently by prepping them for fast ingestion.",
+    "sections": [
+      "What you’ll learn",
+      "Limits & compatibility (read this)",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough"
+    ]
+  },
+  {
+    "title": "Context from Files &amp; RAG Basics",
+    "url": "guides/22_context-from-files_rag-basics.html",
+    "abstract": "Feed local files into prompts using manual retrieval habits before you adopt a full RAG stack.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Chunking &amp; Abstracts",
+    "url": "guides/23_chunking-and-abstracts.html",
+    "abstract": "Break long materials into manageable chunks with sharp abstracts the model can reuse.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Citations &amp; Attribution",
+    "url": "guides/24_citations-and-attribution.html",
+    "abstract": "Ensure AI-generated content cites sources cleanly and transparently.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Redaction &amp; Sanitization",
+    "url": "guides/25_redaction-and-sanitization.html",
+    "abstract": "Redact and sanitize data before sharing with AI systems.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Browsing &amp; Search",
+    "url": "guides/30_browsing-and-search.html",
+    "abstract": "Use ChatGPT’s browsing responsibly to gather fresh information, verify claims, and log sources.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Deep Research Playbook",
+    "url": "guides/31_deep-research-playbook.html",
+    "abstract": "Run multi-week research in ChatGPT: scope, retrieve, verify, and synthesize with auditable evidence.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Source Quality &amp; Fact Checking",
+    "url": "guides/32_source-quality-and-fact-checking.html",
+    "abstract": "Evaluate source quality and run fact checks on AI outputs.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "News &amp; Recency",
+    "url": "guides/33_news-and-recency.html",
+    "abstract": "Manage rapidly changing information when using AI for news and recency checks.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Math &amp; Calcs",
+    "url": "guides/34_math-and-calcs.html",
+    "abstract": "Use ChatGPT for math and calculations with accuracy checks built in.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Agentic Mode Overview",
+    "url": "guides/40_agentic-mode_overview.html",
+    "abstract": "Understand what agentic AI workflows are and when to use them.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "When to use agentic mode",
+      "Planner → Actor → Reviewer walkthrough"
+    ]
+  },
+  {
+    "title": "Task Chains &amp; Delegation",
+    "url": "guides/41_task-chains-and-delegation.html",
+    "abstract": "Design AI task chains and delegate work between roles effectively.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "When to use task chains",
+      "Planner → Actor → Reviewer walkthrough"
+    ]
+  },
+  {
+    "title": "Planners, Critics, Validators",
+    "url": "guides/42_planners-critics-validators.html",
+    "abstract": "Assign planner, critic, and validator roles to improve AI output quality.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "When to use this triad",
+      "Planner → Critic → Validator walkthrough"
+    ]
+  },
+  {
+    "title": "Automations & Reminders",
+    "url": "guides/43_automations-and-reminders.html",
+    "abstract": "Automate recurring AI tasks with reminders and lightweight scripts.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Collaboration Workflows",
+    "url": "guides/50_collaboration-workflows.html",
+    "abstract": "Coordinate teams that use AI together, from briefs to reviews.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Meeting Notes & Actions",
+    "url": "guides/51_meeting-notes-and-actions.html",
+    "abstract": "Capture actionable meeting notes with ChatGPT while preserving owners, due dates, and decision logs.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Prompt Handovers",
+    "url": "guides/51_prompt-handovers.html",
+    "abstract": "Pass AI prompt work between teammates without losing context.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Email Drafts & Templates",
+    "url": "guides/52_email-drafts-and-templates.html",
+    "abstract": "Produce reliable email drafts with ChatGPT, tailored templates, and review checkpoints.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Version Control for Prompts",
+    "url": "guides/52_version-control-for-prompts.html",
+    "abstract": "Track prompt changes like code so you always know what shipped.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Brainstorm to Execution",
+    "url": "guides/53_brainstorm-to-execution.html",
+    "abstract": "Convert brainstorming sessions into actionable project plans with ChatGPT's help.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Knowledge Bases",
+    "url": "guides/53_knowledge-bases.html",
+    "abstract": "Build a self-serve knowledge base that captures AI lessons learned.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Meetings and Agendas",
+    "url": "guides/54_meetings-and-agendas.html",
+    "abstract": "Run AI-focused meetings that stay actionable and inclusive.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Documentation Handoffs",
+    "url": "guides/55_documentation-handoffs.html",
+    "abstract": "Ensure documentation moves with AI projects across teams and time zones.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Asynchronous Collaboration",
+    "url": "guides/56_asynchronous-collaboration.html",
+    "abstract": "Coordinate AI work across time zones using async-first practices.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Co-Creation Workshops",
+    "url": "guides/57_co-creation-workshops.html",
+    "abstract": "Run workshops that produce shippable AI assets with clear owners.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Planner → Actor → Reviewer walkthrough",
+      "Step-by-step"
+    ]
+  },
+  {
+    "title": "Code Help for Non-Developers",
+    "url": "guides/60_code-help_for-non-devs.html",
+    "abstract": "Help non-developers debug and edit code with ChatGPT safely and clearly.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Codegen Best Practices for Developers",
+    "url": "guides/61_codegen-best-practices_for-devs.html",
+    "abstract": "Run a disciplined AI-assisted coding workflow from prompt to production.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Data Analysis Basics",
+    "url": "guides/62_data-analysis_basics.html",
+    "abstract": "Harness ChatGPT for exploratory data analysis while preserving data hygiene and reproducibility.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Tables, Visuals, and Diagrams",
+    "url": "guides/63_tables-visuals-and-diagrams.html",
+    "abstract": "Turn ChatGPT outputs into production-ready tables, visuals, and diagrams with validation built in.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Safety and Ethics",
+    "url": "guides/70_safety-and-ethics.html",
+    "abstract": "Govern ChatGPT usage with clear risk classes, approvals, and incident handling procedures.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Troubleshooting Bad Answers",
+    "url": "guides/71_troubleshooting-bad-answers.html",
+    "abstract": "Diagnose and recover from low-quality ChatGPT responses with structured debugging prompts and escalation paths.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Power User Checklists",
+    "url": "guides/72_power-user-checklists.html",
+    "abstract": "Standardize expert ChatGPT usage with preflight, research, and QA checklists that prevent misses.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Templates Library",
+    "url": "guides/80_templates-library.html",
+    "abstract": "Curate, govern, and ship reusable AI templates that stay compliant and actionable.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Project Blueprints",
+    "url": "guides/81_project-blueprints.html",
+    "abstract": "Project-ready blueprints that map AI capabilities to common team workflows.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Output contract"
+    ]
+  },
+  {
+    "title": "Quality Assurance Loops",
+    "url": "guides/82_quality-assurance_loops.html",
+    "abstract": "Build deterministic QA loops that blend automated critics with human reviewers for safe, auditable AI outputs.",
+    "sections": [
+      "What you’ll learn",
+      "Prerequisites",
+      "Step-by-step",
+      "Copy & paste assets"
+    ]
+  },
+  {
+    "title": "Integrations &amp; Tools",
+    "url": "guides/83_integrations-and-tools.html",
+    "abstract": "Connect ChatGPT workflows to the tools your team already uses without sacrificing auditability.",
+    "sections": [
+      "What you’ll learn",
+      "Common patterns (choose one)",
+      "Step-by-step",
+      "Copy-paste templates"
+    ]
+  },
+  {
+    "title": "Prompt Library",
+    "url": "guides/84_prompt-library.html",
+    "abstract": "Central catalog of reusable prompt templates with guardrails and owners.",
+    "sections": [
+      "How to use this catalog",
+      "Prompt catalog",
+      "Add a new prompt (step-by-step)",
+      "Catalog schema (copy-paste)"
+    ],
+    "type": "prompt"
+  }
+]

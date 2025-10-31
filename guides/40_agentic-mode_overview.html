@@ -1,0 +1,228 @@
+<!-- filepath: guides/40_agentic-mode_overview.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Understand what agentic AI workflows are and when to use them.">
+  <title>Agentic Mode Overview | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Agentic Workflows</p>
+          <h1>Agentic Mode Overview</h1>
+          <p class="intro">Learn what agentic AI workflows are, how to scope them, and the guardrails that keep automated chains reliable.</p>
+        </header>
+
+        <section class="callout warning">
+          <strong>As of October 30, 2025:</strong> Run agentic chains only after completing risk assessment and obtaining security approval; unsupervised runs can violate data handling rules.
+        </section>
+
+        <section class="callout info">
+          <strong>Before you try agents:</strong> read <a href="../guides/41_task-chains-and-delegation.html">Task Chains &amp; Delegation</a>, set <a href="../guides/04_response-contracts.html">Response Contracts</a>, and define reviewers with <a href="../guides/42_planners-critics-validators.html">Planners, Critics &amp; Validators</a>. Use <a href="../guides/33_news-and-recency.html">News &amp; Recency</a> and <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality</a> when research is involved.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How agentic mode differs from single prompts and scripted task chains.</li>
+            <li>When to choose autonomous loops vs. human-in-the-loop orchestration.</li>
+            <li>The guardrails and governance artifacts required before launch.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Documented use case with success criteria, constraints, and stop conditions.</li>
+            <li>Risk assessment covering data sensitivity, permissions, and failure impact.</li>
+            <li>Logging/monitoring ready to capture prompts, tool calls, and decisions.</li>
+          </ul>
+        </section>
+
+        <section id="when-to-use" class="guide-section">
+          <h2>When to use agentic mode</h2>
+          <ul>
+            <li><strong>Good fit:</strong> multi-step, repeatable workflows (research → draft → validate → format) with clear checks and rollbacks.</li>
+            <li><strong>Not a fit:</strong> one-off creative tasks, unclear objectives, or workflows lacking a safe validation step.</li>
+            <li><strong>Start small:</strong> begin with a two-step loop (<em>plan → draft</em>) and a human reviewer; expand once stable.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Design an agentic workflow that monitors competitor pricing daily, drafts a summary, and flags anomalies for review. Include states, stop rules, and tool usage.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant proposes an orchestrated loop: fetch data → analyze deltas → write summary → request confirmation, with guardrails to halt on missing data or rate-limit errors.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer validates sources, adds human approval for price changes above threshold, and inserts audit logging plus alert routing.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Map the workflow.</strong> Break the job into states (plan, act, verify) and identify required tools or data.</li>
+            <li><strong>Define policies.</strong> Set iteration limits, latency targets, escalation paths, and data handling rules per state.</li>
+            <li><strong>Prototype with humans in the loop.</strong> Run supervised sessions, capturing prompts, decisions, and failure cases.</li>
+            <li><strong>Add automations safely.</strong> Introduce tool calls or retrieval steps one at a time with automatic rollback if validation fails.</li>
+            <li><strong>Operationalize monitoring.</strong> Stand up dashboards for runtime metrics, alerting, and post-run reviews before expanding scope.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>An agentic workflow handoff must include:</p>
+          <ul>
+            <li><strong>Workflow diagram:</strong> States, transitions, guardrails, and human touchpoints.</li>
+            <li><strong>Prompt pack:</strong> Final planner, actor, reviewer prompts plus any tool invocation specs.</li>
+            <li><strong>Risk &amp; control register:</strong> Failure modes mapped to mitigations and owners.</li>
+            <li><strong>Runbook summary:</strong> Triggers, expected runtime, success criteria, and rollback plan.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Agent design canvas</h3>
+          <pre><code>| State | Objective | Prompt/tool | Guardrails | Escalation |
+|-------|-----------|-------------|------------|------------|
+| Plan  | Define next action | Planner prompt v3 | Max 3 iterations; must cite objective | Escalate to human if confidence &lt; 0.6 |
+| Act   | Execute task | Tool call / actor prompt | Rate limit; restrict domains | Pause run and notify ops |
+| Review| Validate outputs | Reviewer prompt | Require checklist completion | Fail run &amp; rollback snapshot |
+| ...   | ... | ... | ... | ... |</code></pre>
+
+          <h3>Guardrail matrix</h3>
+          <pre><code>| Risk | Trigger | Mitigation | Owner | Evidence |
+|------|---------|-----------|-------|----------|
+| Data exfiltration | External POST request | Restrict networks; sanitize payload | SecOps | Firewall logs |
+| Infinite loop | Iterations &gt; 10 | Hard stop + human alert | Runbook owner | Runtime counter |
+| Low quality summary | Confidence &lt; threshold | Route to reviewer checkpoint | Domain lead | QA checklist |
+| ... | ... | ... | ... | ... |</code></pre>
+
+          <h3>Run log starter</h3>
+          <pre><code class="language-json">{
+  "runId": "AG-2025-10-30-001",
+  "workflow": "Competitor pricing monitor",
+  "startTime": "2025-10-30T08:00Z",
+  "steps": [
+    {"state": "plan", "promptVersion": "v3", "decision": "Fetch vendor list", "confidence": 0.81},
+    {"state": "act", "tool": "pricing_scraper", "result": "OK", "latencyMs": 4200},
+    {"state": "review", "outcome": "Flag high delta", "reviewer": "L. Ortiz"}
+  ],
+  "endState": "human_review",
+  "notes": "Escalated due to &gt;15% price change"
+}</code></pre>
+
+          <h3>Feature-flag rollout snippet</h3>
+          <pre><code>Rollout plan:
+- Stage 0: dry_run only; logs reviewed daily
+- Stage 1: enable flag for internal users; auto-rollback on 2 consecutive failures
+- Stage 2: expand to target group; weekly audit; publish metrics
+- Stage 3: general availability with quarterly audits</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Capture run IDs, prompts, tool parameters, decisions, and reviewer actions in a centralized system. Keep artifacts for your retention window so compliance can reconstruct any run. For research-heavy flows, also include citations (see <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a>).</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Success rate:</strong> % of runs completing without unplanned human intervention.</li>
+            <li><strong>Rollback frequency:</strong> Runs halted due to guardrail triggers.</li>
+            <li><strong>Review effort:</strong> Average human minutes per run to maintain quality.</li>
+            <li><strong>Drift alerts:</strong> Times safety metrics breached thresholds (latency, cost, error rate).</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Promote only after a supervised pilot shows clean logs and predictable guardrail triggers.</li>
+            <li><strong>Tip:</strong> Keep prompts short; push policy to reviewer checklists and runbooks so updates stay centralized.</li>
+            <li><strong>Pitfall:</strong> Allowing unbounded loops. Set iteration caps and require human acknowledgment when the same state repeats.</li>
+            <li><strong>Pitfall:</strong> Tool sprawl without permissions. Restrict credentials per state and monitor network calls before expansion.</li>
+            <li><strong>Pitfall:</strong> Skipping human checkpoints on high-stakes decisions. Insert approval gates where impact or risk is high.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Agentic mode is powerful when grounded in structure. Map the workflow, enforce guardrails, monitor every run, and keep humans accountable for approvals.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Use case documented with guardrails, stop conditions, and rollback plan.</li>
+            <li>✅ Planner/actor/reviewer prompts and tool specs stored in version control.</li>
+            <li>✅ Logging and alerting live before unsupervised runs begin.</li>
+            <li>✅ Risk &amp; control register reviewed by security, legal, and operations.</li>
+            <li>✅ Handoff includes links to <a href="../guides/41_task-chains-and-delegation.html">Task Chains</a> and <a href="../guides/43_automations-and-reminders.html">Automations &amp; Reminders</a> where appropriate.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

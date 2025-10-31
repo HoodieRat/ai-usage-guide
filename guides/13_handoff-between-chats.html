@@ -1,0 +1,232 @@
+<!-- filepath: guides/13_handoff-between-chats.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Switch work between chats or teammates without losing context or momentum.">
+  <title>Handoff Between Chats | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Context</p>
+          <h1>Handoff Between Chats</h1>
+          <p class="intro">Move work across chats, shifts, or collaborators without dropping context by packaging intent, evidence, and owner expectations every time you switch threads.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>30-60-90 rule:</strong> Spend <strong>30s</strong> freezing the current state, <strong>60s</strong> drafting the handoff brief, and <strong>90s</strong> confirming the recipient understands. Anything longer means your process needs automation.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to structure a reusable handoff brief that survives chat boundaries.</li>
+            <li>Ways to coordinate planner → actor → reviewer workflows across separate conversations.</li>
+            <li>How to log handoffs for compliance and measure their quality over time.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>A shared storage location (workspace folder, wiki, or project tracker) for session logs.</li>
+            <li>Permissions to export transcripts or copy message links from the originating chat.</li>
+            <li>Named owners for planner, actor, and reviewer roles (<a href="../guides/42_planners-critics-validators.html">role patterns</a>).</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Summarize the current status of the website FAQ rewrite, including completed sections, pending decisions, and files the next writer must read. Format it as a handoff brief with owners.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant assembles a brief with objective, context snapshot, linked drafts, open questions, and the exact task the next writer should complete in the new chat.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer scans the brief, verifies links and owners, then asks the assistant for a confirmation message to paste into the receiving chat. Reviewer signs off only after the recipient restates the plan.</p>
+            </div>
+          </div>
+          <p class="small">For context hygiene and restarts, see <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> and <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a>.</p>
+        </section>
+
+        <section id="handoff-playbook" class="guide-section">
+          <h2>Operational playbook</h2>
+          <ol>
+            <li><strong>Freeze context.</strong> Run a recap that captures objective, latest decisions, blockers, and pending tasks. Copy critical message links. (Use the recap template in <a href="../guides/10_sessions-and-context.html#templates">Sessions &amp; Context → Templates</a>.)</li>
+            <li><strong>Assemble the brief.</strong> Use the template below to list purpose, deliverables, attachments (label as <code>[F1]</code>, <code>[F2]</code>), and explicit owner expectations. See <a href="../guides/21_file-upload-best-practices.html">File Upload Best Practices</a> for limits.</li>
+            <li><strong>Launch the new chat.</strong> Paste the brief first, reference attachment IDs, and ask the assistant to acknowledge before you add new instructions.</li>
+            <li><strong>Confirm comprehension.</strong> Require the next owner to respond with a one-paragraph confirmation or checklist. Address gaps immediately.</li>
+            <li><strong>Log the handoff.</strong> Record date, sender, receiver, chat links, and outcomes in your collaboration tracker so you can audit throughput later.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>Every handoff brief must include:</p>
+          <ul>
+            <li><strong>Objective:</strong> One sentence stating the project goal and success metric.</li>
+            <li><strong>Current status:</strong> Bulleted recap of completed work, decisions, and blockers.</li>
+            <li><strong>Inputs:</strong> File names with version tags, message links, or knowledge base references.</li>
+            <li><strong>Next action:</strong> Assigned owner, deadline, and definition of done for the receiving chat.</li>
+            <li><strong>Escalation path:</strong> Who to contact if the handoff stalls or requirements change.</li>
+          </ul>
+          <p class="small">For stable formats, pair with <a href="../guides/04_response-contracts.html">Response Contracts</a> and <a href="../guides/05_structured-output.html">Structured Output</a>.</p>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Handoff brief template</h3>
+          <pre><code class="language-text">Project: {{name}}    Timestamp: {{UTC time}}
+Sender → Receiver: {{names}}
+
+Objective:
+- &lt;one sentence goal and success metric&gt;
+
+Status:
+- Done: &lt;3 bullets&gt;
+- Decisions: &lt;3 bullets&gt;
+- Risks/Blockers: &lt;2 bullets&gt;
+
+Inputs:
+- [F1] {{file}} (v{{version}}) — {{1-line summary}}
+- [Link] {{message link}} — why it matters
+
+Next action:
+- Owner: {{person}}
+- Deliverable: {{what to produce}}
+- Due: {{YYYY-MM-DD}}
+- Definition of done: {{acceptance criteria}}
+
+Escalation:
+- {{role or channel}}
+
+Confirmation requested:
+- “Reply with the next three steps you will take.”</code></pre>
+
+          <h3>Receiving chat kick-off</h3>
+          <pre><code class="language-text">You are taking over {{project}}. Read the handoff brief above.
+1) Restate the objective and deliverable in your own words.
+2) List inputs you need to review.
+3) Outline the first two actions you will perform.
+Wait for my confirmation before moving ahead.</code></pre>
+
+          <h3>Context Transfer (new chat restart)</h3>
+          <pre><code class="language-text">This is a fresh chat continuing {{project}}.
+
+Use:
+- Latest recap (pasted below)
+- Files: [F1] …, [F2] …
+
+Task:
+- Produce {{deliverable}} using the recap + files only.
+- Keep internal links relative. Use the standard HTML scaffold if returning a page.
+
+Recap:
+&lt;paste the most recent 120-token recap here&gt;</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Capture handoffs in your collaboration tracker with fields for sender, receiver, chat URLs, assets shared, confirmation timestamp, and any follow-up issues. Attach the exported brief or message ID so reviewers can audit the transfer quickly.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Handoff confirmation rate:</strong> % of handoffs acknowledged within 2 hours. Target ≥ 95% during business hours.</li>
+            <li><strong>Rework incidents:</strong> Number of times the receiving chat re-did work because of missing context. Track root causes.</li>
+            <li><strong>Brief completeness score:</strong> Average checklist completion (objective, status, inputs, next action, escalation). Sample weekly.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Keep a shared snippet library of handoff briefs by workstream so you can paste and adapt fast.</li>
+            <li><strong>Tip:</strong> Ask the recipient to restate the next three steps in their own words before you leave the chat.</li>
+            <li><strong>Pitfall:</strong> Linking to stale files. Update the manifest and reattach with version tags every time you hand off.</li>
+            <li><strong>Pitfall:</strong> Skipping the confirmation log entry. Record sender, receiver, and timestamp so audits stay painless.</li>
+          </ul>
+        </section>
+
+        <section id="next" class="guide-section">
+          <h2>Keep going</h2>
+          <ul>
+            <li><a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> — recap cadence and restart patterns.</li>
+            <li><a href="../guides/11_custom-instructions.html">Custom Instructions</a> — set helpful defaults for new chats.</li>
+            <li><a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a> — decide what should persist vs. stay in-session.</li>
+            <li><a href="../guides/50_collaboration-workflows.html">Collaboration Workflows</a> — scale this beyond one team.</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Handoff brief template stored in shared snippets or docs.</li>
+            <li>✅ Planner → actor → reviewer loop practiced with an example project.</li>
+            <li>✅ Logging captures sender, receiver, links, and confirmation time.</li>
+            <li>✅ Output contract reviewed and added to QA checklists.</li>
+            <li>✅ Metrics dashboard tracks confirmation and rework rates.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

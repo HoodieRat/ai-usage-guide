@@ -1,0 +1,188 @@
+<!-- filepath: guides/orientation-assessment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Confirm you can navigate the guide, run the Quickstart, and avoid the classic first-use pitfalls.">
+  <title>Orientation Assessment | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide" data-unit-assessment="orientation">
+        <header class="guide-header">
+          <p class="eyebrow">Orientation</p>
+          <h1>Orientation Assessment</h1>
+          <p class="intro">Show that you can navigate the guide, run the Quickstart, and avoid the classic first-use pitfalls before advancing to the Core Skills units.</p>
+        </header>
+
+        <div class="unit-status-banner" data-unit-status hidden></div>
+
+        <section class="guide-section">
+          <h2>Checklist before you start</h2>
+          <ul>
+            <li>Followed the <a href="../guides/00_readme.html">Read Me First</a> primer end to end.</li>
+            <li>Completed the 15-minute Quickstart run in a live ChatGPT session.</li>
+            <li>Captured the Starter Prompt variant that worked best for you.</li>
+            <li>Noted where to find answers if the assistant drifts or hesitates.</li>
+          </ul>
+        </section>
+
+        <section class="guide-section" data-unit-quiz>
+          <h2>Orientation quiz</h2>
+          <p>Loading assessment…</p>
+        </section>
+
+        <section class="guide-section" data-unit-scorecard hidden>
+          <h2>Program scorecard</h2>
+          <p>This scorecard unlocks after you complete every unit assessment in the program.</p>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+
+        <script type="application/json" data-unit-data>
+{
+  "units": [
+    {
+      "id": "orientation",
+      "title": "Orientation",
+      "navTitle": "Orientation Assessment",
+      "intro": "Confirm you can navigate the guide, run the Quickstart, and avoid the classic first-use pitfalls.",
+      "guides": [
+        "Read Me First"
+      ],
+      "isFinal": false,
+      "instructions": [
+        "Answer each question based on the Orientation materials.",
+        "You need a perfect score to mark this unit complete.",
+        "Progress is saved automatically so you can return later."
+      ],
+      "questions": [
+        {
+          "id": "orientation-quickstart-step",
+          "prompt": "According to the 15-minute Quickstart, what should you do before pasting the Starter Prompt?",
+          "options": [
+            {
+              "text": "Pick a tiny, well-defined task to tackle right now.",
+              "correct": true,
+              "feedback": "Starting with a small, specific task keeps the Quickstart focused and winnable."
+            },
+            {
+              "text": "Save the final answer template where you keep notes.",
+              "correct": false,
+              "feedback": "Saving results comes last—first choose the task you want help with."
+            },
+            {
+              "text": "Ask ChatGPT to suggest tasks you could try.",
+              "correct": false,
+              "feedback": "The guide tells you to decide on a task yourself before prompting."
+            }
+          ]
+        },
+        {
+          "id": "orientation-core-path",
+          "prompt": "When you move past the Quickstart, which guide kicks off the suggested Core Skills path?",
+          "options": [
+            {
+              "text": "Prompt Basics",
+              "correct": true,
+              "feedback": "Prompt Basics is the first Core Skill, followed by Structured Output and other essentials."
+            },
+            {
+              "text": "File Upload Best Practices",
+              "correct": false,
+              "feedback": "File Upload Best Practices appears later in the Core Skills sequence."
+            },
+            {
+              "text": "Browsing & Search",
+              "correct": false,
+              "feedback": "Browsing & Search is further down the Core Skills list after files and structured output."
+            }
+          ]
+        },
+        {
+          "id": "orientation-mistake-feedback",
+          "prompt": "The guide says your answer is close but not quite right. What is the recommended next move?",
+          "options": [
+            {
+              "text": "Tell the assistant in one sentence what to change and why.",
+              "correct": true,
+              "feedback": "Concise feedback keeps the loop tight and helps the assistant course-correct."
+            },
+            {
+              "text": "Restart the chat with a fresh conversation immediately.",
+              "correct": false,
+              "feedback": "You should iterate in the same chat before restarting from scratch."
+            },
+            {
+              "text": "Paste a large bundle of reference material to overwhelm it with detail.",
+              "correct": false,
+              "feedback": "Adding too much at once is listed as a mistake; stick to targeted, actionable feedback."
+            }
+          ]
+        }
+      ],
+      "scoring": {
+        "passingScore": 3,
+        "guidance": "Log your Orientation completion in the enablement tracker and bookmark the Quickstart prompt.",
+        "actions": [
+          "If you miss anything, redo the Quickstart flow live before moving on.",
+          "Capture your final Starter Prompt variant so you can reuse it in later exercises."
+        ]
+      }
+    }
+  ]
+}
+        </script>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/unit-assessments.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!-- filepath: guides/52_email-drafts-and-templates.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Produce reliable email drafts with ChatGPT, tailored templates, and review checkpoints.">
+  <title>Email Drafts & Templates | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Collaboration</p>
+          <h1>Email Drafts &amp; Templates</h1>
+          <p class="intro">Turn ChatGPT into your email co-writer by codifying tone, guardrails, and review loops so messages stay on brand and compliant.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>Related guides:</strong> Use alongside <a href="../guides/04_response-contracts.html">Response Contracts</a>, <a href="../guides/21_file-upload-best-practices.html">File Upload Best Practices</a> (for attachments), and <a href="../guides/55_documentation-handoffs.html">Documentation Handoffs</a> for distribution.
+        </section>
+
+        <section class="callout warning">
+          <strong>Guardrails:</strong> Ban copying confidential info into prompts. For regulated industries, route drafts through an approver before sending externally.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Designing reusable email briefs that capture tone, audience, and call to action.</li>
+            <li>Prompting ChatGPT to generate drafts that respect formatting and compliance rules.</li>
+            <li>Building an email template library with ownership and refresh cadences.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Voice &amp; tone guidelines plus any legal disclaimers required for your organization.</li>
+            <li>Access to a shared template repository (docs, CMS, or email platform).</li>
+            <li>Review checklist covering factual accuracy, personalization, and opt-out language.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Collect inputs.</strong> Capture sender, recipient segments, objective, supporting facts, and any links or attachments you will reference.</li>
+            <li><strong>Load the response contract.</strong> Provide ChatGPT with the required structure (subject, preview, body sections, CTA) and tone guardrails (e.g., friendly, concise, 130 words max).</li>
+            <li><strong>Generate the draft.</strong> Prompt for one primary draft and a variant; ask for highlighted merge fields ({{first_name}}, {{product}}) so you spot personalization gaps.</li>
+            <li><strong>Run the compliance check.</strong> Have ChatGPT or a second reviewer confirm required disclaimers, opt-out language, and factual claims using your checklist.</li>
+            <li><strong>Finalize the template.</strong> Apply edits, add placeholders for dynamic content, and store the template with version number, owner, and last review date.</li>
+            <li><strong>Publish and distribute.</strong> Upload to the email platform or shared template doc; tag it by audience, lifecycle stage, and risk level.</li>
+            <li><strong>Capture learnings.</strong> After sending, log performance (open/reply rate) and note any manual fixes so the template evolves over time.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>Each approved template should include:</p>
+          <ul>
+            <li><strong>Template metadata:</strong> Audience, objective, owner, last review date, and compliance status.</li>
+            <li><strong>Draft plus variants:</strong> Primary email copy with merge fields and at least one alternate intro or CTA.</li>
+            <li><strong>Checklist snapshot:</strong> Completed review checklist with sign-off initials.</li>
+            <li><strong>Performance notes:</strong> Latest send metrics and recommended follow-up prompts.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          <h3>Email prompt starter</h3>
+          <pre><code>You are drafting an email for {{audience}}.
+Goal: {{objective}}
+Tone: {{tone descriptors}}
+Include: {{key facts}}
+Do NOT include: {{disallowed topics}}
+Format:
+Subject:
+Preview text (max 60 chars):
+Body:
+- Intro (1 sentence)
+- Value bullets (2-3)
+- CTA line (imperative)
+Add footer with {{legal text}}.
+Return merge fields in double curly braces.</code></pre>
+          <h3>Review checklist snippet</h3>
+          <pre><code>- ☐ Subject matches policy and avoids spam phrases
+- ☐ All metrics or claims cite a source
+- ☐ Personalization fields present and confirmed
+- ☐ CTA links correct and tracked
+- ☐ Required disclaimer appended</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Track template name, owner, version, last review date, approver, and links to the ChatGPT conversation or prompt pack. Store change rationale when edits go live.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Approval turnaround:</strong> Time from draft generation to sign-off.</li>
+            <li><strong>Personalization coverage:</strong> Percentage of templates with validated merge fields.</li>
+            <li><strong>Performance lift:</strong> Open or reply rate improvement versus the prior baseline.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Document forbidden phrases:</strong> Maintain a list of banned words (spam triggers, legal issues) and include it in the prompt to reduce rework.</li>
+            <li><strong>Keep variants small:</strong> Limit to two versions per review cycle so approvers can actually read them.</li>
+            <li><strong>Start with plain text:</strong> Approve the copy before layering on HTML modules; it keeps reviews fast and accessible.</li>
+            <li><strong>Refresh quarterly:</strong> Schedule a template audit every 90 days to retire underperforming copy and capture new positioning.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Guide ChatGPT with crystal-clear response contracts, double-check compliance, and treat templates like living assets so every send stays sharp and on brand.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Draft follows tone, structure, and CTA requirements.</li>
+            <li>✅ Review checklist signed and stored with the template.</li>
+            <li>✅ Template lives in the shared library with owner and next review date.</li>
+            <li>✅ Performance notes logged after each send cycle.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

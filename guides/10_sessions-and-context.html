@@ -1,0 +1,231 @@
+<!-- filepath: guides/10_sessions-and-context.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manage multi-turn sessions with context logs, recap prompts, and handoff patterns so nothing gets lost.">
+  <title>Sessions & Context | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Context &amp; Memory</p>
+          <h1>Sessions &amp; Context</h1>
+          <p class="intro">Keep long-running conversations aligned by budgeting tokens, logging facts, and packaging handoffs. Use these patterns to restart cleanly when a thread gets long or “sticky,” without losing momentum.</p>
+        </header>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Set up a durable session header and cadence for recaps.</li>
+            <li>Know when to restart a thread and how to carry context forward.</li>
+            <li>Maintain a compact context log that doubles as an audit trail.</li>
+            <li>Hand off work across teammates or new chats without replaying history.</li>
+          </ul>
+        </section>
+
+        <section id="heads-up" class="guide-section">
+          <h2>Heads-up before you start</h2>
+          <div class="callouts">
+            <p><strong>Long threads degrade.</strong> After many turns, replies may slow, drift, or “lock up.” Open a <em>new chat</em> and transfer context (template below).</p>
+            <p><strong>Memory can get “sticky.”</strong> If enabled, past details may over-influence tone. Use <em>Temporary Chat</em> for blank-slate runs, or restate rules in your first message.</p>
+            <p><strong>Files have limits.</strong> Attach only what matters and link to the rest. For current limits and prep tips, see <a href="../guides/21_file-upload-best-practices.html">File Upload Best Practices</a>.</p>
+          </div>
+          <p class="small">New to the web app flow? See <a href="../guides/02_how-chatgpt-works.html">How ChatGPT Works</a> for thread hygiene and context transfer basics.</p>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Seed the session header.</strong> Your first turn should name the objective, audience, success criteria, and authoritative files/links.</li>
+            <li><strong>Track the budget.</strong> Keep prompt+answer under ~75% of the model’s working window. When drafts get cut off or drift, plan a restart.</li>
+            <li><strong>Log decisions.</strong> After notable turns, copy the facts/decisions/open questions/next actions into your context log (template below).</li>
+            <li><strong>Recap on cadence.</strong> Every 8–10 messages, ask for a 120-token recap and paste it into the log as the new “source of truth.”</li>
+            <li><strong>Prepare handoffs.</strong> When changing owners or chats, generate a one-page digest and have the recipient restate the plan.</li>
+            <li><strong>Archive &amp; relaunch.</strong> Close a bloated thread and start a new one with the latest digest + links/files.</li>
+          </ol>
+        </section>
+
+        <section id="templates" class="guide-section">
+          <h2>Templates (copy-paste)</h2>
+
+          <h3>1) Session header (first message)</h3>
+          <pre><code class="language-text">Project: &lt;name&gt;
+Objective: &lt;one sentence outcome&gt;
+Audience &amp; tone: &lt;who this is for; tone&gt;
+Source of truth: &lt;files/links you will use&gt;
+Constraints: &lt;must/ must-not; format; length&gt;
+Success looks like: &lt;acceptance criteria&gt;</code></pre>
+
+          <h3>2) Recap prompt (every 8–10 turns)</h3>
+          <pre><code class="language-text">Summarize this thread in ≤120 tokens.
+Return JSON with keys:
+"facts": [ ... ], "decisions": [ ... ], "open_questions": [ ... ], "next_actions": [ ... ]</code></pre>
+
+          <h3>3) Context log entry (paste in your doc)</h3>
+          <pre><code class="language-yaml">date: 2025-10-30
+thread: "Sessions & Context"
+facts:
+  - ...
+decisions:
+  - ...
+open_questions:
+  - ...
+next_actions:
+  - owner: &lt;name&gt;
+    action: &lt;what&gt;
+    due: &lt;YYYY-MM-DD&gt;</code></pre>
+
+          <h3>4) Context Transfer (new chat restart)</h3>
+          <pre><code class="language-text">You are continuing the "Everyday AI Guide" project in a fresh chat.
+
+What to use:
+- Latest recap (below)
+- Linked files: &lt;list the exact files you want used now&gt;
+
+Task:
+- Produce &lt;deliverable&gt; using the recap + files only.
+- Return the standard HTML scaffold and keep internal links relative.
+
+Recap:
+&lt;paste the most recent 120-token recap or digest here&gt;</code></pre>
+
+          <h3>5) Handoff digest (between teammates)</h3>
+          <pre><code class="language-text">Handoff: &lt;project&gt; → &lt;new owner&gt;
+Goal now: &lt;one sentence&gt;
+Must-use sources: &lt;files/links&gt;
+Key decisions so far: &lt;3–5 bullets&gt;
+Open questions: &lt;3 max&gt;
+Next 2 actions: &lt;bullets with owners/dates&gt;</code></pre>
+        </section>
+
+        <section id="when-to-restart" class="guide-section">
+          <h2>When to restart a session</h2>
+          <ul>
+            <li><strong>Cut-off answers</strong> or repeated “Continue?” prompts.</li>
+            <li><strong>Drift or contradictions</strong> against your own recap or files.</li>
+            <li><strong>Slow, unstable responses</strong> or the model starts forgetting recent facts.</li>
+            <li><strong>Big scope change.</strong> New chat + Context Transfer keeps threads crisp.</li>
+          </ul>
+          <p class="small">Use <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> for a deeper restart checklist.</p>
+        </section>
+
+        <section id="instrumentation" class="guide-section">
+          <h2>Instrumentation (lightweight)</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Signal</th>
+                <th>How to track</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Token pressure</td>
+                <td>Rough count: words × 1.33 ≈ tokens</td>
+                <td>Over ~75%? Summarize or restart with a digest.</td>
+              </tr>
+              <tr>
+                <td>Answer quality</td>
+                <td>PASS / REVISION in your log</td>
+                <td>Two REVISIONs in a row → restart + tighter contract.</td>
+              </tr>
+              <tr>
+                <td>Latency spikes</td>
+                <td>Note seconds per reply</td>
+                <td>Restart or split work; attach only critical files.</td>
+              </tr>
+              <tr>
+                <td>Context fidelity</td>
+                <td>Compare outputs to recap</td>
+                <td>Mismatch → recap again or re-anchor with session header.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Label attachments <code>[F1]</code>, <code>[F2]</code> and reference them by label in prompts.</li>
+            <li><strong>Tip:</strong> Keep the recap under 120 tokens so it fits easily in restarts.</li>
+            <li><strong>Pitfall:</strong> Relying on memory alone. Always paste the latest recap when restarting.</li>
+            <li><strong>Pitfall:</strong> Dragging the whole history forward. Bring only what the next step needs.</li>
+          </ul>
+        </section>
+
+        <section id="next" class="guide-section">
+          <h2>Keep going</h2>
+          <ul>
+            <li><a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> — reliable restarts and ownership transfers.</li>
+            <li><a href="../guides/11_custom-instructions.html">Custom Instructions</a> — set helpful defaults without overfitting.</li>
+            <li><a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a> — use Memory wisely; when to prefer Temporary Chat.</li>
+            <li><a href="../guides/03_prompt-basics.html">Prompt Basics</a> &amp; <a href="../guides/05_structured-output.html">Structured Output</a> — keep responses tight and reusable.</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Session header seeded (objective, sources, format).</li>
+            <li>✅ Recap every 8–10 turns (≤120 tokens) saved to the log.</li>
+            <li>✅ Restarted threads use Context Transfer with the latest digest.</li>
+            <li>✅ Files attached sparingly; rest linked; limits reviewed in File Upload Best Practices.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

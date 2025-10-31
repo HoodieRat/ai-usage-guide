@@ -1,0 +1,247 @@
+<!-- filepath: guides/12_memory-and-privacy.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Manage memory features responsibly while protecting sensitive information.">
+  <title>Memory & Privacy | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Context &amp; Memory</p>
+          <h1>Memory &amp; Privacy</h1>
+          <p class="intro">Use ChatGPT’s Memory features intentionally. Decide what may persist across chats, how to minimize sensitive data, and how to purge quickly—without losing productivity on long-running projects.</p>
+        </header>
+
+        <section class="callout warning">
+          <strong>Retention reminder:</strong> Company policy caps AI memory at <strong>30 days</strong> for any customer-identifiable data. Record every exception with an owner, purge date, and privacy approval.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>What Memory is good for (reusable preferences) and what it is <em>not</em> (private data vault).</li>
+            <li>How to combine <a href="../guides/11_custom-instructions.html">Custom Instructions</a>, <a href="../guides/10_sessions-and-context.html">Context Transfer</a>, and Memory safely.</li>
+            <li>How to classify, redact, log, and purge memory entries for audits.</li>
+          </ul>
+        </section>
+
+        <section id="quick-wins" class="guide-section">
+          <h2>Quick wins</h2>
+          <div class="callouts">
+            <p><strong>Prefer preferences, not facts.</strong> Save style/format defaults in Memory (e.g., “prefer tables, keep answers under 150 words”), not client secrets.</p>
+            <p><strong>Use Temporary Chat for sensitive tasks.</strong> For blank-slate work that shouldn’t inherit Memory, start a temporary chat and attach only needed files.</p>
+            <p><strong>Restate the rules.</strong> Start important runs with a one-line privacy primer (copy-paste below) so the model doesn’t drift.</p>
+          </div>
+        </section>
+
+        <section id="how-it-works" class="guide-section">
+          <h2>How Memory fits with sessions</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>What it does</th>
+                <th>Use it for</th>
+                <th>Avoid storing</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Memory</strong></td>
+                <td>Lets ChatGPT recall certain details across chats.</td>
+                <td>Voice/tone, preferred formats, recurring non-sensitive preferences.</td>
+                <td>Credentials, customer identifiers, health/financial data.</td>
+              </tr>
+              <tr>
+                <td><strong>Session context</strong></td>
+                <td>Short-term chat history used for the current thread only.</td>
+                <td>Task steps, drafts, in-progress reasoning.</td>
+                <td>Long-term facts you won’t need after this task.</td>
+              </tr>
+              <tr>
+                <td><strong>Context Transfer</strong></td>
+                <td>Manual recap you paste to start a fresh chat cleanly.</td>
+                <td>Project digests (key facts, links, next steps).</td>
+                <td>Any sensitive data not required for the next step.</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small">If a thread slows or “locks up,” start a <em>new chat</em> and use the <a href="../guides/10_sessions-and-context.html#templates">Context Transfer</a> block.</p>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Classify first.</strong> Tag incoming info as public/internal/confidential/restricted (see policy). If in doubt, treat as restricted.</li>
+            <li><strong>Decide storage.</strong> For each item, pick: <em>Allowed in Memory</em>, <em>Session only</em>, or <em>Blocked</em>. When blocked, rely on attachments + session context.</li>
+            <li><strong>Prime the run.</strong> Paste the guardrail primer (below) at the top of the chat if stakes are high.</li>
+            <li><strong>Save only what’s safe.</strong> If you add a Memory note, include its classification and a purge date in your log.</li>
+            <li><strong>Review weekly.</strong> Open the Memory list, remove anything stale, and record the purge in your privacy log.</li>
+          </ol>
+        </section>
+
+        <section id="primer" class="guide-section">
+          <h2>Privacy guardrail primer (copy-paste)</h2>
+          <pre><code class="language-text">Operate in privacy-safe mode:
+- Do not store confidential or restricted information in Memory.
+- If uncertain, ask for classification before saving anything.
+- Prefer storing reusable preferences (tone, formatting) only.
+If a store request is risky, refuse and explain the conflict.</code></pre>
+        </section>
+
+        <section id="redaction" class="guide-section">
+          <h2>Redaction &amp; sanitization</h2>
+          <p>Before saving notes—or even before pasting context—remove identifiers and sensitive fragments. Pair with the dedicated guide: <a href="../guides/25_redaction-and-sanitization.html">Redaction &amp; Sanitization</a>.</p>
+          <pre><code class="language-text">Redaction checklist:
+- Replace account IDs with aliases (e.g., ACME-123 → ACME-A1).
+- Remove payment, credential, or medical details entirely.
+- Limit transcripts to pertinent, non-identifying excerpts.
+- Note which sanitized file is the “source of truth”.</code></pre>
+        </section>
+
+        <section id="operational-playbook" class="guide-section">
+          <h2>Operational playbook</h2>
+          <ol>
+            <li><strong>Classify inputs.</strong> Use your matrix: public / internal / confidential / restricted.</li>
+            <li><strong>Decide storage scope.</strong> Record “Memory / Session / Block” per class with rationale.</li>
+            <li><strong>Prime the assistant.</strong> Paste the primer before attaching files for sensitive tasks.</li>
+            <li><strong>Log exceptions.</strong> If restricted data must persist briefly, log owner, reason, and purge-by date.</li>
+            <li><strong>Review &amp; purge.</strong> Weekly: export the Memory list, mark Keep/Edit/Delete, purge, and log proof.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract for “store this in Memory”</h2>
+          <p>When you ask the model whether to save a detail, require this structure in its reply:</p>
+          <ul>
+            <li><strong>classification</strong> (policy tier + citation)</li>
+            <li><strong>allowed</strong> (true/false with reason)</li>
+            <li><strong>retention_days</strong> (number; 0 if not allowed)</li>
+            <li><strong>deletion_phrase</strong> (exact phrase to remove this memory later)</li>
+            <li><strong>reviewer</strong> (role/name approving the entry)</li>
+          </ul>
+          <details>
+            <summary>JSON example</summary>
+            <pre><code class="language-json">{
+  "classification": "internal",
+  "allowed": true,
+  "retention_days": 30,
+  "deletion_phrase": "Forget my preference about weekly summary format.",
+  "reviewer": "Privacy steward"
+}</code></pre>
+          </details>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Emergency purge (paste into the chat)</h3>
+          <pre><code class="language-text">List everything you currently remember about me and this project.
+Identify any items that could be confidential or restricted.
+Then: confirm you have forgotten those items now.</code></pre>
+
+          <h3>Weekly purge runbook</h3>
+          <pre><code class="language-text"># Weekly Memory Review
+1) Open the Memory list and export/copy entries.
+2) Tag each as Keep, Edit, or Delete in the privacy log.
+3) Issue deletion phrases in-chat; confirm removal.
+4) Attach the confirmation to the log with date/reviewer.
+5) Escalate any item that cannot be removed.</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging &amp; audit</h2>
+          <p>Track every Memory write or purge with timestamp, author, data class, purge date, and reviewer initials. Keep exports or screenshots attached to the log so reviewers can rehydrate context quickly.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Exception rate:</strong> % of chats requesting restricted storage (target &lt; 5%).</li>
+            <li><strong>Time-to-purge:</strong> Average hours from deletion request to confirmed removal.</li>
+            <li><strong>Repeat incidents:</strong> Recurrent policy violations per quarter.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Before sensitive runs, ask “What do you currently remember about me?” and clear anything off-mission.</li>
+            <li><strong>Tip:</strong> Schedule a weekly Memory review on your team calendar so purges never slip.</li>
+            <li><strong>Pitfall:</strong> Letting restricted data persist “just this once.” Run the emergency purge immediately and log the incident.</li>
+            <li><strong>Pitfall:</strong> Skipping proof of deletion. Capture screenshots or exports after each purge in the privacy log.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Save preferences, not secrets. Classify before storing, prime guardrails, log changes, and purge routinely. For long projects, avoid Memory bloat—use <a href="../guides/10_sessions-and-context.html">Context Transfer</a> and <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> instead of hoarding details in Memory.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Data classification matrix accessible and used.</li>
+            <li>✅ Guardrail primer pasted for sensitive runs.</li>
+            <li>✅ Logging and weekly purge cadence in place with an owner.</li>
+            <li>✅ Memory “store” decisions include class, retention, deletion phrase, reviewer.</li>
+            <li>✅ Last audit exported and linked in the privacy log.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

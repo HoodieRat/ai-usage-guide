@@ -1,0 +1,255 @@
+<!-- filepath: guides/04_response-contracts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design, version, and enforce response contracts so AI outputs land exactly where your workflow expects.">
+  <title>Response Contracts | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Foundations</p>
+          <h1>Response Contracts</h1>
+          <p class="intro">Response contracts turn your expectations into a format the model must follow—so outputs drop cleanly into emails, docs, tables, or JSON without hand-fixing. Use this page to design, version, and enforce contracts straight from the ChatGPT web app.</p>
+        </header>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Create a small, explicit contract table the model follows every time.</li>
+            <li>Embed version tags and simple error paths (<code>status</code> fields) for safer iterations.</li>
+            <li>Use “enforcement blocks” and quick follow-ups to correct drift in the web chat.</li>
+            <li>Validate outputs manually or with lightweight checks before you share.</li>
+          </ul>
+        </section>
+
+        <section id="what-is-a-contract" class="guide-section">
+          <h2>What is a response contract?</h2>
+          <p>A short spec that states <em>exactly</em> what the output must look like (fields, types, required/optional, examples). In the web app, you’ll paste it right under your prompt and say “follow this format only.”</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Type</th>
+                <th>Required</th>
+                <th>Rules / Allowed values</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>title</td>
+                <td>string</td>
+                <td>yes</td>
+                <td>≤ 80 chars; no emojis</td>
+                <td>Status update for Q4 roadmap</td>
+              </tr>
+              <tr>
+                <td>summary</td>
+                <td>string</td>
+                <td>yes</td>
+                <td>≤ 150 words; plain language</td>
+                <td>We finished items A–C; D is delayed 1 week.</td>
+              </tr>
+              <tr>
+                <td>risks</td>
+                <td>array&lt;string&gt;</td>
+                <td>no</td>
+                <td>max 3 bullets</td>
+                <td>["Vendor delay","Scope creep"]</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td>string</td>
+                <td>yes</td>
+                <td>one of: ok | needs_info | invalid_input</td>
+                <td>ok</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small">For tables/JSON tips, see <a href="../guides/05_structured-output.html">Structured Output</a>. For multi-turn handoffs, see <a href="../guides/41_task-chains-and-delegation.html">Task Chains</a> and <a href="../guides/42_planners-critics-validators.html">Planners &amp; Validators</a>.</p>
+        </section>
+
+        <section id="enforcement" class="guide-section">
+          <h2>Enforcement block (copy-paste)</h2>
+          <p>Paste this under your ask in the ChatGPT web app. It keeps the answer tight and recoverable when inputs are missing.</p>
+          <pre><code class="language-text">Follow this response contract exactly. If input is insufficient, do not guess:
+- Set status = "needs_info" and list missing_fields.
+- If the task is out of scope, set status = "invalid_input" and explain briefly.
+
+Return ONLY the requested format (no extra commentary).</code></pre>
+
+          <details>
+            <summary>JSON version with metadata (for machine-readable outputs)</summary>
+            <pre><code class="language-json">{
+  "contract_id": "status-update.v1",
+  "owner": "&lt;name&gt;",
+  "version": "1.0.0",
+  "output_contract": {
+    "type": "object",
+    "required": ["title", "summary", "status"],
+    "properties": {
+      "title": {"type": "string", "maxLength": 80},
+      "summary": {"type": "string"},
+      "risks": {"type": "array", "items": {"type": "string"}, "maxItems": 3},
+      "status": {"type": "string", "enum": ["ok","needs_info","invalid_input"]},
+      "missing_fields": {"type": "array", "items": {"type": "string"}}
+    }
+  }
+}</code></pre>
+          </details>
+        </section>
+
+        <section id="examples" class="guide-section">
+          <h2>Two quick examples</h2>
+
+          <h3>Email draft (Markdown)</h3>
+          <pre><code class="language-text">Goal: Draft a brief status email.
+
+Response contract (Markdown only):
+# &lt;Subject line (≤ 60 chars)&gt;
+To: &lt;recipient&gt;
+---
+Summary (≤ 120 words)
+- Key Point 1
+- Key Point 2
+Next step: &lt;one sentence&gt;</code></pre>
+
+          <h3>Issue report (JSON)</h3>
+          <pre><code class="language-json">{
+  "contract_id": "issue-report.v1",
+  "version": "1.1.0",
+  "status": "ok",
+  "ticket": {
+    "id": "&lt;string or ''&gt;",
+    "title": "&lt;≤ 80 chars&gt;",
+    "severity": "low|medium|high|critical",
+    "repro_steps": ["&lt;step1&gt;","&lt;step2&gt;"],
+    "expected": "&lt;text&gt;",
+    "actual": "&lt;text&gt;"
+  }
+}</code></pre>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Draft the schema.</strong> Start with a tiny table (fields/types/examples) or a JSON shape.</li>
+            <li><strong>Write the enforcement block.</strong> Include status values and “needs_info” behavior.</li>
+            <li><strong>Add one golden sample.</strong> Paste a perfect example under the contract to anchor tone/shape.</li>
+            <li><strong>Test with two real inputs.</strong> Save outputs and note any drift or missing fields.</li>
+            <li><strong>Version and store.</strong> Add <code>contract_id</code>, <code>version</code>, <code>owner</code>, <code>last_review</code> in your <a href="../guides/84_prompt-library.html">Prompt Library</a>.</li>
+            <li><strong>Roll out safely.</strong> If you change the schema, bump the version and message downstream consumers.</li>
+          </ol>
+        </section>
+
+        <section id="follow-ups" class="guide-section">
+          <h2>Follow-ups that fix drift (paste as replies)</h2>
+          <ul class="grid-two">
+            <li><strong>Missing fields:</strong> “Regenerate and include all required fields: &lt;list&gt;.”</li>
+            <li><strong>Wrong format:</strong> “Return only the contract format. No extra commentary.”</li>
+            <li><strong>Over length:</strong> “Shorten &lt;field&gt; to ≤ &lt;limit&gt; and regenerate.”</li>
+            <li><strong>Bad values:</strong> “<code>&lt;field&gt;</code> must be one of &lt;enum&gt;. Fix and resend.”</li>
+            <li><strong>Need error path:</strong> “If info is missing, set <code>status</code>=needs_info and list <code>missing_fields</code>.”</li>
+            <li><strong>Ambiguity:</strong> “Ask 1 clarifying question, then regenerate in the same contract.”</li>
+          </ul>
+        </section>
+
+        <section id="validation" class="guide-section">
+          <h2>Validation (lightweight)</h2>
+          <p>In the web chat, use quick checks before you ship:</p>
+          <ul>
+            <li><strong>Field presence:</strong> “List which required fields you populated and which are blank.”</li>
+            <li><strong>Length checks:</strong> “Confirm <code>title</code> ≤ 80 chars; summarize to fit if needed.”</li>
+            <li><strong>Enum compliance:</strong> “Verify <code>status</code> ∈ {ok, needs_info, invalid_input}.”</li>
+            <li><strong>No extras:</strong> “Confirm there are no fields outside the contract.”</li>
+          </ul>
+
+          <details>
+            <summary>Validator prompt (use after a draft)</summary>
+            <pre><code class="language-text">Validate the previous output against this contract (do not rewrite the answer yet):
+- Required fields present?
+- Any values outside enums?
+- Any fields exceed length limits?
+- Any fields not in the contract?
+Return a short PASS/REVISION report with bullet fixes.</code></pre>
+          </details>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Keep contracts tiny. Fewer than 8 fields is easier to honor reliably.</li>
+            <li><strong>Tip:</strong> Put the contract directly under your ask so edits stay in sync.</li>
+            <li><strong>Pitfall:</strong> Implied formats. If you don’t specify, the model improvises.</li>
+            <li><strong>Pitfall:</strong> Changing the schema mid-thread. Start a new chat and paste the updated contract (see <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a>).</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Contract table or JSON with <code>contract_id</code>, <code>version</code>, <code>owner</code>.</li>
+            <li>✅ Enforcement block added (status + “return only this format”).</li>
+            <li>✅ One golden sample included.</li>
+            <li>✅ Drift handled by follow-ups; validation pass logged.</li>
+            <li>✅ Stored in <code>prompts/</code> and referenced by your next run.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

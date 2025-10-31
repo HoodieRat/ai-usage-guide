@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PromptLibraryEntry",
+  "description": "Metadata contract for reusable prompt assets managed by the Everyday AI prompt library.",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "use_case",
+    "owner",
+    "last_review",
+    "guardrails",
+    "inputs",
+    "outputs",
+    "prompt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^PL-[0-9]{3}$",
+      "description": "Unique library identifier following the PL-### convention."
+    },
+    "title": {
+      "type": "string",
+      "description": "Human-friendly name for the prompt asset."
+    },
+    "use_case": {
+      "type": "string",
+      "description": "Primary workflow or business scenario the prompt supports."
+    },
+    "owner": {
+      "type": "string",
+      "description": "Person or distribution list accountable for maintenance and approvals."
+    },
+    "last_review": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the prompt was last validated against policy and success criteria."
+    },
+    "review_cadence_days": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Days between required governance reviews."
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Risk tier based on data sensitivity and downstream impact."
+    },
+    "guardrails": {
+      "type": "array",
+      "description": "Explicit constraints, disclaimers, or validations that must accompany the prompt.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "description": "Structured inputs or evidence the operator must provide before running the prompt.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "description": "Expected output artefacts (e.g., JSON schema name, deck section, email).",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prompt": {
+      "type": "string",
+      "description": "Finalised system or user prompt text with interpolation tokens."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Searchable keywords for filtering the catalog.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

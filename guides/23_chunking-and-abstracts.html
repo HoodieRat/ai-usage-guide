@@ -1,0 +1,225 @@
+<!-- filepath: guides/23_chunking-and-abstracts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Break long materials into manageable chunks with sharp abstracts the model can reuse.">
+  <title>Chunking &amp; Abstracts | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Files &amp; Context</p>
+          <h1>Chunking &amp; Abstracts</h1>
+          <p class="intro">Turn long-form source material into precise, reusable chunks with abstracts the assistant—and your teammates—can trust in ChatGPT’s web chat.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>Token guardrail:</strong> Aim for 200–350 tokens per chunk (≈150–260 words). Longer chunks risk truncation; ultra-short chunks bloat the number you must manage. See also <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a>.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to segment documents by meaning (not just length) so answers stay grounded.</li>
+            <li>Abstract styles that preserve facts, nuance, and caveats.</li>
+            <li>Cataloging systems so retrieval is fast, auditable, and chat-friendly.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Clean, redacted source material (see <a href="../guides/25_redaction-and-sanitization.html">Redaction &amp; Sanitization</a>).</li>
+            <li>A sheet or lightweight database for a chunk catalog.</li>
+            <li>Rough token estimator: <em>tokens ≈ words × 1.33</em>.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“We must chunk the 35-page onboarding manual. Suggest chunk boundaries, IDs, and catalog columns, then draft the first three abstracts.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant proposes IDs like <code>OB-01-Intro</code>, a table with tokens, summary, evidence strength, tags, and drafts sample abstracts.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer compares abstracts to source, flags missing caveats, and asks for a checklist to keep future chunks consistent.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Map the structure.</strong> Skim headings and logical sections. Prefer semantic boundaries (topic shifts, procedures, decisions) over strict page counts.</li>
+            <li><strong>Create chunks.</strong> Split manually or with a script, preserving headings, tables, and footnotes that change meaning.</li>
+            <li><strong>Draft abstracts.</strong> Capture <em>purpose → key facts → caveats</em> in 3–5 sentences. Name the intended use (“answers X, supports Y”).</li>
+            <li><strong>Tag metadata.</strong> Add keywords, evidence strength (High/Medium/Low), source pointer, tokens, and data class.</li>
+            <li><strong>Review &amp; publish.</strong> Peer-review, store in the catalog, and link chunks used by prompts in <a href="../guides/22_context-from-files_rag-basics.html">RAG Basics</a>.</li>
+          </ol>
+          <details>
+            <summary>Boundary heuristics &amp; anti-patterns</summary>
+            <ul>
+              <li><strong>Good boundaries:</strong> one policy rule + its exceptions; one procedure; one concept + examples.</li>
+              <li><strong>Split here:</strong> a new decision point, a separate audience, or a table that can stand alone.</li>
+              <li><strong>Avoid:</strong> splitting mid-definition; bundling unrelated topics; chunks that require cross-reading to make sense.</li>
+            </ul>
+          </details>
+        </section>
+
+        <section id="abstract-styles" class="guide-section">
+          <h2>Abstract styles (pick one per chunk)</h2>
+          <ul>
+            <li><strong>Factual abstract:</strong> Facts first, numbers explicit, no recommendations. Good for policy/legal.</li>
+            <li><strong>Decision abstract:</strong> States rule → exceptions → edge cases → consequences. Good for approvals/escalations.</li>
+            <li><strong>How-to abstract:</strong> Outcome → numbered steps → pre-reqs → failure modes. Good for procedures.</li>
+          </ul>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>When the assistant drafts abstracts, require:</p>
+          <ul>
+            <li><strong>Chunk ID</strong> (stable convention: <code>{{DOC}}-{{section}}-{{descriptor}}</code>).</li>
+            <li><strong>Token estimate</strong> (nearest 10).</li>
+            <li><strong>Abstract</strong> (3–5 sentences: purpose, facts, caveats).</li>
+            <li><strong>Use cases</strong> (questions this chunk answers).</li>
+            <li><strong>Evidence strength</strong> (High/Medium/Low) + <strong>Source pointer</strong> (page/heading).</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Chunk ID pattern</h3>
+          <pre><code class="language-text">{{document code}}-{{section number}}-{{descriptor}}
+Examples:
+OB-03-Eligibility
+SEC-12-DataRetention
+FAQ-07-Refunds</code></pre>
+
+          <h3>Abstract prompt</h3>
+          <pre><code class="language-text">Given the chunk below, produce:
+1) chunk_id (pattern DOC-{{section}}-{{keyword}})
+2) tokens (nearest 10)
+3) abstract (3–5 sentences: purpose → key facts → caveats)
+4) use_cases (comma list)
+5) evidence_strength (High/Medium/Low)
+6) source_pointer (page/heading)
+
+Chunk:
+{{chunk_text}}</code></pre>
+
+          <h3>Catalog template</h3>
+          <pre><code class="language-markdown">| Chunk ID     | Source           | Location | Tokens | Abstract | Evidence | Tags                 | Updated     | Reviewer |
+|--------------|------------------|----------|--------|----------|----------|----------------------|-------------|----------|
+| OB-01-Intro  | onboarding.pdf   | p.1–2    | 280    | ...      | Medium   | overview,onboarding  | 2025-10-30  | Alex     |
+| OB-03-Elig   | onboarding.pdf   | p.7–9    | 310    | ...      | High     | eligibility,hr       | 2025-10-30  | Priya    |</code></pre>
+
+          <h3>Reviewer checklist</h3>
+          <pre><code class="language-text">[ ] Abstract matches source facts (no added claims)
+[ ] Caveats and exceptions explicitly called out
+[ ] Source pointer lets me verify in 10s or less
+[ ] Token count within 200–350
+[ ] Tags support searchability (3–6 clear terms)</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Keep the catalog in your project folder with creation date, last review date, reviewer initials, and links to chats that used each chunk. When source docs change, mark dependent chunks “stale” until re-verified.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Abstract accuracy:</strong> % of sampled abstracts requiring zero edits.</li>
+            <li><strong>Chunk reuse rate:</strong> # of prompts per week that cite cataloged chunks.</li>
+            <li><strong>Refresh cadence:</strong> Avg days since last review per chunk (target &lt; 45 on active projects).</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Let the assistant suggest boundaries, then manually adjust so each chunk answers a single question.</li>
+            <li><strong>Tip:</strong> Draft a “must include” list before writing abstracts so nuance and caveats make the final summary.</li>
+            <li><strong>Pitfall:</strong> Keeping stale chunks. Review catalog timestamps weekly and flag anything older than your refresh SLAs.</li>
+            <li><strong>Pitfall:</strong> Catalog sprawl. Maintain a “Top 50” view or tag for high-frequency chunks to keep prompts lightweight.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Chunking is the bridge between raw documents and reliable answers. Use semantic boundaries, write crisp abstracts, catalog them with tokens and sources, and keep reviews on a schedule. Pair with <a href="../guides/22_context-from-files_rag-basics.html">RAG Basics</a> for retrieval and <a href="../guides/24_citations-and-attribution.html">Citations</a> for grounding.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Catalog populated with IDs, abstracts, tokens, tags, sources.</li>
+            <li>✅ Abstract prompt and reviewer checklist saved as snippets.</li>
+            <li>✅ Review cadence and owners assigned; stale flags applied.</li>
+            <li>✅ Chunks referenced by prompts with citation rules.</li>
+            <li>✅ Metrics dashboard tracking accuracy, reuse, refresh cadence.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

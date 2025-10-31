@@ -1,0 +1,98 @@
+<!-- filepath: guides/context-assessment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Validate that you can manage context carryover, custom instructions, memory, and handoffs without losing fidelity.">
+  <title>Sessions &amp; Context Assessment | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide" data-unit-assessment="sessions-context">
+        <header class="guide-header">
+          <p class="eyebrow">Sessions &amp; Context</p>
+          <h1>Sessions &amp; Context Assessment</h1>
+          <p class="intro">Prove that you can capture context, tune defaults, and transfer work between chats without dropping decisions or privacy commitments.</p>
+        </header>
+
+        <div class="unit-status-banner" data-unit-status hidden></div>
+
+        <section class="guide-section">
+          <h2>Checklist before you start</h2>
+          <ul>
+            <li>Documented how you open, recap, and sunset threads using <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a>.</li>
+            <li>Filed durable defaults in <a href="../guides/11_custom-instructions.html">Custom Instructions</a> and reviewed escalation rules.</li>
+            <li>Mapped what the assistant can and cannot retain from <a href="../guides/12_memory-and-privacy.html">Memory &amp; Privacy</a>.</li>
+            <li>Captured the handoff packet template from <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> and trialed it with a teammate.</li>
+          </ul>
+        </section>
+
+        <section class="guide-section">
+          <h2>How to use this quiz</h2>
+          <p>Each prompt mirrors a real transition scenario. Reference your session logs if needed, and record any misses with a corrective action so handoffs keep improving. Target a 90% score before moving to Projects &amp; Files.</p>
+        </section>
+
+        <section class="guide-section" data-unit-quiz>
+          <h2>Sessions &amp; Context quiz</h2>
+          <p>Loading assessment…</p>
+        </section>
+
+        <section class="guide-section" data-unit-scorecard hidden>
+          <h2>Program scorecard</h2>
+          <p>This scorecard unlocks after you complete every unit assessment in the program.</p>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/unit-assessments.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

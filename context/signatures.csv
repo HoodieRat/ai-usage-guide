@@ -1,0 +1,8 @@
+file,signature,returns,notes
+scripts/chatgpt_workflow_runner.py,"build_driver(profile_dir: Path | None) -> Chrome","Chrome","Creates undetected-chromedriver session with optional profile"
+scripts/chatgpt_workflow_runner.py,"send_prompt(driver: Chrome, prompt: str) -> str","str","Posts a prompt and returns the last assistant message"
+scripts/chatgpt_workflow_runner.py,"wait_for_response(driver: Chrome, previous_count: int) -> None","None","Polls until a new assistant message is available"
+scripts/chatgpt_workflow_runner.py,"validate_manifest(schema_text: str, manifest_text: str) -> Iterable[str]","Iterable[str]","Yields schema validation errors using Draft7"
+scripts/chatgpt_workflow_runner.py,"main(argv: list[str]) -> int","int","CLI entrypoint that orchestrates the automation flow"
+js/unit-assessments.js,"fetchQuizzes()","Promise<void>","Loads quiz JSON then renders or falls back to bundled data"
+js/unit-assessments.js,"renderQuiz()","void","Builds quiz markup and restores prior answers"

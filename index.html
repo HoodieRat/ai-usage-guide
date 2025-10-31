@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Everyday AI Guide helps you weave AI into daily work with practical playbooks, checklists, and workflows.">
+  <title>Everyday AI Guide</title>
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/prism.css">
+</head>
+<body data-base="." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="index.html">
+      <img src="assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide home">
+        <header class="guide-header">
+          <p class="eyebrow">Welcome</p>
+          <h1>Everyday AI Guide</h1>
+          <p class="intro">Use this handbook to plug AI into day-to-day work. Move from first experiments to coordinated, agentic workflows without introducing complex tooling.</p>
+        </header>
+        <section id="quick-start" class="hero">
+          <div class="hero-copy">
+            <h2>Quick Start Plan</h2>
+            <p>Move from experimentation to production confidence in three focused passes.</p>
+            <ol class="quick-start">
+              <li><strong>Launch:</strong> Set your baseline workflows with <a href="guides/01_getting-started.html">Getting Started</a>.</li>
+              <li><strong>Shape:</strong> Lock reliable prompts and feedback loops in <a href="guides/03_prompt-basics.html">Prompt Basics</a>.</li>
+              <li><strong>Scale:</strong> Stretch into multi-source investigations using <a href="guides/31_deep-research-playbook.html">Deep Research Playbook</a>.</li>
+            </ol>
+          </div>
+          <div class="hero-card">
+            <h3>Featured Guides</h3>
+            <ul class="hero-links">
+              <li><a href="guides/01_getting-started.html">Getting Started</a></li>
+              <li><a href="guides/03_prompt-basics.html">Prompt Basics</a></li>
+              <li><a href="guides/31_deep-research-playbook.html">Deep Research Playbook</a></li>
+            </ul>
+          </div>
+        </section>
+        <section id="learning-tracks" class="guide-section">
+          <h2>Learning tracks</h2>
+          <p>Every navigation group builds toward agentic, observable AI programs. Work through them in order or dip in where you need depth.</p>
+          <div class="how-to-grid">
+            <div>
+              <h3>Foundations</h3>
+              <p>Master prompting fundamentals, response contracts, and the habits that make single chats effective.</p>
+            </div>
+            <div>
+              <h3>Context &amp; Knowledge</h3>
+              <p>Shape sessions with memory, handoffs, project folders, and retrieval-ready files.</p>
+            </div>
+            <div>
+              <h3>Research &amp; Agents</h3>
+              <p>Scale investigations, evaluate sources, and orchestrate task chains with human approvals.</p>
+            </div>
+            <div>
+              <h3>Collaboration &amp; Ops</h3>
+              <p>Codify handovers, version prompts, run async projects, and wire outputs into existing tools.</p>
+            </div>
+          </div>
+        </section>
+        <section id="spotlight" class="featured">
+          <h2>Workflow spotlights</h2>
+          <div class="featured-grid">
+            <article class="card">
+              <h3><a href="guides/05_structured-output.html">Structured Output</a></h3>
+              <p>Design prompts that return reliable tables, JSON, and outlines you can plug into downstream tools.</p>
+              <ul>
+                <li>Reusable schema prompts</li>
+                <li>Error handling scripts</li>
+                <li>Validation checks</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/41_task-chains-and-delegation.html">Task Chains &amp; Delegation</a></h3>
+              <p>Break objectives into linked AI tasks with handoffs, reviewers, and acceptance gates.</p>
+              <ul>
+                <li>Roles matrix</li>
+                <li>Checkpoint prompts</li>
+                <li>Escalation ladder</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/82_quality-assurance_loops.html">Quality Assurance Loops</a></h3>
+              <p>Pair every generation with verification loops so output meets your bar before shipping.</p>
+              <ul>
+                <li>Critic prompts</li>
+                <li>Rubric templates</li>
+                <li>Sign-off checklist</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/83_integrations-and-tools.html">Integrations &amp; Tools</a></h3>
+              <p>Connect AI output to calendars, docs, and trackers while preserving audit trails.</p>
+              <ul>
+                <li>Connection patterns</li>
+                <li>Security callouts</li>
+                <li>Failure recovery tips</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section id="resource-library" class="featured">
+          <h2>Resource library</h2>
+          <div class="featured-grid">
+            <article class="card">
+              <h3><a href="guides/80_templates-library.html">Templates Library</a></h3>
+              <p>Ready-to-use briefs, guardrails, and runbooks you can drop into any team workspace.</p>
+              <ul>
+                <li>Front matter scaffolds</li>
+                <li>Prompt skeletons</li>
+                <li>Rollback playbooks</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/81_project-blueprints.html">Project Blueprints</a></h3>
+              <p>Milestone-driven playbooks with ownership, dependencies, and KPI tracking baked in.</p>
+              <ul>
+                <li>Blueprint YAML scaffold</li>
+                <li>Status update template</li>
+                <li>Metrics + logging spec</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/82_quality-assurance_loops.html">Quality Assurance Loops</a></h3>
+              <p>Deterministic reviewer prompts, rubrics, and escalation ladders for every generation.</p>
+              <ul>
+                <li>Critic prompt template</li>
+                <li>Rubric JSON snippet</li>
+                <li>QA logging schema</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3><a href="guides/83_integrations-and-tools.html">Integrations &amp; Tools</a></h3>
+              <p>Patterns for secure, observable automations that post AI output where work happens.</p>
+              <ul>
+                <li>Intake checklist</li>
+                <li>Automation YAML starter</li>
+                <li>Rollback drills</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+        <section id="latest" class="updates">
+          <h2>Latest updates</h2>
+          <p>Refreshed October 30, 2025. Look for the “Updated” badge in the sidebar to track newly expanded guides.</p>
+          <ul class="update-list">
+            <li><span class="badge">Updated</span> <a href="guides/11_custom-instructions.html">Custom Instructions</a> now ships with output contracts, logging specs, and metrics.</li>
+            <li><span class="badge">New</span> <a href="guides/80_templates-library.html">Templates Library</a> and <a href="guides/81_project-blueprints.html">Project Blueprints</a> anchor the Resource Library.</li>
+            <li><span class="badge">Updated</span> <a href="guides/82_quality-assurance_loops.html">Quality Assurance Loops</a> + <a href="guides/83_integrations-and-tools.html">Integrations &amp; Tools</a> add full production runbooks.</li>
+          </ul>
+        </section>
+        <section id="how-to-use" class="how-to">
+          <h2>How to use this guide</h2>
+          <div class="how-to-grid">
+            <div>
+              <h3>Plan the path</h3>
+              <p>Each nav group corresponds to a maturity level. Start with Foundations, then layer Context, Research, and Automation.</p>
+            </div>
+            <div>
+              <h3>Work offline</h3>
+              <p>Clone or download the repo, then open <code>index.html</code>. Resources load from local files—no internet required.</p>
+            </div>
+            <div>
+              <h3>Reuse assets</h3>
+              <p>Leverage the templates library and project blueprints to bootstrap repeatable engagements.</p>
+            </div>
+          </div>
+        </section>
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+  <script src="js/nav.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/prism.js" defer></script>
+</body>
+</html>

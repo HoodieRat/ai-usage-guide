@@ -1,0 +1,99 @@
+<!-- filepath: guides/foundations-assessment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verify that you can apply every Foundations workflow before moving on to Sessions &amp; Context.">
+  <title>Foundations Assessment | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide" data-unit-assessment="foundations">
+        <header class="guide-header">
+          <p class="eyebrow">Foundations</p>
+          <h1>Foundations Assessment</h1>
+          <p class="intro">Demonstrate that you can orient new teammates, launch productive first sessions, and keep early outputs inside the expected guardrails before unlocking the next unit.</p>
+        </header>
+
+        <div class="unit-status-banner" data-unit-status hidden></div>
+
+        <section class="guide-section">
+          <h2>Checklist before you start</h2>
+          <ul>
+            <li>Completed the <a href="../guides/00_readme.html">Read Me First</a> orientation and captured your working agreements.</li>
+            <li>Set up access, preferences, and starter workflows using <a href="../guides/01_getting-started.html">Getting Started</a>.</li>
+            <li>Reviewed how tokens, context windows, and verification work in <a href="../guides/02_how-chatgpt-works.html">How ChatGPT Works</a>.</li>
+            <li>Practiced scaffolded prompting with <a href="../guides/03_prompt-basics.html">Prompt Basics</a> and <a href="../guides/04_response-contracts.html">Response Contracts</a>.</li>
+            <li>Captured at least one structured output spec from <a href="../guides/05_structured-output.html">Structured Output</a> and validated it in a live run.</li>
+          </ul>
+        </section>
+
+        <section class="guide-section">
+          <h2>How to use this quiz</h2>
+          <p>Answer each question based on the practices outlined in the Foundations unit. You can retry any question, but log misses in your run journal so patterns surface later. Aim for 90% or higher before you advance.</p>
+        </section>
+
+        <section class="guide-section" data-unit-quiz>
+          <h2>Foundations quiz</h2>
+          <p>Loading assessment…</p>
+        </section>
+
+        <section class="guide-section" data-unit-scorecard hidden>
+          <h2>Program scorecard</h2>
+          <p>This scorecard unlocks after you complete every unit assessment in the program.</p>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/unit-assessments.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

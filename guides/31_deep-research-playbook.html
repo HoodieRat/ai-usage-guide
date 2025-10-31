@@ -1,0 +1,235 @@
+<!-- filepath: guides/31_deep-research-playbook.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Run multi-week research in ChatGPT: scope, retrieve, verify, and synthesize with auditable evidence.">
+  <title>Deep Research Playbook | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Research</p>
+          <h1>Deep Research Playbook</h1>
+          <p class="intro">Coordinate multi-week investigations in <strong>ChatGPT web chat</strong> by combining scoped questions, retrieval workflows, evidence QA, and synthesis checkpoints. Everything here assumes the browsing tool is available and you’re keeping logs in your project folder.</p>
+        </header>
+
+        <section class="callout warning">
+          <strong>As of October 30, 2025:</strong> Re-verify high-impact claims within <em>48 hours</em> of publication. Stats, policies, and market figures shift frequently. See <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a>.
+        </section>
+
+        <section class="callout info">
+          <strong>ChatGPT-specific:</strong> Long chats can slow down and drop context. Follow <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> to recap and rehydrate into a new thread. Use the handoff brief from <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> when teammates take over.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to design AI-assisted research with clear roles, sub-questions, and milestones.</li>
+            <li>Evidence logging habits that hold up to stakeholder, editorial, and compliance review.</li>
+            <li>Synthesis patterns that surface insights, conflicts, and remaining gaps—cited and auditable.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>A brief describing objective, decision date, and success metrics.</li>
+            <li>An evidence workspace (sheet/db) in your <a href="../guides/20_project-folders-setup.html">Project Folders</a> (e.g., <code>10_inputs/research</code> + <code>30_working-drafts/research-log.md</code>).</li>
+            <li>Source quality rubric and citation rules (pair with <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a>).</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Design a research roadmap for evaluating AI vendor risk in 2025. Break into sub-questions, recommend primary/secondary sources, propose a weekly review cadence, and list milestone deliverables.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>ChatGPT decomposes the work, drafts a research matrix, and proposes queries and source tiers for each sub-question.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer adds compliance checkpoints, requires inline citations with confidence labels, and requests a milestone synthesis prompt.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Frame the problem.</strong> Start a new browsing-enabled chat. Paste the charter: question, scope (time/geo), definitions, and “done” criteria. Link your evidence log file path.</li>
+            <li><strong>Decompose.</strong> Ask for sub-questions, target sources, and owners. Approve the list before searching.</li>
+            <li><strong>Collect evidence.</strong> Run searches per sub-question. For each source, require title, author, publisher, date, jurisdiction, short quote (≤25 words), and an ID (e.g., <code>SRC-203</code>).</li>
+            <li><strong>Validate &amp; compare.</strong> Use a reviewer prompt to re-open each source, confirm the quote, and log conflicts or caveats.</li>
+            <li><strong>Synthesize.</strong> At each milestone, have ChatGPT cluster findings, cite sources, highlight conflicts, and list decisions / next steps.</li>
+            <li><strong>Rehydrate often.</strong> When the thread gets heavy, paste the latest recap and evidence table into a fresh chat and continue.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract (required at every checkpoint)</h2>
+          <ul>
+            <li><strong>Sub-question status:</strong> Open / In progress / Resolved / Blocked, with owner &amp; due date.</li>
+            <li><strong>Evidence table:</strong> Source ID, claim text, short quote, confidence (H/M/L) with rationale, link/path, verification owner.</li>
+            <li><strong>Insights summary:</strong> 3–5 synthesized insights with inline <code>[SRC-###]</code>.</li>
+            <li><strong>Conflict &amp; gap log:</strong> What disagrees or is missing, impact, and next action.</li>
+            <li><strong>Next actions:</strong> AI vs human tasks, deadlines, and acceptance criteria.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>1) Research charter template</h3>
+          <pre><code># Research Charter
+Question: {{core question}}
+Scope: {{date window, regions, industries}}
+Definitions: {{key terms}}
+Decision date: {{yyyy-mm-dd}}
+Success: {{what decision this research will enable}}
+Deliverable: {{format + audience}}
+Evidence log: 10_inputs/research/research-log.md
+</code></pre>
+
+          <h3>2) Sub-question builder (ask ChatGPT)</h3>
+          <pre><code>Break the charter into 6–10 sub-questions. For each include:
+- Query plan (Boolean/site/filetype)
+- Expected source tier (Primary/Secondary/Commentary)
+- Evidence type (stat, policy, quote, dataset)
+- Owner and due date
+Return a table.</code></pre>
+
+          <h3>3) Evidence table (paste in your log)</h3>
+          <pre><code>| Source ID | URL/Path | Title | Author/Publisher | Date | Jurisdiction | Claim/Stat | Quote (≤25w) | Confidence | Verified by | Notes |
+|----------|----------|-------|------------------|------|--------------|------------|--------------|------------|------------|-------|
+| SRC-201 | https://... | ... | ... | 2025-09-12 | US | ... | "..." | High | Dana | PDF saved |
+</code></pre>
+
+          <h3>4) Reviewer QA prompt</h3>
+          <pre><code>Re-open each source in the evidence table. For every row:
+- Confirm author &amp; publication date
+- Extract a ≤25-word supporting quote + page/section
+- Rate confidence with rationale (primary/secondary/age)
+- Flag conflicts/paywalls/dead links and suggest substitutes
+Return: Source ID | Passed (Y/N) | Issues | Next action</code></pre>
+
+          <h3>5) Milestone synthesis prompt</h3>
+          <pre><code>You are producing a milestone synthesis.
+Inputs: {{latest evidence rows}} and {{conflict log}}
+Tasks:
+1) Cluster findings into 3–6 themes with inline citations [SRC-###].
+2) List the top conflicts/gaps and propose resolution steps.
+3) Provide a decision-ready summary (≤200 words) for stakeholders.
+4) Next actions split by AI vs human with deadlines.
+Return markdown sections.</code></pre>
+
+          <h3>6) Rehydrate / handoff snippet (for new chat or teammate)</h3>
+          <pre><code>Context transfer (condensed):
+- Project: {{name}} — decision by {{date}}
+- Objective &amp; definitions: {{1–2 lines}}
+- Current status: {{open vs resolved sub-questions}}
+- Evidence log path: 10_inputs/research/research-log.md
+- Last synthesis link: {{message URL or file}}
+- Next actions: {{list}}
+Acknowledge by restating objective, risks, and your first two steps.</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Store evidence tables and synthesis briefs in the project folder. Download key web pages as PDFs/screenshots. Paste message links to the citation list so reviewers can re-open the exact ChatGPT responses that produced them.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Sub-question velocity:</strong> % of sub-questions resolved per sprint.</li>
+            <li><strong>Verification coverage:</strong> % of claims with reviewer sign-off.</li>
+            <li><strong>Conflict closure time:</strong> Days from contradiction to resolved note.</li>
+            <li><strong>Refresh compliance:</strong> % of high-impact claims re-verified within 48 hours of ship.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Start each milestone review by having ChatGPT restate the charter; park any off-scope findings in a separate tab.</li>
+            <li><strong>Tip:</strong> Evaluate evidence quality with a quick rubric—primary, secondary, commentary—and note confidence rationale in the log.</li>
+            <li><strong>Pitfall:</strong> Recycling the same synthesis each week. Run a novelty check and highlight what changed in confidence or direction.</li>
+            <li><strong>Pitfall:</strong> Letting threads drag on. Rehydrate into a fresh chat whenever latency spikes and link back to <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> for the recap pattern.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Deep research in ChatGPT works when you structure the work: charter → sub-questions → evidence → verification → synthesis → rehydrate. Keep citations tight, conflicts visible, and decisions on schedule.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Charter approved and stored in the project folder.</li>
+            <li>✅ Sub-question matrix with owners and due dates.</li>
+            <li>✅ Evidence table with citations, quotes, and confidence labels.</li>
+            <li>✅ Reviewer QA run; conflicts logged with actions.</li>
+            <li>✅ Milestone synthesis delivered and rehydration snippet prepared.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

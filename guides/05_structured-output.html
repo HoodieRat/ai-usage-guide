@@ -1,0 +1,242 @@
+<!-- filepath: guides/05_structured-output.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Generate machine-readable output reliably with schemas, validators, and recoverable failure paths.">
+  <title>Structured Output | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Foundations</p>
+          <h1>Structured Output</h1>
+          <p class="intro">Generate machine-readable answers on the first try. This play keeps outputs aligned with schemas, validators, and retry paths so downstream tools never ingest surprises—whether you’re copying from ChatGPT into a sheet, script, or app.</p>
+        </header>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Pick the right format—<strong>JSON</strong> for automation; <strong>Markdown tables/CSV</strong> for copy-paste targets.</li>
+            <li>Embed a small <a href="../guides/04_response-contracts.html">response contract</a> so the model returns exactly what you asked for.</li>
+            <li>Use <strong>markers</strong> and <strong>validators</strong> to catch errors fast and retry cleanly in the web chat.</li>
+            <li>Handle <strong>failure paths</strong> gracefully (e.g., <code>status:"needs_info"</code> with <code>missing_fields</code>).</li>
+          </ul>
+        </section>
+
+        <section id="choose-format" class="guide-section">
+          <h2>Choose the format</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Use when</th>
+                <th>Format</th>
+                <th>Ask the model to…</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Automation / parsing by tools</td>
+                <td><strong>JSON</strong></td>
+                <td>“Return ONLY valid JSON. No commentary.” (Optionally wrap in markers below.)</td>
+              </tr>
+              <tr>
+                <td>Human review / paste to docs</td>
+                <td><strong>Markdown table</strong></td>
+                <td>“Return a Markdown table with these exact columns: A | B | C. No extra text.”</td>
+              </tr>
+              <tr>
+                <td>Import to spreadsheets</td>
+                <td><strong>CSV</strong></td>
+                <td>“Return raw CSV with header row: A,B,C. Quote fields that include commas. No other lines.”</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small">If you’re continuing a long project, pair this with <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a> and <a href="../guides/02_how-chatgpt-works.html">How ChatGPT Works</a> (context transfer).</p>
+        </section>
+
+        <section id="json-kit" class="guide-section">
+          <h2>JSON kit (copy-paste)</h2>
+
+          <h3>1) Contract + enforcement</h3>
+          <pre><code class="language-text">Follow this response contract. If info is missing, do not guess:
+- Set "status":"needs_info" and return "missing_fields":["field1","field2"].
+- If out of scope, set "status":"invalid_input" and include "reason".
+Return ONLY JSON. No code fences. No commentary.</code></pre>
+
+          <h3>2) Schema (lean)</h3>
+          <pre><code class="language-json">{
+  "contract_id": "brief.v1",
+  "version": "1.0.0",
+  "status": "ok|needs_info|invalid_input",
+  "title": "<string, ≤80 chars>",
+  "summary": "<string, ≤150 words>",
+  "items": [
+    {"name":"<string>","owner":"<string>","due":"<YYYY-MM-DD>"}
+  ],
+  "missing_fields": []
+}</code></pre>
+
+          <h3>3) Parse-friendly markers (optional)</h3>
+          <pre><code class="language-text">BEGIN_JSON
+{ ...valid JSON only... }
+END_JSON</code></pre>
+
+          <h3>4) One golden example</h3>
+          <pre><code class="language-json">{
+  "contract_id": "brief.v1",
+  "version": "1.0.0",
+  "status": "ok",
+  "title": "Q4 Launch Checkpoints",
+  "summary": "We finalized assets, vendor review is underway, and we need sign-off on pricing.",
+  "items": [
+    {"name":"Asset pack","owner":"Design","due":"2025-11-05"},
+    {"name":"Vendor review","owner":"Legal","due":"2025-11-08"}
+  ],
+  "missing_fields": []
+}</code></pre>
+        </section>
+
+        <section id="table-kit" class="guide-section">
+          <h2>Markdown table kit (copy-paste)</h2>
+          <pre><code class="language-text">Return ONLY a Markdown table with these exact columns:
+Item | Date | Owner | Status
+
+Rules:
+- If a value is unknown, leave it blank (do not invent).
+- ≤ 6 rows.
+- No commentary before or after the table.</code></pre>
+
+          <details>
+            <summary>Example result the model should mimic</summary>
+            <pre><code class="language-markdown">| Item          | Date       | Owner  | Status |
+|---------------|------------|--------|--------|
+| Asset pack    | 2025-11-05 | Design | Ready  |
+| Vendor review | 2025-11-08 | Legal  | In progress |</code></pre>
+          </details>
+        </section>
+
+        <section id="csv-kit" class="guide-section">
+          <h2>CSV kit (copy-paste)</h2>
+          <pre><code class="language-text">Return ONLY raw CSV with header row exactly:
+Item,Date,Owner,Status
+Rules:
+- Quote fields that contain commas or newlines.
+- No extra header lines, explanations, or code fences.
+- Max 200 rows.</code></pre>
+        </section>
+
+        <section id="validators" class="guide-section">
+          <h2>Validate before you trust it</h2>
+          <p>Quick ways to sanity-check in the web app or after paste:</p>
+          <ul>
+            <li><strong>Ask the model to self-check:</strong>
+              <pre><code class="language-text">Validate your last output against the contract:
+- Are all required fields present?
+- Any values outside enums?
+- Any field longer than its limit?
+- Any extra fields not in the contract?
+Return PASS or REVISION with a bullet list of fixes.</code></pre>
+            </li>
+            <li><strong>Spreadsheet checks:</strong> After pasting CSV/table, use simple formulas:
+              <ul>
+                <li>Missing required: <code>=IF(A2="","MISSING: title","")</code></li>
+                <li>Enum check: <code>=IF(COUNTIF({"ok","needs_info","invalid_input"},D2)=0,"BAD STATUS","")</code></li>
+                <li>Length check: <code>=IF(LEN(B2)&gt;80,"TOO LONG","")</code></li>
+              </ul>
+            </li>
+            <li><strong>JSON sanity:</strong> If you wrap with <em>BEGIN_JSON/END_JSON</em>, copy the inside into a linter/validator.</li>
+          </ul>
+        </section>
+
+        <section id="retry-loop" class="guide-section">
+          <h2>Retry loop (recoverable failures)</h2>
+          <ol>
+            <li><strong>Detect:</strong> Validator flags which fields failed and why.</li>
+            <li><strong>Report:</strong> Paste the errors back to ChatGPT:
+              <pre><code class="language-text">Regenerate the output to satisfy the contract.
+Errors:
+- title exceeds 80 chars
+- status not in {ok,needs_info,invalid_input}
+Return ONLY valid JSON.</code></pre>
+            </li>
+            <li><strong>Limit:</strong> Try ≤ 2 automated retries. If it still fails, ask 1 clarifying question or switch to a simpler contract.</li>
+          </ol>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Keep schemas lean (≤ 12 fields). Smaller shapes stick better inside long chats.</li>
+            <li><strong>Tip:</strong> Put the contract directly under your request so edits stay in sync.</li>
+            <li><strong>Tip:</strong> For long projects, use <a href="../guides/13_handoff-between-chats.html">Context Transfer</a> to keep the same schema across new chats.</li>
+            <li><strong>Pitfall:</strong> Code fences around JSON can confuse some parsers. Prefer raw JSON or the BEGIN/END markers.</li>
+            <li><strong>Pitfall:</strong> Silent failures. Always run a quick validation step before sharing externally.</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ You chose JSON/table/CSV to match the destination.</li>
+            <li>✅ A small contract (fields, limits, error path) is included under the prompt.</li>
+            <li>✅ Output includes <code>status</code> and (if needed) <code>missing_fields</code> for recoverable failures.</li>
+            <li>✅ A quick validation step passes (self-check, sheet formulas, or linter).</li>
+            <li>✅ You know the retry plan (≤ 2 tries, then clarify or simplify).</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!-- filepath: guides/41_task-chains-and-delegation.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Design AI task chains and delegate work between roles effectively.">
+  <title>Task Chains &amp; Delegation | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Agentic Workflows</p>
+          <h1>Task Chains &amp; Delegation</h1>
+          <p class="intro">Break big goals into manageable AI tasks, delegate each step, and keep humans in control of quality.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>Start here:</strong> If you’re exploring autonomous agents, first read <a href="../guides/40_agentic-mode_overview.html">Agentic Mode Overview</a>. Define formats with <a href="../guides/04_response-contracts.html">Response Contracts</a> and set checkpoints using <a href="../guides/42_planners-critics-validators.html">Planners, Critics &amp; Validators</a>.
+        </section>
+
+        <section class="callout warning">
+          <strong>Reminder:</strong> Every chain needs an accountable human owner. Automations without ownership create invisible failure points.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to translate large objectives into planner → actor → reviewer sequences.</li>
+            <li>Ways to structure handoffs so each stage receives the context and assets it needs.</li>
+            <li>Feedback loops that keep chains improving after every run.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Documented objective with success metrics, deadlines, and constraints.</li>
+            <li>Role roster listing owners for planner, actor, reviewer, and escalation points.</li>
+            <li>Shared workspace for prompts, interim outputs, and run logs.</li>
+          </ul>
+        </section>
+
+        <section id="when-to-use" class="guide-section">
+          <h2>When to use task chains</h2>
+          <ul>
+            <li><strong>Good fit:</strong> multi-step work that benefits from checkpoints (e.g., research → draft → verify → format).</li>
+            <li><strong>Not a fit:</strong> single-step creativity or ambiguous goals without clear acceptance tests.</li>
+            <li><strong>Rule of thumb:</strong> add a reviewer step wherever facts, compliance, or brand risk exist.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Break down the quarterly product launch plan into discrete steps. For each step, note required inputs, owner, and definition of done.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant expands each step into a task brief with context, templates, and deadlines, assigning AI vs. human responsibilities.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer confirms dependencies, adjusts sequencing, and sets quality gates or approval authorities before the chain starts.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Decompose the goal.</strong> Outline milestones, required artifacts, and critical decisions.</li>
+            <li><strong>Design role prompts.</strong> Draft planner, actor, and reviewer prompts that declare inputs, outputs, and acceptance tests.</li>
+            <li><strong>Set cadence &amp; communication.</strong> Decide how updates travel (chat, docs, dashboards) and who signs off each transition.</li>
+            <li><strong>Run the chain.</strong> Kick off with a dry run, observe bottlenecks, and capture prompts/output snapshots for review.</li>
+            <li><strong>Retrospect &amp; refine.</strong> After completion, log what succeeded, where it failed, and update prompts, assets, or roles accordingly.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>When you document a task chain, include:</p>
+          <ul>
+            <li><strong>Chain map:</strong> Visual or table of steps, owners, inputs, outputs, and success criteria.</li>
+            <li><strong>Prompt pack:</strong> Planner, actor, reviewer prompts plus any tool instructions or macros.</li>
+            <li><strong>Handoff kit:</strong> Templates, checklists, and data inputs needed at each transition.</li>
+            <li><strong>Run log summary:</strong> Start/end timestamps, blockers, escalations, and improvement actions.</li>
+          </ul>
+          <pre><code class="language-json">{
+  "chain_id": "CHAIN-2025-10-30-Q1-LAUNCH",
+  "steps": [
+    {"step": 1, "name": "Scope brief", "owner": "Planner", "acceptance": "Reviewer approves task matrix"},
+    {"step": 2, "name": "Draft assets", "owner": "Actor (AI+human)", "acceptance": "Reviewer checklist complete"},
+    {"step": 3, "name": "Quality review", "owner": "Reviewer", "acceptance": "QA checklist satisfied"}
+  ],
+  "escalation_contact": "program_manager@example.com"
+}</code></pre>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Chain design table</h3>
+          <pre><code>| Step | Goal           | Owner            | Prompt / instructions | Inputs                 | Outputs     | Acceptance                       |
+|------|----------------|------------------|-----------------------|------------------------|-------------|-----------------------------------|
+| 1    | Scope brief    | Planner AI       | Planner prompt v2     | Charter doc            | Task matrix | Reviewer approves tasks           |
+| 2    | Draft assets   | Actor (AI+human) | Actor prompt v4       | Task matrix, templates | Draft deck  | Reviewer checklist                |
+| 3    | Quality review | Human reviewer   | Reviewer prompt v1    | Draft deck             | Approved deck | QA checklist satisfied           |
+| ...  | ...            | ...              | ...                   | ...                    | ...         | ...                               |</code></pre>
+
+          <h3>Delegation brief template</h3>
+          <pre><code># Task delegation brief
+- Objective:
+- Inputs provided:
+- Expected output format:
+- Constraints (policies, brand, tone):
+- Definition of done:
+- Escalation contact:</code></pre>
+
+          <h3>Role prompt headers</h3>
+          <pre><code>PLANNER: Decompose {{objective}} into steps with inputs, outputs, owners, and acceptance tests.
+ACTOR: Produce the deliverable for {{step}} using provided templates; note assumptions and uncertainties.
+REVIEWER: Validate against the acceptance checklist; require fixes or approve with notes.</code></pre>
+
+          <h3>Retro prompt</h3>
+          <pre><code>We completed the following task chain: {{paste run summary}}
+Identify:
+1) Steps that created the most rework.
+2) Prompts or assets that need updating.
+3) New guardrails or metrics to add before the next run.</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Track every run with chain ID, start/finish times, owners on duty, artifacts generated, defects found, and escalations. Store logs with linked prompts so new teammates can replay the workflow.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Cycle time per step:</strong> Average duration from start to acceptance.</li>
+            <li><strong>Rework rate:</strong> Percentage of outputs returned for fixes.</li>
+            <li><strong>Escalation volume:</strong> Count of steps requiring human override or policy review.</li>
+            <li><strong>Throughput:</strong> Completed chains per week or sprint.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Run a pre-flight checklist before kickoff so every owner confirms they have inputs and templates.</li>
+            <li><strong>Tip:</strong> Calibrate reviewers together once a quarter to keep acceptance decisions consistent.</li>
+            <li><strong>Pitfall:</strong> Splitting work into too many micro-handoffs; consolidate steps or allow mini-loops before review.</li>
+            <li><strong>Pitfall:</strong> Letting feedback vanish. Capture retro actions immediately and update prompts while the context is fresh.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Great task chains are transparent, modular, and well-owned. Design prompts plus handoffs, capture each run, and improve the workflow every time it ships.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Chain map, prompts, and handoff kits stored in the shared workspace.</li>
+            <li>✅ Owners and escalation paths documented and acknowledged.</li>
+            <li>✅ Logging, metrics, and retro cadence in place.</li>
+            <li>✅ Improvements captured after the latest run and applied to prompts or assets.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

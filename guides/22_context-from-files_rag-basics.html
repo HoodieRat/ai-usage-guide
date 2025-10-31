@@ -1,0 +1,211 @@
+<!-- filepath: guides/22_context-from-files_rag-basics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Feed local files into prompts using manual retrieval habits before you adopt a full RAG stack.">
+  <title>Context from Files &amp; RAG Basics | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Files &amp; Context</p>
+          <h1>Context from Files &amp; RAG Basics</h1>
+          <p class="intro">Blend local documents with prompts using lightweight retrieval techniques in ChatGPT’s web chat before you invest in a custom RAG pipeline.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>Scope guardrail:</strong> Only use files cleared by <a href="../guides/20_project-folders-setup.html">Project Folders</a> and log every chunk you share so audits and deletions stay traceable. For sanitization, see <a href="../guides/25_redaction-and-sanitization.html">Redaction &amp; Sanitization</a>.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>How to chunk, tag, and summarize source files for copy/paste retrieval in web chat.</li>
+            <li>Prompts that orchestrate planner &rarr; actor &rarr; reviewer loops across multiple files.</li>
+            <li>Manual citation and logging habits that mimic production RAG systems.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Redacted files or permission to use internal documents.</li>
+            <li>A spreadsheet or notes tool for chunk cataloging.</li>
+            <li>Familiarity with <a href="../guides/23_chunking-and-abstracts.html">Chunking &amp; Abstracts</a>.</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner &rarr; Actor &rarr; Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>"We have four policy PDFs. Create chunk IDs, two-sentence summaries, and a table that shows which customer questions each chunk can answer."</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant outputs a catalog with CH-001 style IDs, summaries, token estimates, and recommended tags.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>The reviewer spot-checks summaries for accuracy, adds missing citations, and asks the assistant to produce a retrieval prompt template that cites chunk IDs.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Pre-process files.</strong> Convert content to plain text, remove sensitive data, and store the clean version in your project folder.</li>
+            <li><strong>Chunk intelligently.</strong> Break content into 200–400 token slices anchored to headings or semantic boundaries. Assign IDs and capture source location.</li>
+            <li><strong>Abstract each chunk.</strong> Record one or two sentences, keywords, and question types the chunk answers. Log this in your chunk catalog.</li>
+            <li><strong>Assemble context packs.</strong> For each question, select three to five relevant chunks, paste them into the template below, and include explicit citation instructions.</li>
+            <li><strong>Review outputs.</strong> Confirm the assistant cites chunk IDs, verify claims against source text, and update the catalog with any gaps.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>Whenever the assistant answers using supplied context, require:</p>
+          <ul>
+            <li><strong>Citations:</strong> Reference chunk IDs (<code>[CH-###]</code>) inline after relevant statements. See also <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a>.</li>
+            <li><strong>Confidence:</strong> Label each answer High, Medium, or Low based on coverage from supplied chunks.</li>
+            <li><strong>Coverage gaps:</strong> Explicitly note if the context did not contain the answer.</li>
+            <li><strong>Follow-ups:</strong> Suggested additional chunks or sources to ingest.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Chunk catalog template</h3>
+          <pre><code class="language-markdown">| Chunk ID | Source file | Location | Summary | Keywords | Token est. | Questions answered |
+|---------|-------------|----------|---------|----------|------------|--------------------|
+| CH-001  | policy.pdf  | Sec 2.1  | Eligibility criteria for premium accounts. | eligibility, premium | 320 | "Who qualifies?" |
+| CH-002  | policy.pdf  | Sec 2.2  | Income verification steps. | verification, documents | 260 | "What docs needed?" |
+| ...     | ...         | ...      | ...     | ...      | ...        | ...                |</code></pre>
+
+          <h3>Manual RAG prompt template (for web chat)</h3>
+          <pre><code class="language-text">Context pack ID: {{context_id}}
+Question: {{user_question}}
+
+Use the chunk snippets below. Cite the chunk ID in brackets after each fact. Stay strictly within provided chunks. If the answer isn't present, say so and list the additional chunks needed.
+
+{{chunk_bundle}}
+
+Response format:
+- Direct answer (2–3 sentences) with citations like [CH-003].
+- Key gaps or risks (bullets).
+- Follow-up recommendations.</code></pre>
+
+          <h3>Coverage gap log</h3>
+          <pre><code class="language-markdown">| Date       | Question          | Missing info              | Action            | Owner |
+|------------|-------------------|---------------------------|-------------------|-------|
+| 2025-10-30 | Refund policy EU  | Policy lacks regional clause | Request new doc | Maya  |
+| ...        | ...               | ...                       | ...               | ...   |</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Store the chunk catalog in your project folder. Record who created each chunk, last verification date, and linked prompt sessions. For regulated teams, archive assistant outputs with citations alongside the catalog.</p>
+        </section>
+
+        <section id="limits" class="guide-section">
+          <h2>Practical limits &amp; tips</h2>
+          <ul>
+            <li><strong>Chat limits vary by plan.</strong> If a thread slows or stalls after many uploads, start a new chat and paste the latest catalog subset plus a recap (see <a href="../guides/10_sessions-and-context.html">Sessions &amp; Context</a> and <a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a>).</li>
+            <li><strong>Prefer text over heavy PDFs.</strong> Paste chunk text directly when possible to avoid parsing misses.</li>
+            <li><strong>Keep packs lean.</strong> 3–5 chunks per question usually outperform giant dumps.</li>
+          </ul>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Chunk freshness:</strong> Percentage of chunks verified within the past 60 days.</li>
+            <li><strong>Citation adherence:</strong> Rate of responses containing required chunk IDs.</li>
+            <li><strong>Gap resolution time:</strong> Average days from logged gap to new chunk creation.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Add token estimates to your catalog so you know when a context pack risks hitting limits.</li>
+            <li><strong>Tip:</strong> Ask the assistant to self-audit every answer—“Show the chunk IDs used”—to keep hallucinations in check.</li>
+            <li><strong>Pitfall:</strong> Dumping too many chunks at once. Cap packs at five snippets and split complex questions into sub-conversations.</li>
+            <li><strong>Pitfall:</strong> Letting chunks go stale. Review anything older than 60 days and refresh summaries before reuse.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Manual RAG works when you prep clean chunks, log their metadata, and enforce citation rules. Keep the catalog current and monitor coverage gaps so the assistant stays grounded in your source files.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Chunk catalog created with IDs, summaries, and source references.</li>
+            <li>✅ Prompt template saved with citation and gap instructions.</li>
+            <li>✅ Logging workflow captures updates and verification dates.</li>
+            <li>✅ Metrics dashboard tracks freshness, citation adherence, and gap resolution.</li>
+            <li>✅ Review cadence established for refreshing source documents.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

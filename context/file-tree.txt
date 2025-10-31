@@ -1,0 +1,35 @@
+/ (everyday-ai-guide)
+├─ assets/
+├─ context/
+│  ├─ file-tree.txt
+│  ├─ call-graph.json
+│  ├─ dead-code.json
+│  └─ signatures.csv
+├─ css/
+├─ data/
+├─ guardrails/
+│  ├─ automation-workflow.md
+│  ├─ implementation-tables.md
+│  ├─ output-contracts.md
+│  ├─ project-manifest-schema.json
+│  ├─ project-manifest-validation.md
+│  ├─ project-manifest.md
+│  ├─ project-manifest-sample.json
+│  └─ validation.md
+├─ guides/
+│  └─ ... (HTML guides and assessments)
+├─ js/
+│  ├─ nav.js
+│  ├─ search.js
+│  ├─ unit-assessments.js
+│  └─ ...
+├─ logs/
+│  └─ run.log
+├─ scripts/
+│  ├─ build-search-index.mjs
+│  ├─ build_prompt_catalog.py
+│  ├─ build_search_index.py
+│  └─ chatgpt_workflow_runner.py
+├─ index.html
+├─ README.md
+└─ TODO.md

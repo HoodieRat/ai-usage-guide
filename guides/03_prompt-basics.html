@@ -1,0 +1,242 @@
+<!-- filepath: guides/03_prompt-basics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Master a reliable prompt blueprint with examples, follow-ups, and instrumentation to keep results consistent.">
+  <title>Prompt Basics | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Foundations</p>
+          <h1>Prompt Basics</h1>
+          <p class="intro">Use this page to adopt a simple prompt blueprint you can reuse everywhere. You’ll get copy-paste recipes, fixes for common misses, and a light way to version your best prompts.</p>
+        </header>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Structure prompts with a tiny blueprint (goal → audience → context → rules → format).</li>
+            <li>Know when to add examples without blowing your token budget.</li>
+            <li>Write quick follow-ups that reliably fix first drafts.</li>
+            <li>Version and reuse prompts with a lightweight “prompt card.”</li>
+          </ul>
+        </section>
+
+        <section id="blueprint" class="guide-section">
+          <h2>The prompt blueprint (copy-paste)</h2>
+          <p>Start every request with these five lines. Keep it short (≤ 200–250 words for the whole message).</p>
+          <pre><code class="language-text">Goal: &lt;one sentence of what you want&gt;
+Audience: &lt;who this is for&gt;
+Context: &lt;only the facts or files that matter&gt;
+Rules: &lt;2–4 constraints: tone, do/don’t, length&gt;
+Format: &lt;bullets, table, JSON, email, etc.&gt;</code></pre>
+
+          <details>
+            <summary>Expanded version with clarifier</summary>
+            <pre><code class="language-text">You are a careful assistant. If something is missing, ask one clarifying question before drafting.
+
+Goal: &lt;what&gt;  
+Audience: &lt;who&gt;  
+Context: &lt;key facts/links; attach files if needed&gt;  
+Rules: &lt;2–4 constraints&gt;  
+Format: &lt;exact structure you want&gt;</code></pre>
+          </details>
+
+          <p class="small">For strict structures, see <a href="../guides/04_response-contracts.html">Response Contracts</a> and <a href="../guides/05_structured-output.html">Structured Output</a>.</p>
+        </section>
+
+        <section id="recipes" class="guide-section">
+          <h2>Recipe gallery (ready to use)</h2>
+
+          <h3>Rewrite (clear &amp; friendly email)</h3>
+          <pre><code class="language-text">Goal: Rewrite this email to be clear, friendly, and action-oriented
+Audience: coworker waiting on a status update
+Context: keep dates and commitments; preserve any links
+Rules: ≤120 words; plain language; keep original meaning
+Format: email draft
+
+&lt;paste your rough email here&gt;</code></pre>
+
+          <h3>Summarize (bullets + takeaway)</h3>
+          <pre><code class="language-text">Goal: Summarize this text with the 5 most important points and a 2-sentence takeaway
+Audience: me
+Context: only include claims supported by the text
+Rules: no hype; no new facts
+Format: 5 bullets + "Takeaway" (2 sentences)
+
+&lt;paste article or notes&gt;</code></pre>
+
+          <h3>Plan (short checklist with durations)</h3>
+          <pre><code class="language-text">Goal: Create a 6-step plan to &lt;your goal&gt; with realistic durations
+Audience: me
+Context: I have &lt;constraints: time, tools, budget&gt;
+Rules: steps must be doable today; mention blockers
+Format: numbered list with mm:ss or h:mm per step</code></pre>
+
+          <h3>Table extraction (consistent columns)</h3>
+          <pre><code class="language-text">Goal: Extract a table from the text with the exact columns below
+Audience: me
+Context: source text follows after the instructions
+Rules: do not invent values; leave blanks as ""
+Format: Markdown table with columns: Item | Date | Owner | Status
+
+&lt;paste text or meeting notes&gt;</code></pre>
+
+          <h3>Basic research check (with sources)</h3>
+          <pre><code class="language-text">Goal: Provide a short answer with 2–3 credible sources I can open
+Audience: non-expert
+Context: &lt;your question&gt;
+Rules: include source titles; note uncertainty or disagreements
+Format: 3 bullets + "Sources" list (title — site)
+
+If sources disagree, say how and why briefly.</code></pre>
+          <p class="small">When facts matter, pair this with <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a> and <a href="../guides/24_citations-and-attribution.html">Citations</a>.</p>
+        </section>
+
+        <section id="follow-ups" class="guide-section">
+          <h2>Follow-ups that fix common misses</h2>
+          <ul class="grid-two">
+            <li><strong>Too long:</strong> “Shorten to 120 words. Keep dates and decisions.”</li>
+            <li><strong>Wrong tone:</strong> “Rewrite for a friendly, professional tone. Avoid hype.”</li>
+            <li><strong>Off-topic:</strong> “Focus only on &lt;X&gt;. Remove everything else.”</li>
+            <li><strong>Missing structure:</strong> “Regenerate using this format only: &lt;paste format&gt;.”</li>
+            <li><strong>Uncertain facts:</strong> “List 3 claims that need a source and provide one line on how to verify.”</li>
+            <li><strong>Jargon overload:</strong> “Rewrite in plain language for a smart 9th-grader.”</li>
+            <li><strong>Need options:</strong> “Give 3 variations, each with a one-line rationale.”</li>
+            <li><strong>Need context check:</strong> “Before drafting, restate my goal and constraints in 2 lines.”</li>
+          </ul>
+        </section>
+
+        <section id="when-to-add-examples" class="guide-section">
+          <h2>When to add examples</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>If you want…</th>
+                <th>Do this</th>
+                <th>Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Specific tone or structure</td>
+                <td>Paste one “golden” example (short)</td>
+                <td>Models imitate patterns they see</td>
+              </tr>
+              <tr>
+                <td>Consistent format across runs</td>
+                <td>Provide a response contract (schema/table)</td>
+                <td>Reduces drift and review time</td>
+              </tr>
+              <tr>
+                <td>Reliability under token pressure</td>
+                <td>Summarize inputs; link or attach only what’s needed</td>
+                <td>Keeps key facts inside the window</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="small">Deep dive: <a href="../guides/05_structured-output.html">Structured Output</a> and <a href="../guides/23_chunking-and-abstracts.html">Chunking &amp; Abstracts</a>.</p>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Define the outcome.</strong> One sentence that states the result and the audience.</li>
+            <li><strong>List only critical context.</strong> Facts, files, links that truly change the answer.</li>
+            <li><strong>Lock constraints.</strong> 2–4 rules (tone, length, do/don’t).</li>
+            <li><strong>Describe the output.</strong> Give an explicit structure (bullets/table/JSON/outline).</li>
+            <li><strong>Add one example (optional).</strong> A short “golden” sample makes the target obvious.</li>
+            <li><strong>Send and iterate.</strong> Use the follow-ups above to correct drift fast.</li>
+          </ol>
+        </section>
+
+        <section id="prompt-card" class="guide-section">
+          <h2>Make it reusable: the prompt card</h2>
+          <p>Save good prompts with a tiny header so you can find and update them later.</p>
+          <pre><code class="language-yaml">id: email-rewrite-v1
+owner: &lt;name&gt;
+last_review: 2025-10-30
+purpose: Clear, friendly status update email
+golden_examples:
+  - examples/email_rewrite_good.md
+  - examples/email_rewrite_alt.md
+notes: Keep dates and commitments; ≤120 words</code></pre>
+          <p class="small">Store these in a <code>prompts/</code> folder. See <a href="../guides/84_prompt-library.html">Prompt Library</a> for organizing and versioning.</p>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Keep prompts short. Leave room for the answer and follow-ups.</li>
+            <li><strong>Tip:</strong> Name the audience. It instantly improves tone and level of detail.</li>
+            <li><strong>Pitfall:</strong> Vague “do everything” asks. Split into 2–3 steps.</li>
+            <li><strong>Pitfall:</strong> Implied formats. Always spell out the structure you want.</li>
+          </ul>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Your prompt includes Goal, Audience, Context, Rules, and Format.</li>
+            <li>✅ You kept it ≤ ~250 words and included only critical facts.</li>
+            <li>✅ You can fix common misses with one-line follow-ups.</li>
+            <li>✅ You saved at least one prompt as a “prompt card” for reuse.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 30, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

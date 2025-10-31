@@ -1,0 +1,10 @@
+[
+  {"from": "scripts/chatgpt_workflow_runner.py:main", "to": "scripts/chatgpt_workflow_runner.py:build_driver"},
+  {"from": "scripts/chatgpt_workflow_runner.py:main", "to": "scripts/chatgpt_workflow_runner.py:send_prompt"},
+  {"from": "scripts/chatgpt_workflow_runner.py:main", "to": "scripts/chatgpt_workflow_runner.py:validate_manifest"},
+  {"from": "scripts/chatgpt_workflow_runner.py:main", "to": "scripts/chatgpt_workflow_runner.py:extract_json_block"},
+  {"from": "scripts/chatgpt_workflow_runner.py:send_prompt", "to": "scripts/chatgpt_workflow_runner.py:wait_for_response"},
+  {"from": "js/unit-assessments.js:fetchQuizzes", "to": "js/unit-assessments.js:renderQuiz"},
+  {"from": "js/unit-assessments.js:renderQuiz", "to": "js/unit-assessments.js:attachEventListeners"},
+  {"from": "js/unit-assessments.js:renderQuiz", "to": "js/unit-assessments.js:updateScore"}
+]

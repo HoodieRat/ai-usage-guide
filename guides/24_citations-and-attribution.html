@@ -1,0 +1,214 @@
+<!-- filepath: guides/24_citations-and-attribution.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ensure AI-generated content cites sources cleanly and transparently.">
+  <title>Citations &amp; Attribution | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Files &amp; Context</p>
+          <h1>Citations &amp; Attribution</h1>
+          <p class="intro">Keep ChatGPT outputs verifiable by enforcing source IDs, confidence scoring, and auditable claim logs for every non-trivial statement.</p>
+        </header>
+
+        <section class="callout warning">
+          <strong>No source, no ship:</strong> Treat drafts without citations as brainstorming only. Do not publish externally until each claim is tied to a verified source or explicitly marked <code>[NO SOURCE]</code>.
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Prompt patterns that make ChatGPT cite verifiable sources inside the web chat.</li>
+            <li>How to map citations to your own file IDs, chunk catalog, or trusted links.</li>
+            <li>Lightweight logging so audits can trace each claim back to evidence.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>A <em>source registry</em> (IDs for uploaded files, internal pages, or approved public links). See <a href="../guides/22_context-from-files_rag-basics.html">Context from Files</a> and <a href="../guides/23_chunking-and-abstracts.html">Chunking &amp; Abstracts</a>.</li>
+            <li>Awareness of your policy for live lookups (see <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a>).</li>
+            <li>A reviewer assigned to spot-check citations and confidence before release (see <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality</a>).</li>
+          </ul>
+        </section>
+
+        <section id="planner-actor-reviewer" class="guide-section">
+          <h2>Planner → Actor → Reviewer walkthrough</h2>
+          <div class="workflow">
+            <div>
+              <h3>Planner prompt</h3>
+              <p>“Draft a sourcing plan for the 2025 trend report. Include required citation style, trusted source list, banned sources, and a claim log format.”</p>
+            </div>
+            <div>
+              <h3>Actor response</h3>
+              <p>The assistant proposes inline bracket citations (e.g., <code>[SRC-001]</code> or <code>[CH-014]</code>), confidence labels, and a claim log table referencing the source registry.</p>
+            </div>
+            <div>
+              <h3>Reviewer check</h3>
+              <p>Reviewer validates that each claim has a resolvable source ID or <code>[NO SOURCE]</code>, samples links, and runs a verification prompt to re-check claims prior to handoff.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Catalog sources.</strong> Maintain a registry with IDs, titles, types, and reliability ratings. Include locations (folder paths or canonical URLs).</li>
+            <li><strong>Prime the chat.</strong> Paste the allowed sources and the required citation style at the start of each drafting session.</li>
+            <li><strong>Demand inline IDs.</strong> Require bracketed IDs after factual statements: <code>“Revenue grew 18% [SRC-011].”</code> For your own chunks, use <code>[CH-###]</code>.</li>
+            <li><strong>Score confidence.</strong> Ask for High/Medium/Low with 1-sentence rationale per claim.</li>
+            <li><strong>Validate &amp; log.</strong> Run a reviewer pass that checks every claim’s source resolves and record results in a claim log stored next to the deliverable.</li>
+          </ol>
+        </section>
+
+        <section id="styles" class="guide-section">
+          <h2>Inline citation styles for ChatGPT web chat</h2>
+          <ul>
+            <li><strong>Files you uploaded:</strong> <code>[F1]</code>, <code>[F2]</code> (label &amp; summarize per <a href="../guides/21_file-upload-best-practices.html">File Uploads</a>).</li>
+            <li><strong>Chunks from catalogs:</strong> <code>[CH-001]</code>, <code>[CH-022]</code> (from your chunk table).</li>
+            <li><strong>Approved public sources:</strong> <code>[SRC-101]</code> mapping to a URL in your registry.</li>
+            <li><strong>Unknown:</strong> <code>[NO SOURCE]</code> (forces review or web check before publishing).</li>
+          </ul>
+          <p class="small">If you use ChatGPT’s browsing in a session, still convert links to your <em>registry IDs</em> before shipping, and capture a PDF/screenshot to prevent link rot.</p>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <p>For each non-trivial claim, the assistant must provide:</p>
+          <ul>
+            <li><strong>Claim ID</strong> (<code>CL-01</code>, <code>CL-02</code>...).</li>
+            <li><strong>Claim text</strong> (quote the exact sentence).</li>
+            <li><strong>Source reference</strong> (registry ID(s) like <code>[SRC-001]</code> or <code>[CH-014]</code>).</li>
+            <li><strong>Confidence</strong> (High/Medium/Low + 1-line rationale).</li>
+            <li><strong>Status</strong> (“Verified”, “Needs review”, “Unsupported”).</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Source registry snippet</h3>
+          <pre><code>| Source ID | Title                     | Type       | Reliability | Location/Access                     |
+|-----------|---------------------------|------------|-------------|-------------------------------------|
+| SRC-001   | 2025 Industry Outlook     | PDF        | High        | 10_inputs/research/industry.pdf     |
+| SRC-014   | Customer Interview 2024-09| Transcript | Medium      | 10_inputs/interviews/cust_2024-09.md|
+| SRC-033   | Govt. dataset (Q2 2025)   | Web        | High        | https://example.gov/data/q2-2025    |
+| ...       | ...                       | ...        | ...         | ...                                 |</code></pre>
+
+          <h3>Citation enforcement prompt (paste at start of drafting)</h3>
+          <pre><code>Use only the sources listed below. Cite inline with bracketed IDs (e.g., [SRC-001], [CH-014]).
+If a claim has no source, append [NO SOURCE] and add it to the claim log.
+For each claim, add a confidence label (High/Medium/Low) with a short rationale.
+Allowed sources (subset from our registry):
+{{paste relevant rows}}</code></pre>
+
+          <h3>Reviewer verification prompt</h3>
+          <pre><code>Review the draft below. For each bracketed claim:
+1) Confirm the source ID exists in the registry and supports the claim.
+2) Flag any claim with [NO SOURCE] or mismatched evidence.
+3) Output a table: Claim ID | Verdict (Verified/Needs review/Unsupported) | Notes | Fix suggestion.</code></pre>
+
+          <h3>Claim log template</h3>
+          <pre><code>| Claim ID | Claim text                                   | Source ID(s) | Evidence link/loc | Confidence | Reviewer | Status       | Notes |
+|----------|-----------------------------------------------|--------------|-------------------|------------|----------|--------------|-------|
+| CL-01    | “62% of users prefer self-serve onboarding.”  | SRC-009      | p.12 / PDF        | Medium     | Priya    | Verified     | Matches 2025 survey |
+| CL-02    | “Competitor X launched feature Y in 2025.”    | [NO SOURCE]  | n/a               | Low        | Priya    | Needs review | Add press release link |</code></pre>
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          <p>Save the claim log alongside the deliverable (e.g., in <code>40_reviews</code> or <code>50_final</code>). Include reviewer initials, timestamps, and where each source lives. For web sources, capture a PDF or screenshot and store it with the log.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Verification coverage:</strong> % of claims marked “Verified” before publication (target 100% for external work).</li>
+            <li><strong>Unsupported claim rate:</strong> Count of <code>[NO SOURCE]</code> flags per draft (trend toward zero).</li>
+            <li><strong>Review turnaround:</strong> Hours from draft to citation sign-off.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Tip:</strong> Paste a sample paragraph with perfect citations at the top of each session so the assistant mirrors the format.</li>
+            <li><strong>Tip:</strong> Require reviewers to spot-check one claim per source tier—primary, secondary, web—before sign-off.</li>
+            <li><strong>Pitfall:</strong> Leaving registry links stale. Replace broken URLs with captured PDFs/screenshots and update the registry immediately.</li>
+            <li><strong>Pitfall:</strong> Accepting vague confidence labels. Define clear criteria and demand a one-line rationale every time.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>Ground ChatGPT’s outputs by cataloging trusted sources, enforcing inline IDs, labeling confidence, and maintaining a claim log. Pair this page with <a href="../guides/31_deep-research-playbook.html">Deep Research</a>, <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality</a>, and <a href="../guides/33_news-and-recency.html">News &amp; Recency</a> for higher-stakes work.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Source registry maintained with IDs, reliability ratings, and locations.</li>
+            <li>✅ Citation enforcement prompt saved as a reusable snippet.</li>
+            <li>✅ Claim log created and stored with each deliverable.</li>
+            <li>✅ Reviewer verification run and documented.</li>
+            <li>✅ Metrics tracked for coverage and unsupported claims.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>

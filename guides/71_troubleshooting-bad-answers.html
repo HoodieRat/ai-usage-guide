@@ -1,0 +1,177 @@
+<!-- filepath: guides/71_troubleshooting-bad-answers.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Diagnose and recover from low-quality ChatGPT responses with structured debugging prompts and escalation paths.">
+  <title>Troubleshooting Bad Answers | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Safety &amp; Quality</p>
+          <h1>Troubleshooting Bad Answers</h1>
+          <p class="intro">Turn disappointing outputs into learning loops—rapidly diagnose misses, recover signal, and know when to escalate or stop.</p>
+        </header>
+
+        <section class="callout info">
+          <p><strong>Signal first:</strong> Capture the bad answer, your prompt, and surrounding context immediately so you can compare iterations.</p>
+        </section>
+
+        <section class="callout warning">
+          <p><strong>Stop conditions:</strong> If you detect legal, compliance, or safety risk, halt the session and escalate instead of iterating.</p>
+        </section>
+
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          <ul>
+            <li>Recognizing patterns behind weak responses (missing context, hallucinations, policy blocks).</li>
+            <li>Applying structured retry prompts that target the root cause.</li>
+            <li>Capturing diagnostics and routing escalations to SMEs or safety teams.</li>
+            <li>Shaping follow-up questions that teach the model what “good” looks like.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          <ul>
+            <li>Saved prompt history or transcript logging for the workflow.</li>
+            <li>Access to policy guidance for sensitive domains.</li>
+            <li>Checklist of acceptable sources or correctness tests for your domain.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          <ol>
+            <li><strong>Capture evidence.</strong> Save the raw prompt, response, and any files involved. Redact sensitive data before sharing internally.</li>
+            <li><strong>Classify the miss.</strong> Determine whether the issue is accuracy, completeness, format, tone, or policy refusal.</li>
+            <li><strong>Diagnose root cause.</strong> Ask ChatGPT to explain how it reached the answer. Compare against your sources to highlight specific gaps or errors.</li>
+            <li><strong>Retry with constraints.</strong> Provide corrected context, cite required sources, and set success criteria (e.g., “Reference policy section 4.2”).</li>
+            <li><strong>Validate externally.</strong> Confirm revised outputs against authoritative sources or automated tests. If still wrong, escalate to a human SME.</li>
+            <li><strong>Decide to stop or hand off.</strong> If the risk is high or retries exceed three attempts, stop and notify the safety contact with logs.</li>
+            <li><strong>Update playbooks.</strong> Record the scenario, prompts, and final resolution in your troubleshooting library to prevent repeats.</li>
+          </ol>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          <h3>Root-cause prompt</h3>
+          <pre><code>We asked:
+"""
+{{prompt}}
+"""
+Your reply missed the mark because {{issue}}.
+Explain your reasoning path and list assumptions you made.
+Identify what information would help you improve the answer.
+Respond with a table: step | reasoning | assumption | confidence.
+</code></pre>
+          <h3>Escalation template</h3>
+          <pre><code>Scenario: {{workflow}}
+Risk level: {{low/med/high}}
+Issue type: {{hallucination/refusal/harmful content}}
+Attempts: {{count}}
+Evidence: {{links to transcript, files}}
+Owner notified: {{name}}
+Next action: {{await SME, stop, retrain}}
+</code></pre>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          <ul>
+            <li>Every retry includes a documented hypothesis and expected fix.</li>
+            <li>Final answers cite sources or pass automated tests before release.</li>
+            <li>Escalations follow the incident intake path with timestamps and owners.</li>
+            <li>Lessons learned feed back into team prompt libraries or guardrails.</li>
+          </ul>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          <ul>
+            <li><strong>Fix velocity:</strong> Median time from bad answer to approved resolution.</li>
+            <li><strong>Retry count:</strong> Average number of iterations before getting a correct response.</li>
+            <li><strong>Escalation rate:</strong> Percentage of sessions requiring SME intervention.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Use controlled retries:</strong> Change one variable at a time so you know what fixed the issue.</li>
+            <li><strong>Challenge assumptions:</strong> Ask the model what could make its answer wrong to expose blind spots.</li>
+            <li><strong>Watch for policy triggers:</strong> Hidden safety filters may cause evasive responses—acknowledge compliance needs explicitly.</li>
+            <li><strong>Close the loop:</strong> Share resolved cases in weekly reviews to reinforce collective learning.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          <p>When ChatGPT stumbles, disciplined diagnosis and escalation keep your workflows accurate and safe.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Troubleshooting log captures prompts, attempts, and resolutions.</li>
+            <li>✅ Retry prompts follow the root-cause framework above.</li>
+            <li>✅ Escalation paths documented and rehearsed.</li>
+            <li>✅ Lessons learned circulated to the broader team.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>
