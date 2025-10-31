@@ -8,10 +8,21 @@
   const closeButton = document.querySelector('[data-search-close]');
   const body = document.body;
   const SEARCH_ENDPOINT = '../data/search.json';
+  const FACETS = [
+    { key: 'guide', label: 'Guides' },
+    { key: 'prompt', label: 'Prompts' },
+    { key: 'template', label: 'Templates' },
+    { key: 'all', label: 'All' },
+  ];
+
   let index = [];
   let activeItemIndex = -1;
   let lastQuery = '';
   let previousFocus;
+  let typeFilter = 'guide';
+  let facetButtons = [];
+  const facetsContainer = document.createElement('div');
+  facetsContainer.className = 'search-facets';
 
   if (!searchInput || !resultsPanel || !resultsList || !closeButton) {
     return;
@@ -29,11 +40,54 @@
         throw new Error('Search index is not an array.');
       }
 
-      // Skip prompt catalog entries (guarded by type flag).
-      index = data.filter((item) => item.type !== 'prompt');
+      index = data;
+      renderFacetButtons();
     } catch (error) {
       console.error('Search index failed to load:', error);
     }
+  }
+
+  function renderFacetButtons() {
+    const header = resultsPanel.querySelector('.search-results-header');
+    if (!header || facetsContainer.childElementCount) {
+      return;
+    }
+
+    facetButtons = FACETS.map((facet) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'search-facet';
+      button.dataset.facet = facet.key;
+      button.textContent = facet.label;
+      button.setAttribute('aria-pressed', facet.key === typeFilter ? 'true' : 'false');
+      button.addEventListener('click', () => {
+        setFacet(facet.key);
+      });
+      facetsContainer.appendChild(button);
+      return button;
+    });
+
+    header.insertAdjacentElement('afterend', facetsContainer);
+  }
+
+  function setFacet(key) {
+    typeFilter = key;
+    facetButtons.forEach((button) => {
+      const isActive = button.dataset.facet === typeFilter;
+      button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    if (lastQuery) {
+      const ranked = rankResults(lastQuery);
+      renderResults(ranked, lastQuery);
+      if (ranked.length) {
+        openPanel();
+      }
+    }
+  }
+
+  function normalize(value) {
+    return (value || '').toString().toLowerCase();
   }
 
   function openPanel() {
@@ -58,6 +112,7 @@
   }
 
   function highlight(text, query) {
+    text = (text || '').toString();
     if (!query) return text;
     const normalized = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const regex = new RegExp(`(${normalized})`, 'ig');
@@ -84,8 +139,8 @@
       link.href = item.url;
       link.innerHTML = `
         <span class="search-results-title">${highlight(item.title, query)}</span>
-        <span class="search-results-unit">${highlight(item.unit, query)}</span>
-        <span class="search-results-snippet">${highlight(item.snippet, query)}</span>
+        <span class="search-results-unit">${highlight(item.meta || item.unit || '', query)}</span>
+        <span class="search-results-snippet">${highlight(item.snippet || '', query)}</span>
       `;
 
       link.addEventListener('focus', () => {
@@ -105,22 +160,28 @@
     const normalized = query.toLowerCase();
 
     const scored = index
+      .filter((item) => typeFilter === 'all' || item.type === typeFilter)
       .map((item) => {
         let score = 0;
-        const title = item.title.toLowerCase();
-        const unit = item.unit.toLowerCase();
-        const snippet = item.snippet.toLowerCase();
+        const title = normalize(item.title);
+        const meta = normalize(item.meta || item.unit);
+        const snippet = normalize(item.snippet);
 
         if (title.includes(normalized)) score += 5;
-        if (unit.includes(normalized)) score += 2;
+        if (meta.includes(normalized)) score += 2;
         if (snippet.includes(normalized)) score += 1;
 
-        if (item.tags) {
-          const tagScore = item.tags.some((tag) => tag.toLowerCase().includes(normalized));
-          if (tagScore) score += 2;
+        if (Array.isArray(item.tags) && item.tags.length) {
+          const tagHit = item.tags.some((tag) => normalize(tag).includes(normalized));
+          if (tagHit) score += 2;
         }
 
         if (score === 0) return null;
+
+        // Favour guides when "all" is selected so core content stays on top.
+        if (typeFilter === 'all' && item.type === 'guide') {
+          score += 1;
+        }
 
         return { ...item, score };
       })
