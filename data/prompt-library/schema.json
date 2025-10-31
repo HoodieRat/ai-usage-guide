@@ -6,13 +6,15 @@
   "required": [
     "id",
     "title",
+    "category",
     "use_case",
     "owner",
     "last_review",
     "guardrails",
     "inputs",
     "outputs",
-    "prompt"
+    "prompt",
+    "difficulty"
   ],
   "properties": {
     "id": {
@@ -23,6 +25,10 @@
     "title": {
       "type": "string",
       "description": "Human-friendly name for the prompt asset."
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary thematic grouping for filtering and navigation (e.g., Planning, Research, Communication)."
     },
     "use_case": {
       "type": "string",
@@ -46,6 +52,11 @@
       "type": "string",
       "enum": ["low", "medium", "high"],
       "description": "Risk tier based on data sensitivity and downstream impact."
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["Beginner", "Intermediate", "Advanced"],
+      "description": "Skill maturity required to operate the prompt safely and effectively."
     },
     "guardrails": {
       "type": "array",
