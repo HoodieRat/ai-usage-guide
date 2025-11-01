@@ -1,0 +1,284 @@
+<!-- filepath: guides/81_project-blueprints.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Project-ready blueprints that map AI capabilities to common team workflows.">
+  <title>Project Blueprints | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Templates &amp; Integrations</p>
+          <h1>Project Blueprints</h1>
+          <p class="intro">Package repeatable AI projects into sequenced blueprints so teams can launch with clear owners, timelines, and guardrails.</p>
+        </header>
+        <section class="callout info">
+          <p><strong>Cross-links:</strong> For orchestration, see <a href="../guides/41_task-chains-and-delegation.html">Task Chains</a> and <a href="../guides/40_agentic-mode_overview.html">Agentic Mode Overview</a>. Keep docs current in <a href="../guides/53_knowledge-bases.html">Knowledge Bases</a>.</p>
+        </section>
+        <section class="callout warning">
+          <p><strong>Ownership:</strong> Each milestone needs a named human owner and validator; automated steps cannot self-approve.</p>
+        </section>
+
+        <section id="blueprint-gallery" class="guide-section">
+          <h2>Blueprint gallery (copy-ready)</h2>
+          <p>Plug these end-to-end plans directly into your project hub. Each blueprint maps milestones, tooling, guardrails, and the template IDs to copy from the library.</p>
+
+          <details open>
+            <summary>Customer Support Deflection (Zendesk + Slack + ChatGPT)</summary>
+            <div class="card">
+              <p><strong>Goal:</strong> Reduce tier-1 ticket volume by 30% with AI-assisted triage anchored on <code>TL-017</code> and <code>TL-023</code>.</p>
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Owner</th>
+                      <th scope="col">Inputs</th>
+                      <th scope="col">Outputs</th>
+                      <th scope="col">Acceptance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Support intake audit</td>
+                      <td>Support Ops</td>
+                      <td>3 weeks of ticket samples, <code>TL-029</code> audit checklist</td>
+                      <td>Annotated intents + redaction plan</td>
+                      <td>Validator confirms no PII leaks; intents cover &ge; 90% of volume</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Prompt + workflow design</td>
+                      <td>AI Lead</td>
+                      <td>Intent map, <code>TL-017</code> discovery script</td>
+                      <td>Zendesk macro draft, escalation rules</td>
+                      <td>QA reviewer signs off on guardrails + hallucination tests</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Pilot launch (Slack shadow channel)</td>
+                      <td>Support Manager</td>
+                      <td>Prompt v1, <code>TL-028</code> webhook runbook</td>
+                      <td>Live whisper responses + incident log</td>
+                      <td>Missed-SLA incidents &le; 1; webhook runbook rehearsed</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Rollout &amp; enablement</td>
+                      <td>Enablement</td>
+                      <td><code>TL-018</code> launch brief, updated macros</td>
+                      <td>Training session, FAQ, adoption dashboard</td>
+                      <td>80% agents complete enablement; adoption target hit in 2 weeks</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Measure &amp; iterate</td>
+                      <td>Analytics</td>
+                      <td>Baseline metrics, alert thresholds</td>
+                      <td>Weekly KPI deck + risk tracker</td>
+                      <td>Deflection &ge; 30%; alerts wired into PagerDuty</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p><strong>Automation snippet:</strong> Use the ServiceNow or Zendesk webhook payload validator from <code>TL-028</code> to gate merges, forwarding failures to #support-incidents with the <code>request_id</code>.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Product Launch Content Factory (Notion + Jira + Figma)</summary>
+            <div class="card">
+              <p><strong>Goal:</strong> Ship launch collateral in 4 weeks using blueprints that lean on <code>TL-018</code> and <code>TL-021</code>.</p>
+              <ul>
+                <li><strong>Milestone 1 — Launch brief:</strong> Product marketing completes <code>TL-018</code>; reviewer ensures risk tags align with compliance.</li>
+                <li><strong>Milestone 2 — Asset production:</strong> Creative pod iterates via <code>TL-021</code> governance playbook; Jira automation assigns reviewers and due dates.</li>
+                <li><strong>Milestone 3 — Sales enablement:</strong> Enablement team runs workshop via <code>TL-019</code>; metrics owner captures certification completion.</li>
+                <li><strong>Milestone 4 — Launch readiness:</strong> Operations executes <code>TL-020</code> readiness checklist; gating flag lifted only after dashboards show real-time telemetry.</li>
+                <li><strong>Milestone 5 — Post-launch review:</strong> Analytics produces KPI deck; risk council reviews incident backlog in <code>TL-022</code> format.</li>
+              </ul>
+              <p><strong>Workflow integrations:</strong> Jira automation creates subtasks per deliverable; Notion hosts the single source of truth with embeds to prompt IDs (PL-051…PL-060) for copy requests; Figma links tracked in the risk register.</p>
+            </div>
+          </details>
+
+          <details>
+            <summary>Data Quality Guardrails (BigQuery + Airflow + ChatGPT)</summary>
+            <div class="card">
+              <p><strong>Goal:</strong> Catch schema drift and data anomalies before they hit executive dashboards.</p>
+              <ol>
+                <li><strong>Schema watch:</strong> Airflow DAG pulls DDL snapshots, ChatGPT compares against policy checklist (<code>TL-023</code> + PL-065) and files diffs.</li>
+                <li><strong>Regression tests:</strong> Evaluation harness runs PL-070 prompts on sample tables; failures open Jira incidents with <code>TL-022</code> runbook link.</li>
+                <li><strong>Bias monitoring:</strong> Responsible AI team updates metrics using <code>TL-026</code>; alerts route to #data-quality with rollbacks scripted.</li>
+                <li><strong>Monthly review:</strong> Safety board agenda (<code>TL-025</code>) receives summary of incidents, rollbacks, and mitigations.</li>
+              </ol>
+              <p><strong>Automation snippet:</strong></p>
+              <pre><code class="language-yaml"># Airflow task (PythonOperator) pseudo-code
+from airflow.operators.python import PythonOperator
+
+guardrail_checks = PythonOperator(
+  task_id="guardrail_checks",
+  python_callable=run_guardrail_checks,
+  op_kwargs={"template_ids": ["TL-023", "TL-028"], "slack_channel": "#data-quality"}
+)</code></pre>
+            </div>
+          </details>
+        </section>
+        
+        <section id="what-youll-learn" class="guide-section">
+          <h2>What you’ll learn</h2>
+          
+          <ul>
+            <li>Translating initiatives into milestone-driven blueprints with owners and SLAs.</li>
+            <li>Splitting work across human-led, AI-assisted, and automated stages.</li>
+            <li>Reusing ready-made blueprint kits for support, product, and analytics stacks.</li>
+            <li>Keeping blueprints truthful with metrics, risks, and retros.</li>
+          </ul>
+        </section>
+
+        <section id="prerequisites" class="guide-section">
+          <h2>Prerequisites</h2>
+          
+          <ul>
+            <li>Approved charter with objective, scope, metrics, risks.</li>
+            <li>Named owner, validator, and escalation contacts.</li>
+            <li>Shared repository for artifacts and status dashboards.</li>
+          </ul>
+        </section>
+
+        <section id="step-by-step" class="guide-section">
+          <h2>Step-by-step</h2>
+          
+          <ol>
+            <li><strong>Define milestones.</strong> Each ships an observable artifact and has acceptance criteria.</li>
+            <li><strong>Assign roles.</strong> Owner, validator, backups; note AI/automation support.</li>
+            <li><strong>Plan cadence.</strong> Status updates, reviews, and checkpoints with agendas.</li>
+            <li><strong>Wire metrics.</strong> Success measures, risks, and alert thresholds.</li>
+            <li><strong>Link to templates.</strong> Reference canonical runbooks from <a href="../guides/80_templates-library.html">Templates Library</a> (e.g., <code>TL-017</code> discovery script or <code>TL-028</code> webhook runbook) for each milestone.</li>
+            <li><strong>Publish &amp; iterate.</strong> Kick off, then refine based on metrics and retros.</li>
+          </ol>
+        </section>
+
+        <section id="output-contract" class="guide-section">
+          <h2>Output contract</h2>
+          
+          <p>Every blueprint should include:</p>
+          <ul>
+            <li><strong>Milestone table:</strong> goal, owner, validator, inputs, outputs, acceptance.</li>
+            <li><strong>RACI summary:</strong> who is Responsible, Accountable, Consulted, Informed.</li>
+            <li><strong>Risk register:</strong> top risks with mitigations and owners.</li>
+            <li><strong>Reporting plan:</strong> cadence, dashboard link, and escalation rules.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+          
+          <h3>Milestone table</h3>
+          <pre><code>| # | Milestone | Owner | Validator | Inputs | Outputs | Acceptance |
+|---|-----------|-------|----------|--------|---------|------------|
+| 1 | Research &amp; scope | PM | Legal | Brief, policy | Charter | Stakeholders sign-off |
+| 2 | Prompt v1 | AI lead | Reviewer | Charter, data | Prompt_v1.md | QA checklist |
+| 3 | Pilot | Ops | PM | Prompt_v1, evals | Pilot report | KPIs met +/- tolerance |</code></pre>
+          <h3>RACI block</h3>
+          <pre><code>R: {{owner}} | A: {{sponsor}} | C: {{SMEs}} | I: {{stakeholders}}</code></pre>
+          <h3>Risk register</h3>
+          <pre><code>| Risk | Impact | Trigger | Mitigation | Owner |
+|------|--------|---------|------------|-------|
+| Data drift | High | Eval score &lt; 0.8 | Retrain or roll back | Data lead |
+| Cost spike | Med | Spend &gt; budget | Throttle usage | PM |</code></pre>
+          
+        </section>
+
+        <section id="logging" class="guide-section">
+          <h2>Logging</h2>
+          
+          <p>Log milestone approvals, version tags, incidents, and decisions. Link logs to the dashboard and KB entries.</p>
+        </section>
+
+        <section id="metrics" class="guide-section">
+          <h2>Metrics that matter</h2>
+          
+          <ul>
+            <li><strong>Milestone hit rate:</strong> % delivered on time.</li>
+            <li><strong>Quality gates passed:</strong> % of steps accepted first try.</li>
+            <li><strong>Risk incidents:</strong> # of escalations or rollbacks.</li>
+          </ul>
+        </section>
+
+        <section id="tips-and-pitfalls" class="guide-section">
+          <h2>Tips &amp; pitfalls</h2>
+          <ul>
+            <li><strong>Milestone clarity:</strong> Pair each milestone with deliverable samples so sign-off is objective.</li>
+            <li><strong>Dependency mapping:</strong> Add input checklists to prevent teams from starting without prerequisites.</li>
+            <li><strong>Timeboxing:</strong> Set cadence for status updates and enforce escalation when milestones slip.</li>
+            <li><strong>Risk rehearsal:</strong> Dry-run rollback and communications plans before launch.</li>
+            <li><strong>Template hyperlinks:</strong> Link each milestone to the canonical template ID (TL-###) so contributors copy the governed version.</li>
+          </ul>
+        </section>
+
+        <section id="recap" class="guide-section">
+          <h2>Recap</h2>
+          
+          <p>Blueprints turn strategy into execution. Define milestones with owners and acceptance, wire metrics and risks, then iterate.</p>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          
+          <ul>
+            <li>✅ Charter approved with owners and risks.</li>
+            <li>✅ Milestone/RACI tables published.</li>
+            <li>✅ Reporting and escalation paths active.</li>
+          </ul>
+        </section>
+        <footer class="guide-footer">
+          <p class="update-note">Published October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/prism.js" defer></script>
+</body>
+</html>
