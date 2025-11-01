@@ -108,6 +108,70 @@
           </div>
         </section>
 
+        <section id="prompt-detail" class="guide-section prompt-detail" data-prompt-detail hidden>
+          <h2>Prompt details</h2>
+          <div class="prompt-detail-header">
+            <div>
+              <h3 data-detail-title>Choose a prompt to see the details.</h3>
+              <p class="prompt-detail-usecase" data-detail-usecase></p>
+            </div>
+            <button type="button" class="link-button" data-detail-copy disabled>Copy prompt</button>
+          </div>
+          <dl class="prompt-detail-meta">
+            <div>
+              <dt>ID</dt>
+              <dd data-detail-id>—</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd data-detail-category>—</dd>
+            </div>
+            <div>
+              <dt>Difficulty</dt>
+              <dd data-detail-difficulty>—</dd>
+            </div>
+            <div>
+              <dt>Risk level</dt>
+              <dd data-detail-risk>—</dd>
+            </div>
+            <div>
+              <dt>Owner</dt>
+              <dd data-detail-owner>—</dd>
+            </div>
+            <div>
+              <dt>Review cadence</dt>
+              <dd data-detail-review>—</dd>
+            </div>
+          </dl>
+
+          <div class="prompt-detail-columns">
+            <div>
+              <h3>Guardrails</h3>
+              <ul data-detail-guardrails></ul>
+            </div>
+            <div>
+              <h3>Inputs</h3>
+              <ul data-detail-inputs></ul>
+            </div>
+            <div>
+              <h3>Outputs</h3>
+              <ul data-detail-outputs></ul>
+            </div>
+          </div>
+
+          <div class="prompt-detail-tags">
+            <h3>Tags</h3>
+            <p data-detail-tags class="prompt-detail-empty">—</p>
+          </div>
+
+          <div class="prompt-detail-body">
+            <h3>Prompt text</h3>
+            <pre><code data-detail-prompt></code></pre>
+          </div>
+
+          <div class="prompt-detail-examples" data-detail-examples></div>
+        </section>
+
         <section id="add-a-prompt" class="guide-section">
           <h2>Add a new prompt (step-by-step)</h2>
           <ol>
@@ -234,6 +298,22 @@ REVIEW: {{who approves and what checklist}}</code></pre>
       const searchInput = document.querySelector('[data-filter-search]');
       const tagList = document.querySelector('[data-filter-tags]');
       const clearButton = document.querySelector('[data-filter-clear]');
+      const detailSection = document.querySelector('[data-prompt-detail]');
+      const detailTitle = detailSection?.querySelector('[data-detail-title]');
+      const detailUseCase = detailSection?.querySelector('[data-detail-usecase]');
+      const detailId = detailSection?.querySelector('[data-detail-id]');
+      const detailCategory = detailSection?.querySelector('[data-detail-category]');
+      const detailDifficulty = detailSection?.querySelector('[data-detail-difficulty]');
+      const detailRisk = detailSection?.querySelector('[data-detail-risk]');
+      const detailOwner = detailSection?.querySelector('[data-detail-owner]');
+      const detailReview = detailSection?.querySelector('[data-detail-review]');
+      const detailGuardrails = detailSection?.querySelector('[data-detail-guardrails]');
+      const detailInputs = detailSection?.querySelector('[data-detail-inputs]');
+      const detailOutputs = detailSection?.querySelector('[data-detail-outputs]');
+      const detailTags = detailSection?.querySelector('[data-detail-tags]');
+      const detailPrompt = detailSection?.querySelector('[data-detail-prompt]');
+      const detailExamples = detailSection?.querySelector('[data-detail-examples]');
+      const copyPromptButton = detailSection?.querySelector('[data-detail-copy]');
       const basePath = document.body.dataset.base || '.';
       const state = {
         entries: [],
@@ -241,6 +321,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
         category: 'all',
         searchTerm: '',
         selectedTags: new Set(),
+        selectedId: null,
       };
 
       if (!tableBody) {
@@ -250,6 +331,255 @@ REVIEW: {{who approves and what checklist}}</code></pre>
       if (filterPanel) {
         filterPanel.hidden = true;
       }
+
+      function copyTextToClipboard(text, onComplete) {
+        const fallback = () => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            onComplete?.();
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        };
+
+        if (navigator.clipboard?.writeText) {
+          navigator.clipboard.writeText(text).then(() => onComplete?.()).catch(fallback);
+        } else {
+          fallback();
+        }
+      }
+
+      function populateList(container, items, emptyMessage) {
+        if (!container) {
+          return;
+        }
+
+        container.innerHTML = '';
+
+        if (Array.isArray(items) && items.length) {
+          items.forEach((item) => {
+            const listItem = document.createElement('li');
+            if (typeof item === 'string') {
+              listItem.textContent = item;
+            } else {
+              listItem.textContent = JSON.stringify(item, null, 2);
+            }
+            container.appendChild(listItem);
+          });
+        } else {
+          const empty = document.createElement('li');
+          empty.className = 'prompt-detail-empty';
+          empty.textContent = emptyMessage;
+          container.appendChild(empty);
+        }
+      }
+
+      function renderExamples(examples) {
+        if (!detailExamples) {
+          return;
+        }
+
+        detailExamples.innerHTML = '';
+
+        if (!Array.isArray(examples) || !examples.length) {
+          const placeholder = document.createElement('p');
+          placeholder.className = 'prompt-detail-empty';
+          placeholder.textContent = 'No examples provided.';
+          detailExamples.appendChild(placeholder);
+          return;
+        }
+
+        const heading = document.createElement('h3');
+        heading.textContent = 'Examples';
+        detailExamples.appendChild(heading);
+
+        examples.forEach((example, index) => {
+          const detailsElement = document.createElement('details');
+          detailsElement.open = index === 0;
+
+          const summary = document.createElement('summary');
+          summary.textContent = `Example ${index + 1}`;
+          detailsElement.appendChild(summary);
+
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.textContent = typeof example === 'string' ? example : JSON.stringify(example, null, 2);
+          pre.appendChild(code);
+          detailsElement.appendChild(pre);
+
+          detailExamples.appendChild(detailsElement);
+        });
+      }
+
+      function renderDetail(entry) {
+        if (!detailSection || !entry) {
+          return;
+        }
+
+        detailSection.hidden = false;
+        const cadence = entry.review_cadence_days ? `${entry.review_cadence_days} days` : null;
+
+        if (detailTitle) {
+          detailTitle.textContent = entry.title || 'Untitled prompt';
+        }
+
+        if (detailUseCase) {
+          if (entry.use_case) {
+            detailUseCase.textContent = entry.use_case;
+            detailUseCase.classList.remove('prompt-detail-empty');
+          } else {
+            detailUseCase.textContent = 'No use case provided.';
+            detailUseCase.classList.add('prompt-detail-empty');
+          }
+        }
+
+        if (detailId) {
+          detailId.textContent = entry.id || '—';
+        }
+
+        if (detailCategory) {
+          detailCategory.textContent = entry.category || '—';
+        }
+
+        if (detailDifficulty) {
+          detailDifficulty.textContent = entry.difficulty || '—';
+        }
+
+        if (detailRisk) {
+          detailRisk.textContent = entry.risk_level || entry.risk || '—';
+        }
+
+        if (detailOwner) {
+          detailOwner.textContent = entry.owner || '—';
+        }
+
+        if (detailReview) {
+          if (entry.last_review && cadence) {
+            detailReview.textContent = `${entry.last_review} • every ${cadence}`;
+          } else if (entry.last_review) {
+            detailReview.textContent = entry.last_review;
+          } else if (cadence) {
+            detailReview.textContent = `Every ${cadence}`;
+          } else {
+            detailReview.textContent = '—';
+          }
+        }
+
+        populateList(detailGuardrails, entry.guardrails, 'No guardrails listed.');
+        populateList(detailInputs, entry.inputs, 'No inputs documented.');
+        populateList(detailOutputs, entry.outputs, 'No outputs documented.');
+
+        if (detailTags) {
+          const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : 'No tags listed.';
+          detailTags.textContent = tags;
+          if (Array.isArray(entry.tags) && entry.tags.length) {
+            detailTags.classList.remove('prompt-detail-empty');
+          } else {
+            detailTags.classList.add('prompt-detail-empty');
+          }
+        }
+
+        if (detailPrompt) {
+          detailPrompt.textContent = entry.prompt || '';
+        }
+
+        renderExamples(entry.examples);
+
+        if (copyPromptButton) {
+          copyPromptButton.disabled = !entry.prompt;
+          copyPromptButton.textContent = 'Copy prompt';
+        }
+      }
+
+      function clearDetail() {
+        if (!detailSection) {
+          return;
+        }
+
+        detailSection.hidden = true;
+        if (copyPromptButton) {
+          copyPromptButton.disabled = true;
+          copyPromptButton.textContent = 'Copy prompt';
+        }
+      }
+
+      function updateRowSelection() {
+        if (!tableBody) {
+          return;
+        }
+
+        Array.from(tableBody.querySelectorAll('tr')).forEach((row) => {
+          const promptId = row.dataset.promptId;
+          if (promptId && promptId === state.selectedId) {
+            row.setAttribute('data-selected', 'true');
+            row.setAttribute('aria-selected', 'true');
+          } else {
+            row.removeAttribute('data-selected');
+            row.removeAttribute('aria-selected');
+          }
+        });
+      }
+
+      function selectEntry(entry) {
+        if (!entry) {
+          return;
+        }
+
+        state.selectedId = entry.id;
+        renderDetail(entry);
+        updateRowSelection();
+      }
+
+      function syncSelection() {
+        if (!state.filtered.length) {
+          state.selectedId = null;
+          clearDetail();
+          updateRowSelection();
+          return;
+        }
+
+        const existing = state.filtered.find((item) => item.id === state.selectedId);
+        if (existing) {
+          renderDetail(existing);
+          updateRowSelection();
+          return;
+        }
+
+        state.selectedId = state.filtered[0].id;
+        renderDetail(state.filtered[0]);
+        updateRowSelection();
+      }
+
+      function copyPromptText() {
+        if (!copyPromptButton || !state.selectedId) {
+          return;
+        }
+
+        const entry = state.entries.find((item) => item.id === state.selectedId);
+        if (!entry?.prompt) {
+          return;
+        }
+
+        const original = copyPromptButton.textContent;
+        copyPromptButton.disabled = true;
+        copyPromptButton.textContent = 'Copied';
+
+        copyTextToClipboard(entry.prompt, () => {
+          setTimeout(() => {
+            copyPromptButton.textContent = original;
+            copyPromptButton.disabled = false;
+          }, 1500);
+        });
+      }
+
+      copyPromptButton?.addEventListener('click', copyPromptText);
 
       function resolveResource(path) {
         const sanitized = (path || '').replace(/^\.\//, '');
@@ -288,36 +618,17 @@ REVIEW: {{who approves and what checklist}}</code></pre>
 
       function copyEntry(entry, button) {
         const text = toCopyPayload(entry);
-        const fallback = () => {
-          const textarea = document.createElement('textarea');
-          textarea.value = text;
-          textarea.setAttribute('readonly', '');
-          textarea.style.position = 'absolute';
-          textarea.style.left = '-9999px';
-          document.body.appendChild(textarea);
-          textarea.select();
-          try {
-            document.execCommand('copy');
-          } finally {
-            document.body.removeChild(textarea);
+        copyTextToClipboard(text, () => {
+          if (button) {
+            const original = button.textContent;
+            button.textContent = 'Copied';
+            button.disabled = true;
+            setTimeout(() => {
+              button.textContent = original;
+              button.disabled = false;
+            }, 1600);
           }
-        };
-
-        if (navigator.clipboard?.writeText) {
-          navigator.clipboard.writeText(text).catch(fallback);
-        } else {
-          fallback();
-        }
-
-        if (button) {
-          const original = button.textContent;
-          button.textContent = 'Copied';
-          button.disabled = true;
-          setTimeout(() => {
-            button.textContent = original;
-            button.disabled = false;
-          }, 1600);
-        }
+        });
       }
 
       function normalize(value) {
@@ -383,12 +694,16 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           const emptyRow = document.createElement('tr');
           emptyRow.innerHTML = '<td colspan="9">No prompts match the current filters.</td>';
           tableBody.appendChild(emptyRow);
+          clearDetail();
           return;
         }
 
         state.filtered.forEach((entry) => {
           const row = document.createElement('tr');
           row.id = entry.id;
+           row.dataset.promptId = entry.id;
+           row.tabIndex = 0;
+           row.setAttribute('role', 'row');
           const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : '—';
 
           const ownerCell = entry.owner
@@ -408,10 +723,23 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           `;
 
           const copyButton = row.querySelector('[data-copy]');
-          copyButton.addEventListener('click', () => copyEntry(entry, copyButton));
+          copyButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            copyEntry(entry, copyButton);
+          });
+
+          row.addEventListener('click', () => selectEntry(entry));
+          row.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              selectEntry(entry);
+            }
+          });
 
           tableBody.appendChild(row);
         });
+
+        syncSelection();
       }
 
       function renderCategories(entries) {

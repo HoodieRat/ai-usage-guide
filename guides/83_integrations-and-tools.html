@@ -2,12 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <section id="automation-snippets" class="guide-section">
-          <h2>Automation snippets</h2>
-          <p>Use these as scaffolding when wiring the integration. They assume you already enforce response contracts and guardrails noted above.</p>
-
-          <h3>Slack to Jira worker (TypeScript)</h3>
-          <pre><code class="language-typescript">import { WebClient } from '@slack/web-api';
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,10 +35,6 @@
       <span class="sr-only">Toggle dark mode</span>
     </button>
   </header>
-
-          <h3>Azure Function toggle (C#)</h3>
-          <pre><code class="language-csharp">[Function("IntegrationToggle")]
-
   <div class="layout">
     <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
 
@@ -146,6 +136,58 @@
               </ol>
             </div>
           </details>
+        </section>
+
+        <section id="automation-snippets" class="guide-section">
+          <h2>Automation snippets</h2>
+          <p>Use these as scaffolding when wiring the integration. They assume you already enforce response contracts and guardrails noted above.</p>
+
+          <h3>Slack to Jira worker (TypeScript)</h3>
+          <pre><code class="language-typescript">import { WebClient } from '@slack/web-api';
+import { createJiraIssue } from './jira-client';
+
+export async function handleIncident(payload: SlackEvent) {
+  const client = new WebClient(process.env.SLACK_BOT_TOKEN);
+  const summary = await fetchChatGptSummary(payload.request_id);
+
+  if (!summary.ok) {
+    await client.chat.postMessage({
+      channel: '#support-incidents',
+      text: `Validator rejected automation for ${payload.request_id}. Hand off to TL-027 fallback.`
+    });
+    return;
+  }
+
+  const issue = await createJiraIssue({
+    payload: summary.value,
+    guardrailsChecklist: 'TL-028'
+  });
+
+  await client.chat.postMessage({
+    channel: '#support-incidents',
+    text: `Filed ${issue.key} for ${payload.request_id}.`
+  });
+}</code></pre>
+
+          <h3>Azure Function toggle (C#)</h3>
+          <pre><code class="language-csharp">[Function("IntegrationToggle")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req,
+    [CosmosDB(
+        databaseName: "integrations",
+        containerName: "flags",
+        Id = "request_id",
+        PartitionKey = "request_id")] DocumentClient client,
+    ILogger log)
+{
+    var payload = await JsonSerializer.DeserializeAsync<TogglePayload>(req.Body);
+    await Guardrails.ValidateAsync(payload, templates: new [] {"TL-027", "TL-028"});
+
+    await FeatureFlags.SetStateAsync(payload.FlagName, payload.Enabled);
+    log.LogInformation("{RequestId} toggled {Flag} => {State}", payload.RequestId, payload.FlagName, payload.Enabled);
+
+    return new OkObjectResult(new { payload.RequestId, payload.Enabled });
+}</code></pre>
         </section>
 
         <section id="step-by-step" class="guide-section">

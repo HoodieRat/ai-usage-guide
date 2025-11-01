@@ -21,6 +21,35 @@
       <span aria-hidden="true"></span>
     </button>
     <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Templates &amp; Integrations</p>
+          <h1>Project Blueprints</h1>
+          <p class="intro">Package repeatable AI projects into sequenced blueprints so teams can launch with clear owners, timelines, and guardrails.</p>
+        </header>
+        <section class="callout info">
+          <p><strong>Cross-links:</strong> For orchestration, see <a href="../guides/41_task-chains-and-delegation.html">Task Chains</a> and <a href="../guides/40_agentic-mode_overview.html">Agentic Mode Overview</a>. Keep docs current in <a href="../guides/53_knowledge-bases.html">Knowledge Bases</a>.</p>
+        </section>
+        <section class="callout warning">
+          <p><strong>Ownership:</strong> Each milestone needs a named human owner and validator; automated steps cannot self-approve.</p>
+        </section>
+
         <section id="blueprint-gallery" class="guide-section">
           <h2>Blueprint gallery (copy-ready)</h2>
           <p>Plug these end-to-end plans directly into your project hub. Each blueprint maps milestones, tooling, guardrails, and the template IDs to copy from the library.</p>
@@ -29,60 +58,62 @@
             <summary>Customer Support Deflection (Zendesk + Slack + ChatGPT)</summary>
             <div class="card">
               <p><strong>Goal:</strong> Reduce tier-1 ticket volume by 30% with AI-assisted triage anchored on <code>TL-017</code> and <code>TL-023</code>.</p>
-              <table class="data-table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Milestone</th>
-                    <th>Owner</th>
-                    <th>Inputs</th>
-                    <th>Outputs</th>
-                    <th>Acceptance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Support intake audit</td>
-                    <td>Support Ops</td>
-                    <td>3 weeks of ticket samples, <code>TL-029</code> audit checklist</td>
-                    <td>Annotated intents + redaction plan</td>
-                    <td>Validator confirms no PII leaks; intents cover >= 90% of volume</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Prompt + workflow design</td>
-                    <td>AI Lead</td>
-                    <td>Intent map, <code>TL-017</code> discovery script</td>
-                    <td>Zendesk macro draft, escalation rules</td>
-                    <td>QA reviewer signs off on guardrails + hallucination tests</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Pilot launch (Slack shadow channel)</td>
-                    <td>Support Manager</td>
-                    <td>Prompt v1, <code>TL-028</code> webhook runbook</td>
-                    <td>Live whisper responses + incident log</td>
-                    <td>Missed-SLA incidents <= 1; webhook runbook rehearsed</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Rollout &amp; enablement</td>
-                    <td>Enablement</td>
-                    <td><code>TL-018</code> launch brief, updated macros</td>
-                    <td>Training session, FAQ, adoption dashboard</td>
-                    <td>80% agents complete enablement; adoption target hit in 2 weeks</td>
-                  </tr>
-                  <tr>
-                    <td>5</td>
-                    <td>Measure &amp; iterate</td>
-                    <td>Analytics</td>
-                    <td>Baseline metrics, alert thresholds</td>
-                    <td>Weekly KPI deck + risk tracker</td>
-                    <td>Deflection >= 30%; alerts wired into PagerDuty</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-scroll">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Milestone</th>
+                      <th scope="col">Owner</th>
+                      <th scope="col">Inputs</th>
+                      <th scope="col">Outputs</th>
+                      <th scope="col">Acceptance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Support intake audit</td>
+                      <td>Support Ops</td>
+                      <td>3 weeks of ticket samples, <code>TL-029</code> audit checklist</td>
+                      <td>Annotated intents + redaction plan</td>
+                      <td>Validator confirms no PII leaks; intents cover &ge; 90% of volume</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Prompt + workflow design</td>
+                      <td>AI Lead</td>
+                      <td>Intent map, <code>TL-017</code> discovery script</td>
+                      <td>Zendesk macro draft, escalation rules</td>
+                      <td>QA reviewer signs off on guardrails + hallucination tests</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Pilot launch (Slack shadow channel)</td>
+                      <td>Support Manager</td>
+                      <td>Prompt v1, <code>TL-028</code> webhook runbook</td>
+                      <td>Live whisper responses + incident log</td>
+                      <td>Missed-SLA incidents &le; 1; webhook runbook rehearsed</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Rollout &amp; enablement</td>
+                      <td>Enablement</td>
+                      <td><code>TL-018</code> launch brief, updated macros</td>
+                      <td>Training session, FAQ, adoption dashboard</td>
+                      <td>80% agents complete enablement; adoption target hit in 2 weeks</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Measure &amp; iterate</td>
+                      <td>Analytics</td>
+                      <td>Baseline metrics, alert thresholds</td>
+                      <td>Weekly KPI deck + risk tracker</td>
+                      <td>Deflection &ge; 30%; alerts wired into PagerDuty</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <p><strong>Automation snippet:</strong> Use the ServiceNow or Zendesk webhook payload validator from <code>TL-028</code> to gate merges, forwarding failures to #support-incidents with the <code>request_id</code>.</p>
             </div>
           </details>
@@ -114,37 +145,15 @@
               </ol>
               <p><strong>Automation snippet:</strong></p>
               <pre><code class="language-yaml"># Airflow task (PythonOperator) pseudo-code
-      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
-      <span class="brand-name">Everyday AI Guide</span>
-    </a>
-    <form class="search-form" role="search">
-      <label class="sr-only" for="site-search">Search guides</label>
-      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
-    </form>
-    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
-      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
-      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
-      <span class="sr-only">Toggle dark mode</span>
+from airflow.operators.python import PythonOperator
+
+guardrail_checks = PythonOperator(
+  task_id="guardrail_checks",
+  python_callable=run_guardrail_checks,
+  op_kwargs={"template_ids": ["TL-023", "TL-028"], "slack_channel": "#data-quality"}
+)</code></pre>
             </div>
           </details>
-        </section>
-
-    </button>
-  </header>
-  <div class="layout">
-    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
-    <main id="content" class="site-main" role="main">
-      <article class="guide">
-        <header class="guide-header">
-          <p class="eyebrow">Templates &amp; Integrations</p>
-          <h1>Project Blueprints</h1>
-          <p class="intro">Package repeatable AI projects into sequenced blueprints so teams can launch with clear owners, timelines, and guardrails.</p>
-        </header>
-        <section class="callout info">
-          <p><strong>Cross-links:</strong> For orchestration, see <a href="../guides/41_task-chains-and-delegation.html">Task Chains</a> and <a href="../guides/40_agentic-mode_overview.html">Agentic Mode Overview</a>. Keep docs current in <a href="../guides/53_knowledge-bases.html">Knowledge Bases</a>.</p>
-        </section>
-        <section class="callout warning">
-          <p><strong>Ownership:</strong> Each milestone needs a named human owner and validator; automated steps cannot self-approve.</p>
         </section>
         
         <section id="what-youll-learn" class="guide-section">
