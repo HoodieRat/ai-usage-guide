@@ -134,7 +134,7 @@ table tbody tr + tr {
 
 /* Keep prompt catalog columns readable without wrapping single words. */
 .data-table {
-  min-width: 760px;
+  min-width: 940px;
 }
 
 .data-table th,
@@ -173,7 +173,7 @@ table tbody tr + tr {
 
 .data-table th:nth-child(7),
 .data-table td:nth-child(7) {
-  min-width: 6.5rem;
+  min-width: 7.5rem;
 }
 
 .data-table [data-copy] {
@@ -181,7 +181,8 @@ table tbody tr + tr {
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  min-width: 5.5rem;
+  min-width: 6.25rem;
+  padding: 0.45rem 1.25rem;
 }
 
 .prompt-detail {
@@ -801,11 +802,12 @@ pre {
 }
 
 .site-main {
-  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  padding: 2.5rem clamp(1rem, 3vw, 2.5rem);
 }
 
 .guide {
-  max-width: 860px;
+  max-width: 1180px;
+  margin-inline: auto;
 }
 
 .guide-header .eyebrow {
