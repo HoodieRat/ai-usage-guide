@@ -173,14 +173,15 @@ table tbody tr + tr {
 
 .data-table th:nth-child(7),
 .data-table td:nth-child(7) {
-  min-width: 5.5rem;
+  min-width: 6.5rem;
 }
 
 .data-table [data-copy] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 4.5rem;
+  white-space: nowrap;
+  min-width: 5.5rem;
 }
 
 .prompt-detail {
