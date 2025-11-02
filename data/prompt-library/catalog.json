@@ -4,7 +4,6 @@
     "category": "Coding",
     "title": "Code Review Checklist",
     "use_case": "Guide thorough peer reviews with focus on correctness and maintainability.",
-    "owner": "Engineering Standards Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -22,28 +21,18 @@
       "Risk notes"
     ],
     "prompt": "Analyze diff {{diff}}, issue context {{context}}, and standards {{standards}} to produce a review checklist covering functionality, tests, security, documentation, and follow-up questions.",
-    "examples": [
-      {
-        "input": {
-          "diff": "Adds caching layer to invoice API",
-          "context": "Ticket INC-204 latency spike",
-          "standards": "REST guidelines v4"
-        },
-        "output": "Checklist asks for cache invalidation tests, concurrency review, and docs update confirmation."
-      }
-    ],
     "tags": [
       "diff",
       "test"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Checklist"
   },
   {
     "id": "CD-002",
     "category": "Coding",
     "title": "Refactor Plan Builder",
     "use_case": "Outline safe refactor steps with validation and rollback checkpoints.",
-    "owner": "Platform Eng Team",
     "last_review": "2025-10-21",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -61,28 +50,18 @@
       "Validation checklist"
     ],
     "prompt": "Build a refactor plan using architecture notes {{architecture}}, debt description {{debt}}, and coverage report {{coverage}}. Include phased steps, tests to run, metrics to monitor, and rollback criteria.",
-    "examples": [
-      {
-        "input": {
-          "architecture": "Monolith controller mixing SQL and business logic",
-          "debt": "Difficult to extend billing rules",
-          "coverage": "72% statement coverage"
-        },
-        "output": "Plan proposes extraction into service layer, adds contract tests, and defines rollback if error rate exceeds 0.5%."
-      }
-    ],
     "tags": [
       "structured",
       "diff"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Plan"
   },
   {
     "id": "CD-003",
     "category": "Coding",
     "title": "Unit Test Generator",
     "use_case": "Design unit test scenarios based on requirements and edge cases.",
-    "owner": "Qe Dev Team",
     "last_review": "2025-10-23",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -100,29 +79,18 @@
       "Coverage rationale"
     ],
     "prompt": "Generate unit test scenarios for {{function_name}} using spec {{spec}}, examples {{examples}}, and edge cases {{edges}}. Detail each test purpose, inputs, expected outputs, and fixtures.",
-    "examples": [
-      {
-        "input": {
-          "function_name": "parse_invoice",
-          "spec": "Parses CSV rows into Invoice objects",
-          "examples": "Row with discount, row with tax",
-          "edges": "Missing fields, negative totals"
-        },
-        "output": "List includes happy path, missing field raises ValueError, and negative total flagged test with mocked logger."
-      }
-    ],
     "tags": [
       "test",
       "structured"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Generator"
   },
   {
     "id": "CD-004",
     "category": "Coding",
     "title": "API Contract Validator",
     "use_case": "Check API changes against agreed contracts and client impact.",
-    "owner": "Api Guild",
     "last_review": "2025-10-17",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -140,28 +108,18 @@
       "Client impact report"
     ],
     "prompt": "Evaluate API schema diff {{schema_diff}}, consumer list {{consumers}}, and change notes {{change_notes}}. Identify breaking changes, migration steps, and notify impacted consumers with timeline.",
-    "examples": [
-      {
-        "input": {
-          "schema_diff": "Renamed field total to total_amount",
-          "consumers": "Mobile app, Billing ETL",
-          "change_notes": "New tax field optional"
-        },
-        "output": "Report flags rename as breaking, suggests temporary alias, and lists consumer outreach plan."
-      }
-    ],
     "tags": [
       "diff",
       "verification"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CD-005",
     "category": "Coding",
     "title": "Data Migration Playbook",
     "use_case": "Outline migration steps, backout plans, and validation queries.",
-    "owner": "Data Eng Team",
     "last_review": "2025-10-20",
     "review_cadence_days": 21,
     "risk_level": "high",
@@ -179,28 +137,18 @@
       "Validation query set"
     ],
     "prompt": "Create a data migration playbook using source profile {{source}}, target schema {{target}}, and window {{window}}. Detail preparation, execution steps, data validation queries, and rollback plan.",
-    "examples": [
-      {
-        "input": {
-          "source": "Invoices table 120M rows",
-          "target": "Partitioned parquet lakehouse",
-          "window": "Nov 14 01:00-03:00 UTC"
-        },
-        "output": "Playbook lists snapshot backups, checksum queries, canary validation, and rollback triggers if error rate >0.2%."
-      }
-    ],
     "tags": [
       "structured",
       "test"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Plan"
   },
   {
     "id": "CD-006",
     "category": "Coding",
     "title": "Performance Profiling Brief",
     "use_case": "Summarize profiling results with optimization recommendations.",
-    "owner": "Perf Team",
     "last_review": "2025-10-15",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -218,28 +166,18 @@
       "Optimization backlog"
     ],
     "prompt": "Summarize profiling output {{profile}}, service SLOs {{slos}}, and recent changes {{changes}}. Identify top bottlenecks, recommend fixes with estimated impact, and list verification tests.",
-    "examples": [
-      {
-        "input": {
-          "profile": "CPU hotpath in calculate_totals",
-          "slos": "p95 latency 250ms target",
-          "changes": "Added currency conversion"
-        },
-        "output": "Brief highlights conversion loop hot spot, suggests memoization, and targets p95 drop to 210ms with load test verification."
-      }
-    ],
     "tags": [
       "report",
       "test"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Summary"
   },
   {
     "id": "CD-007",
     "category": "Coding",
     "title": "Error Log Diagnoser",
     "use_case": "Classify and prioritize production errors with remediation steps.",
-    "owner": "Sre Team",
     "last_review": "2025-10-22",
     "review_cadence_days": 7,
     "risk_level": "high",
@@ -257,28 +195,18 @@
       "Remediation plan"
     ],
     "prompt": "Analyze error logs {{logs}}, alert history {{alerts}}, and deployments {{deployments}}. Cluster issues, hypothesize causes, assign severity, and recommend remediation actions with owners.",
-    "examples": [
-      {
-        "input": {
-          "logs": "Null ref in billing-worker, timeout in auth",
-          "alerts": "Pager duty incidents 3",
-          "deployments": "Billing patch Oct 29"
-        },
-        "output": "Clusters billing null refs to recent patch with rollback recommendation and flags auth timeout to network team."
-      }
-    ],
     "tags": [
       "report",
       "verification"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CD-008",
     "category": "Coding",
     "title": "Infrastructure Change Review",
     "use_case": "Assess infrastructure as code changes for risk and compliance.",
-    "owner": "Infra Review Team",
     "last_review": "2025-10-23",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -296,28 +224,18 @@
       "Policy compliance checklist"
     ],
     "prompt": "Review Terraform diff {{terraform_diff}}, change ticket {{ticket}}, and policy checklist {{policy}}. Identify risky changes, policy gaps, required approvals, and post-change validation steps.",
-    "examples": [
-      {
-        "input": {
-          "terraform_diff": "Adds public S3 bucket",
-          "ticket": "Change 4521 window Nov 1 02:00 UTC",
-          "policy": "No public buckets without waiver"
-        },
-        "output": "Notes require waiver for public bucket, adds validation to verify block public access after deployment."
-      }
-    ],
     "tags": [
       "diff",
       "verification"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Analysis"
   },
   {
     "id": "CD-009",
     "category": "Coding",
     "title": "Security Scan Interpreter",
     "use_case": "Turn static analysis results into prioritized remediation guidance.",
-    "owner": "Appsec Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 7,
     "risk_level": "high",
@@ -335,28 +253,18 @@
       "Owner notifications"
     ],
     "prompt": "Interpret security scan report {{report}} with code owners {{owners}} and SLAs {{slas}}. Group findings by severity, assign owners, note deadlines, and suggest remediation steps.",
-    "examples": [
-      {
-        "input": {
-          "report": "3 high SQL injection alerts in auth controller",
-          "owners": "Auth squad",
-          "slas": "High severity fix in 7 days"
-        },
-        "output": "Backlog lists SQLi issues with fix recommendations and assigns auth squad lead with 7-day deadline."
-      }
-    ],
     "tags": [
       "verification",
       "report"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CD-010",
     "category": "Coding",
     "title": "Code Comment Refiner",
     "use_case": "Improve code comments for clarity and accuracy without changing logic.",
-    "owner": "Dev Excellence Team",
     "last_review": "2025-10-12",
     "review_cadence_days": 30,
     "risk_level": "low",
@@ -374,28 +282,18 @@
       "Rationale summary"
     ],
     "prompt": "Revise code comments for snippet {{snippet}} using component purpose {{purpose}} and caveats {{caveats}}. Provide updated comments clarifying intent, risks, and usage without altering code.",
-    "examples": [
-      {
-        "input": {
-          "snippet": "Python retry decorator",
-          "purpose": "Retry transient network calls",
-          "caveats": "Backoff capped at 30s"
-        },
-        "output": "Comments describe retry jitter, note idempotency requirement, and warn about 30-second cap."
-      }
-    ],
     "tags": [
       "structured",
       "diff"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CM-001",
     "category": "Communication",
     "title": "Executive Update Draft",
     "use_case": "Summarize program progress for executive stakeholders each week.",
-    "owner": "Exec Comms Team",
     "last_review": "2025-10-22",
     "review_cadence_days": 7,
     "risk_level": "medium",
@@ -413,29 +311,18 @@
       "Blocker list"
     ],
     "prompt": "Draft a weekly executive update for {{program_name}} using status notes {{status_notes}}, metrics {{metrics}}, and upcoming decisions {{decisions}}. Provide a TLDR with three bullets, progress highlights, a blocker table (owner, impact, ETA), and a closing call to action.",
-    "examples": [
-      {
-        "input": {
-          "program_name": "Unified Billing",
-          "status_notes": "Portal beta on track, integration tests lagging",
-          "metrics": "Adoption 62%, churn down 1.4%",
-          "decisions": "Approve extended QA window"
-        },
-        "output": "TLDR: Beta on track; integration risk escalating; decision needed on QA window. Blockers table lists test environment outage (Owner: Ops, ETA: Nov 2). Action: approve 5-day extension."
-      }
-    ],
     "tags": [
       "email",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Summary"
   },
   {
     "id": "CM-002",
     "category": "Communication",
     "title": "Customer Escalation Reply",
     "use_case": "Compose empathetic responses to high-priority customer escalations.",
-    "owner": "Support Lead Team",
     "last_review": "2025-10-20",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -453,28 +340,18 @@
       "Action summary"
     ],
     "prompt": "Write a customer escalation response referencing thread {{thread}}, customer profile {{customer}}, and resolution plan {{plan}}. Begin with empathy, state verified facts, outline remediation with owners and timelines, and restate support contact options.",
-    "examples": [
-      {
-        "input": {
-          "thread": "Payment failures since Oct 18",
-          "customer": "Enterprise tier, 4-year account",
-          "plan": "Hotfix in staging; credit memo approved"
-        },
-        "output": "Apologized for payment disruption, confirmed hotfix release ETA Oct 31, and detailed credit memo processing within 48 hours."
-      }
-    ],
     "tags": [
       "email",
       "structured"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CM-003",
     "category": "Communication",
     "title": "Town Hall Agenda Builder",
     "use_case": "Structure internal town hall meetings with clear segments and prompts.",
-    "owner": "People Ops Team",
     "last_review": "2025-10-07",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -492,28 +369,18 @@
       "Facilitation notes"
     ],
     "prompt": "Create a town hall agenda using key messages {{messages}}, speaker list {{speakers}}, and audience concerns {{concerns}}. Provide timed segments, transition notes, Q&A facilitation guidance, and highlight diversity and inclusion moments.",
-    "examples": [
-      {
-        "input": {
-          "messages": "Product roadmap, hiring pause, support wins",
-          "speakers": "CEO, CPO, Support VP",
-          "concerns": "Job security, roadmap clarity"
-        },
-        "output": "Agenda slots 10 minutes per segment, embeds moderated Q&A with Slido, and notes to address hiring pause transparently."
-      }
-    ],
     "tags": [
       "meeting",
       "report"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Generator"
   },
   {
     "id": "CM-004",
     "category": "Communication",
     "title": "Incident Communication Plan",
     "use_case": "Coordinate internal and external messaging during incidents.",
-    "owner": "Comms Duty Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 7,
     "risk_level": "high",
@@ -531,28 +398,18 @@
       "Message matrix"
     ],
     "prompt": "Generate an incident communication plan using summary {{summary}}, stakeholder map {{stakeholders}}, and mitigation steps {{mitigation}}. Provide timeline with owners, internal vs external messaging guidance, and approval workflow.",
-    "examples": [
-      {
-        "input": {
-          "summary": "Auth outage affecting 12% of sessions",
-          "stakeholders": "Exec team, enterprise customers, regulators",
-          "mitigation": "Rollback deployed; forensic review ongoing"
-        },
-        "output": "Plan includes 30-minute cadence updates, executive briefing deck, and customer email once mitigation confirmed."
-      }
-    ],
     "tags": [
       "report",
       "structured"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Plan"
   },
   {
     "id": "CM-005",
     "category": "Communication",
     "title": "FAQ Refresh Writer",
     "use_case": "Update help center FAQ entries with latest policy and feature details.",
-    "owner": "Knowledge Base Team",
     "last_review": "2025-10-12",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -570,28 +427,18 @@
       "Change log snippet"
     ],
     "prompt": "Rewrite the FAQ entry using current text {{existing}}, policy updates {{policy_updates}}, and release notes {{release_notes}}. Keep answers concise, add change log callout, and include next review date.",
-    "examples": [
-      {
-        "input": {
-          "existing": "How do I reset my password?",
-          "policy_updates": "MFA required starting Nov 15",
-          "release_notes": "New recovery email option"
-        },
-        "output": "Answer includes MFA requirement, lists recovery steps, and change log notes Nov 15 policy go-live."
-      }
-    ],
     "tags": [
       "report",
       "structured"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CM-006",
     "category": "Communication",
     "title": "Training Announcement Draft",
     "use_case": "Notify teams about upcoming training with clear expectations.",
-    "owner": "Learning Team",
     "last_review": "2025-10-14",
     "review_cadence_days": 30,
     "risk_level": "low",
@@ -609,29 +456,18 @@
       "Calendar blurb"
     ],
     "prompt": "Draft a training announcement for {{training_name}} using overview {{overview}}, participant list {{participants}}, and logistics {{logistics}}. Include purpose, expectations, prep work, and contact for accommodations.",
-    "examples": [
-      {
-        "input": {
-          "training_name": "Secure Coding 101",
-          "overview": "Covers OWASP basics and secure review",
-          "participants": "Backend engineers cohort",
-          "logistics": "Nov 12, 2 hours, Teams link"
-        },
-        "output": "Email outlines goals, time commitment, pre-work video, and RSVP link with accessibility contact."
-      }
-    ],
     "tags": [
       "email",
       "structured"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CM-007",
     "category": "Communication",
     "title": "Retrospective Summary",
     "use_case": "Capture outcomes and actions from team retrospectives.",
-    "owner": "Delivery Ops Team",
     "last_review": "2025-10-16",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -649,28 +485,18 @@
       "Action tracker"
     ],
     "prompt": "Summarize the retrospective notes {{notes}}, action backlog {{actions}}, and metrics {{metrics}} into keep/start/stop sections, highlight wins, and list actions with owners and due dates.",
-    "examples": [
-      {
-        "input": {
-          "notes": "Keep async standups; start pairing; stop late reviews",
-          "actions": "Pairing pilot, set code freeze reminder",
-          "metrics": "Lead time 3.2 days"
-        },
-        "output": "Summary lists three keep items, two starts, and clarifies owners with due dates synced to Jira."
-      }
-    ],
     "tags": [
       "report",
       "meeting"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Summary"
   },
   {
     "id": "CM-008",
     "category": "Communication",
     "title": "Product Launch Email Kit",
     "use_case": "Prepare internal and external launch announcements.",
-    "owner": "Product Marketing Team",
     "last_review": "2025-10-19",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -688,28 +514,18 @@
       "Customer email draft"
     ],
     "prompt": "Create launch emails using brief {{brief}}, highlights {{highlights}}, and benefits {{benefits}}. Provide internal enablement copy with key actions and external customer email with CTA and support info.",
-    "examples": [
-      {
-        "input": {
-          "brief": "AI Assistant GA Nov 5",
-          "highlights": "Natural language tasks, dashboard integration",
-          "benefits": "Saves 4 hours weekly per analyst"
-        },
-        "output": "Internal email includes enablement checklist; customer version focuses on time savings with upgrade CTA."
-      }
-    ],
     "tags": [
       "email",
       "report"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Prompt"
   },
   {
     "id": "CM-009",
     "category": "Communication",
     "title": "Internal Newsletter Builder",
     "use_case": "Compile monthly internal newsletter with highlights and metrics.",
-    "owner": "Internal Comms Team",
     "last_review": "2025-10-10",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -727,28 +543,18 @@
       "Metrics table"
     ],
     "prompt": "Assemble the internal newsletter from stories {{stories}}, metrics {{metrics}}, and events {{events}}. Provide intro note, themed sections, metric table, and call to action for submissions.",
-    "examples": [
-      {
-        "input": {
-          "stories": "Support award, hackathon winners",
-          "metrics": "CSAT 4.7, deploys 32",
-          "events": "All hands Nov 8, volunteer day Nov 20"
-        },
-        "output": "Newsletter segmented by wins, learnings, focus; includes table with CSAT and deploy counts plus CTA link."
-      }
-    ],
     "tags": [
       "report",
       "structured"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Generator"
   },
   {
     "id": "CM-010",
     "category": "Communication",
     "title": "Stakeholder Follow-up Tracker",
     "use_case": "Document follow-ups after stakeholder meetings with owners and deadlines.",
-    "owner": "Program Comms Team",
     "last_review": "2025-10-24",
     "review_cadence_days": 14,
     "risk_level": "low",
@@ -766,28 +572,18 @@
       "Owner checklist"
     ],
     "prompt": "Summarize stakeholder meeting notes {{notes}}, decisions {{decisions}}, and actions {{actions}} into a follow-up tracker with decisions made, new actions, open questions, and owners with deadlines.",
-    "examples": [
-      {
-        "input": {
-          "notes": "Stakeholders aligned on beta scope",
-          "decisions": "Move GA to Dec 12",
-          "actions": "Ops to size infra spend; Legal to review terms"
-        },
-        "output": "Tracker lists three actions with owners and due dates plus two open questions routed to legal."
-      }
-    ],
     "tags": [
       "meeting",
       "structured"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-001",
     "category": "Planning",
     "title": "Quarterly OKR Blueprint",
     "use_case": "Draft aligned objectives, key results, and initiatives for a new quarter.",
-    "owner": "Strategy Ops Team",
     "last_review": "2025-10-15",
     "review_cadence_days": 60,
     "risk_level": "low",
@@ -805,29 +601,18 @@
       "Dependency checklist"
     ],
     "prompt": "You are the planning facilitator for Q{{quarter}}. Using {{mission}}, {{last_quarter_results}}, and draft objectives {{draft_objectives}}, produce an OKR plan with 3-5 objectives. For each objective include up to three measurable key results, the accountable leader, and milestone checkpoints. Close with a dependency checklist and risks to monitor.",
-    "examples": [
-      {
-        "input": {
-          "quarter": "1",
-          "mission": "Delight small business customers with reliable automation.",
-          "last_quarter_results": "KR completion averaged 82% with churn up 1.2%.",
-          "draft_objectives": "Grow revenue, Improve retention"
-        },
-        "output": "Objective: Grow revenue 20% YoY - KR1: Launch tiered pricing by Feb 15 (Owner: Sales). KR2: Close 50 net-new accounts (Owner: GTM). Dependencies: finance modeling and billing QA."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Template"
   },
   {
     "id": "PL-002",
     "category": "Planning",
     "title": "Roadmap Risk Radar",
     "use_case": "Evaluate roadmap items for delivery, market, and dependency risk.",
-    "owner": "Pm Lead Team",
     "last_review": "2025-10-10",
     "review_cadence_days": 45,
     "risk_level": "medium",
@@ -845,28 +630,18 @@
       "Mitigation plan bullets"
     ],
     "prompt": "Review the roadmap items in {{roadmap_items}} with dependencies {{dependency_map}} and resource forecast {{resource_forecast}}. Score delivery, market, and technical risk as low, medium, or high. Summarize the top five risks with mitigation owners, trigger signals, and next review dates.",
-    "examples": [
-      {
-        "input": {
-          "roadmap_items": "Billing revamp, Analytics overhaul",
-          "dependency_map": "Billing depends on payment gateway contract",
-          "resource_forecast": "Analytics team at 120 percent allocation through March"
-        },
-        "output": "Billing revamp - technical risk: high (gateway contract pending). Mitigation: legal to finalize contract by Jan 15."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-003",
     "category": "Planning",
     "title": "Stakeholder Brief Builder",
     "use_case": "Translate a project charter into a one page stakeholder brief.",
-    "owner": "Change Office",
     "last_review": "2025-10-05",
     "review_cadence_days": 30,
     "risk_level": "low",
@@ -884,28 +659,18 @@
       "FAQ seed list"
     ],
     "prompt": "You are preparing a stakeholder brief for {{project_name}}. Summarize the charter {{charter}}, intended outcomes, timeline, and what stakeholders must do next. Provide an FAQ seed list of at least six likely questions using the stakeholder personas in {{stakeholders}}.",
-    "examples": [
-      {
-        "input": {
-          "project_name": "Data Warehouse Migration",
-          "charter": "Move analytics warehouse to cloud provider by Q2",
-          "stakeholders": "Finance, Sales Ops, Engineering"
-        },
-        "output": "Finance: review new cost model by Mar 1. Sales Ops: update dashboards. Engineering: freeze schema changes from Apr 10."
-      }
-    ],
     "tags": [
       "meeting",
       "report"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Generator"
   },
   {
     "id": "PL-004",
     "category": "Planning",
     "title": "Resourcing Scenario Modeler",
     "use_case": "Compare alternate resource allocations across initiatives.",
-    "owner": "Portfolio Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -923,28 +688,18 @@
       "Gap analysis"
     ],
     "prompt": "Take the initiatives in {{initiatives}} with effort estimates {{effort_table}} and match them to role capacity {{capacity}}. Produce three scenarios (focus, balanced, aggressive) with allocation percent, unstaffed hours, and decisions required.",
-    "examples": [
-      {
-        "input": {
-          "initiatives": "AI Copilot, Mobile Revamp",
-          "effort_table": "AI: 1800 hours engineering, Mobile: 1400 hours design",
-          "capacity": "Engineering 1500 hours, Design 900 hours"
-        },
-        "output": "Balanced scenario: AI Copilot staffed 70 percent with a gap of 540 engineering hours. Decision: contract backend partner."
-      }
-    ],
     "tags": [
       "structured",
       "table"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-005",
     "category": "Planning",
     "title": "Discovery Interview Planner",
     "use_case": "Prepare customer discovery sessions with goals, scripts, and scoring.",
-    "owner": "Product Research Team",
     "last_review": "2025-09-27",
     "review_cadence_days": 45,
     "risk_level": "low",
@@ -962,28 +717,18 @@
       "Scoring rubric"
     ],
     "prompt": "With goal {{goal_statement}}, persona {{persona_summary}}, and hypotheses {{hypotheses}}, craft a 45 minute interview guide. Include intro script, thematic sections, neutral questions, and a scoring rubric for need, willingness, and fit.",
-    "examples": [
-      {
-        "input": {
-          "goal_statement": "Validate pain points for invoice automation",
-          "persona_summary": "Finance managers at mid market firms",
-          "hypotheses": "Manual approvals cause delays; dashboards are unclear"
-        },
-        "output": "Section: current workflow - question: walk me through how invoices get approved today. Probe: where does it usually stall?"
-      }
-    ],
     "tags": [
       "structured",
       "meeting"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Plan"
   },
   {
     "id": "PL-006",
     "category": "Planning",
     "title": "Budget Scenario Forecaster",
     "use_case": "Build optimistic, base, and downside budget scenarios for the upcoming fiscal year.",
-    "owner": "Finance Planning Team",
     "last_review": "2025-10-12",
     "review_cadence_days": 60,
     "risk_level": "medium",
@@ -1001,27 +746,18 @@
       "Variance commentary"
     ],
     "prompt": "Using the baseline budget {{baseline_budget}} and scenario assumptions {{assumptions}}, generate optimistic, base, and downside views. Provide line by line totals, percent deltas, and call out the three largest moves with rationale.",
-    "examples": [
-      {
-        "input": {
-          "baseline_budget": "Revenue 12M, Operating expenses 7M",
-          "assumptions": "Downside: churn up 3 percent, hiring freeze"
-        },
-        "output": "Downside scenario reduces operating expenses by 8 percent via hiring freeze. Variance commentary flags marketing spend hold."
-      }
-    ],
     "tags": [
       "structured",
       "table"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-007",
     "category": "Planning",
     "title": "Change Impact Matrix",
     "use_case": "Map stakeholder groups against expected change impacts and required actions.",
-    "owner": "Change Office",
     "last_review": "2025-09-30",
     "review_cadence_days": 45,
     "risk_level": "low",
@@ -1039,27 +775,18 @@
       "Mitigation backlog"
     ],
     "prompt": "Given stakeholder segments {{segments}} and change summary {{change_overview}}, build an impact matrix with reach, severity, and mitigation owners. Highlight the top three hotspots with the proposed mitigation timeline.",
-    "examples": [
-      {
-        "input": {
-          "segments": "Sales, Support, Partners",
-          "change_overview": "New CRM rollout replacing legacy system"
-        },
-        "output": "Support shows high severity due to retraining. Mitigation: schedule live lab by Nov 12."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Matrix"
   },
   {
     "id": "PL-008",
     "category": "Planning",
     "title": "Launch Readiness Checklist",
     "use_case": "Coordinate cross functional launch activities and readiness gates.",
-    "owner": "Launch Desk Team",
     "last_review": "2025-10-01",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1077,27 +804,18 @@
       "Escalation log"
     ],
     "prompt": "Review the launch milestone plan {{milestones}} and risk register {{risks}}. Generate a readiness checklist grouped by workstream with status, owner, and go or no go criteria. Surface any risks that lack mitigation.",
-    "examples": [
-      {
-        "input": {
-          "milestones": "Beta exit Sep 5, GA Oct 20",
-          "risks": "Support runbook incomplete"
-        },
-        "output": "Support workstream: runbook draft due Sep 28. Escalate if not approved by Oct 5."
-      }
-    ],
     "tags": [
       "structured",
       "meeting"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Checklist"
   },
   {
     "id": "PL-009",
     "category": "Planning",
     "title": "Portfolio Review Packet",
     "use_case": "Summarize initiative health for quarterly portfolio councils.",
-    "owner": "Portfolio Team",
     "last_review": "2025-10-14",
     "review_cadence_days": 60,
     "risk_level": "medium",
@@ -1115,26 +833,18 @@
       "Traffic light dashboard"
     ],
     "prompt": "Create a council ready packet summarizing initiatives in {{status_updates}}. Include a TLDR, a traffic light dashboard with KPIs, and spotlight sections for red programs detailing recovery plans.",
-    "examples": [
-      {
-        "input": {
-          "status_updates": "Payments modernization red; AI agent amber"
-        },
-        "output": "Red program recovery: add dedicated QA lead and decide on scope trim by Nov 3."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Analysis"
   },
   {
     "id": "PL-010",
     "category": "Planning",
     "title": "Program Risk Status",
     "use_case": "Roll up program level risks with trend indicators.",
-    "owner": "Pmo Office",
     "last_review": "2025-09-25",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1152,27 +862,18 @@
       "Escalation summary"
     ],
     "prompt": "Using the risk register {{risk_register}} and mitigation plans {{mitigations}}, prepare a risk status report with trend (up, down, stable), confidence, and next review date. Highlight the top three emerging risks with immediate actions.",
-    "examples": [
-      {
-        "input": {
-          "risk_register": "Supplier delay, Security review backlog",
-          "mitigations": "Supplier expedite in progress"
-        },
-        "output": "Supplier delay trending up. Action: negotiate interim shipment by Nov 8."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-011",
     "category": "Research",
     "title": "Competitive Landscape Scan",
     "use_case": "Synthesize competitor moves, positioning, and signals from recent news.",
-    "owner": "Market Intel Team",
     "last_review": "2025-10-16",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -1190,27 +891,18 @@
       "Signal log"
     ],
     "prompt": "Analyze the competitor updates in {{clippings}} and pricing intel {{pricing}}. Produce a briefing with positioning shifts, product launches, and go to market signals. List sources with access date and confidence score.",
-    "examples": [
-      {
-        "input": {
-          "clippings": "Competitor A launched AI add-on Oct 12",
-          "pricing": "Trial discount to 29 USD"
-        },
-        "output": "Competitor A: new AI add-on targets SMB; confidence high (press release 2025-10-12)."
-      }
-    ],
     "tags": [
       "synthesis",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-012",
     "category": "Research",
     "title": "Voice of Customer Digest",
     "use_case": "Consolidate survey, interview, and support signals into a monthly digest.",
-    "owner": "Customer Insights Team",
     "last_review": "2025-10-20",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1228,27 +920,18 @@
       "Theme tracker"
     ],
     "prompt": "Combine the survey data {{survey_data}}, interviews {{transcripts}}, and ticket tags {{ticket_tags}} to produce a voice of customer digest. Include a TLDR, top themes with frequency, notable quotes (anonymized), and recommended follow ups.",
-    "examples": [
-      {
-        "input": {
-          "survey_data": "120 responses, NPS 42",
-          "transcripts": "Recurring ask for better onboarding"
-        },
-        "output": "Theme: onboarding confusion (31 mentions). Follow up: refresh email walkthrough by Nov 30."
-      }
-    ],
     "tags": [
       "synthesis",
       "report"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-013",
     "category": "Research",
     "title": "Literature Review Abstractor",
     "use_case": "Summarize academic or industry papers into structured abstracts with key findings.",
-    "owner": "Research Lab Team",
     "last_review": "2025-10-11",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1266,26 +949,18 @@
       "Gap log"
     ],
     "prompt": "Given the paper details in {{papers}}, produce structured abstracts with sections: objective, method, findings, limitations, next questions. Include citation metadata and note missing data.",
-    "examples": [
-      {
-        "input": {
-          "papers": "Study on LLM safety testing, sample size 42"
-        },
-        "output": "Findings: 87 percent of safety breaches mitigated with guardrails. Limitation: small sample size."
-      }
-    ],
     "tags": [
       "synthesis",
       "structured"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Analysis"
   },
   {
     "id": "PL-014",
     "category": "Research",
     "title": "Regulatory Watch Brief",
     "use_case": "Aggregate regulatory updates impacting AI deployments.",
-    "owner": "Policy Office",
     "last_review": "2025-10-21",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -1303,27 +978,18 @@
       "Action items"
     ],
     "prompt": "Using regulation alerts {{alerts}} and summaries {{summaries}}, build a brief that lists changes by jurisdiction, effective date, impacted teams, and required actions. Highlight items needing legal review.",
-    "examples": [
-      {
-        "input": {
-          "alerts": "EU AI Act update Oct 15",
-          "summaries": "High risk system obligations clarified"
-        },
-        "output": "EU AI Act: transparency logs mandatory by 2026-01-01. Action: legal review to map obligations."
-      }
-    ],
     "tags": [
       "synthesis",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Summary"
   },
   {
     "id": "PL-015",
     "category": "Research",
     "title": "Persona Insight Builder",
     "use_case": "Compile persona snapshots from qualitative and quantitative research.",
-    "owner": "Ux Research Team",
     "last_review": "2025-09-29",
     "review_cadence_days": 45,
     "risk_level": "low",
@@ -1341,27 +1007,18 @@
       "Insight highlights"
     ],
     "prompt": "Blend the qualitative insights {{interviews}} with analytics {{analytics}} to produce persona cards covering goals, pains, workflows, and tech stack. Add the top three quotes per persona and validation status.",
-    "examples": [
-      {
-        "input": {
-          "interviews": "Operations lead wants faster approvals",
-          "analytics": "Feature adoption 32 percent"
-        },
-        "output": "Persona: Operations Lead - pain: manual approvals; validation: confirmed in 5 of 6 interviews."
-      }
-    ],
     "tags": [
       "synthesis",
       "structured"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Generator"
   },
   {
     "id": "PL-016",
     "category": "Research",
     "title": "Opportunity Sizing Model",
     "use_case": "Estimate market size and revenue potential for new opportunities.",
-    "owner": "Strategy Ops Team",
     "last_review": "2025-10-09",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1379,27 +1036,18 @@
       "Assumption log"
     ],
     "prompt": "Using market data {{market_data}} and pricing {{pricing_model}}, estimate TAM, SAM, and SOM with low, medium, and high adoption scenarios. Provide calculations, assumptions, and sensitivity commentary.",
-    "examples": [
-      {
-        "input": {
-          "market_data": "TAM 2.5B USD",
-          "pricing_model": "Average revenue per user 49 USD"
-        },
-        "output": "SAM 450M with medium adoption 12 percent. Assumption: target segment is mid market North America."
-      }
-    ],
     "tags": [
       "structured",
       "table"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-017",
     "category": "Research",
     "title": "Trend Radar Newsletter",
     "use_case": "Summarize macro and micro trends impacting the business.",
-    "owner": "Market Intel Team",
     "last_review": "2025-10-19",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -1417,27 +1065,18 @@
       "Signal tracker"
     ],
     "prompt": "Review trend data {{trend_feed}} and indicators {{indicators}}. Build a newsletter with sections: macro trends, industry shifts, emerging signals, counter signals, recommended actions.",
-    "examples": [
-      {
-        "input": {
-          "trend_feed": "Automation adoption up 18 percent",
-          "indicators": "SMB hiring down 4 percent"
-        },
-        "output": "Macro trend: automation surge. Counter signal: SMB budget tightening limits spend."
-      }
-    ],
     "tags": [
       "synthesis",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-018",
     "category": "Research",
     "title": "Experiment Results Synthesizer",
     "use_case": "Summarize A/B or multivariate experiment outcomes with insights and next steps.",
-    "owner": "Growth Analytics Team",
     "last_review": "2025-10-17",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -1455,27 +1094,18 @@
       "Decision log"
     ],
     "prompt": "Using experiment data {{experiment_data}} and segments {{segments}}, create a summary with hypothesis, key metrics, significance, learnings, and recommended follow up tests. Include a decision log for roll out.",
-    "examples": [
-      {
-        "input": {
-          "experiment_data": "Variant B click through rate up 6 percent, p=0.03",
-          "segments": "SMB vs Enterprise"
-        },
-        "output": "Decision: roll Variant B to SMB only. Follow up: retest on Enterprise with new messaging."
-      }
-    ],
     "tags": [
       "structured",
       "synthesis"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Test"
   },
   {
     "id": "PL-019",
     "category": "Research",
     "title": "Claims Validation Worksheet",
     "use_case": "Validate marketing or product claims with supporting evidence.",
-    "owner": "Brand Compliance Team",
     "last_review": "2025-10-08",
     "review_cadence_days": 30,
     "risk_level": "high",
@@ -1493,27 +1123,18 @@
       "Escalation log"
     ],
     "prompt": "Cross check claim statements in {{claims}} with evidence {{evidence}}. For each claim record status (verified, needs review, rejected), evidence link, and reviewer notes. Summarize unresolved claims at the end.",
-    "examples": [
-      {
-        "input": {
-          "claims": "Our tool cuts processing time by 40 percent",
-          "evidence": "Case study 2024-09 showing 38 percent"
-        },
-        "output": "Status: needs review. Gap: difference between 38 percent evidenced and 40 percent claim."
-      }
-    ],
     "tags": [
       "verification",
       "structured"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-020",
     "category": "Research",
     "title": "Insights Workshop Agenda",
     "use_case": "Create agendas for insight sharing workshops with discussion prompts.",
-    "owner": "Insights Team",
     "last_review": "2025-10-13",
     "review_cadence_days": 45,
     "risk_level": "low",
@@ -1531,27 +1152,18 @@
       "Action capture template"
     ],
     "prompt": "Design a workshop agenda for {{goal}} with participants {{participants}} using findings {{findings}}. Include timings, discussion prompts, and capture template guidance.",
-    "examples": [
-      {
-        "input": {
-          "goal": "Align teams on onboarding insights",
-          "participants": "Product, Support, Design"
-        },
-        "output": "Segment 2: breakout on onboarding friction (20 minutes). Capture template includes success metrics and owners."
-      }
-    ],
     "tags": [
       "meeting",
       "synthesis"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-051",
     "category": "Planning",
     "title": "Annual Narrative Draft Kit",
     "use_case": "Convert OKR and financial data into a leadership-ready annual narrative.",
-    "owner": "Strategy Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 120,
     "risk_level": "medium",
@@ -1570,28 +1182,18 @@
       "Follow-up action list"
     ],
     "prompt": "You are preparing an annual planning narrative. Using the OKR data in {{okr_table}}, financial summary {{financials}}, and highlights {{notes}}, draft an 800-word narrative covering wins, misses, and adjustments. Close with a bulleted action list identifying the accountable leader and due date for each follow-up.",
-    "examples": [
-      {
-        "input": {
-          "okr_table": "Objective: Grow NRR to 115%; KR completion 92%",
-          "financials": "Revenue +18% YoY, EBITDA +4%",
-          "notes": "Risk: Support backlog +24%, Win: APAC expansion"
-        },
-        "output": "Year in review: Revenue beat plan... Follow-ups: Support VP to staff backlog playbook by Jan 15."
-      }
-    ],
     "tags": [
       "narrative",
       "okr",
       "planning"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-052",
     "category": "Planning",
     "title": "Adaptive Budget Rebalancer",
     "use_case": "Reallocate budgets across initiatives using scenario inputs.",
-    "owner": "Finance Planning Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 60,
     "risk_level": "high",
@@ -1610,28 +1212,18 @@
       "Decision summary"
     ],
     "prompt": "Evaluate the initiatives in {{baseline_budget}} against scenario drivers {{drivers}} and priority ranking {{priorities}}. Produce three rebalanced budgets (focus, balanced, growth) that honor every ceiling. Highlight trade-offs, headcount impacts, and decisions required to adopt each scenario.",
-    "examples": [
-      {
-        "input": {
-          "baseline_budget": "RevOps 2.4M, Platform 3.1M, Growth 1.8M",
-          "drivers": "Cut hosting cost 10%, accelerate AI Copilot",
-          "priorities": "1) AI Copilot, 2) Security hardening, 3) Growth experiments"
-        },
-        "output": "Growth scenario: AI Copilot +$600k (needs 3 contractors). Trade-off: Delay growth experiments Q1."
-      }
-    ],
     "tags": [
       "budget",
       "scenario",
       "portfolio"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-053",
     "category": "Planning",
     "title": "Program Retrospective Synthesizer",
     "use_case": "Roll up multi-workstream retrospective notes into a concise report.",
-    "owner": "Pmo Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 45,
     "risk_level": "medium",
@@ -1650,28 +1242,18 @@
       "Playbook updates"
     ],
     "prompt": "Synthesize the retrospective notes in {{retro_notes}} with metrics {{metrics}} and leadership goals {{goals}}. Produce sections for What Worked, What Slowed Us Down, and Decisions. Add a table showing recommended playbook updates with owners and target dates.",
-    "examples": [
-      {
-        "input": {
-          "retro_notes": "Design praised daily syncs; Eng flagged flaky tests; Ops cited vendor delays",
-          "metrics": "Launch slipped 14 days; CSAT 4.6/5",
-          "goals": "Improve predictability, reduce escalations"
-        },
-        "output": "What Slowed Us Down: Vendor compliance checks lacked SLA (Owner: Legal by Feb 10)."
-      }
-    ],
     "tags": [
       "retro",
       "operations",
       "report"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-054",
     "category": "Planning",
     "title": "Headcount Capacity Forecaster",
     "use_case": "Forecast hiring pace and capacity impact across teams.",
-    "owner": "People Ops Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 75,
     "risk_level": "medium",
@@ -1691,29 +1273,18 @@
       "Hiring risks list"
     ],
     "prompt": "Combine the roster {{roster}}, open roles {{open_roles}}, attrition forecast {{attrition}}, and demand forecast {{demand}}. Project capacity by role for the next three quarters, highlighting utilization hot spots, hiring gaps, and the earliest date each critical role gets relief.",
-    "examples": [
-      {
-        "input": {
-          "roster": "Data engineers: 8 FTE",
-          "open_roles": "2 data engineers, 1 analytics manager",
-          "attrition": "Data engineers attrition 1 FTE per quarter",
-          "demand": "Need 12 FTE by Q3"
-        },
-        "output": "Data engineers hit 115% load in Q2. Need contractor or accelerate hiring by six weeks."
-      }
-    ],
     "tags": [
       "capacity",
       "hiring",
       "forecast"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-055",
     "category": "Planning",
     "title": "Intake Routing Orchestrator",
     "use_case": "Triage inbound project requests into the correct governance path.",
-    "owner": "Portfolio Intake Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "low",
@@ -1732,28 +1303,18 @@
       "Checklist of follow-ups"
     ],
     "prompt": "Review the request in {{submission}} using governance rules {{rules}} and current capacity {{capacity}}. Decide whether to approve, defer, or reject. Provide rationale, required follow-ups, and the next review gate with dates.",
-    "examples": [
-      {
-        "input": {
-          "submission": "Request: Launch customer community; Sponsor: VP Marketing; Budget: $80k",
-          "rules": "Sponsor required, risk review if budget > $50k",
-          "capacity": "Marketing Ops at 75% load"
-        },
-        "output": "Decision: Approve to discovery. Follow-up: Security review by Jan 8."
-      }
-    ],
     "tags": [
       "intake",
       "governance",
       "triage"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-056",
     "category": "Research",
     "title": "Competitor Deep Dive Tear-Down",
     "use_case": "Compare competitor launch messaging, pricing, and differentiation.",
-    "owner": "Competitive Intel Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1772,28 +1333,18 @@
       "Opportunities and threats memo"
     ],
     "prompt": "Analyze the competitor assets in {{assets}} plus pricing {{pricing}} and analyst commentary {{commentary}}. Produce a table comparing positioning, feature coverage, and pricing. Close with a memo listing three opportunities, three threats, and recommended responses.",
-    "examples": [
-      {
-        "input": {
-          "assets": "Launch deck, press release",
-          "pricing": "Tiered plan $25/$60",
-          "commentary": "Analyst emphasises security automation"
-        },
-        "output": "Opportunity: Highlight compliance automation; Threat: Competitor bundles managed services. Recommendation: ship SOC2 explainer."
-      }
-    ],
     "tags": [
       "competitive",
       "analysis",
       "pricing"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-057",
     "category": "Research",
     "title": "Voice of Customer Theme Miner",
     "use_case": "Surface customer themes from qualitative feedback and route next actions.",
-    "owner": "Research Ops Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 45,
     "risk_level": "medium",
@@ -1812,28 +1363,18 @@
       "Action routing table"
     ],
     "prompt": "Review the transcripts {{transcripts}}, survey responses {{surveys}}, and usage metrics {{usage}}. Group customer feedback into themes with sentiment, representative quotes, and recommended next actions with owners.",
-    "examples": [
-      {
-        "input": {
-          "transcripts": "Customer notes onboarding confusion",
-          "surveys": "NPS detractor mentions missing checklist",
-          "usage": "Drop-off after step 3"
-        },
-        "output": "Theme: Onboarding clarity (negative). Action: Product docs to publish checklist by Feb 5."
-      }
-    ],
     "tags": [
       "voc",
       "analysis",
       "retention"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-058",
     "category": "Research",
     "title": "Academic Literature Spotter",
     "use_case": "Summarize recent academic research supporting a hypothesis.",
-    "owner": "Research Lab Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 90,
     "risk_level": "medium",
@@ -1852,28 +1393,18 @@
       "Evidence summary"
     ],
     "prompt": "Given the research question {{question}}, corpus {{corpus}}, and inclusion criteria {{criteria}}, identify the five most relevant papers. Provide an annotated bibliography with key findings, methods, and limitations, then summarize how the evidence supports or challenges the hypothesis.",
-    "examples": [
-      {
-        "input": {
-          "question": "Does spaced repetition improve software onboarding?",
-          "corpus": "ACM library export",
-          "criteria": "Published after 2020; sample size > 100"
-        },
-        "output": "Paper: Smith et al. (2023) DOI ... Method: RCT with 240 participants. Finding: Retention +18%. Limitation: Single company."
-      }
-    ],
     "tags": [
       "academic",
       "citation",
       "evidence"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-059",
     "category": "Research",
     "title": "Signal-to-Noise Incident Monitor",
     "use_case": "Detect emerging risk signals from support tickets, social media, and logs.",
-    "owner": "Risk Ops Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -1892,28 +1423,18 @@
       "Escalation list"
     ],
     "prompt": "Analyze the support tickets {{tickets}}, social listening digest {{social}}, and system alerts {{alerts}}. Surface repeating signals, quantify volume trends, and flag incidents requiring escalation with recommended next steps and owners.",
-    "examples": [
-      {
-        "input": {
-          "tickets": "15 mentions of billing double charge",
-          "social": "Twitter thread about refund delays",
-          "alerts": "Billing job timeout spike"
-        },
-        "output": "Signal: Billing duplicate charges rising (+230% week over week). Escalate to Finance Ops."
-      }
-    ],
     "tags": [
       "risk",
       "monitoring",
       "escalation"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-060",
     "category": "Research",
     "title": "Field Research Trip Planner",
     "use_case": "Plan an in-person research sprint with recruiting, schedule, and deliverables.",
-    "owner": "Ux Research Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 60,
     "risk_level": "medium",
@@ -1933,28 +1454,18 @@
       "Equipment checklist"
     ],
     "prompt": "Using the goals {{goals}}, participant profiles {{profiles}}, and logistics {{logistics}}, draft a field research plan with session objectives, schedule, recruiting requirements, and equipment checklist. Add contingency actions for high-risk assumptions.",
-    "examples": [
-      {
-        "input": {
-          "goals": "Observe reps using mobile CRM",
-          "profiles": "3 enterprise reps, 3 SMB reps",
-          "logistics": "Travel budget $6k, sessions in Chicago"
-        },
-        "output": "Schedule: Day 1 enterprise office visits, Day 2 ride-alongs. Contingency: If a rep cancels, pivot to observer notes at call center."
-      }
-    ],
     "tags": [
       "field",
       "ux",
       "planning"
-    ]
+    ],
+    "prompt_type": "Plan"
   },
   {
     "id": "PL-061",
     "category": "Communication",
     "title": "Executive Q&A Pack Builder",
     "use_case": "Generate anticipated questions and answers for an executive appearance.",
-    "owner": "Communications Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -1973,28 +1484,18 @@
       "Escalation tracker"
     ],
     "prompt": "Using the event brief {{brief}}, messaging pillars {{pillars}}, and press coverage {{press}}, create a Q&A pack with likely questions, succinct answers, and confidence tags (Ready, Needs Fact Check, Requires Legal). Include escalation owners and due dates for any outstanding validation.",
-    "examples": [
-      {
-        "input": {
-          "brief": "CEO on podcast about AI ethics",
-          "pillars": "Transparency, Guardrails, Partnerships",
-          "press": "Recent coverage highlighting competitor incident"
-        },
-        "output": "Q: How do you prevent bias? A: Outline fairness audits (Needs Fact Check: confirm latest metrics)."
-      }
-    ],
     "tags": [
       "executive",
       "media",
       "qa"
-    ]
+    ],
+    "prompt_type": "Generator"
   },
   {
     "id": "PL-062",
     "category": "Communication",
     "title": "Change Town Hall Deck Outline",
     "use_case": "Draft a talk track and slide outline for change management town halls.",
-    "owner": "Change Communications Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 45,
     "risk_level": "medium",
@@ -2013,28 +1514,18 @@
       "Talk track notes"
     ],
     "prompt": "Draft a 12-slide outline for the change described in {{summary}} targeting the personas {{personas}} with the timeline {{timeline}}. Each slide should include purpose, key points, and speaker notes. Highlight slide(s) requiring compliance or legal review.",
-    "examples": [
-      {
-        "input": {
-          "summary": "Consolidating support and success teams",
-          "personas": "ICs, frontline managers",
-          "timeline": "Announcement Jan 15, go-live Mar 1"
-        },
-        "output": "Slide 4: What changes on day one (Needs Legal review). Speaker notes emphasise no layoffs."
-      }
-    ],
     "tags": [
       "change",
       "presentation",
       "enablement"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-063",
     "category": "Communication",
     "title": "Product Launch Narrative Generator",
     "use_case": "Create a launch brief with narrative, proof, and customer hooks.",
-    "owner": "Product Marketing Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -2053,28 +1544,18 @@
       "Messaging table"
     ],
     "prompt": "Using the product fact sheet {{facts}}, customer proof {{proof}}, and goals {{goals}}, craft a launch narrative with sections for Problem, Solution, Proof, and Call to Action. Add a messaging table mapping persona, key message, evidence, and CTA.",
-    "examples": [
-      {
-        "input": {
-          "facts": "Feature: predictive health scoring",
-          "proof": "Case study: 35% faster triage",
-          "goals": "Drive 300 demos in Q1"
-        },
-        "output": "Persona: Ops Leader | Message: Eliminate surprise outages | Evidence: Case study metric | CTA: Book architecture review."
-      }
-    ],
     "tags": [
       "launch",
       "messaging",
       "go-to-market"
-    ]
+    ],
+    "prompt_type": "Generator"
   },
   {
     "id": "PL-064",
     "category": "Communication",
     "title": "Incident Communication Ladder",
     "use_case": "Draft multi-channel messaging for customer-impacting incidents.",
-    "owner": "Status Communications Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -2094,28 +1575,18 @@
       "Internal briefing"
     ],
     "prompt": "Based on the incident summary {{summary}}, severity {{severity}}, and customer segments {{segments}}, draft comms for status page, customer email, and internal briefing. Include timestamps, accountable owner, and next update promise. Call out any compliance or legal approvals required.",
-    "examples": [
-      {
-        "input": {
-          "summary": "API errors for EU tenants",
-          "severity": "Level 2",
-          "segments": "Enterprise customers"
-        },
-        "output": "Status page: Acknowledge outage, ETA 45 minutes, next update at 14:30 UTC. Internal brief lists support hotline script."
-      }
-    ],
     "tags": [
       "incident",
       "status",
       "communications"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-065",
     "category": "Communication",
     "title": "Localization Brief Composer",
     "use_case": "Generate translation briefs with context, tone, and QA steps.",
-    "owner": "Localization Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 60,
     "risk_level": "medium",
@@ -2134,28 +1605,18 @@
       "QA checklist"
     ],
     "prompt": "Create a localization brief using the source {{source}}, locale requirements {{locales}}, and style guide {{style}}. Include tone guidance, glossary terms, file delivery expectations, and QA checklist with owners.",
-    "examples": [
-      {
-        "input": {
-          "source": "Onboarding email for new feature",
-          "locales": "fr-FR, de-DE",
-          "style": "Brand voice = practical and encouraging"
-        },
-        "output": "Glossary: keep 'Workflow Hub' untranslated. QA: Linguist review then in-product QA by LQA team."
-      }
-    ],
     "tags": [
       "localization",
       "brief",
       "translation"
-    ]
+    ],
+    "prompt_type": "Summary"
   },
   {
     "id": "PL-066",
     "category": "Coding",
     "title": "Legacy Bug Reproduction Kit",
     "use_case": "Generate precise steps and logging guidance to reproduce a legacy bug.",
-    "owner": "Sre Bugs Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -2175,28 +1636,18 @@
       "Escalation notes"
     ],
     "prompt": "Using the ticket {{ticket}}, environment notes {{environment}}, and workarounds {{workarounds}}, produce detailed reproduction steps with expected versus actual outcomes, required log capture, and escalation instructions if reproduction fails.",
-    "examples": [
-      {
-        "input": {
-          "ticket": "Customer hits 500 on export endpoint",
-          "environment": "Legacy stack, region=us-east-1",
-          "workarounds": "Retry with smaller date range"
-        },
-        "output": "Step 3: Send POST /v2/export with payload... Expected 202, Actual 500. Capture nginx and app logs."
-      }
-    ],
     "tags": [
       "bug",
       "runbook",
       "sre"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-067",
     "category": "Coding",
     "title": "API Contract Drafter",
     "use_case": "Draft REST API contract updates with schema diffs and migration notes.",
-    "owner": "Api Governance Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 45,
     "risk_level": "high",
@@ -2216,28 +1667,18 @@
       "Migration checklist"
     ],
     "prompt": "Review the existing contract {{contract}}, change notes {{changes}}, and consumers {{consumers}}. Produce a proposed contract in OpenAPI-style pseudo syntax, highlight breaking changes, and add a migration checklist with owners and deadlines.",
-    "examples": [
-      {
-        "input": {
-          "contract": "GET /v1/accounts response schema",
-          "changes": "Add field billing_status, deprecate plan_label",
-          "consumers": "Billing service, Reporting service"
-        },
-        "output": "Breaking change: plan_label deprecated in v1.3 (sunset Aug 31). Migration: Reporting service to adopt billing_status by Jul 15."
-      }
-    ],
     "tags": [
       "api",
       "contract",
       "versioning"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-068",
     "category": "Coding",
     "title": "Data Pipeline Health Reporter",
     "use_case": "Summarize pipeline runs with anomalies, data quality, and impact.",
-    "owner": "Data Platform Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -2256,28 +1697,18 @@
       "Incident follow-up list"
     ],
     "prompt": "Analyze the pipeline logs {{logs}}, data quality checks {{dq_checks}}, and dependencies {{dependencies}}. Summarize success/failure counts, anomalies, impacted datasets, and recommend remediation steps with owners.",
-    "examples": [
-      {
-        "input": {
-          "logs": "Run 2025-10-30: 2 retries on stage 3",
-          "dq_checks": "Null rate exceeded 5% threshold",
-          "dependencies": "Feeds executive dashboard daily"
-        },
-        "output": "Anomaly: Stage 3 null spike. Impact: Executive dashboard missing revenue data. Owner: Data Eng to backfill by 10:00 AM."
-      }
-    ],
     "tags": [
       "data",
       "ops",
       "report"
-    ]
+    ],
+    "prompt_type": "Report"
   },
   {
     "id": "PL-069",
     "category": "Coding",
     "title": "Test Coverage Gap Finder",
     "use_case": "Identify under-tested modules using coverage reports and defect logs.",
-    "owner": "Quality Engineering Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -2296,28 +1727,18 @@
       "Suggested test plan"
     ],
     "prompt": "Review the coverage report {{coverage}}, defect log {{defects}}, and thresholds {{thresholds}}. Identify modules below target, tie them to defect trends, and recommend specific test types with owners and estimated effort.",
-    "examples": [
-      {
-        "input": {
-          "coverage": "Module billing_controller: 58%",
-          "defects": "5 open bugs for billing refunds",
-          "thresholds": "Critical modules >= 80%"
-        },
-        "output": "Gap: billing_controller at 58%. Plan: Add refund edge-case integration tests (Owner: QE Billing, Effort: 2d)."
-      }
-    ],
     "tags": [
       "coverage",
       "testing",
       "quality"
-    ]
+    ],
+    "prompt_type": "Test"
   },
   {
     "id": "PL-070",
     "category": "Coding",
     "title": "Infrastructure Runbook Generator",
     "use_case": "Draft incident runbooks for new infrastructure components.",
-    "owner": "Platform Ops Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 60,
     "risk_level": "high",
@@ -2336,28 +1757,18 @@
       "Verification checklist"
     ],
     "prompt": "Using the component description {{component}}, failure modes {{failures}}, and monitoring signals {{signals}}, draft a runbook with detection, containment, remediation, rollback, and validation steps. Add escalation matrix and communication checklist.",
-    "examples": [
-      {
-        "input": {
-          "component": "Redis cache cluster",
-          "failures": "Node eviction, replication lag",
-          "signals": "Latency > 120ms, failed writes"
-        },
-        "output": "Detection: Alert when latency > 120ms. Remediation: Scale replica set, flush hot keys. Rollback: Fail back to primary region."
-      }
-    ],
     "tags": [
       "runbook",
       "infrastructure",
       "incident"
-    ]
+    ],
+    "prompt_type": "Generator"
   },
   {
     "id": "PL-071",
     "category": "QA",
     "title": "Accessibility Audit Storyboard",
     "use_case": "Convert accessibility findings into a shareable storyboard for stakeholders.",
-    "owner": "Qa Accessibility Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "high",
@@ -2376,28 +1787,18 @@
       "Remediation tracker"
     ],
     "prompt": "Using audit findings {{findings}}, screenshots {{screenshots}}, and owner list {{owners}}, draft a storyboard with scene descriptions, impact narrative, WCAG references, and recommended remediation owners.",
-    "examples": [
-      {
-        "input": {
-          "findings": "Low contrast on primary CTA, missing form labels",
-          "screenshots": "cta.png, form.png",
-          "owners": "Design systems, Frontend guild"
-        },
-        "output": "Scene 2: Checkout form lacks labels; Impact: screen reader block. Owner: Frontend guild."
-      }
-    ],
     "tags": [
       "accessibility",
       "wcag",
       "story"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "PL-072",
     "category": "QA",
     "title": "Prompt Fuzzing Attack Harness",
     "use_case": "Stress test AI prompts for jailbreak and policy violations.",
-    "owner": "Red Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -2416,28 +1817,18 @@
       "Risk report"
     ],
     "prompt": "Given the target prompt {{prompt_under_test}}, attack corpus {{attacks}}, and policy checklist {{policy}}, run a fuzzing analysis describing which attacks breached guardrails, the resulting output, and mitigation recommendations ranked by severity.",
-    "examples": [
-      {
-        "input": {
-          "prompt_under_test": "Support triage agent",
-          "attacks": "role-play jailbreak, false authority",
-          "policy": "No medical advice, no personal data"
-        },
-        "output": "Breach: false authority -> provided medical advice. Mitigation: add explicit refusal clause, retrain sample."
-      }
-    ],
     "tags": [
       "redteam",
       "testing",
       "safety"
-    ]
+    ],
+    "prompt_type": "Script"
   },
   {
     "id": "PL-073",
     "category": "QA",
     "title": "Regression Test Selector",
     "use_case": "Select minimal regression suite based on change diff and risk profile.",
-    "owner": "Qa Release Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 21,
     "risk_level": "medium",
@@ -2456,28 +1847,18 @@
       "Environment checklist"
     ],
     "prompt": "Review the change summary {{change}}, risk matrix {{risk}}, and test catalog {{catalog}}. Recommend the smallest test set that maintains coverage, noting rationale and required environment setups.",
-    "examples": [
-      {
-        "input": {
-          "change": "Payment gateway refactor",
-          "risk": "High impact on checkout",
-          "catalog": "Suite A (checkout), Suite B (billing), Suite C (emails)"
-        },
-        "output": "Select Suite A + targeted billing tests. Require staging gateway credentials before execution."
-      }
-    ],
     "tags": [
       "regression",
       "testing",
       "release"
-    ]
+    ],
+    "prompt_type": "Test"
   },
   {
     "id": "PL-074",
     "category": "QA",
     "title": "User Acceptance Exit Report",
     "use_case": "Summarize UAT results with go-live recommendations and blockers.",
-    "owner": "Uat Coordinator Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 30,
     "risk_level": "medium",
@@ -2496,28 +1877,18 @@
       "Blocker grid"
     ],
     "prompt": "Using the UAT results {{results}}, defects {{defects}}, and exit criteria {{criteria}}, summarize readiness, list open blockers with owners, and provide go/no-go recommendation with rationale.",
-    "examples": [
-      {
-        "input": {
-          "results": "92% test pass on cycle 2",
-          "defects": "3 severity-1 open",
-          "criteria": "All Sev-1 resolved; training complete"
-        },
-        "output": "Recommendation: No-go until checkout bug resolved. Owner: Engineering to patch by Nov 2."
-      }
-    ],
     "tags": [
       "uat",
       "release",
       "report"
-    ]
+    ],
+    "prompt_type": "Report"
   },
   {
     "id": "PL-075",
     "category": "QA",
     "title": "Risk Register Summarizer",
     "use_case": "Summarize quality risks by probability, impact, and mitigation status.",
-    "owner": "Quality Programs Team",
     "last_review": "2025-10-31",
     "review_cadence_days": 45,
     "risk_level": "medium",
@@ -2536,28 +1907,18 @@
       "Mitigation status report"
     ],
     "prompt": "Review the risk register {{register}}, mitigation updates {{updates}}, and owner roster {{owners}}. Summarize top risks by probability and impact, note mitigation progress, and call out items past due with owners.",
-    "examples": [
-      {
-        "input": {
-          "register": "R-3 Performance regressions (High/High)",
-          "updates": "Mitigation 40% complete",
-          "owners": "Perf guild"
-        },
-        "output": "R-3 still high risk; mitigation behind by 2 weeks. Owner: Perf guild to deliver load tests by Nov 6."
-      }
-    ],
     "tags": [
       "risk",
       "report",
       "quality"
-    ]
+    ],
+    "prompt_type": "Prompt"
   },
   {
     "id": "QA-001",
     "category": "QA",
     "title": "Regression Test Planner",
     "use_case": "Plan regression suites for releases with risk-based prioritization.",
-    "owner": "Qa Lead Team",
     "last_review": "2025-10-19",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -2575,29 +1936,18 @@
       "Execution calendar"
     ],
     "prompt": "Create a regression plan for release {{release}} using scope {{scope}}, defect history {{defects}}, and environment matrix {{matrix}}. Prioritize suites, assign owners, and list entry/exit criteria.",
-    "examples": [
-      {
-        "input": {
-          "release": "2025.11.0",
-          "scope": "New billing flows, updated notifications",
-          "defects": "High severity in billing last sprint",
-          "matrix": "Web, iOS, Android"
-        },
-        "output": "Plan prioritizes billing regression on all platforms with owners and execution dates."
-      }
-    ],
     "tags": [
       "test",
       "structured"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Plan"
   },
   {
     "id": "QA-002",
     "category": "QA",
     "title": "Bug Reproduction Script",
     "use_case": "Document reproducible steps for reported defects with environment details.",
-    "owner": "Qa Duty Team",
     "last_review": "2025-10-20",
     "review_cadence_days": 7,
     "risk_level": "medium",
@@ -2615,28 +1965,18 @@
       "Evidence bundle"
     ],
     "prompt": "Based on bug report {{report}}, evidence {{evidence}}, and environment {{environment}}, document numbered reproduction steps, expected vs actual outcome, and attach evidence references.",
-    "examples": [
-      {
-        "input": {
-          "report": "Checkout button disabled after coupon applied",
-          "evidence": "Screenshot showing greyed button",
-          "environment": "Chrome 118, staging"
-        },
-        "output": "Steps list coupon application, note disabled button, and attach screenshot link with timestamp."
-      }
-    ],
     "tags": [
       "test",
       "verification"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Script"
   },
   {
     "id": "QA-003",
     "category": "QA",
     "title": "Test Summary Reporter",
     "use_case": "Summarize test execution results with metrics and release readiness.",
-    "owner": "Qa Program Team",
     "last_review": "2025-10-24",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -2654,28 +1994,18 @@
       "Go/No-go recommendation"
     ],
     "prompt": "Summarize test logs {{logs}}, defect tracker {{defects}}, and release criteria {{criteria}}. Provide suite metrics, readiness assessment, and next steps.",
-    "examples": [
-      {
-        "input": {
-          "logs": "120 tests passed, 5 failed",
-          "defects": "2 critical open",
-          "criteria": "All critical defects resolved"
-        },
-        "output": "Report recommends no-go until critical defects fixed, lists owners and target dates."
-      }
-    ],
     "tags": [
       "report",
       "test"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Summary"
   },
   {
     "id": "QA-004",
     "category": "QA",
     "title": "Accessibility Audit Checklist",
     "use_case": "Evaluate UI changes against WCAG compliance checkpoints.",
-    "owner": "Accessibility Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 21,
     "risk_level": "high",
@@ -2693,28 +2023,18 @@
       "Remediation guidance"
     ],
     "prompt": "Audit UI {{ui}}, components {{components}}, and checklist {{checklist}} for WCAG compliance. List pass/fail per criterion, severity, and remediation actions.",
-    "examples": [
-      {
-        "input": {
-          "ui": "New onboarding modal",
-          "components": "Button, input, tooltip",
-          "checklist": "WCAG 2.2 AA"
-        },
-        "output": "Checklist notes insufficient contrast on buttons, recommends token update and retest with screen reader."
-      }
-    ],
     "tags": [
       "verification",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Checklist"
   },
   {
     "id": "QA-005",
     "category": "QA",
     "title": "Load Test Findings Digest",
     "use_case": "Interpret performance test outputs and recommend mitigations.",
-    "owner": "Performance Qa Team",
     "last_review": "2025-10-23",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -2732,28 +2052,18 @@
       "Mitigation plan"
     ],
     "prompt": "Summarize load test report {{report}} against SLOs {{slos}} with environment {{environment}}. Highlight bottlenecks, recommend mitigations, and specify retest criteria.",
-    "examples": [
-      {
-        "input": {
-          "report": "p95 latency 480ms at 2k RPS",
-          "slos": "Target 300ms",
-          "environment": "Prod-like cluster, 5 nodes"
-        },
-        "output": "Digest identifies DB CPU saturation, suggests index tuning, and requires retest after fix."
-      }
-    ],
     "tags": [
       "report",
       "test"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Test"
   },
   {
     "id": "QA-006",
     "category": "QA",
     "title": "Release QA Checklist",
     "use_case": "Ensure release readiness across QA sign-offs and environment checks.",
-    "owner": "Release Qa Team",
     "last_review": "2025-10-21",
     "review_cadence_days": 7,
     "risk_level": "high",
@@ -2771,28 +2081,18 @@
       "Sign-off summary"
     ],
     "prompt": "Compile a release QA checklist using notes {{notes}}, sign-off matrix {{signoffs}}, and rollback plan {{rollback}}. Include verification steps, owner sign-offs, and contingencies.",
-    "examples": [
-      {
-        "input": {
-          "notes": "Hotfix 2025.10.4",
-          "signoffs": "QA approved, Product pending",
-          "rollback": "Deploy previous container version"
-        },
-        "output": "Checklist shows pending product sign-off, includes smoke test list and rollback command set."
-      }
-    ],
     "tags": [
       "structured",
       "test"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Checklist"
   },
   {
     "id": "QA-007",
     "category": "QA",
     "title": "Defect Triage Moderator",
     "use_case": "Facilitate defect triage sessions with prioritization outcomes.",
-    "owner": "Qa Ops Team",
     "last_review": "2025-10-17",
     "review_cadence_days": 7,
     "risk_level": "medium",
@@ -2810,28 +2110,18 @@
       "Action assignments"
     ],
     "prompt": "Moderate defect triage using list {{defects}}, severity matrix {{matrix}}, and timeline {{timeline}}. Categorize defects, set priorities, and assign resolution owners with deadlines.",
-    "examples": [
-      {
-        "input": {
-          "defects": "15 open bugs, 3 critical",
-          "matrix": "Critical blocks release",
-          "timeline": "Release freeze Nov 3"
-        },
-        "output": "Summary escalates two blockers, assigns owners, and schedules retest dates."
-      }
-    ],
     "tags": [
       "meeting",
       "test"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   },
   {
     "id": "QA-008",
     "category": "QA",
     "title": "Traceability Matrix Builder",
     "use_case": "Link requirements to test cases and defects for audit readiness.",
-    "owner": "Compliance Qa Team",
     "last_review": "2025-10-16",
     "review_cadence_days": 30,
     "risk_level": "high",
@@ -2849,28 +2139,18 @@
       "Gap report"
     ],
     "prompt": "Generate a traceability matrix using requirements {{requirements}}, tests {{tests}}, and defects {{defects}}. Show coverage links, identify gaps, and recommend remediation.",
-    "examples": [
-      {
-        "input": {
-          "requirements": "REQ-101 login, REQ-102 MFA",
-          "tests": "TC-10 login happy path, TC-22 MFA challenge",
-          "defects": "BUG-55 MFA resend"
-        },
-        "output": "Matrix maps requirements to tests, flags REQ-102 missing negative case, and links BUG-55."
-      }
-    ],
     "tags": [
       "table",
       "verification"
     ],
-    "difficulty": "Intermediate"
+    "difficulty": "Intermediate",
+    "prompt_type": "Generator"
   },
   {
     "id": "QA-009",
     "category": "QA",
     "title": "UAT Feedback Synthesizer",
     "use_case": "Summarize user acceptance testing feedback with prioritized fixes.",
-    "owner": "Uat Coordinator Team",
     "last_review": "2025-10-18",
     "review_cadence_days": 14,
     "risk_level": "medium",
@@ -2888,28 +2168,18 @@
       "Fix backlog"
     ],
     "prompt": "Synthesize UAT notes {{notes}}, issue tracker {{issues}}, and roster {{roster}} into blockers, major findings, minor suggestions, and recommended fixes with owners.",
-    "examples": [
-      {
-        "input": {
-          "notes": "Checkout flow confusing, export button hidden",
-          "issues": "BUG-98 critical, BUG-102 minor",
-          "roster": "Finance analyst, operations lead"
-        },
-        "output": "Summary highlights checkout blocker with quote from finance analyst and assigns fix to UX owner."
-      }
-    ],
     "tags": [
       "report",
       "synthesis"
     ],
-    "difficulty": "Advanced"
+    "difficulty": "Advanced",
+    "prompt_type": "Prompt"
   },
   {
     "id": "QA-010",
     "category": "QA",
     "title": "QA Risk Register",
     "use_case": "Maintain QA-specific risk log with mitigation tracking.",
-    "owner": "Qa Risk Team",
     "last_review": "2025-10-25",
     "review_cadence_days": 14,
     "risk_level": "high",
@@ -2927,20 +2197,11 @@
       "Mitigation tracker"
     ],
     "prompt": "Create a QA risk register using brainstorm {{brainstorm}}, incidents {{incidents}}, and mitigation backlog {{mitigations}}. Provide probability, impact, owner, and mitigation status for each risk.",
-    "examples": [
-      {
-        "input": {
-          "brainstorm": "Automation flakiness, environment drift",
-          "incidents": "Last release failed due to flaky tests",
-          "mitigations": "Stabilize smoke suite"
-        },
-        "output": "Register sets high probability for flakiness, owner QA automation lead, and mitigation due Nov 5."
-      }
-    ],
     "tags": [
       "structured",
       "report"
     ],
-    "difficulty": "Beginner"
+    "difficulty": "Beginner",
+    "prompt_type": "Prompt"
   }
 ]

@@ -8,8 +8,9 @@
     "title",
     "category",
     "use_case",
-    "owner",
+    "prompt_type",
     "last_review",
+    "review_cadence_days",
     "guardrails",
     "inputs",
     "outputs",
@@ -19,8 +20,8 @@
   "properties": {
     "id": {
       "type": "string",
-      "pattern": "^PL-[0-9]{3}$",
-      "description": "Unique library identifier following the PL-### convention."
+      "pattern": "^[A-Z]{2}-[0-9]{3}$",
+      "description": "Unique catalog identifier following the XX-### convention. Use two-letter category codes (e.g., PL, RS, CD)."
     },
     "title": {
       "type": "string",
@@ -34,9 +35,10 @@
       "type": "string",
       "description": "Primary workflow or business scenario the prompt supports."
     },
-    "owner": {
+    "prompt_type": {
       "type": "string",
-      "description": "Person or distribution list accountable for maintenance and approvals."
+      "minLength": 1,
+      "description": "Primary output format (e.g., Plan, Checklist, Generator, Summary)."
     },
     "last_review": {
       "type": "string",
