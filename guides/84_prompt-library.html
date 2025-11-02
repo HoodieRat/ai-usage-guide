@@ -1,0 +1,861 @@
+<!-- filepath: guides/84_prompt-library.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Central catalog of reusable prompt templates with guardrails, review cadence, and prompt types.">
+  <title>Prompt Library | Everyday AI Guide</title>
+  <link rel="icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/prism.css">
+</head>
+<body data-base=".." class="theme-auto">
+  <noscript>
+    <div class="noscript-notice">JavaScript powers navigation, search, and theme controls. Enable it for the full experience.</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <button class="mobile-nav-toggle" type="button" data-mobile-nav-toggle aria-expanded="false" aria-controls="sidebar">
+      <span class="sr-only">Toggle navigation</span>
+      <span aria-hidden="true"></span>
+    </button>
+    <a class="brand" href="../index.html">
+      <img src="../assets/logo.svg" alt="Everyday AI Guide logo" class="brand-mark">
+      <span class="brand-name">Everyday AI Guide</span>
+    </a>
+    <form class="search-form" role="search">
+      <label class="sr-only" for="site-search">Search guides</label>
+      <input id="site-search" type="search" name="q" placeholder="Search guides..." autocomplete="off" data-search-input>
+    </form>
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false">
+      <img src="../assets/icons/sun.svg" alt="" data-icon="sun">
+      <img src="../assets/icons/moon.svg" alt="" data-icon="moon">
+      <span class="sr-only">Toggle dark mode</span>
+    </button>
+  </header>
+
+  <div class="layout">
+    <nav id="sidebar" class="sidebar" aria-label="Guide navigation" data-nav></nav>
+
+    <main id="content" class="site-main" role="main">
+      <article class="guide">
+        <header class="guide-header">
+          <p class="eyebrow">Resource Library</p>
+          <h1>Prompt Library</h1>
+          <p class="intro">Browse reusable prompt assets with guardrails, review cadences, and clear prompt types so teams don’t reinvent high-stakes workflows.</p>
+        </header>
+
+        <section class="callout info">
+          <strong>Before you start:</strong> If you’re new to prompts, read <a href="../guides/03_prompt-basics.html">Prompt Basics</a>. When your prompts must return structured data, pair them with <a href="../guides/05_structured-output.html">Structured Output</a>. Store your prompt files per <a href="../guides/20_project-folders-setup.html">Project Folders Setup</a>.
+        </section>
+
+        <section id="how-to-use" class="guide-section">
+          <h2>How to use this catalog</h2>
+          <ul>
+            <li>Start with the <strong>risk level</strong> column to understand approval requirements before deploying a prompt.</li>
+            <li>Check the <strong>prompt type</strong> to confirm whether the asset returns a plan, checklist, summary, or other format.</li>
+            <li>Consult <strong>guardrails</strong> when copying prompts into new briefs or playbooks. For sourcing, see <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a> and <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality &amp; Fact Checking</a>.</li>
+            <li>Use browser search (<code>Ctrl/⌘+F</code>) to jump to tags, or sort by ID once loaded.</li>
+          </ul>
+        </section>
+
+        <section id="prompt-catalog" class="guide-section">
+          <h2>Prompt catalog</h2>
+          <div class="prompt-library-controls" data-prompt-filters>
+            <div class="control">
+              <label for="prompt-category">Category</label>
+              <select id="prompt-category" data-filter-category>
+                <option value="all">All categories</option>
+              </select>
+            </div>
+            <div class="control">
+              <label for="prompt-search">Search prompts</label>
+              <input id="prompt-search" type="search" name="prompt-search" placeholder="Search title, use case, tags…" autocomplete="off" data-filter-search>
+            </div>
+            <div class="control control--tags">
+              <span class="control-label" id="tag-filter-label">Filter by tag</span>
+              <div class="tag-filter-list" data-filter-tags aria-labelledby="tag-filter-label"></div>
+            </div>
+            <div class="control control--actions">
+              <button type="button" class="link-button" data-filter-clear>Clear filters</button>
+            </div>
+          </div>
+          <p class="hint">Need help crafting guardrails? Review <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a>, <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality &amp; Fact Checking</a>, and <a href="../guides/82_quality-assurance_loops.html">Quality Assurance Loops</a>.</p>
+          <p data-prompt-error class="callout warning" hidden>Unable to load the catalog right now. Refresh the page or check the console for details.</p>
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Risk</th>
+                  <th scope="col">Prompt type</th>
+                  <th scope="col">Tags</th>
+                  <th scope="col">Copy</th>
+                </tr>
+              </thead>
+              <tbody data-prompt-table>
+                <tr>
+                  <td colspan="7">Loading prompt catalog…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="prompt-detail" class="guide-section prompt-detail" data-prompt-detail hidden>
+          <h2>Prompt details</h2>
+          <div class="prompt-detail-header">
+            <div>
+              <h3 data-detail-title>Choose a prompt to see the details.</h3>
+              <p class="prompt-detail-usecase" data-detail-usecase></p>
+            </div>
+            <button type="button" class="link-button" data-detail-copy disabled>Copy prompt</button>
+          </div>
+          <dl class="prompt-detail-meta">
+            <div>
+              <dt>ID</dt>
+              <dd data-detail-id>—</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd data-detail-category>—</dd>
+            </div>
+            <div>
+              <dt>Difficulty</dt>
+              <dd data-detail-difficulty>—</dd>
+            </div>
+            <div>
+              <dt>Risk level</dt>
+              <dd data-detail-risk>—</dd>
+            </div>
+            <div>
+              <dt>Prompt type</dt>
+              <dd data-detail-type>—</dd>
+            </div>
+            <div>
+              <dt>Review cadence</dt>
+              <dd data-detail-review>—</dd>
+            </div>
+          </dl>
+
+          <div class="prompt-detail-columns">
+            <div>
+              <h3>Guardrails</h3>
+              <ul data-detail-guardrails></ul>
+            </div>
+            <div>
+              <h3>Inputs</h3>
+              <ul data-detail-inputs></ul>
+            </div>
+            <div>
+              <h3>Outputs</h3>
+              <ul data-detail-outputs></ul>
+            </div>
+          </div>
+
+          <div class="prompt-detail-tags">
+            <h3>Tags</h3>
+            <p data-detail-tags class="prompt-detail-empty">—</p>
+          </div>
+
+          <div class="prompt-detail-body">
+            <h3>Prompt text</h3>
+            <pre><code data-detail-prompt></code></pre>
+          </div>
+
+          <div class="prompt-detail-examples" data-detail-examples></div>
+        </section>
+
+        <section id="add-a-prompt" class="guide-section">
+          <h2>Add a new prompt (step-by-step)</h2>
+          <ol>
+            <li><strong>Draft the asset.</strong> Use the blueprint in <a href="../guides/03_prompt-basics.html">Prompt Basics</a>. Keep it under ~250 words plus examples.</li>
+            <li><strong>Choose risk level.</strong> See <a href="#risk-levels">Risk levels</a>. High-risk prompts require reviewer sign-off before use.</li>
+            <li><strong>Attach guardrails.</strong> Cite sources or add verification steps as needed (<a href="../guides/24_citations-and-attribution.html">Citations</a>, <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a>).</li>
+            <li><strong>File it.</strong> Save the prompt and examples in your project under <code>20_prompts/</code> (see <a href="../guides/20_project-folders-setup.html">Folders Setup</a>).</li>
+            <li><strong>Register the entry.</strong> Add a row in <code>../data/prompt-library/catalog.json</code> using the schema below.</li>
+            <li><strong>Review and publish.</strong> A named reviewer approves high-risk assets. Log the reviewer decision and set a review cadence.</li>
+          </ol>
+        </section>
+
+        <section id="schema" class="guide-section">
+          <h2>Catalog schema (copy-paste)</h2>
+          <p>Each entry is a JSON object in <code>catalog.json</code>:</p>
+          <pre><code class="language-json">{
+  "id": "CD-001",
+  "title": "Structured FAQ Draft",
+  "category": "Communication",
+  "use_case": "Create a Q&amp;A from product docs with citations.",
+  "prompt_type": "Checklist",            // Plan | Checklist | Generator | Summary | Prompt | ...
+  "risk_level": "medium",                // low | medium | high
+  "guardrails": ["Cite sources [SRC-ID]", "No claims without evidence"],
+  "inputs": ["[F1] docs abstract", "tone", "audience"],
+  "outputs": ["FAQ in markdown", "claim log link"],
+  "prompt": "You are a ... (paste full prompt text here)",
+  "last_review": "2025-10-30",
+  "review_cadence_days": 45,
+  "tags": ["docs", "support", "structured"],
+  "difficulty": "Intermediate"          // Beginner | Intermediate | Advanced
+}</code></pre>
+          <p class="hint">Tip: Keep guardrails as short, testable statements. Link to acceptance checklists when available.</p>
+        </section>
+
+        <section id="risk-levels" class="guide-section">
+          <h2>Risk levels</h2>
+          <ul>
+            <li><strong>Low:</strong> Internal drafts, no external facts, no PII. Team reviews as needed.</li>
+            <li><strong>Medium:</strong> External-facing copy or factual claims with citations. Reviewer approval required.</li>
+            <li><strong>High:</strong> Legal/compliance, regulated data, or automated publishing. Mandatory reviewer + compliance sign-off and a <a href="../guides/41_task-chains-and-delegation.html">task chain</a> with checkpoints.</li>
+          </ul>
+        </section>
+
+        <section id="copy-assets" class="guide-section">
+          <h2>Copy &amp; paste assets</h2>
+
+          <h3>Prompt header (paste above your prompt)</h3>
+          <pre><code>ROLE: You are a careful assistant. Ask one clarifying question if requirements risk accuracy.
+OBJECTIVE: {{what success looks like in one sentence}}
+CONTEXT: {{bullets with key facts or file IDs}}
+OUTPUT: {{format/schema to return; e.g., markdown table or JSON}}
+GUARDRAILS: {{cite sources, no speculation, stop if missing data, etc.}}
+REVIEW: {{who approves and what checklist}}</code></pre>
+
+          <h3>Reviewer checklist (quick)</h3>
+          <pre><code>[ ] Guardrails present and testable
+[ ] Output contract explicit (schema/table/outline)
+[ ] Prompt type recorded and matches output example
+[ ] Risk level set; cadence scheduled
+[ ] Recent review logged in change history</code></pre>
+
+          <h3>Entry stub for <code>catalog.json</code></h3>
+          <pre><code class="language-json">{"id":"","title":"","category":"","use_case":"","prompt_type":"","risk_level":"","guardrails":[],"inputs":[],"outputs":[],"prompt":"","last_review":"","review_cadence_days":0,"tags":[],"difficulty":""}</code></pre>
+        </section>
+
+        <section id="governance" class="guide-section">
+          <h2>Governance reminders</h2>
+          <ul>
+            <li>Archive prompts that miss their review cadence or fail compliance checks.</li>
+            <li>Record material changes in your change log with a link back to this catalog entry.</li>
+            <li>Pair each prompt with an acceptance checklist so reviewers can approve outputs quickly.</li>
+            <li>For fact-based outputs, require a claim log and citations (<a href="../guides/24_citations-and-attribution.html">how to cite</a>).</li>
+            <li>If the prompt relies on uploaded files, follow <a href="../guides/21_file-upload-best-practices.html">File Upload Best Practices</a> and consider <a href="../guides/23_chunking-and-abstracts.html">Chunking &amp; Abstracts</a>.</li>
+            <li>When prompts trigger research, apply <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a>, <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality</a>, and <a href="../guides/33_news-and-recency.html">News &amp; Recency</a>.</li>
+            <li>For multi-step work, bundle library prompts into a documented chain (<a href="../guides/41_task-chains-and-delegation.html">Task Chains</a>) and plan handoffs (<a href="../guides/13_handoff-between-chats.html">Handoff Between Chats</a>).</li>
+          </ul>
+        </section>
+
+        <section id="troubleshooting" class="guide-section">
+          <h2>Troubleshooting</h2>
+          <dl>
+            <dt>Catalog doesn’t load.</dt>
+            <dd>Confirm <code>../data/prompt-library/catalog.json</code> exists and is valid JSON (array of objects). Check the browser console for fetch or CORS errors.</dd>
+            <dt>Prompt type missing.</dt>
+            <dd>Set the <code>prompt_type</code> field using the approved taxonomy (plan, checklist, generator, summary, etc.) and refresh. The page hides entries with missing types during copy.</dd>
+            <dt>Outputs drift over time.</dt>
+            <dd>Move success examples next to the prompt, enforce an explicit output schema, and shorten the prompt to keep intent crisp.</dd>
+          </dl>
+        </section>
+
+        <section id="acceptance" class="guide-section">
+          <h2>Acceptance checklist</h2>
+          <ul>
+            <li>✅ Every prompt in use appears in this catalog with prompt type, risk, and cadence.</li>
+            <li>✅ High-risk prompts include guardrails, verification steps, and reviewer sign-off.</li>
+            <li>✅ Structured outputs specify schemas and pass a quick validator.</li>
+            <li>✅ Changelog links material edits to the corresponding entry.</li>
+          </ul>
+        </section>
+
+        <footer class="guide-footer">
+          <p class="update-note">Updated October 31, 2025.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <div class="search-panel" data-search-results hidden>
+    <div class="search-results-header">
+      <span class="search-results-title">Search results</span>
+      <button type="button" class="search-close" data-search-close>Close</button>
+    </div>
+    <ul class="search-results-list" data-search-results-list></ul>
+  </div>
+
+  <script src="../js/nav.js" defer></script>
+  <script src="../js/search.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script>
+    (function () {
+      const tableBody = document.querySelector('[data-prompt-table]');
+      const errorNotice = document.querySelector('[data-prompt-error]');
+      const filterPanel = document.querySelector('[data-prompt-filters]');
+      const categorySelect = document.querySelector('[data-filter-category]');
+      const searchInput = document.querySelector('[data-filter-search]');
+      const tagList = document.querySelector('[data-filter-tags]');
+      const clearButton = document.querySelector('[data-filter-clear]');
+      const detailSection = document.querySelector('[data-prompt-detail]');
+      const detailTitle = detailSection?.querySelector('[data-detail-title]');
+      const detailUseCase = detailSection?.querySelector('[data-detail-usecase]');
+      const detailId = detailSection?.querySelector('[data-detail-id]');
+      const detailCategory = detailSection?.querySelector('[data-detail-category]');
+      const detailDifficulty = detailSection?.querySelector('[data-detail-difficulty]');
+  const detailRisk = detailSection?.querySelector('[data-detail-risk]');
+  const detailType = detailSection?.querySelector('[data-detail-type]');
+      const detailReview = detailSection?.querySelector('[data-detail-review]');
+      const detailGuardrails = detailSection?.querySelector('[data-detail-guardrails]');
+      const detailInputs = detailSection?.querySelector('[data-detail-inputs]');
+      const detailOutputs = detailSection?.querySelector('[data-detail-outputs]');
+      const detailTags = detailSection?.querySelector('[data-detail-tags]');
+      const detailPrompt = detailSection?.querySelector('[data-detail-prompt]');
+      const detailExamples = detailSection?.querySelector('[data-detail-examples]');
+      const copyPromptButton = detailSection?.querySelector('[data-detail-copy]');
+      const basePath = document.body.dataset.base || '.';
+      const state = {
+        entries: [],
+        filtered: [],
+        category: 'all',
+        searchTerm: '',
+        selectedTags: new Set(),
+        selectedId: null,
+      };
+
+      if (!tableBody) {
+        return;
+      }
+
+      if (filterPanel) {
+        filterPanel.hidden = true;
+      }
+
+      function copyTextToClipboard(text, onComplete) {
+        const fallback = () => {
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.setAttribute('readonly', '');
+          textarea.style.position = 'absolute';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            onComplete?.();
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        };
+
+        if (navigator.clipboard?.writeText) {
+          navigator.clipboard.writeText(text).then(() => onComplete?.()).catch(fallback);
+        } else {
+          fallback();
+        }
+      }
+
+      function populateList(container, items, emptyMessage) {
+        if (!container) {
+          return;
+        }
+
+        container.innerHTML = '';
+
+        if (Array.isArray(items) && items.length) {
+          items.forEach((item) => {
+            const listItem = document.createElement('li');
+            if (typeof item === 'string') {
+              listItem.textContent = item;
+            } else {
+              listItem.textContent = JSON.stringify(item, null, 2);
+            }
+            container.appendChild(listItem);
+          });
+        } else {
+          const empty = document.createElement('li');
+          empty.className = 'prompt-detail-empty';
+          empty.textContent = emptyMessage;
+          container.appendChild(empty);
+        }
+      }
+
+      function renderExamples(examples) {
+        if (!detailExamples) {
+          return;
+        }
+
+        detailExamples.innerHTML = '';
+
+        if (!Array.isArray(examples) || !examples.length) {
+          const placeholder = document.createElement('p');
+          placeholder.className = 'prompt-detail-empty';
+          placeholder.textContent = 'No examples provided.';
+          detailExamples.appendChild(placeholder);
+          return;
+        }
+
+        const heading = document.createElement('h3');
+        heading.textContent = 'Examples';
+        detailExamples.appendChild(heading);
+
+        examples.forEach((example, index) => {
+          const detailsElement = document.createElement('details');
+          detailsElement.open = index === 0;
+
+          const summary = document.createElement('summary');
+          summary.textContent = `Example ${index + 1}`;
+          detailsElement.appendChild(summary);
+
+          const pre = document.createElement('pre');
+          const code = document.createElement('code');
+          code.textContent = typeof example === 'string' ? example : JSON.stringify(example, null, 2);
+          pre.appendChild(code);
+          detailsElement.appendChild(pre);
+
+          detailExamples.appendChild(detailsElement);
+        });
+      }
+
+      function renderDetail(entry) {
+        if (!detailSection || !entry) {
+          return;
+        }
+
+        detailSection.hidden = false;
+        const cadence = entry.review_cadence_days ? `${entry.review_cadence_days} days` : null;
+
+        if (detailTitle) {
+          detailTitle.textContent = entry.title || 'Untitled prompt';
+        }
+
+        if (detailUseCase) {
+          if (entry.use_case) {
+            detailUseCase.textContent = entry.use_case;
+            detailUseCase.classList.remove('prompt-detail-empty');
+          } else {
+            detailUseCase.textContent = 'No use case provided.';
+            detailUseCase.classList.add('prompt-detail-empty');
+          }
+        }
+
+        if (detailId) {
+          detailId.textContent = entry.id || '—';
+        }
+
+        if (detailCategory) {
+          detailCategory.textContent = entry.category || '—';
+        }
+
+        if (detailDifficulty) {
+          detailDifficulty.textContent = entry.difficulty || '—';
+        }
+
+        if (detailRisk) {
+          detailRisk.textContent = entry.risk_level || entry.risk || '—';
+        }
+
+        if (detailType) {
+          detailType.textContent = entry.prompt_type || '—';
+        }
+
+        if (detailReview) {
+          if (entry.last_review && cadence) {
+            detailReview.textContent = `${entry.last_review} • every ${cadence}`;
+          } else if (entry.last_review) {
+            detailReview.textContent = entry.last_review;
+          } else if (cadence) {
+            detailReview.textContent = `Every ${cadence}`;
+          } else {
+            detailReview.textContent = '—';
+          }
+        }
+
+        populateList(detailGuardrails, entry.guardrails, 'No guardrails listed.');
+        populateList(detailInputs, entry.inputs, 'No inputs documented.');
+        populateList(detailOutputs, entry.outputs, 'No outputs documented.');
+
+        if (detailTags) {
+          const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : 'No tags listed.';
+          detailTags.textContent = tags;
+          if (Array.isArray(entry.tags) && entry.tags.length) {
+            detailTags.classList.remove('prompt-detail-empty');
+          } else {
+            detailTags.classList.add('prompt-detail-empty');
+          }
+        }
+
+        if (detailPrompt) {
+          detailPrompt.textContent = entry.prompt || '';
+        }
+
+        renderExamples(entry.examples);
+
+        if (copyPromptButton) {
+          copyPromptButton.disabled = !entry.prompt;
+          copyPromptButton.textContent = 'Copy prompt';
+        }
+      }
+
+      function clearDetail() {
+        if (!detailSection) {
+          return;
+        }
+
+        detailSection.hidden = true;
+        if (copyPromptButton) {
+          copyPromptButton.disabled = true;
+          copyPromptButton.textContent = 'Copy prompt';
+        }
+      }
+
+      function updateRowSelection() {
+        if (!tableBody) {
+          return;
+        }
+
+        Array.from(tableBody.querySelectorAll('tr')).forEach((row) => {
+          const promptId = row.dataset.promptId;
+          if (promptId && promptId === state.selectedId) {
+            row.setAttribute('data-selected', 'true');
+            row.setAttribute('aria-selected', 'true');
+          } else {
+            row.removeAttribute('data-selected');
+            row.removeAttribute('aria-selected');
+          }
+        });
+      }
+
+      function selectEntry(entry) {
+        if (!entry) {
+          return;
+        }
+
+        state.selectedId = entry.id;
+        renderDetail(entry);
+        updateRowSelection();
+      }
+
+      function syncSelection() {
+        if (!state.filtered.length) {
+          state.selectedId = null;
+          clearDetail();
+          updateRowSelection();
+          return;
+        }
+
+        const existing = state.filtered.find((item) => item.id === state.selectedId);
+        if (existing) {
+          renderDetail(existing);
+          updateRowSelection();
+          return;
+        }
+
+        state.selectedId = state.filtered[0].id;
+        renderDetail(state.filtered[0]);
+        updateRowSelection();
+      }
+
+      function copyPromptText() {
+        if (!copyPromptButton || !state.selectedId) {
+          return;
+        }
+
+        const entry = state.entries.find((item) => item.id === state.selectedId);
+        if (!entry?.prompt) {
+          return;
+        }
+
+        const original = copyPromptButton.textContent;
+        copyPromptButton.disabled = true;
+        copyPromptButton.textContent = 'Copied';
+
+        copyTextToClipboard(entry.prompt, () => {
+          setTimeout(() => {
+            copyPromptButton.textContent = original;
+            copyPromptButton.disabled = false;
+          }, 1500);
+        });
+      }
+
+      copyPromptButton?.addEventListener('click', copyPromptText);
+
+      function resolveResource(path) {
+        const sanitized = (path || '').replace(/^\.\//, '');
+        if (!basePath || basePath === '.' || basePath === './') {
+          return sanitized;
+        }
+        return `${basePath.replace(/\/$/, '')}/${sanitized}`;
+      }
+
+      function isLocalPreview() {
+        return window.location.protocol === 'file:';
+      }
+
+      function toCopyPayload(entry) {
+        const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : '—';
+        const guardrails = (entry.guardrails || []).join('; ') || 'none listed';
+        const inputs = (entry.inputs || []).join(', ') || '—';
+        const outputs = (entry.outputs || []).join(', ') || '—';
+
+        return [
+          `ID: ${entry.id}`,
+          `Title: ${entry.title}`,
+          `Category: ${entry.category || '—'}`,
+          `Use case: ${entry.use_case || '—'}`,
+          `Prompt type: ${entry.prompt_type || '—'}`,
+          `Risk: ${entry.risk_level || '—'}`,
+          `Tags: ${tags}`,
+          `Guardrails: ${guardrails}`,
+          `Inputs: ${inputs}`,
+          `Outputs: ${outputs}`,
+          '',
+          entry.prompt || '',
+        ].join('\n');
+      }
+
+      function copyEntry(entry, button) {
+        const text = toCopyPayload(entry);
+        copyTextToClipboard(text, () => {
+          if (button) {
+            const original = button.textContent;
+            button.textContent = 'Copied';
+            button.disabled = true;
+            setTimeout(() => {
+              button.textContent = original;
+              button.disabled = false;
+            }, 1600);
+          }
+        });
+      }
+
+      function normalize(value) {
+        return (value || '').toString().toLowerCase();
+      }
+
+      function matchesSearch(entry, term) {
+        if (!term) {
+          return true;
+        }
+
+        const haystack = [
+          entry.id,
+          entry.title,
+          entry.category,
+          entry.use_case,
+          entry.prompt_type,
+          entry.risk_level,
+          (entry.tags || []).join(' '),
+        ]
+          .map(normalize)
+          .join(' ');
+
+        return haystack.includes(term);
+      }
+
+      function matchesTags(entry) {
+        if (!state.selectedTags.size) {
+          return true;
+        }
+
+        const entryTags = new Set((entry.tags || []).map((tag) => normalize(tag)));
+        for (const tag of state.selectedTags) {
+          if (!entryTags.has(tag)) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function applyFilters() {
+        const term = normalize(state.searchTerm);
+
+        state.filtered = state.entries.filter((entry) => {
+          if (state.category !== 'all' && entry.category !== state.category) {
+            return false;
+          }
+
+          if (!matchesTags(entry)) {
+            return false;
+          }
+
+          return matchesSearch(entry, term);
+        });
+
+        renderTable();
+      }
+
+      function renderTable() {
+        tableBody.innerHTML = '';
+
+        if (!state.filtered.length) {
+          const emptyRow = document.createElement('tr');
+          emptyRow.innerHTML = '<td colspan="7">No prompts match the current filters.</td>';
+          tableBody.appendChild(emptyRow);
+          clearDetail();
+          return;
+        }
+
+        state.filtered.forEach((entry) => {
+          const row = document.createElement('tr');
+          row.id = entry.id;
+           row.dataset.promptId = entry.id;
+           row.tabIndex = 0;
+           row.setAttribute('role', 'row');
+          const tags = Array.isArray(entry.tags) && entry.tags.length ? entry.tags.join(', ') : '—';
+
+          row.innerHTML = `
+            <td><code>${entry.id}</code></td>
+            <td>${entry.category || '—'}</td>
+            <td>${entry.title}</td>
+            <td>${entry.risk_level || '—'}</td>
+            <td>${entry.prompt_type || '—'}</td>
+            <td>${tags}</td>
+            <td><button type="button" class="link-button" data-copy aria-label="Copy details for ${entry.title}">Copy</button></td>
+          `;
+
+          const copyButton = row.querySelector('[data-copy]');
+          copyButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+            copyEntry(entry, copyButton);
+          });
+
+          row.addEventListener('click', () => selectEntry(entry));
+          row.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault();
+              selectEntry(entry);
+            }
+          });
+
+          tableBody.appendChild(row);
+        });
+
+        syncSelection();
+      }
+
+      function renderCategories(entries) {
+        const unique = Array.from(new Set(entries.map((entry) => entry.category))).filter(Boolean);
+        unique.sort((a, b) => a.localeCompare(b));
+
+        unique.forEach((category) => {
+          const option = document.createElement('option');
+          option.value = category;
+          option.textContent = category;
+          categorySelect.appendChild(option);
+        });
+      }
+
+      function renderTags(entries) {
+        const unique = new Set();
+        entries.forEach((entry) => {
+          (entry.tags || []).forEach((tag) => unique.add(tag));
+        });
+
+        const sorted = Array.from(unique).sort((a, b) => a.localeCompare(b));
+        tagList.innerHTML = '';
+
+        sorted.forEach((tag) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'tag-chip';
+          button.textContent = tag;
+          button.setAttribute('aria-pressed', 'false');
+          button.dataset.tagValue = tag;
+          button.addEventListener('click', () => {
+            const normalizedTag = normalize(tag);
+            const isSelected = state.selectedTags.has(normalizedTag);
+            if (isSelected) {
+              state.selectedTags.delete(normalizedTag);
+              button.setAttribute('aria-pressed', 'false');
+            } else {
+              state.selectedTags.add(normalizedTag);
+              button.setAttribute('aria-pressed', 'true');
+            }
+            applyFilters();
+          });
+          tagList.appendChild(button);
+        });
+      }
+
+      function resetFilters() {
+        state.category = 'all';
+        state.searchTerm = '';
+        state.selectedTags.clear();
+
+        categorySelect.value = 'all';
+        searchInput.value = '';
+        Array.from(tagList.querySelectorAll('.tag-chip')).forEach((chip) => {
+          chip.setAttribute('aria-pressed', 'false');
+        });
+
+        applyFilters();
+      }
+
+      async function loadCatalog() {
+        const catalogUrl = resolveResource('data/prompt-library/catalog.json');
+
+        try {
+          if (isLocalPreview()) {
+            throw new Error('Local file previews block catalog loading.');
+          }
+
+          const response = await fetch(catalogUrl, { cache: 'no-cache' });
+          if (!response.ok) {
+            throw new Error('Request failed with status ' + response.status);
+          }
+
+          const data = await response.json();
+          if (!Array.isArray(data)) {
+            throw new Error('Catalog response is not an array.');
+          }
+
+          data.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+          state.entries = data;
+          state.filtered = data.slice();
+
+          renderCategories(data);
+          renderTags(data);
+          renderTable();
+
+          filterPanel?.removeAttribute('hidden');
+        } catch (error) {
+          const localPreview = isLocalPreview();
+          const advice = localPreview
+            ? 'Serve the site from a local web server (for example run "python -m http.server 8000" from the repository root) and open http://localhost:8000/everyday-ai-guide/guides/84_prompt-library.html to browse the catalog.'
+            : `The catalog request (${catalogUrl}) failed. ${error.message}`;
+
+          tableBody.innerHTML = `<tr><td colspan="7">${localPreview ? 'Prompt catalog unavailable while viewing the file directly.' : 'Prompt catalog failed to load.'} ${advice}</td></tr>`;
+          if (errorNotice) {
+            errorNotice.hidden = false;
+            errorNotice.innerHTML = `Unable to load the catalog right now. ${advice}`;
+          }
+        }
+      }
+
+      categorySelect?.addEventListener('change', (event) => {
+        state.category = event.target.value;
+        applyFilters();
+      });
+
+      let searchTimer;
+      searchInput?.addEventListener('input', (event) => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => {
+          state.searchTerm = event.target.value;
+          applyFilters();
+        }, 150);
+      });
+
+      clearButton?.addEventListener('click', resetFilters);
+
+      loadCatalog();
+    }());
+  </script>
+  <script src="../js/prism.js" defer></script>
+
+  <!-- NEEDS:
+       - data/prompt-library/catalog.json (array of prompt entries following the schema in this page)
+  -->
+</body>
+</html>
