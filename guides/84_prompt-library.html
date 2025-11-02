@@ -93,15 +93,13 @@
                   <th scope="col">Title</th>
                   <th scope="col">Risk</th>
                   <th scope="col">Prompt type</th>
-                  <th scope="col">Last review</th>
-                  <th scope="col">Cadence (days)</th>
                   <th scope="col">Tags</th>
                   <th scope="col">Copy</th>
                 </tr>
               </thead>
               <tbody data-prompt-table>
                 <tr>
-                  <td colspan="9">Loading prompt catalog…</td>
+                  <td colspan="7">Loading prompt catalog…</td>
                 </tr>
               </tbody>
             </table>
@@ -693,7 +691,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
 
         if (!state.filtered.length) {
           const emptyRow = document.createElement('tr');
-          emptyRow.innerHTML = '<td colspan="9">No prompts match the current filters.</td>';
+          emptyRow.innerHTML = '<td colspan="7">No prompts match the current filters.</td>';
           tableBody.appendChild(emptyRow);
           clearDetail();
           return;
@@ -713,8 +711,6 @@ REVIEW: {{who approves and what checklist}}</code></pre>
             <td>${entry.title}</td>
             <td>${entry.risk_level || '—'}</td>
             <td>${entry.prompt_type || '—'}</td>
-            <td>${entry.last_review || '—'}</td>
-            <td>${entry.review_cadence_days ?? '—'}</td>
             <td>${tags}</td>
             <td><button type="button" class="link-button" data-copy aria-label="Copy details for ${entry.title}">Copy</button></td>
           `;
@@ -830,7 +826,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
             ? 'Serve the site from a local web server (for example run "python -m http.server 8000" from the repository root) and open http://localhost:8000/everyday-ai-guide/guides/84_prompt-library.html to browse the catalog.'
             : `The catalog request (${catalogUrl}) failed. ${error.message}`;
 
-          tableBody.innerHTML = `<tr><td colspan="9">${localPreview ? 'Prompt catalog unavailable while viewing the file directly.' : 'Prompt catalog failed to load.'} ${advice}</td></tr>`;
+          tableBody.innerHTML = `<tr><td colspan="7">${localPreview ? 'Prompt catalog unavailable while viewing the file directly.' : 'Prompt catalog failed to load.'} ${advice}</td></tr>`;
           if (errorNotice) {
             errorNotice.hidden = false;
             errorNotice.innerHTML = `Unable to load the catalog right now. ${advice}`;
