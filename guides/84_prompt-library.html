@@ -252,7 +252,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           <h2>Troubleshooting</h2>
           <dl>
             <dt>Catalog doesn’t load.</dt>
-            <dd>Confirm <code>../data/prompt-library/catalog.json</code> exists and is valid JSON (array of objects). Check the browser console for fetch or CORS errors.</dd>
+            <dd>Open <a href="../data/prompt-library/catalog.json">../data/prompt-library/catalog.json</a> in a new tab. If it 404s or returns HTML, redeploy the data folder; if it shows JSON but the table is empty, clear browser cache and retry.</dd>
             <dt>Prompt type missing.</dt>
             <dd>Set the <code>prompt_type</code> field using the approved taxonomy (plan, checklist, generator, summary, etc.) and refresh. The page hides entries with missing types during copy.</dd>
             <dt>Outputs drift over time.</dt>
@@ -793,7 +793,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
       }
 
       async function loadCatalog() {
-        const catalogUrl = resolveResource('data/prompt-library/catalog.json');
+        const catalogPath = 'data/prompt-library/catalog.json';
+        const catalogUrl = new URL(resolveResource(catalogPath), window.location.href).href;
 
         try {
           if (isLocalPreview()) {
