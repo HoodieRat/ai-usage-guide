@@ -132,6 +132,57 @@ table tbody tr + tr {
   border-left: 3px solid var(--color-accent);
 }
 
+/* Keep prompt catalog columns readable without wrapping single words. */
+.data-table {
+  min-width: 760px;
+}
+
+.data-table th,
+.data-table td {
+  word-break: keep-all;
+  white-space: nowrap;
+}
+
+.data-table th:nth-child(3),
+.data-table td:nth-child(3),
+.data-table th:nth-child(6),
+.data-table td:nth-child(6) {
+  white-space: normal;
+  word-break: normal;
+}
+
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  min-width: 6rem;
+}
+
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  min-width: 7.5rem;
+}
+
+.data-table th:nth-child(4),
+.data-table td:nth-child(4) {
+  min-width: 6rem;
+}
+
+.data-table th:nth-child(5),
+.data-table td:nth-child(5) {
+  min-width: 8rem;
+}
+
+.data-table th:nth-child(7),
+.data-table td:nth-child(7) {
+  min-width: 5.5rem;
+}
+
+.data-table [data-copy] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+}
+
 .prompt-detail {
   margin: 2rem 0;
   padding: 1.5rem;
