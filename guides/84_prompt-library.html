@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Central catalog of reusable prompt templates with guardrails and owners.">
+  <meta name="description" content="Central catalog of reusable prompt templates with guardrails, review cadence, and prompt types.">
   <title>Prompt Library | Everyday AI Guide</title>
   <link rel="icon" href="../assets/favicon.ico">
   <link rel="stylesheet" href="../css/main.css">
@@ -44,7 +44,7 @@
         <header class="guide-header">
           <p class="eyebrow">Resource Library</p>
           <h1>Prompt Library</h1>
-          <p class="intro">Browse reusable prompt assets with guardrails, owners, and review cadences so teams don’t reinvent high-stakes workflows.</p>
+          <p class="intro">Browse reusable prompt assets with guardrails, review cadences, and clear prompt types so teams don’t reinvent high-stakes workflows.</p>
         </header>
 
         <section class="callout info">
@@ -55,7 +55,7 @@
           <h2>How to use this catalog</h2>
           <ul>
             <li>Start with the <strong>risk level</strong> column to understand approval requirements before deploying a prompt.</li>
-            <li>Contact the listed <strong>owner</strong> to request updates or report issues with the asset.</li>
+            <li>Check the <strong>prompt type</strong> to confirm whether the asset returns a plan, checklist, summary, or other format.</li>
             <li>Consult <strong>guardrails</strong> when copying prompts into new briefs or playbooks. For sourcing, see <a href="../guides/24_citations-and-attribution.html">Citations &amp; Attribution</a> and <a href="../guides/32_source-quality-and-fact-checking.html">Source Quality &amp; Fact Checking</a>.</li>
             <li>Use browser search (<code>Ctrl/⌘+F</code>) to jump to tags, or sort by ID once loaded.</li>
           </ul>
@@ -92,6 +92,7 @@
                   <th scope="col">Category</th>
                   <th scope="col">Title</th>
                   <th scope="col">Risk</th>
+                  <th scope="col">Prompt type</th>
                   <th scope="col">Last review</th>
                   <th scope="col">Cadence (days)</th>
                   <th scope="col">Tags</th>
@@ -134,8 +135,8 @@
               <dd data-detail-risk>—</dd>
             </div>
             <div>
-              <dt>Steward</dt>
-              <dd data-detail-owner>—</dd>
+              <dt>Prompt type</dt>
+              <dd data-detail-type>—</dd>
             </div>
             <div>
               <dt>Review cadence</dt>
@@ -179,7 +180,7 @@
             <li><strong>Attach guardrails.</strong> Cite sources or add verification steps as needed (<a href="../guides/24_citations-and-attribution.html">Citations</a>, <a href="../guides/30_browsing-and-search.html">Browsing &amp; Search</a>).</li>
             <li><strong>File it.</strong> Save the prompt and examples in your project under <code>20_prompts/</code> (see <a href="../guides/20_project-folders-setup.html">Folders Setup</a>).</li>
             <li><strong>Register the entry.</strong> Add a row in <code>../data/prompt-library/catalog.json</code> using the schema below.</li>
-            <li><strong>Review and publish.</strong> A named reviewer approves high-risk assets. Set a review cadence and owner.</li>
+            <li><strong>Review and publish.</strong> A named reviewer approves high-risk assets. Log the reviewer decision and set a review cadence.</li>
           </ol>
         </section>
 
@@ -187,19 +188,20 @@
           <h2>Catalog schema (copy-paste)</h2>
           <p>Each entry is a JSON object in <code>catalog.json</code>:</p>
           <pre><code class="language-json">{
-  "id": "PL-001",
+  "id": "CD-001",
   "title": "Structured FAQ Draft",
+  "category": "Communication",
   "use_case": "Create a Q&amp;A from product docs with citations.",
-  "owner": "owner@example.com",
-  "risk_level": "Medium",                // Low | Medium | High
+  "prompt_type": "Checklist",            // Plan | Checklist | Generator | Summary | Prompt | ...
+  "risk_level": "medium",                // low | medium | high
   "guardrails": ["Cite sources [SRC-ID]", "No claims without evidence"],
   "inputs": ["[F1] docs abstract", "tone", "audience"],
   "outputs": ["FAQ in markdown", "claim log link"],
   "prompt": "You are a ... (paste full prompt text here)",
-  "examples": ["good_output.md", "edge_case.md"],
   "last_review": "2025-10-30",
   "review_cadence_days": 45,
-  "tags": ["docs", "support", "structured"]
+  "tags": ["docs", "support", "structured"],
+  "difficulty": "Intermediate"          // Beginner | Intermediate | Advanced
 }</code></pre>
           <p class="hint">Tip: Keep guardrails as short, testable statements. Link to acceptance checklists when available.</p>
         </section>
@@ -207,7 +209,7 @@
         <section id="risk-levels" class="guide-section">
           <h2>Risk levels</h2>
           <ul>
-            <li><strong>Low:</strong> Internal drafts, no external facts, no PII. Owner reviews as needed.</li>
+            <li><strong>Low:</strong> Internal drafts, no external facts, no PII. Team reviews as needed.</li>
             <li><strong>Medium:</strong> External-facing copy or factual claims with citations. Reviewer approval required.</li>
             <li><strong>High:</strong> Legal/compliance, regulated data, or automated publishing. Mandatory reviewer + compliance sign-off and a <a href="../guides/41_task-chains-and-delegation.html">task chain</a> with checkpoints.</li>
           </ul>
@@ -227,12 +229,12 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           <h3>Reviewer checklist (quick)</h3>
           <pre><code>[ ] Guardrails present and testable
 [ ] Output contract explicit (schema/table/outline)
-[ ] Examples attached
+[ ] Prompt type recorded and matches output example
 [ ] Risk level set; cadence scheduled
-[ ] Owner reachable; contact verified</code></pre>
+[ ] Recent review logged in change history</code></pre>
 
           <h3>Entry stub for <code>catalog.json</code></h3>
-          <pre><code class="language-json">{"id":"","title":"","use_case":"","owner":"","risk_level":"","guardrails":[],"inputs":[],"outputs":[],"prompt":"","examples":[],"last_review":"","review_cadence_days":0,"tags":[]}</code></pre>
+          <pre><code class="language-json">{"id":"","title":"","category":"","use_case":"","prompt_type":"","risk_level":"","guardrails":[],"inputs":[],"outputs":[],"prompt":"","last_review":"","review_cadence_days":0,"tags":[],"difficulty":""}</code></pre>
         </section>
 
         <section id="governance" class="guide-section">
@@ -253,8 +255,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           <dl>
             <dt>Catalog doesn’t load.</dt>
             <dd>Confirm <code>../data/prompt-library/catalog.json</code> exists and is valid JSON (array of objects). Check the browser console for fetch or CORS errors.</dd>
-            <dt>Owners aren’t responding.</dt>
-            <dd>Reassign ownership in your team roster and update the <code>owner</code> field. Add a backup reviewer for high-risk prompts.</dd>
+            <dt>Prompt type missing.</dt>
+            <dd>Set the <code>prompt_type</code> field using the approved taxonomy (plan, checklist, generator, summary, etc.) and refresh. The page hides entries with missing types during copy.</dd>
             <dt>Outputs drift over time.</dt>
             <dd>Move success examples next to the prompt, enforce an explicit output schema, and shorten the prompt to keep intent crisp.</dd>
           </dl>
@@ -263,8 +265,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
         <section id="acceptance" class="guide-section">
           <h2>Acceptance checklist</h2>
           <ul>
-            <li>✅ Every prompt in use appears in this catalog with owner, risk, and cadence.</li>
-            <li>✅ High-risk prompts include guardrails, examples, and reviewer sign-off.</li>
+            <li>✅ Every prompt in use appears in this catalog with prompt type, risk, and cadence.</li>
+            <li>✅ High-risk prompts include guardrails, verification steps, and reviewer sign-off.</li>
             <li>✅ Structured outputs specify schemas and pass a quick validator.</li>
             <li>✅ Changelog links material edits to the corresponding entry.</li>
           </ul>
@@ -303,8 +305,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
       const detailId = detailSection?.querySelector('[data-detail-id]');
       const detailCategory = detailSection?.querySelector('[data-detail-category]');
       const detailDifficulty = detailSection?.querySelector('[data-detail-difficulty]');
-      const detailRisk = detailSection?.querySelector('[data-detail-risk]');
-      const detailOwner = detailSection?.querySelector('[data-detail-owner]');
+  const detailRisk = detailSection?.querySelector('[data-detail-risk]');
+  const detailType = detailSection?.querySelector('[data-detail-type]');
       const detailReview = detailSection?.querySelector('[data-detail-review]');
       const detailGuardrails = detailSection?.querySelector('[data-detail-guardrails]');
       const detailInputs = detailSection?.querySelector('[data-detail-inputs]');
@@ -455,8 +457,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           detailRisk.textContent = entry.risk_level || entry.risk || '—';
         }
 
-        if (detailOwner) {
-          detailOwner.textContent = entry.owner || '—';
+        if (detailType) {
+          detailType.textContent = entry.prompt_type || '—';
         }
 
         if (detailReview) {
@@ -603,8 +605,8 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           `Title: ${entry.title}`,
           `Category: ${entry.category || '—'}`,
           `Use case: ${entry.use_case || '—'}`,
+          `Prompt type: ${entry.prompt_type || '—'}`,
           `Risk: ${entry.risk_level || '—'}`,
-          `Owner: ${entry.owner || '—'}`,
           `Last review: ${entry.last_review || '—'} | Cadence: ${entry.review_cadence_days || '—'} days`,
           `Tags: ${tags}`,
           `Guardrails: ${guardrails}`,
@@ -644,7 +646,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
           entry.title,
           entry.category,
           entry.use_case,
-          entry.owner,
+          entry.prompt_type,
           entry.risk_level,
           (entry.tags || []).join(' '),
         ]
@@ -710,6 +712,7 @@ REVIEW: {{who approves and what checklist}}</code></pre>
             <td>${entry.category || '—'}</td>
             <td>${entry.title}</td>
             <td>${entry.risk_level || '—'}</td>
+            <td>${entry.prompt_type || '—'}</td>
             <td>${entry.last_review || '—'}</td>
             <td>${entry.review_cadence_days ?? '—'}</td>
             <td>${tags}</td>
